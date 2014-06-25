@@ -40,6 +40,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <!-- court related details -->
         
         <!-- legislation information -->
+		<span about="this:notifiableThing" property="gaz:isEnabledByLegislation" resource="this:legislation"/>
+		<span resource="this:legislation" typeof="legislation:Legislation"></span>
+		
+		<span about="this:notifiableThing" property="gaz:isEnabledByLegislation" resource="this:legislation-1"/>
+		<span resource="this:legislation-1" typeof="legislation:Legislation"></span>
+			
         <span about="noticeid:" property="gaz:isRequiredByLegislation" resource="this:required-legislation-1"/>
         <span about="this:required-legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string" content="Road Traffic (Northern Ireland) Order 1981"/>
         <span about="noticeid:" property="gaz:isRequiredByLegislation" resource="this:required-legislation-2"/>

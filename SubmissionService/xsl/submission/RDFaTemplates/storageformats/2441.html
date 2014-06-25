@@ -17,13 +17,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
    <body>
       
       <article class="full-notice full-notice-2441">
-         
-         <header>
-            
-            <h1>Resolutions: Creditors' Voluntary Liquidation</h1>
-            
-         </header>
-         
          <div class="rdfa-data">
             <span about="noticeid:" property="dc11:publisher" content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk"></span>
             <span about="noticeid:" property="gaz:isAbout" resource="this:notifiableThing"></span>
@@ -49,7 +42,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span resource="this:notifiableThing" typeof="corp-insolvency:Resolution"></span>
             
             <!-- court related details -->
-            
+            <span about="this:notifiableThing" property="gaz:hasAuthoriser" resource="this:authoriser-1"  data-hide="true"/>
+			<span about="this:notifiableThing" property="corp-insolvency:meetingLocation" resource="this:meetingAddress-1"></span>
+			<span about="this:notifiableThing" property="corp-insolvency:hasCompany" resource="this:company-1"/>
+			<span about="this:notifiableThing" property="corp-insolvency:resolutionLiquidator" resource="this:IP1"/>
+			<span about="this:notifiableThing" property="corp-insolvency:resolutionLiquidator" resource="this:IP2"/>
+			
+			<!-- legislation information -->
+			<span about="this:notifiableThing" property="gaz:isEnabledByLegislation" resource="this:legislation-1"/>
+			<span resource="this:legislation-1" typeof="legislation:Legislation"></span>
+			<span about="this:notifiableThing" property="gaz:isEnabledByLegislation" resource="this:legislation-2"/>
+			<span resource="this:legislation-2" typeof="legislation:Legislation"></span>
          </div>
          
          <dl class="metadata">
@@ -68,7 +71,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             
             <dt>Edition:</dt>
             
-            <dd><span about="issue:" property="gaz:hasEdition" datatype="xsd:string"></span></dd>
+            <dd>The <span about="edition:" property="gaz:editionName" datatype="xsd:string"></span> Gazette</dd>
             
             <dt>Notice ID:</dt>
             
@@ -83,20 +86,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
          <div class="content" about="this:notifiableThing" data-gazettes="Notice" data-gazettes-type="2441">
             
              <div data-container="boilerplate"></div>
-            
-            <h3>Additional Information</h3>
-            		
-            <div about="this:notifiableThing" property="gaz:isEnabledByLegislation" resource="this:legislation-1" data-gazettes="Legislation">
-               
-               <!-- RDFa: impossible to tie down to specific URIs until we know what the possibilities are -->
-               <p>Legislation: <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string"></span></p>
-               
-               <p>Legislation Section: <span about="this:legislation-1" property="legislation:legislationSection" datatype="xsd:string"></span></p>
-			   
-			   <span about="this:notifiableThing" property="corp-insolvency:meetingLocation" resource="this:meetingAddress-1"></span>
-               
-            </div>      
-            
          </div>
          
       </article>
