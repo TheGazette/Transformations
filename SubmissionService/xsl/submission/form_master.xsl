@@ -39,91 +39,71 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <xsl:param name="mapping" as="node()" required="yes"/>
   <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
   <xsl:param name="updates" as="node()">
-    <form draftTitle="Draft 484" draftURI="/my-gazette/draft/484" noticeTypeCode="2445">
-      <entry about="this:company-1" property="gazorg:companyNumber">05086161</entry>
-      <entry about="this:IP1-address-1" property="vcard:street-address">Highfield Court, Tollgate,
-        Chandlers Ford</entry>
-      <entry about="this:IP1-address-1" property="vcard:locality">Hampshire</entry>
-      <entry about="this:company-registered-office-1" property="vcard:region"/>
-      <entry about="this:legislation-1" property="legislation:legislationSection">Sections
-        106</entry>
-      <entry about="this:legislation-1" property="legislation:legislationTitle">Insolvency Act
-        1986</entry>
-      <entry about="this:notifiableThing" property="corp-insolvency:meetingTimeWITHtime"
-        >10:00</entry>
-      <entry about="this:IP1-address-1" property="vcard:extended-address">Eastleigh</entry>
-      <entry about="this:IP1" property="person:additionalInformationIP">fl;sdigb</entry>
-      <entry about="this:company-previous-registered-office-1" property="vcard:postal-code">SE1
-        5SS</entry>
-      <entry about="this:company-1" property="gazorg:previouslyTradingAs">ANGEL LIMITED</entry>
-      <entry about="noticeid:" property="gaz:earliestPublicationDateWITHtime">16:41</entry>
-      <entry about="this:IP2" property="foaf:name">Nigel Ian Fox</entry>
-      <entry about="this:meetingAddress-1" property="vcard:locality">Hampshire</entry>
-      <entry about="this:IP1" property="gaz:fax">023 8064 6437</entry>
-      <entry about="this:authoriser-1" property="gaz:dateAuthorisationSigned">2014-03-24</entry>
-      <entry about="this:IP-company-1" property="gazorg:name">Baker Tilly</entry>
-      <entry about="this:company-principal-trading-address-1" property="vcard:locality"
-        >LONDON</entry>
-      <entry about="this:IP2" property="person:hasIPnum">8891</entry>
-      <entry about="this:company-registered-office-1" property="vcard:postal-code">SO53 3TZ</entry>
-      <entry about="this:signatory-1" property="foaf:name"/>
-      <entry about="this:company-principal-trading-address-1" property="vcard:street-address">36-38
-        West STREET</entry>
-      <entry about="this:IP1-address-1" property="vcard:postal-code">SO53 3TZ</entry>
-      <entry about="this:company-principal-trading-address-1" property="vcard:country-name"/>
-      <entry about="this:company-registered-office-1" property="vcard:extended-address">Chandlers
-        Ford</entry>
-      <entry about="this:IP1" property="gaz:telephone">023 8064 6437</entry>
-      <entry about="this:company-1" property="gazorg:name">ANGEL PARTNERS LIMITED</entry>
-      <entry about="this:meetingAddress-1" property="vcard:region"/>
-      <entry about="this:IP1" property="gaz:email">lisa.duell@bakertilly.co.uk</entry>
-      <entry about="this:company-1" property="gazorg:natureOfBusiness"/>
-      <entry about="this:company-registered-office-1" property="vcard:country-name"/>
-      <entry about="this:previous-trading-address-1" property="vcard:country-name"/>
-      <entry about="this:company-previous-registered-office-1" property="vcard:locality"
-        >LONDON</entry>
-      <entry about="this:IP1" property="person:hasIPCapacity">Liquidator</entry>
-      <entry about="this:company-principal-trading-address-1" property="vcard:extended-address"/>
-      <entry about="this:IP1" property="foaf:name">Alexander Kinninmonth</entry>
-      <entry about="noticeid:" property="gaz:earliestPublicationDate">2014-03-24</entry>
-      <entry about="this:IP1" property="person:hasIPReferenceNumber">RR654</entry>
-      <entry about="this:company-registered-office-1" property="vcard:locality">Hampshire</entry>
-      <entry about="this:previous-trading-address-1" property="vcard:street-address">FLAT 10</entry>
-      <entry about="this:company-principal-trading-address-1" property="vcard:region"/>
-      <entry about="this:company-registered-office-1" property="vcard:street-address">Highfield
-        Court, Tollgate</entry>
-      <entry about="this:notifiableThing" property="corp-insolvency:meetingIsFor">Members</entry>
-      <entry about="this:meetingAddress-1" property="vcard:postal-code">SO53 3TZ</entry>
-      <entry about="issue:" property="gaz:hasEdition">london</entry>
-      <entry about="this:meetingAddress-1" property="vcard:country-name"/>
-      <entry about="this:notifiableThing" property="corp-insolvency:meetingTime">2014-05-21</entry>
-      <entry about="this:previous-trading-address-1" property="vcard:locality">LONDON</entry>
-      <entry about="this:IP1" property="person:additionalContactName">Lisa Duell</entry>
-      <entry about="this:previous-trading-address-1" property="vcard:region"/>
-      <entry about="this:company-1" property="gazorg:tradingAs">ANGEL PARTNERS</entry>
-      <entry about="this:company-1" property="gazorg:previousCompanyName">PARTNERS LIMITED</entry>
-      <entry about="this:IP1-address-1" property="vcard:country-name"/>
-      <entry about="this:company-previous-registered-office-1" property="vcard:region"/>
-      <entry about="this:meetingAddress-1" property="vcard:street-address">Highfield Court,
-        Tollgate, Chandlers Ford</entry>
-      <entry about="this:company-previous-registered-office-1" property="vcard:country-name"/>
-      <entry about="this:meetingAddress-1" property="vcard:extended-address">Eastleigh</entry>
-      <entry about="this:company-previous-registered-office-1" property="vcard:extended-address">5
-        MANDELA WAY</entry>
-      <entry about="this:notifiableThing" property="corp-insolvency:meetingTime2WITHtime"
-        >10:30</entry>
-      <entry about="this:company-previous-registered-office-1" property="vcard:street-address"
-        >PROGRESS HOUSE</entry>
-      <entry about="this:role-signatory-1" property="person:roleName"/>
-      <entry about="this:previous-trading-address-1" property="vcard:extended-address">STEPHENSON
+    <form draftTitle="Draft RDF" draftURI="/my-gazette/draft/10337" noticeTypeCode="2903">
+      <entry about="https://www.thegazette.co.uk/def/working#purchaseLogo"
+        property="gzw:requestPurchaseLogo"/>
+      <entry about="this:deceasedPerson" property="foaf:title">Mr</entry>
+      <entry about="this:deceasedPerson" property="person:alsoKnownAs"/>
+      <entry about="this:deceasedPerson" property="foaf:givenName">test</entry>
+      <entry about="this:deceasedPerson" property="person:hasMaidenName">test</entry>
+      <entry about="this:deceasedPerson" property="foaf:firstName">John</entry>
+      <entry about="this:deceasedPerson" property="foaf:familyName">D'Owe</entry>
+      <entry about="this:deceasedPerson" property="person:honour">test</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:startDateOfDeath"/>
+      <entry about="this:deceasedPerson" property="personal-legal:dateOfDeath">2010-11-20</entry>
+      <entry about="this:occupationOfDeceased" property="person:jobTitle">Harbinger</entry>
+      <entry about="this:estateExecutor" property="person:hasIPReferenceNumber">GH/ROS506166</entry>
+      <entry about="this:estateExecutor" property="gaz:email">info@ahmadwilliams.co.uk</entry>
+      <entry about="this:estateExecutor" property="gaz:fax">0121 328 4441</entry>
+      <entry about="this:estateExecutor" property="gaz:telephone">0121 328 4252</entry>
+      <entry about="this:estateExecutor" property="foaf:givenName">test</entry>
+      <entry about="this:estateExecutor" property="foaf:familyName">Lawyer</entry>
+      <entry about="this:estateExecutor" property="foaf:firstName">Ivana</entry>
+      <entry about="this:notifiableThing" property="personal-legal:hasClaimDeadline"
+        >2014-11-22</entry>
+      <entry about="this:notifiableThing" property="gaz:claimNumber">12345</entry>
+      <entry about="this:notifiableThing" property="gaz:relatedDate">2013-11-20</entry>
+      <entry about="this:notifiableThing" property="gaz:relatedDate">2013-11-22</entry>
+      <entry about="this:notifiableThing" property="gaz:relatedDate">2013-11-12</entry>
+      <entry about="http://data.ordnancesurvey.co.uk/id/7000000000011013" property="rdfs:label">The
+        London Borough of Southwark</entry>
+      <entry about="this:deceased-address-1" property="vcard:postal-code">SE15 1ND</entry>
+      <entry about="this:deceased-address-1" property="vcard:extended-address">SARNESFIELD
         HOUSE</entry>
-      <entry about="this:IP1-address-1" property="vcard:region"/>
-      <entry about="this:company-principal-trading-address-1" property="vcard:postal-code">WC2H
-        9HB</entry>
-      <entry about="this:previous-trading-address-1" property="vcard:postal-code">SE1 6PP</entry>
-      <entry about="this:notifiableThing" property="corp-insolvency:meeting2IsFor">Creditors</entry>
-      <entry about="this:IP1" property="person:hasIPnum">9019</entry>
-      <entry about="this:IP2" property="person:hasIPCapacity">Liquidator</entry>
+      <entry about="this:deceased-address-1" property="vcard:country-name"/>
+      <entry about="this:deceased-address-1" property="vcard:locality">LONDON</entry>
+      <entry about="this:deceased-address-1" property="vcard:region"/>
+      <entry about="this:deceased-address-1" property="vcard:street-address">FLAT 6</entry>
+      <entry about="this:previous-deceased-address-1" property="vcard:postal-code">SE15 1ND</entry>
+      <entry about="this:previous-deceased-address-1" property="vcard:extended-address">SARNESFIELD
+        HOUSE</entry>
+      <entry about="this:previous-deceased-address-1" property="vcard:country-name"/>
+      <entry about="this:previous-deceased-address-1" property="vcard:locality">LONDON</entry>
+      <entry about="this:previous-deceased-address-1" property="vcard:region"/>
+      <entry about="this:previous-deceased-address-1" property="vcard:street-address">FLAT
+        26</entry>
+      <entry about="this:addressOfExecutor-1" property="vcard:postal-code">SE15 1ND</entry>
+      <entry about="this:addressOfExecutor-1" property="vcard:extended-address">SARNESFIELD
+        HOUSE</entry>
+      <entry about="this:addressOfExecutor-1" property="vcard:country-name"/>
+      <entry about="this:addressOfExecutor-1" property="vcard:locality">LONDON</entry>
+      <entry about="this:addressOfExecutor-1" property="vcard:region"/>
+      <entry about="this:addressOfExecutor-1" property="vcard:street-address">FLAT 3</entry>
+      <entry about="issue:" property="gaz:hasEdition">London</entry>
+      <entry about="https://www.thegazette.co.uk/id/edition/London/issue/undefined"
+        property="gaz:hasIssueNumber">0</entry>
+      <entry about="https://www.thegazette.co.uk/def/working#purchasePDF"
+        property="gzw:requestPDFpurchase"/>
+      <entry about="https://www.thegazette.co.uk/def/working#purchasePaper"
+        property="gzw:requestPaperPurchase"/>
+      <entry about="https://www.thegazette.co.uk/id/notice/11701" property="dc11:publisher">TSO (The
+        Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211,
+        customer.services@tso.co.uk</entry>
+      <entry about="https://www.thegazette.co.uk/id/notice/11701" property="gaz:hasNoticeNumber"
+        >0</entry>
+      <entry about="noticeid:" property="gaz:earliestPublicationDate">2014-06-16</entry>
+      <entry about="https://www.thegazette.co.uk/id/notice/11701" property="gaz:hasNoticeCode"
+        >2903</entry>
     </form>
   </xsl:param>
   <!-- local functions -->
@@ -456,6 +436,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <!-- 2903 -->
   <xsl:template match="x:dl[../@data-gazettes = 'Deceased details']">
     <dl>
+     
       <xsl:apply-templates
         select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName']]]"/>
       <xsl:apply-templates select="x:dd [@property = 'foaf:familyName']"/>
@@ -467,11 +448,22 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:givenName']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'foaf:givenName']"/>
       </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'foaf:title'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:title']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'foaf:title']"/>
+      </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'person:honour'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:honour']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'person:honour']"/>
+      </xsl:if>
       <xsl:if test="$updates//*:entry[@property = 'person:hasMaidenName'] != ''">
         <xsl:apply-templates
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:hasMaidenName']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'person:hasMaidenName']"/>
       </xsl:if>
+     
       <xsl:if test="$updates//*:entry[@property = 'person:alsoKnownAs'] != ''">
         <xsl:apply-templates
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:alsoKnownAs']]]"/>
@@ -531,6 +523,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
               select="x:dt[following-sibling::*[1][self::x:dd [@property = 'gaz:email']]]"/>
             <xsl:apply-templates select="x:dd [@property = 'gaz:email']"/>
           </xsl:if>
+          <xsl:if
+            test="$updates//*:entry[@property = 'person:hasIPReferenceNumber' and @about = 'this:estateExecutor'] != ''">
+            <xsl:apply-templates
+              select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:hasIPReferenceNumber']]]"/>
+            <xsl:apply-templates select="x:dd [@property = 'person:hasIPReferenceNumber']"/>
+          </xsl:if>
+
         </dl>
       </xsl:when>
     </xsl:choose>
@@ -2093,8 +2092,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:if
           test="$updates//*[@about='this:IP1' and @property='person:hasIPReferenceNumber']/text() != ''">
           <xsl:text> (Reference number: </xsl:text>
-          <span about="this:IP1" property="person:hasIPReferenceNumber" datatype="xsd:string"
-            >
+          <span about="this:IP1" property="person:hasIPReferenceNumber" datatype="xsd:string">
             <xsl:value-of
               select="$updates//*[@about='this:IP1' and @property='person:hasIPReferenceNumber']/text()"/>
             <xsl:text>.)</xsl:text>
@@ -2146,14 +2144,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       />
     </h3>
     <p> (Company Number <span about="this:company-1" property="gazorg:companyNumber"
-        datatype="xsd:string" ><xsl:value-of
+        datatype="xsd:string"><xsl:value-of
           select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"
         /></span>)</p>
 
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
       <p>(previously <span about="this:company-1" property="gazorg:previousCompanyName"
-          datatype="xsd:string" >
+          datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text()"
           />
@@ -2161,8 +2159,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:if>
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text() != ''">
-      <p> (t/a <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string"
-          >
+      <p> (t/a <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text()"/>
         </span>)</p>
@@ -2170,7 +2167,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text() != ''">
       <p>(previously t/a <span about="this:company-1" property="gazorg:previouslyTradingAs"
-          datatype="xsd:string" >
+          datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text()"
           />
@@ -2275,8 +2272,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='person:hasIPnum']/text()"
         /></span>
       <xsl:if test="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text() != ''">
-        and <span about="this:IP2" property="person:hasIPnum" datatype="xsd:string"
-          ><xsl:value-of
+        and <span about="this:IP2" property="person:hasIPnum" datatype="xsd:string"><xsl:value-of
             select="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text()"
         /></span></xsl:if>), of <span about="this:IP-company-1" property="gazorg:name"
         datatype="xsd:string"><xsl:value-of
@@ -2387,14 +2383,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       />
     </h3>
     <p> (Company Number <span about="this:company-1" property="gazorg:companyNumber"
-        datatype="xsd:string" ><xsl:value-of
+        datatype="xsd:string"><xsl:value-of
           select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"
         /></span>) </p>
 
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
       <p>(previously <span about="this:company-1" property="gazorg:previousCompanyName"
-          datatype="xsd:string" >
+          datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text()"
           />
@@ -2402,8 +2398,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:if>
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text() != ''">
-      <p> (t/a <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string"
-          >
+      <p> (t/a <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text()"/>
         </span>)</p>
@@ -2411,7 +2406,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text() != ''">
       <p>(previously t/a <span about="this:company-1" property="gazorg:previouslyTradingAs"
-          datatype="xsd:string" >
+          datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text()"
           />
@@ -2531,8 +2526,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         />
       </xsl:variable> by no later than <span about="this:notifiableThing"
         property="corp-insolvency:onOrBeforeCreditorDetail" datatype="xsd:dateTime"
-        content="{$corpInsolvencyOnOrBeforeCreditorDetailDateAndTime}" 
-          ><xsl:value-of select="$corpInsolvencyOnOrBeforeCreditorDetailTime"/> on <xsl:value-of
+        content="{$corpInsolvencyOnOrBeforeCreditorDetailDateAndTime}"><xsl:value-of
+          select="$corpInsolvencyOnOrBeforeCreditorDetailTime"/> on <xsl:value-of
           select="format-date(xs:date($corpInsolvencyOnOrBeforeCreditorDetailDate), '[D01] [MNn] [Y0001]')"
         /></span>. </p>
 
@@ -2562,8 +2557,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         />
       </xsl:variable> by no later than <span about="this:notifiableThing"
         property="corp-insolvency:onOrBeforeProxySubmit" datatype="xsd:dateTime"
-        content="{$corpInsolvencyOnOrBeforeProxySubmitDateAndTime}" 
-          ><xsl:value-of select="$corpInsolvencyOnOrBeforeProxySubmitTime"/> on <xsl:value-of
+        content="{$corpInsolvencyOnOrBeforeProxySubmitDateAndTime}"><xsl:value-of
+          select="$corpInsolvencyOnOrBeforeProxySubmitTime"/> on <xsl:value-of
           select="format-date(xs:date($corpInsolvencyOnOrBeforeProxySubmitDate), '[D01] [MNn] [Y0001]')"
         /></span>. </p>
 
@@ -2571,8 +2566,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <span about="this:IP1" property="foaf:name" datatype="xsd:string"
         typeof="person:InsolvencyPractitioner"><xsl:value-of
           select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/></span> (IP
-      number <span about="this:IP1" property="person:hasIPnum" datatype="xsd:string"
-        ><xsl:value-of
+      number <span about="this:IP1" property="person:hasIPnum" datatype="xsd:string"><xsl:value-of
           select="$updates//*[@about='this:IP1' and @property='person:hasIPnum']/text()"/></span>)
         <xsl:if test="$updates//*[@about='this:IP2' and @property='foaf:name']/text() != ''"> and
           <span about="this:IP2" property="foaf:name" typeof="person:InsolvencyPractitioner"
@@ -2581,7 +2575,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </xsl:if>
       <xsl:if test="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text() != ''">
         (IP number <span about="this:IP2" property="person:hasIPnum" datatype="xsd:string"
-          ><xsl:value-of
+            ><xsl:value-of
             select="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text()"/></span>)
       </xsl:if> of <span about="this:IP-company-1" property="gazorg:name"
         typeof="gazorg:ForProfitOrganisation" datatype="xsd:string"><xsl:value-of
@@ -2635,7 +2629,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:if
         test="$updates//*[@about='this:IP1' and @property='person:hasIPReferenceNumber']/text() != ''"
         > (Ref: <span about="this:IP1" property="person:hasIPReferenceNumber" datatype="xsd:string"
-          ><xsl:value-of
+            ><xsl:value-of
             select="$updates//*[@about='this:IP1' and @property='person:hasIPReferenceNumber']/text()"
           />)</span>
       </xsl:if>
@@ -2697,7 +2691,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </h3>
 
     <p>(Company Number <span about="this:company-1" property="gazorg:companyNumber"
-        datatype="xsd:string" >
+        datatype="xsd:string">
         <xsl:value-of
           select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"
         />
@@ -2706,7 +2700,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
       <p>(previously <span about="this:company-1" property="gazorg:previousCompanyName"
-          datatype="xsd:string" >
+          datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text()"
           />
@@ -2714,8 +2708,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:if>
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text() != ''">
-      <p> (t/a <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string"
-          >
+      <p> (t/a <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text()"/>
         </span><xsl:text>)</xsl:text></p>
@@ -2723,7 +2716,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text() != ''">
       <p>(previously t/a <span about="this:company-1" property="gazorg:previouslyTradingAs"
-          datatype="xsd:string" >
+          datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text()"
           />
@@ -4942,8 +4935,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:if
         test="$updates//*[@about='this:authority-2' and @property='authority:hasReferenceNumber']/text() != ''">
         <xsl:text> (Ref: </xsl:text>
-        <span about="this:authority-2" property="authority:hasReferenceNumber" datatype="xsd:string"
-          >
+        <span about="this:authority-2" property="authority:hasReferenceNumber" datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:authority-2' and @property='authority:hasReferenceNumber']/text()"
           />
