@@ -56,6 +56,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2
 	<xsl:param name="number" required="yes"/>
 	<!-- issue number -->
 	<xsl:param name="edition-name" required="yes"/>
+	<xsl:param name="mourningBorder" select="'false'"/>
 	<!-- edition name needs to be passed as printed e.g. "London Gazette" ## -->
 	<xsl:param name="bespoke" select="'false'"/>
 	<!-- Created should be firstname surname, only used for Bespoke gazettes -->
@@ -176,6 +177,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2
 		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;
     </xsl:text>
 		<html data-initial-page="{$initial-page}">
+			<xsl:if test="$mourningBorder = 'true'">
+				<xsl:attribute name="class" select="'mourning'"/>
+			</xsl:if>
 			<head>
 				<title>
 					<xsl:choose>
