@@ -159,6 +159,43 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
   </xsl:function>
   
+  
+  <!-- a custom 'ends-with' implementation -->
+  <xsl:function name="wlf:ends-with" as="xs:boolean">
+    <xsl:param name="str" as="xs:string"/>
+    <xsl:param name="list" as="xs:string+"/>
+    
+    <xsl:variable name="temp" as="xs:boolean*">
+      <xsl:for-each select="$list">
+        <xsl:if
+          test="ends-with($str, .)">
+          <xsl:sequence select="xs:boolean('true')"/>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:sequence
+      select="if ($temp[1] = xs:boolean('true')) then
+      xs:boolean('true') else xs:boolean('false')"/>
+  </xsl:function>
+  
+  <!-- a custom 'starts-with' implementation -->
+  <xsl:function name="wlf:starts-with" as="xs:boolean">
+    <xsl:param name="str" as="xs:string"/>
+    <xsl:param name="list" as="xs:string+"/>
+    
+    <xsl:variable name="temp" as="xs:boolean*">
+      <xsl:for-each select="$list">
+        <xsl:if
+          test="starts-with(translate($str, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), .)">
+          <xsl:sequence select="xs:boolean('true')"/>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:sequence
+      select="if ($temp[1] = xs:boolean('true')) then
+      xs:boolean('true') else xs:boolean('false')"/>
+  </xsl:function>
+  
   <!-- a custom 'contains' implementation -->
   <xsl:function name="wlf:containsKeyword" as="xs:string">
     <xsl:param name="str" as="xs:string"/>
@@ -178,7 +215,37 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       $temp[1] else $temp[1]"/>
     
   </xsl:function>
+  
+  <xsl:function name="wlf:capitalize-first" as="xs:string?">
+    <xsl:param name="arg" as="xs:string?"/>
+    <xsl:sequence select="
+      concat(upper-case(substring($arg,1,1)),
+      substring($arg,2))
+      "/>
+  </xsl:function>
 
+  <xsl:function name="wlf:before-last-delimeter">
+    <xsl:param name="s" />
+    <xsl:param name="d" />
+    <xsl:choose>
+      <xsl:when test="$d='.'">
+        <xsl:variable name="delimiter" select="'\.'"/>
+        <xsl:variable name="s-tokenized" select="tokenize($s, $delimiter)"/>
+        
+        <xsl:value-of select="string-join(remove($s-tokenized, count($s-tokenized)),$d)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="delimiter" select="$d"/>
+        <xsl:variable name="s-tokenized" select="tokenize($s, $delimiter)"/>
+        
+        <xsl:value-of select="string-join(remove($s-tokenized, count($s-tokenized)),$d)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+ 
+    
+    
+  </xsl:function>
+  
   <xsl:function name="wlf:if-absent" as="item()*" xmlns:functx="http://www.functx.com">
     <xsl:param name="arg" as="item()*"/>
     <xsl:param name="value" as="item()*"/>
@@ -792,10 +859,29 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </dd>
     </xsl:if>
     <xsl:if test="gz:Person/gz:PersonDetails">
-      <dt>Person Address Details</dt>
-      <dd about="this:addressOfDeceased-address-1" typeof="vcard:Address" property="vcard:adr">
-        <xsl:value-of select="gz:Person/gz:PersonDetails"/>
-      </dd>
+      <xsl:variable name="list_before" select="('St')"/>
+      <xsl:variable name="list_occupation" select="('previously of')"/>
+            
+      <xsl:variable name="chunck" select="tokenize(gz:Person/gz:PersonDetails/text(),'\.')[last()]"/>
+      <xsl:variable name="chunck_before" select="tokenize(gz:Person/gz:PersonDetails/text(),'\.')[last()-1]"/>
+      <xsl:choose>
+        <xsl:when test="not(wlf:ends-with($chunck_before, $list_before)) and not(wlf:starts-with(normalize-space(lower-case($chunck)), $list_occupation))">
+          <dt data-gazettes="custom-title">Deceased Occupation:</dt>
+          <dd about="this:occupationOfDeceased" datatype="xsd:string" property="person:jobTitle">
+            <xsl:value-of select="normalize-space($chunck)"/>
+          </dd>
+          <dt>Person Address Details</dt>
+          <dd about="this:addressOfDeceased-address-1" typeof="vcard:Address" property="vcard:adr">
+            <xsl:value-of select="wlf:before-last-delimeter(gz:Person/gz:PersonDetails,'.')"/>
+          </dd>
+        </xsl:when>
+        <xsl:otherwise>
+          <dt>Person Address Details</dt>
+          <dd about="this:addressOfDeceased-address-1" typeof="vcard:Address" property="vcard:adr">
+            <xsl:value-of select="gz:Person/gz:PersonDetails"/>
+          </dd>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:if>
     <xsl:if test="gz:Person/gz:DeathDetails/gz:NoticeOfClaims">
       <dt>Executor/Personal Representative:</dt>
@@ -815,7 +901,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:variable name="list_otherwise"
       select="('otherwise known as','Otherwise known as','otherwise','Otherwise')"/>
     <xsl:variable name="list_also" select="('also known as','Also known as','known as','Known as','aka ','also','previously known as','trading as','t/a')"/>
-    <xsl:variable name="list_maiden" select="('maiden name','Maiden name','Maiden Surname','maiden surname','nee ','Nee ','née','Née','neé','Neé')"/>
+    <xsl:variable name="list_maiden" select="('maiden Name','maiden name','Maiden name','Maiden Surname','maiden surname','nee ','Nee ','née','Née','neé','Neé')"/>
     <xsl:for-each select="$rawname">
       <xsl:choose>
         <!-- Handling formerly text -->
@@ -959,7 +1045,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:variable name="list_otherwise"
       select="('otherwise known as','Otherwise known as','otherwise','Otherwise')"/>
     <xsl:variable name="list_also" select="('also known as','Also known as','known as','Known as','aka ','also','previously known as','trading as','t/a')"/>
-    <xsl:variable name="list_maiden" select="('maiden name','Maiden name','Maiden Surname','maiden surname','nee ','Nee ','née','Née','neé','Neé')"/>
+    <xsl:variable name="list_maiden" select="('maiden Name','maiden name','Maiden name','Maiden Surname','maiden surname','nee ','Nee ','née','Née','neé','Neé')"/>
     <xsl:for-each select="$text">
       <xsl:choose>
         <!-- Handling formerly text -->
@@ -1024,7 +1110,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:otherwise>
           <xsl:choose>
             <xsl:when test="$custom-title">
-              <dt data-gazettes="custom-title"><xsl:value-of select="$keyword"/>:</dt>
+              <dt data-gazettes="custom-title"><xsl:value-of select="wlf:capitalize-first($keyword)"/>:</dt>
             </xsl:when>
             <xsl:otherwise>
               <dt data-copy-title='true'><xsl:value-of select="$keyword"/>:</dt>
@@ -1053,7 +1139,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:variable name="list_otherwise"
       select="('otherwise known as','Otherwise known as','otherwise','Otherwise')"/>
     <xsl:variable name="list_also" select="('also known as','Also known as','known as','Known as','aka ','also','previously known as','trading as','t/a')"/>
-    <xsl:variable name="list_maiden" select="('maiden name','Maiden name','Maiden Surname','maiden surname','nee ','Nee ','née','Née','neé','Neé')"/>
+    <xsl:variable name="list_maiden" select="('maiden Name','maiden name','Maiden name','Maiden Surname','maiden surname','nee ','Nee ','née','Née','neé','Neé')"/>
     <xsl:for-each select="$text">
       <xsl:choose>
         <!-- Handling formerly text -->
@@ -1118,7 +1204,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:otherwise>
           <xsl:choose>
             <xsl:when test="$custom-title">
-              <dt data-gazettes="custom-title"><xsl:value-of select="$keyword"/>:</dt>
+              <dt data-gazettes="custom-title"><xsl:value-of select="wlf:capitalize-first($keyword)"/>:</dt>
             </xsl:when>
             <xsl:otherwise>
               <dt data-copy-title='true'><xsl:value-of select="$keyword"/>:</dt>
@@ -1147,7 +1233,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:variable name="list_otherwise"
       select="('otherwise known as','Otherwise known as','otherwise','Otherwise')"/>
     <xsl:variable name="list_also" select="('also known as','Also known as','known as','Known as','aka ','also','previously known as','trading as','t/a')"/>
-    <xsl:variable name="list_maiden" select="('maiden name','Maiden name','Maiden Surname','maiden surname','nee ','Nee ','née','Née','neé','Neé')"/>
+    <xsl:variable name="list_maiden" select="('maiden Name','maiden name','Maiden name','Maiden Surname','maiden surname','nee ','Nee ','née','Née','neé','Neé')"/>
     <xsl:for-each select="$text">
       <xsl:choose>
         <!-- Handling formerly text -->
@@ -1212,7 +1298,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:otherwise>
           <xsl:choose>
             <xsl:when test="$custom-title">
-              <dt data-gazettes="custom-title"><xsl:value-of select="$keyword"/>:</dt>
+              <dt data-gazettes="custom-title"><xsl:value-of select="wlf:capitalize-first($keyword)"/>:</dt>
             </xsl:when>
             <xsl:otherwise>
               <dt data-copy-title='true'><xsl:value-of select="$keyword"/>:</dt>
@@ -1241,7 +1327,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:variable name="list_otherwise"
       select="('otherwise known as','Otherwise known as','otherwise','Otherwise')"/>
     <xsl:variable name="list_also" select="('also known as','Also known as','known as','Known as','aka ','also','previously known as','trading as','t/a')"/>
-    <xsl:variable name="list_maiden" select="('maiden name','Maiden name','Maiden Surname','maiden surname','nee ','Nee ','née','Née','neé','Neé')"/>
+    <xsl:variable name="list_maiden" select="('maiden Name','maiden name','Maiden name','Maiden Surname','maiden surname','nee ','Nee ','née','Née','neé','Neé')"/>
     <xsl:for-each select="$text">
       <xsl:choose>
         <!-- Handling formerly text -->
@@ -1306,7 +1392,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:otherwise>
           <xsl:choose>
             <xsl:when test="$custom-title">
-              <dt data-gazettes="custom-title"><xsl:value-of select="$keyword"/>:</dt>
+              <dt data-gazettes="custom-title"><xsl:value-of select="wlf:capitalize-first($keyword)"/>:</dt>
             </xsl:when>
             <xsl:otherwise>
               <dt data-copy-title='true'><xsl:value-of select="$keyword"/>:</dt>
@@ -2075,10 +2161,21 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
   <xsl:template match="gz:Notice/gz:Person/gz:AlsoKnownAs">
     <p data-gazettes="AlsoKnownAs">
-      <xsl:text>Also known as: </xsl:text>
-      <span resource="{wlf:name-sibling(..)}" property="person:alsoKnownAs" datatype="xsd:string">
-        <xsl:apply-templates/>
-      </span>
+      <xsl:choose>
+        <xsl:when test="$edition = 'Edinburgh' and $noticeCode = 2518">
+          <xsl:text>(also known as </xsl:text>
+          <span resource="{wlf:name-sibling(..)}" property="person:alsoKnownAs" datatype="xsd:string">
+            <xsl:apply-templates/>
+          </span>
+          <xsl:text>)</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>Also known as: </xsl:text>
+          <span resource="{wlf:name-sibling(..)}" property="person:alsoKnownAs" datatype="xsd:string">
+            <xsl:apply-templates/>
+          </span>
+        </xsl:otherwise>
+      </xsl:choose>
     </p>
   </xsl:template>
 
@@ -2436,7 +2533,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <span property="insolvency:hasPetitioner" resource="this:petitioner-1"
       typeof="gazorg:Organisation" data-gazettes="CompanyName" data-gazettes-class="{@Class}">
       <span property="gazorg:name" datatype="xsd:string">
-        <xsl:value-of select="upper-case(.)"/>
+        <xsl:choose>
+          <xsl:when test="$edition = 'Edinburgh'">
+            <xsl:value-of select="."/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="upper-case(.)"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </span>
       <span property="foaf:name" datatype="xsd:string" content="upper-case(wlf:serialize-name(*))"
       > </span>
@@ -3117,9 +3221,18 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   </xsl:template>
 
   <xsl:template match="gz:Emphasis">
-    <em>
-      <xsl:apply-templates/>
-    </em>
+    <xsl:choose>
+      <xsl:when test="$edition = 'Edinburgh'">
+        <strong>
+          <xsl:apply-templates/>
+        </strong>
+      </xsl:when>
+      <xsl:otherwise>
+        <em>
+          <xsl:apply-templates/>
+        </em>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="gz:Strong">

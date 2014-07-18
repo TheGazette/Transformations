@@ -39,77 +39,141 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <xsl:param name="mapping" as="node()" required="yes"/>
   <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
   <xsl:param name="updates" as="node()">
-    <form draftTitle="Draft RDF" draftURI="/my-gazette/draft/10337" noticeTypeCode="2903">
-      <entry about="https://www.thegazette.co.uk/def/working#purchaseLogo"
-        property="gzw:requestPurchaseLogo"/>
-      <entry about="this:deceasedPerson" property="foaf:title">Mr</entry>
-      <entry about="this:deceasedPerson" property="person:alsoKnownAs"/>
-      <entry about="this:deceasedPerson" property="foaf:givenName">test</entry>
-      <entry about="this:deceasedPerson" property="person:hasMaidenName">test</entry>
-      <entry about="this:deceasedPerson" property="foaf:firstName">John</entry>
-      <entry about="this:deceasedPerson" property="foaf:familyName">D'Owe</entry>
-      <entry about="this:deceasedPerson" property="person:honour">test</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:startDateOfDeath"/>
-      <entry about="this:deceasedPerson" property="personal-legal:dateOfDeath">2010-11-20</entry>
-      <entry about="this:occupationOfDeceased" property="person:jobTitle">Harbinger</entry>
-      <entry about="this:estateExecutor" property="person:hasIPReferenceNumber">GH/ROS506166</entry>
-      <entry about="this:estateExecutor" property="gaz:email">info@ahmadwilliams.co.uk</entry>
-      <entry about="this:estateExecutor" property="gaz:fax">0121 328 4441</entry>
-      <entry about="this:estateExecutor" property="gaz:telephone">0121 328 4252</entry>
-      <entry about="this:estateExecutor" property="foaf:givenName">test</entry>
-      <entry about="this:estateExecutor" property="foaf:familyName">Lawyer</entry>
-      <entry about="this:estateExecutor" property="foaf:firstName">Ivana</entry>
-      <entry about="this:notifiableThing" property="personal-legal:hasClaimDeadline"
-        >2014-11-22</entry>
-      <entry about="this:notifiableThing" property="gaz:claimNumber">12345</entry>
-      <entry about="this:notifiableThing" property="gaz:relatedDate">2013-11-20</entry>
-      <entry about="this:notifiableThing" property="gaz:relatedDate">2013-11-22</entry>
-      <entry about="this:notifiableThing" property="gaz:relatedDate">2013-11-12</entry>
-      <entry about="http://data.ordnancesurvey.co.uk/id/7000000000011013" property="rdfs:label">The
-        London Borough of Southwark</entry>
-      <entry about="this:deceased-address-1" property="vcard:postal-code">SE15 1ND</entry>
-      <entry about="this:deceased-address-1" property="vcard:extended-address">SARNESFIELD
-        HOUSE</entry>
-      <entry about="this:deceased-address-1" property="vcard:country-name"/>
-      <entry about="this:deceased-address-1" property="vcard:locality">LONDON</entry>
-      <entry about="this:deceased-address-1" property="vcard:region"/>
-      <entry about="this:deceased-address-1" property="vcard:street-address">FLAT 6</entry>
-      <entry about="this:previous-deceased-address-1" property="vcard:postal-code">SE15 1ND</entry>
-      <entry about="this:previous-deceased-address-1" property="vcard:extended-address">SARNESFIELD
-        HOUSE</entry>
-      <entry about="this:previous-deceased-address-1" property="vcard:country-name"/>
-      <entry about="this:previous-deceased-address-1" property="vcard:locality">LONDON</entry>
-      <entry about="this:previous-deceased-address-1" property="vcard:region"/>
-      <entry about="this:previous-deceased-address-1" property="vcard:street-address">FLAT
-        26</entry>
-      <entry about="this:addressOfExecutor-1" property="vcard:postal-code">SE15 1ND</entry>
-      <entry about="this:addressOfExecutor-1" property="vcard:extended-address">SARNESFIELD
-        HOUSE</entry>
-      <entry about="this:addressOfExecutor-1" property="vcard:country-name"/>
-      <entry about="this:addressOfExecutor-1" property="vcard:locality">LONDON</entry>
-      <entry about="this:addressOfExecutor-1" property="vcard:region"/>
-      <entry about="this:addressOfExecutor-1" property="vcard:street-address">FLAT 3</entry>
-      <entry about="issue:" property="gaz:hasEdition">London</entry>
-      <entry about="https://www.thegazette.co.uk/id/edition/London/issue/undefined"
-        property="gaz:hasIssueNumber">0</entry>
-      <entry about="https://www.thegazette.co.uk/def/working#purchasePDF"
-        property="gzw:requestPDFpurchase"/>
-      <entry about="https://www.thegazette.co.uk/def/working#purchasePaper"
-        property="gzw:requestPaperPurchase"/>
-      <entry about="https://www.thegazette.co.uk/id/notice/11701" property="dc11:publisher">TSO (The
-        Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211,
-        customer.services@tso.co.uk</entry>
-      <entry about="https://www.thegazette.co.uk/id/notice/11701" property="gaz:hasNoticeNumber"
-        >0</entry>
-      <entry about="noticeid:" property="gaz:earliestPublicationDate">2014-06-16</entry>
-      <entry about="https://www.thegazette.co.uk/id/notice/11701" property="gaz:hasNoticeCode"
-        >2903</entry>
+    <form draftTitle="Draft 10554" draftURI="/my-gazette/draft/10554" noticeTypeCode="1601">
+      <entry about="this:proposal-7" property="planning:proposalDescription"/>
+      <entry about="this:proposal-5-address-1" property="vcard:street-address"/>
+      <entry about="this:notifiableThing" property="planning:hasSchedule">schedule</entry>
+      <entry about="this:proposal-3-address-1" property="vcard:region"/>
+      <entry about="this:proposal-5-address-1" property="vcard:locality"/>
+      <entry about="this:proposal-2-address-1" property="vcard:region"/>
+      <entry about="this:proposal-4-address-1" property="vcard:extended-address"/>
+      <entry about="this:proposal-5-address-1" property="vcard:extended-address"/>
+      <entry about="this:proposal-1-address-1" property="vcard:region"/>
+      <entry about="this:proposal-8-address-1" property="vcard:street-address"/>
+      <entry about="this:proposal-7" property="planning:proposalReference"/>
+      <entry about="noticeid:" property="gaz:earliestPublicationDateWITHtime">00:00</entry>
+      <entry about="this:proposal-4-address-1" property="vcard:country-name"/>
+      <entry about="this:proposal-9-address-1" property="vcard:street-address"/>
+      <entry about="this:authoriser-1" property="gaz:dateAuthorisationSigned">2014-06-25</entry>
+      <entry about="this:applicant-9" property="foaf:name"/>
+      <entry about="this:proposal-8-address-1" property="vcard:country-name"/>
+      <entry about="this:proposal-7-address-1" property="vcard:region"/>
+      <entry about="this:proposal-5" property="planning:proposalDescription"/>
+      <entry about="this:proposal-2-address-1" property="vcard:street-address">NORWICH MAIL
+        CENTR</entry>
+      <entry about="this:proposal-9-address-1" property="vcard:postal-code"/>
+      <entry about="this:proposal-6-address-1" property="vcard:extended-address"/>
+      <entry about="this:proposal-4-address-1" property="vcard:street-address"/>
+      <entry about="this:authority-2-address-1" property="vcard:extended-address">13-17 THORPE
+        ROAD</entry>
+      <entry about="this:applicant-3" property="foaf:name">applicant 3</entry>
+      <entry about="this:authority-2" property="gaz:email">mansoor@solicitors.co.uk</entry>
+      <entry about="this:legislation-3" property="legislation:legislationTitle">leg 3</entry>
+      <entry about="this:authority-2-address-1" property="vcard:region"/>
+      <entry about="this:proposal-8-address-1" property="vcard:locality"/>
+      <entry about="this:notifiableThing" property="gaz:hasAdditionalInformation">additional
+        information</entry>
+      <entry about="this:proposal-1-address-1" property="vcard:street-address">NORWICH MAIL
+        CENTR</entry>
+      <entry about="this:proposal-9-address-1" property="vcard:extended-address"/>
+      <entry about="this:proposal-9" property="planning:proposalReference"/>
+      <entry about="this:proposal-5-address-1" property="vcard:region"/>
+      <entry about="this:proposal-10-address-1" property="vcard:region"/>
+      <entry about="noticeid:" property="gaz:earliestPublicationDate">2014-06-26</entry>
+      <entry about="this:proposal-4-address-1" property="vcard:locality"/>
+      <entry about="this:proposal-6-address-1" property="vcard:street-address"/>
+      <entry about="this:proposal-3-address-1" property="vcard:locality"/>
+      <entry about="this:legislation" property="legislation:legislationTitle">Town and Country
+        Planning</entry>
+      <entry about="this:proposal-6-address-1" property="vcard:locality"/>
+      <entry about="this:authority-2-address-1" property="vcard:postal-code">NR1 1AA</entry>
+      <entry about="this:proposal-4" property="planning:proposalDescription">description 4</entry>
+      <entry about="this:proposal-4-address-1" property="vcard:region"/>
+      <entry about="this:proposal-7-address-1" property="vcard:locality"/>
+      <entry about="this:authority-2-address-1" property="vcard:locality">NORWICH</entry>
+      <entry about="this:proposal-4-address-1" property="vcard:postal-code"/>
+      <entry about="this:applicant-4" property="foaf:name">applicant 4</entry>
+      <entry about="this:role-signatory-1" property="person:roleName">Liquidator</entry>
+      <entry about="this:proposal-6" property="planning:proposalDescription"/>
+      <entry about="this:applicant-7" property="foaf:name"/>
+      <entry about="this:proposal-6-address-1" property="vcard:country-name"/>
+      <entry about="this:proposal-7-address-1" property="vcard:extended-address"/>
+      <entry about="this:applicant-6" property="foaf:name"/>
+      <entry about="this:applicant-2" property="foaf:name">applicant 2</entry>
+      <entry about="this:proposal-1-address-1" property="vcard:locality">NORWICH</entry>
+      <entry about="this:proposal-3-address-1" property="vcard:postal-code"/>
+      <entry about="this:applicant-1" property="foaf:name"/>
+      <entry about="this:notifiableThing" property="planning:orderDetails">details</entry>
+      <entry about="this:authority-2-address-1" property="vcard:street-address">NORWICH MAIL
+        CENTR</entry>
+      <entry about="this:proposal-3" property="planning:proposalDescription"/>
+      <entry about="this:proposal-2-address-1" property="vcard:country-name"/>
+      <entry about="this:proposal-7-address-1" property="vcard:street-address"/>
+      <entry about="this:proposal-9-address-1" property="vcard:country-name"/>
+      <entry about="this:legislation-1" property="legislation:legislationTitle">leg 1</entry>
+      <entry about="this:proposal-2-address-1" property="vcard:postal-code">NR1 1AA</entry>
+      <entry about="this:proposal-9-address-1" property="vcard:region"/>
+      <entry about="this:authority-1" property="gazorg:name">authority</entry>
+      <entry about="this:proposal-8-address-1" property="vcard:postal-code"/>
+      <entry about="this:legislation-2" property="legislation:legislationTitle">leg 2</entry>
+      <entry about="this:proposal-7-address-1" property="vcard:country-name"/>
+      <entry about="this:proposal-3" property="planning:proposalReference">ref 3</entry>
+      <entry about="this:proposal-1" property="planning:proposalDescription">desc</entry>
+      <entry about="this:proposal-8-address-1" property="vcard:extended-address"/>
+      <entry about="this:proposal-10-address-1" property="vcard:postal-code"/>
+      <entry about="this:authority-2" property="authority:hasReferenceNumber">12345</entry>
+      <entry about="this:proposal-10-address-1" property="vcard:street-address"/>
+      <entry about="this:proposal-1-address-1" property="vcard:country-name"/>
+      <entry about="this:proposal-1" property="planning:proposalReference">reference</entry>
+      <entry about="this:proposal-9-address-1" property="vcard:locality"/>
+      <entry about="this:proposal-10" property="planning:proposalDescription"/>
+      <entry about="this:signatory-1" property="foaf:name">Mansoor Mubarik</entry>
+      <entry about="this:authority-2" property="authority:hasDepartment">Management
+        department</entry>
+      <entry about="this:authority-2" property="gaz:telephone"/>
+      <entry about="this:proposal-4" property="planning:proposalReference"/>
+      <entry about="this:authority-2" property="gaz:fax"/>
+      <entry about="this:authority-2" property="gazorg:name">Solicitors Ltd</entry>
+      <entry about="this:applicant-10" property="foaf:name"/>
+      <entry about="this:proposal-10-address-1" property="vcard:extended-address"/>
+      <entry about="this:proposal-8-address-1" property="vcard:region"/>
+      <entry about="this:proposal-3-address-1" property="vcard:extended-address"/>
+      <entry about="this:proposal-2" property="planning:proposalDescription">description 2</entry>
+      <entry about="this:proposal-5" property="planning:proposalReference"/>
+      <entry about="this:applicant-5" property="foaf:name"/>
+      <entry about="this:proposal-1-address-1" property="vcard:postal-code">NR1 1AA</entry>
+      <entry about="this:proposal-5-address-1" property="vcard:postal-code"/>
+      <entry about="this:proposal-3-address-1" property="vcard:street-address"/>
+      <entry about="this:proposal-9" property="planning:proposalDescription"/>
+      <entry about="this:proposal-2-address-1" property="vcard:extended-address">13-17 THORPE
+        ROAD</entry>
+      <entry about="this:proposal-3-address-1" property="vcard:country-name"/>
+      <entry about="this:legislation" property="legislation:display">No</entry>
+      <entry about="issue:" property="gaz:hasEdition">edinburgh</entry>
+      <entry about="this:authority-2-address-1" property="vcard:country-name"/>
+      <entry about="this:proposal-6-address-1" property="vcard:region"/>
+      <entry about="this:proposal-5-address-1" property="vcard:country-name"/>
+      <entry about="this:proposal-7-address-1" property="vcard:postal-code"/>
+      <entry about="this:proposal-1-address-1" property="vcard:extended-address">13-17 THORPE
+        ROAD</entry>
+      <entry about="this:proposal-2" property="planning:proposalReference">reference 2</entry>
+      <entry about="this:proposal-8" property="planning:proposalDescription"/>
+      <entry about="this:legislation-4" property="legislation:legislationTitle">leg 4</entry>
+      <entry about="this:legislation-5" property="legislation:legislationTitle">leg 5</entry>
+      <entry about="this:proposal-10" property="planning:proposalReference"/>
+      <entry about="this:proposal-8" property="planning:proposalReference"/>
+      <entry about="this:applicant-8" property="foaf:name"/>
+      <entry about="this:proposal-2-address-1" property="vcard:locality">NORWICH</entry>
+      <entry about="this:proposal-10-address-1" property="vcard:locality"/>
+      <entry about="this:proposal-6-address-1" property="vcard:postal-code"/>
+      <entry about="this:proposal-10-address-1" property="vcard:country-name"/>
+      <entry about="this:proposal-6" property="planning:proposalReference"/>
     </form>
   </xsl:param>
   <!-- local functions -->
   <xsl:variable name="publicationDate"
     select="concat($updates//*:entry[@property='gaz:earliestPublicationDate'],'T', 
-   if ($updates//*:entry[@property='gaz:earliestPublicationDateWITHtime']) then wlf:getTimeStamp($updates//*:entry[@property='gaz:earliestPublicationDateWITHtime']) else '15:30:00')"/>
+   if ($updates//*:entry[@property='gaz:earliestPublicationDateWITHtime']) then wlf:getTimeStamp($updates//*:entry[@property='gaz:earliestPublicationDateWITHtime']) else '00:01:00')"/>
 
 
   <xsl:function name="wlf:increment">
@@ -197,7 +261,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <xsl:template match="x:head">
     <head>
       <title>
-        <xsl:value-of select="$updates//@draftTitle"/>
+        <xsl:value-of select="//x:dd[@data-ui-class = 'notice-type']"/>
       </title>
       <xsl:call-template name="gazettes-metadata"/>
     </head>
@@ -503,7 +567,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:when
         test="$updates//*:entry[@property = 'gaz:telephone' and @about = 'this:estateExecutor'] != ''
         or $updates//*:entry[@property = 'gaz:fax' and @about = 'this:estateExecutor'] != ''
-        or $updates//*:entry[@property = 'gaz:email' and @about = 'this:estateExecutor'] != ''">
+        or $updates//*:entry[@property = 'gaz:email' and @about = 'this:estateExecutor'] != ''
+        or $updates//*:entry[@property = 'gaz:claimNumber' and @about = 'this:notifiableThing'] != ''">
         <dl>
           <xsl:if
             test="$updates//*:entry[@property = 'gaz:telephone' and @about = 'this:estateExecutor'] != ''">
@@ -524,10 +589,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:apply-templates select="x:dd [@property = 'gaz:email']"/>
           </xsl:if>
           <xsl:if
-            test="$updates//*:entry[@property = 'person:hasIPReferenceNumber' and @about = 'this:estateExecutor'] != ''">
+            test="$updates//*:entry[@property = 'gaz:claimNumber' and @about = 'this:notifiableThing'] != ''">
             <xsl:apply-templates
-              select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:hasIPReferenceNumber']]]"/>
-            <xsl:apply-templates select="x:dd [@property = 'person:hasIPReferenceNumber']"/>
+              select="x:dt[following-sibling::*[1][self::x:dd [@property = 'gaz:claimNumber']]]"/>
+            <xsl:apply-templates select="x:dd [@property = 'gaz:claimNumber']"/>
           </xsl:if>
 
         </dl>
@@ -947,7 +1012,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:value-of
           select="$updates//*[@about='this:court-1' and @property='court:courtDistrict']/text()"/>
       </span>
-      <xsl:text> </xsl:text>
+      <xsl:text> No. </xsl:text>
       <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
         <xsl:value-of
           select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
@@ -1521,7 +1586,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:value-of
           select="$updates//*[@about='this:court-1' and @property='court:courtDistrict']/text()"/>
       </span>
-      <xsl:text> </xsl:text>
+      <xsl:text> No. </xsl:text>
       <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
         <xsl:value-of
           select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
@@ -3506,7 +3571,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:value-of
           select="$updates//*[@about='this:court-1' and @property='court:courtDistrict']/text()"/>
       </span>
-      <xsl:text> No </xsl:text>
+      <xsl:text> No. </xsl:text>
       <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
         <xsl:value-of
           select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
@@ -3547,7 +3612,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </xsl:variable>
       <xsl:if
         test="$updates//*[@about='this:person-1' and @property='person:isDeceased']/text() = 'yes'">
-        <xsl:text>(The bankrupt person is deceased)</xsl:text>
+        <xsl:text>(Deceased)</xsl:text>
       </xsl:if>
       <xsl:value-of select="$bankruptcyStatus"/>
     </p>
@@ -4434,453 +4499,142 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
   <xsl:template name="boilerPlateText1601">
     <xsl:param name="updates"/>
-    <p>
+
+    <h2>
       <span about="this:authority-1" property="gazorg:name" datatype="xsd:string">
         <xsl:value-of
           select="$updates//*[@about='this:authority-1' and @property='gazorg:name']/text()"/>
       </span>
-    </p>
-    <p>
-      <span about="this:legislation-1" property="legislation:legislationTitle" datatype="xsd:string">
+    </h2>
+    
+    <h3>
+      <span about="this:legislation" property="legislation:legislationTitle" datatype="xsd:string">
         <xsl:value-of
-          select="$updates//*[@about='this:legislation-1' and @property='legislation:legislationTitle']/text()"
+          select="$updates//*[@about='this:legislation' and @property='legislation:legislationTitle']/text()"
         />
       </span>
-    </p>
-    <xsl:if
-      test="$updates//*[@about='this:legislation-2' and @property='legislation:legislationTitle']/text() != ''">
-      <p>
-        <span about="this:legislation-2" property="legislation:legislationTitle"
-          datatype="xsd:string">
+    </h3>
+    
+    <xsl:for-each-group
+      select="$updates//*[starts-with(@about, 'this:legislation-') and text() != '']"
+      group-by="@about">
+      <xsl:sort data-type="number" select="replace(@about,'this:legislation-','')"/>
+      <xsl:variable name="about">
+        <xsl:value-of select="@about"/>
+      </xsl:variable>
+      <xsl:variable name="index">
+        <xsl:value-of select="substring-after($about,'this:legislation-')"/>
+      </xsl:variable>
+      <h3>
+        <span about="{$about}" property="legislation:legislationTitle" datatype="xsd:string">
           <xsl:value-of
-            select="$updates//*[@about='this:legislation-2' and @property='legislation:legislationTitle']/text()"
+            select="$updates//*[@about=concat('this:legislation-',$index) and @property='legislation:legislationTitle']/text()"
           />
         </span>
-      </p>
-    </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:legislation-3' and @property='legislation:legislationTitle']/text() != ''">
-      <p>
-        <span about="this:legislation-3" property="legislation:legislationTitle"
-          datatype="xsd:string">
-          <xsl:value-of
-            select="$updates//*[@about='this:legislation-3' and @property='legislation:legislationTitle']/text()"
-          />
-        </span>
-      </p>
-    </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:legislation-4' and @property='legislation:legislationTitle']/text() != ''">
-      <p>
-        <span about="this:legislation-4" property="legislation:legislationTitle"
-          datatype="xsd:string">
-          <xsl:value-of
-            select="$updates//*[@about='this:legislation-4' and @property='legislation:legislationTitle']/text()"
-          />
-        </span>
-      </p>
-    </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:legislation-5' and @property='legislation:legislationTitle']/text() != ''">
-      <p>
-        <span about="this:legislation-5" property="legislation:legislationTitle"
-          datatype="xsd:string">
-          <xsl:value-of
-            select="$updates//*[@about='this:legislation-5' and @property='legislation:legislationTitle']/text()"
-          />
-        </span>
-      </p>
-    </xsl:if>
+      </h3>
+    </xsl:for-each-group>
+    
     <xsl:if
       test="$updates//*[@about='this:notifiableThing' and @property='gaz:hasSubject']/text() != ''">
-      <p>
-        <span about="this:notifiableThing" property="gaz:hasSubject" datatype="xsd:string">
-          <xsl:value-of
-            select="$updates//*[@about='this:notifiableThing' and @property='gaz:hasSubject']/text()"
-          />
-        </span>
+      <p about="this:notifiableThing" property="gaz:hasSubject" datatype="xsd:string">
+        <xsl:value-of
+          select="$updates//*[@about='this:notifiableThing' and @property='gaz:hasSubject']/text()"
+        />
       </p>
     </xsl:if>
-    <p>
-      <span about="this:notifiableThing" property="planning:orderDetails" datatype="xsd:string">
-        <xsl:value-of
-          select="$updates//*[@about='this:notifiableThing' and @property='planning:orderDetails']/text()"
-        />
-      </span>
+    
+    <p about="this:notifiableThing" property="planning:orderDetails" datatype="xsd:string">
+      <xsl:value-of
+        select="$updates//*[@about='this:notifiableThing' and @property='planning:orderDetails']/text()"
+      />
     </p>
 
-    <p>
-      <xsl:text>Proposal</xsl:text>
-      <xsl:if
-        test="$updates//*[@about='this:proposal-2' and @property='planning:proposalReference']/text() != ''">
-        <xsl:text>(s)</xsl:text>
-      </xsl:if>
-    </p>
-    <p>
-      <span about="this:proposal-1" property="planning:proposalReference" datatype="xsd:string">
-        <xsl:value-of
-          select="$updates//*[@about='this:proposal-1' and @property='planning:proposalReference']/text()"
-        />
-      </span>
-      <xsl:text>: </xsl:text>
-      <xsl:call-template name="address">
-        <xsl:with-param name="updates" select="$updates"/>
-        <xsl:with-param name="about" select="'this:proposal-1-address-1'"/>
-      </xsl:call-template>
-      <xsl:text>: </xsl:text>
-      <xsl:if test="$updates//*[@about='this:applicant-1' and @property='foaf:name']/text() != ''">
-        <span about="this:applicant-1" property="foaf:name">
-          <xsl:value-of
-            select="$updates//*[@about='this:applicant-1' and @property='foaf:name']/text()"/>
-        </span>
-        <xsl:text>: </xsl:text>
-      </xsl:if>
-      <span about="this:proposal-1" property="planning:proposalDescription" datatype="xsd:string">
-        <xsl:value-of
-          select="$updates//*[@about='this:proposal-1' and @property='planning:proposalDescription']/text()"
-        />
-      </span>
-    </p>
-    <xsl:if
-      test="$updates//*[@about='this:proposal-2' and @property='planning:proposalReference']/text() != '' or $updates//*[@about='this:applicant-2' and @property='foaf:name']/text() != '' or $updates//*[@about='this:proposal-2' and @property='planning:proposalDescription']/text() != ''">
-      <p>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-2' and @property='planning:proposalReference']/text() != ''">
-          <span about="this:proposal-2" property="planning:proposalReference" datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-2' and @property='planning:proposalReference']/text()"
-            />
-          </span>: </xsl:if>
-        <xsl:call-template name="address">
-          <xsl:with-param name="updates" select="$updates"/>
-          <xsl:with-param name="about" select="'this:proposal-2-address-1'"/>
-        </xsl:call-template>
-        <xsl:if test="$updates//*[@about='this:applicant-2' and @property='foaf:name']/text() != ''">
-          <xsl:text>: </xsl:text>
-          <span about="this:applicant-2" property="foaf:name">
-            <xsl:value-of
-              select="$updates//*[@about='this:applicant-2' and @property='foaf:name']/text()"/>
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-2' and @property='planning:proposalDescription']/text() != ''">
-          <span about="this:proposal-2" property="planning:proposalDescription"
-            datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-2' and @property='planning:proposalDescription']/text()"
-            />
-          </span>
-        </xsl:if>
-      </p>
-    </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:proposal-3' and @property='planning:proposalReference']/text() != '' or $updates//*[@about='this:applicant-3' and @property='foaf:name']/text() != '' or $updates//*[@about='this:proposal-3' and @property='planning:proposalDescription']/text() != ''">
+    <xsl:if test="$updates//*[starts-with(@about, 'this:proposal-')]">
+      <table>
+        <thead>
+          <tr>
+            <th>Proposal Reference</th>
+            <th>Address of Proposal</th>
+            <th>Name and Address of Applicant</th>
+            <th>Description of Proposal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <xsl:for-each-group
+            select="$updates//*[starts-with(@about, 'this:proposal-') and text() != '']"
+            group-by="@about">
+            <xsl:sort data-type="number" select="replace(@about,'this:proposal-','')"/>
+            <xsl:variable name="about">
+              <xsl:value-of select="@about"/>
+            </xsl:variable>
+            <xsl:variable name="index">
+              <xsl:value-of select="substring-after($about,'this:proposal-')"/>
+            </xsl:variable>
 
-      <p>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-3' and @property='planning:proposalReference']/text() != ''">
-          <span about="this:proposal-3" property="planning:proposalReference" datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-3' and @property='planning:proposalReference']/text()"
-            />
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:call-template name="address">
-          <xsl:with-param name="updates" select="$updates"/>
-          <xsl:with-param name="about" select="'this:proposal-3-address-1'"/>
-        </xsl:call-template>
-        <xsl:if test="$updates//*[@about='this:applicant-3' and @property='foaf:name']/text() != ''">
-          <xsl:text>: </xsl:text>
-          <span about="this:applicant-3" property="foaf:name">
-            <xsl:value-of
-              select="$updates//*[@about='this:applicant-3' and @property='foaf:name']/text()"/>
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-3' and @property='planning:proposalDescription']/text() != ''">
-          <span about="this:proposal-3" property="planning:proposalDescription"
-            datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-3' and @property='planning:proposalDescription']/text()"
-            />
-          </span>
-        </xsl:if>
-      </p>
+            <xsl:if
+              test="$updates//*[@about=concat('this:proposal-',$index) and @property='planning:proposalReference']/text() != '' or $updates//*[@about=concat('this:applicant-',$index) and @property='foaf:name']/text() != '' or $updates//*[@about=concat('this:proposal-',$index) and @property='planning:proposalDescription']/text() != ''">
+              <tr>
+                <td>
+                  <xsl:if
+                    test="$updates//*[@about=concat('this:proposal-',$index) and @property='planning:proposalReference']/text() != ''">
+                    <span about="{$about}" property="planning:proposalReference"
+                      datatype="xsd:string">
+                      <xsl:value-of
+                        select="$updates//*[@about=concat('this:proposal-',$index) and @property='planning:proposalReference']/text()"
+                      />
+                    </span>
+                  </xsl:if>
+                </td>
+                <td>
+                  <xsl:call-template name="address">
+                    <xsl:with-param name="updates" select="$updates"/>
+                    <xsl:with-param name="about"
+                      select="concat('this:proposal-',$index,'-address-1')"/>
+                  </xsl:call-template>
+                </td>
+                <td>
+                  <xsl:if
+                    test="$updates//*[@about=concat('this:applicant-',$index) and @property='foaf:name']/text() != ''">
+                    <span about="{concat('this:applicant-',$index)}" property="foaf:name">
+                      <xsl:value-of
+                        select="$updates//*[@about=concat('this:applicant-',$index) and @property='foaf:name']/text()"
+                      />
+                    </span>
+                  </xsl:if>
+                </td>
+                <td>
+                  <xsl:if
+                    test="$updates//*[@about=concat('this:proposal-',$index) and @property='planning:proposalDescription']/text() != ''">
+                    <span about="{$about}" property="planning:proposalDescription"
+                      datatype="xsd:string">
+                      <xsl:value-of
+                        select="$updates//*[@about=concat('this:proposal-',$index) and @property='planning:proposalDescription']/text()"
+                      />
+                    </span>
+                  </xsl:if>
+                </td>
+              </tr>
+            </xsl:if>
+          </xsl:for-each-group>
+        </tbody>
+      </table>
     </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:proposal-4' and @property='planning:proposalReference']/text() != '' or $updates//*[@about='this:applicant-4' and @property='foaf:name']/text() != '' or $updates//*[@about='this:proposal-4' and @property='planning:proposalDescription']/text() != ''">
 
-      <p>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-4' and @property='planning:proposalReference']/text() != ''">
-          <span about="this:proposal-4" property="planning:proposalReference" datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-4' and @property='planning:proposalReference']/text()"
-            />
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:call-template name="address">
-          <xsl:with-param name="updates" select="$updates"/>
-          <xsl:with-param name="about" select="'this:proposal-4-address-1'"/>
-        </xsl:call-template>
-        <xsl:if test="$updates//*[@about='this:applicant-4' and @property='foaf:name']/text() != ''">
-          <xsl:text>: </xsl:text>
-          <span about="this:applicant-4" property="foaf:name">
-            <xsl:value-of
-              select="$updates//*[@about='this:applicant-4' and @property='foaf:name']/text()"/>
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-4' and @property='planning:proposalDescription']/text() != ''">
-          <span about="this:proposal-4" property="planning:proposalDescription"
-            datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-4' and @property='planning:proposalDescription']/text()"
-            />
-          </span>
-        </xsl:if>
-      </p>
-    </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:proposal-5' and @property='planning:proposalReference']/text() != '' or $updates//*[@about='this:applicant-5' and @property='foaf:name']/text() != '' or $updates//*[@about='this:proposal-5' and @property='planning:proposalDescription']/text() != ''">
-
-      <p>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-5' and @property='planning:proposalReference']/text() != ''">
-          <span about="this:proposal-5" property="planning:proposalReference" datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-5' and @property='planning:proposalReference']/text()"
-            />
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:call-template name="address">
-          <xsl:with-param name="updates" select="$updates"/>
-          <xsl:with-param name="about" select="'this:proposal-5-address-1'"/>
-        </xsl:call-template>
-        <xsl:if test="$updates//*[@about='this:applicant-5' and @property='foaf:name']/text() != ''">
-          <xsl:text>: </xsl:text>
-          <span about="this:applicant-5" property="foaf:name">
-            <xsl:value-of
-              select="$updates//*[@about='this:applicant-5' and @property='foaf:name']/text()"/>
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-5' and @property='planning:proposalDescription']/text() != ''">
-          <span about="this:proposal-5" property="planning:proposalDescription"
-            datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-5' and @property='planning:proposalDescription']/text()"
-            />
-          </span>
-        </xsl:if>
-      </p>
-    </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:proposal-6' and @property='planning:proposalReference']/text() != '' or $updates//*[@about='this:applicant-6' and @property='foaf:name']/text() != '' or $updates//*[@about='this:proposal-6' and @property='planning:proposalDescription']/text() != ''">
-
-      <p>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-6' and @property='planning:proposalReference']/text() != ''">
-          <span about="this:proposal-6" property="planning:proposalReference" datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-6' and @property='planning:proposalReference']/text()"
-            />
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:call-template name="address">
-          <xsl:with-param name="updates" select="$updates"/>
-          <xsl:with-param name="about" select="'this:proposal-6-address-1'"/>
-        </xsl:call-template>
-        <xsl:if test="$updates//*[@about='this:applicant-6' and @property='foaf:name']/text() != ''">
-          <xsl:text>: </xsl:text>
-          <span about="this:applicant-6" property="foaf:name">
-            <xsl:value-of
-              select="$updates//*[@about='this:applicant-6' and @property='foaf:name']/text()"/>
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-6' and @property='planning:proposalDescription']/text() != ''">
-          <span about="this:proposal-6" property="planning:proposalDescription"
-            datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-6' and @property='planning:proposalDescription']/text()"
-            />
-          </span>
-        </xsl:if>
-      </p>
-    </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:proposal-7' and @property='planning:proposalReference']/text() != '' or $updates//*[@about='this:applicant-7' and @property='foaf:name']/text() != '' or $updates//*[@about='this:proposal-7' and @property='planning:proposalDescription']/text() != ''">
-
-      <p>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-7' and @property='planning:proposalReference']/text() != ''">
-          <span about="this:proposal-7" property="planning:proposalReference" datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-7' and @property='planning:proposalReference']/text()"
-            />
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:call-template name="address">
-          <xsl:with-param name="updates" select="$updates"/>
-          <xsl:with-param name="about" select="'this:proposal-7-address-1'"/>
-        </xsl:call-template>
-        <xsl:if test="$updates//*[@about='this:applicant-7' and @property='foaf:name']/text() != ''">
-          <xsl:text>: </xsl:text>
-          <span about="this:applicant-7" property="foaf:name">
-            <xsl:value-of
-              select="$updates//*[@about='this:applicant-7' and @property='foaf:name']/text()"/>
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-7' and @property='planning:proposalDescription']/text() != ''">
-          <span about="this:proposal-7" property="planning:proposalDescription"
-            datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-7' and @property='planning:proposalDescription']/text()"
-            />
-          </span>
-        </xsl:if>
-      </p>
-    </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:proposal-8' and @property='planning:proposalReference']/text() != '' or $updates//*[@about='this:applicant-8' and @property='foaf:name']/text() != '' or $updates//*[@about='this:proposal-8' and @property='planning:proposalDescription']/text() != ''">
-
-      <p>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-8' and @property='planning:proposalReference']/text() != ''">
-          <span about="this:proposal-8" property="planning:proposalReference" datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-8' and @property='planning:proposalReference']/text()"
-            />
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:call-template name="address">
-          <xsl:with-param name="updates" select="$updates"/>
-          <xsl:with-param name="about" select="'this:proposal-8-address-1'"/>
-        </xsl:call-template>
-        <xsl:if test="$updates//*[@about='this:applicant-8' and @property='foaf:name']/text() != ''">
-          <xsl:text>: </xsl:text>
-          <span about="this:applicant-8" property="foaf:name">
-            <xsl:value-of
-              select="$updates//*[@about='this:applicant-8' and @property='foaf:name']/text()"/>
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-8' and @property='planning:proposalDescription']/text() != ''">
-          <span about="this:proposal-8" property="planning:proposalDescription"
-            datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-8' and @property='planning:proposalDescription']/text()"
-            />
-          </span>
-        </xsl:if>
-      </p>
-    </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:proposal-9' and @property='planning:proposalReference']/text() != '' or $updates//*[@about='this:applicant-9' and @property='foaf:name']/text() != '' or $updates//*[@about='this:proposal-9' and @property='planning:proposalDescription']/text() != ''">
-
-      <p>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-9' and @property='planning:proposalReference']/text() != ''">
-          <span about="this:proposal-9" property="planning:proposalReference" datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-9' and @property='planning:proposalReference']/text()"
-            />
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:call-template name="address">
-          <xsl:with-param name="updates" select="$updates"/>
-          <xsl:with-param name="about" select="'this:proposal-9-address-1'"/>
-        </xsl:call-template>
-        <xsl:if test="$updates//*[@about='this:applicant-9' and @property='foaf:name']/text() != ''">
-          <xsl:text>: </xsl:text>
-          <span about="this:applicant-9" property="foaf:name">
-            <xsl:value-of
-              select="$updates//*[@about='this:applicant-9' and @property='foaf:name']/text()"/>
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-9' and @property='planning:proposalDescription']/text() != ''">
-          <span about="this:proposal-9" property="planning:proposalDescription"
-            datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-9' and @property='planning:proposalDescription']/text()"
-            />
-          </span>
-        </xsl:if>
-      </p>
-    </xsl:if>
-    <xsl:if
-      test="$updates//*[@about='this:proposal-10' and @property='planning:proposalReference']/text() != '' or $updates//*[@about='this:applicant-10' and @property='foaf:name']/text() != '' or $updates//*[@about='this:proposal-10' and @property='planning:proposalDescription']/text() != ''">
-
-      <p>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-10' and @property='planning:proposalReference']/text() != ''">
-          <span about="this:proposal-10" property="planning:proposalReference" datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-10' and @property='planning:proposalReference']/text()"
-            />
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:call-template name="address">
-          <xsl:with-param name="updates" select="$updates"/>
-          <xsl:with-param name="about" select="'this:proposal-10-address-1'"/>
-        </xsl:call-template>
-        <xsl:if
-          test="$updates//*[@about='this:applicant-10' and @property='foaf:name']/text() != ''">
-          <xsl:text>: </xsl:text>
-          <span about="this:applicant-10" property="foaf:name">
-            <xsl:value-of
-              select="$updates//*[@about='this:applicant-10' and @property='foaf:name']/text()"/>
-          </span>
-          <xsl:text>: </xsl:text>
-        </xsl:if>
-        <xsl:if
-          test="$updates//*[@about='this:proposal-10' and @property='planning:proposalDescription']/text() != ''">
-          <span about="this:proposal-10" property="planning:proposalDescription"
-            datatype="xsd:string">
-            <xsl:value-of
-              select="$updates//*[@about='this:proposal-10' and @property='planning:proposalDescription']/text()"
-            />
-          </span>
-        </xsl:if>
-      </p>
-    </xsl:if>
     <xsl:if
       test="$updates//*[@about='this:notifiableThing' and @property='gaz:hasAdditionalInformation']/text() != ''">
-      <p>
-        <span about="this:notifiableThing" property="gaz:hasAdditionalInformation"
-          datatype="xsd:string">
-          <xsl:value-of
-            select="$updates//*[@about='this:notifiableThing' and @property='gaz:hasAdditionalInformation']/text()"
-          />
-        </span>
+      <p about="this:notifiableThing" property="gaz:hasAdditionalInformation" datatype="xsd:string">
+        <xsl:value-of
+          select="$updates//*[@about='this:notifiableThing' and @property='gaz:hasAdditionalInformation']/text()"
+        />
       </p>
     </xsl:if>
 
     <p>
       <xsl:if test="$updates//*[@about='this:signatory-1' and @property='foaf:name']/text() != ''">
-        <span about="this:signatory-1" property="foaf:name" datatype="xsd:string">
+        <em about="this:signatory-1" property="foaf:name" datatype="xsd:string">
           <xsl:value-of
             select="$updates//*[@about='this:signatory-1' and @property='foaf:name']/text()"/>
-        </span>
+        </em>
         <xsl:text>, </xsl:text>
       </xsl:if>
       <xsl:if
