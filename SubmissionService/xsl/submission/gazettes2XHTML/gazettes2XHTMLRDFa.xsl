@@ -848,7 +848,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:apply-templates select="$firstPass" mode="dlSecondPass"/>
         
       
-    
+    <dl>
     <xsl:if test="gz:Person/gz:DeathDetails/gz:Date">
       <dt>Date of death:</dt>
       <dd property="personal-legal:dateOfDeath" typeof="gaz:Person" datatype="xsd:date"
@@ -865,7 +865,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:variable name="chunck" select="tokenize(gz:Person/gz:PersonDetails/text(),'\.')[last()]"/>
       <xsl:variable name="chunck_before" select="tokenize(gz:Person/gz:PersonDetails/text(),'\.')[last()-1]"/>
       <xsl:choose>
-        <xsl:when test="not(wlf:ends-with($chunck_before, $list_before)) and not(wlf:starts-with(normalize-space(lower-case($chunck)), $list_occupation))">
+      	<xsl:when test="chunck_before and not(wlf:ends-with($chunck_before, $list_before)) and not(wlf:starts-with(normalize-space(lower-case($chunck)), $list_occupation))">
           <dt data-gazettes="custom-title">Deceased Occupation:</dt>
           <dd about="this:occupationOfDeceased" datatype="xsd:string" property="person:jobTitle">
             <xsl:value-of select="normalize-space($chunck)"/>
@@ -889,6 +889,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:value-of select="gz:Person/gz:DeathDetails/gz:NoticeOfClaims"/>
       </dd>
     </xsl:if>
+    </dl>
   </xsl:template>
 
   <xsl:template match="@*|node()" mode="init">
