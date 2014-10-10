@@ -3,15 +3,15 @@
 (c)  Crown copyright
 You may use and re-use this code free of charge under the terms of the Open Government Licence v2.0
 http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2
- 
 -->
-
 <!-- Version 1.02 -->
 <!-- Created by Williams Lea XML Team -->
-<!--
-                Change history
-                1.0 Initial release         
-                -->
+<!-- 
+Change history
+
+1.0 Initial release         
+
+-->
 <!-- This transformation is used for displaying dynamic contents for single notice -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:f="http://www.gazettes.co.uk/facets"
@@ -63,7 +63,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2
 	<xsl:param name="created"/>
 	<!-- What sort of bookmarks should be created - one of 'notice' or 'section'-->
 	<xsl:param name="bookmarks" select="'notice'"/>
-	
 	<xsl:param name="taxonomy-notice-type" as="node()" select="doc('new-taxonomy.xml')"/>
 	<!-- we need access to the FULL taxonomy to create the table of contents and section headings - therefore mandatory -->
 	<xsl:param name="terms-and-conditions" as="node()" select="doc('local-test/terms.xhtml')"/>
@@ -172,6 +171,93 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2
 	<xsl:template match="/">
 		<xsl:apply-templates/>
 	</xsl:template>
+	<xsl:template match="@*|node()" mode="post-process">
+		<xsl:copy>
+			<xsl:apply-templates select="@*|node()" mode="post-process"/>
+		</xsl:copy>
+	</xsl:template>
+	<xsl:template match="xhtml:section[@class='notice-category'][./xhtml:section[1][@class='notice-type']/xhtml:article[1][contains(@class,'full-width')]]" mode="post-process">
+		<xsl:copy>
+			<xsl:copy-of select="@id"/>
+			<xsl:copy-of select="@class"/>
+			<header class="full-width">
+				<xsl:copy-of select="xhtml:header/*"/>
+			</header>
+			<xsl:for-each select="xhtml:section|xhtml:article">
+				<xsl:apply-templates select="." mode="post-process"/>
+			</xsl:for-each>
+		</xsl:copy>
+	</xsl:template>
+	<xsl:template match="xhtml:section/xhtml:table" mode="post-process" priority="6">
+		<xsl:copy>
+			<xsl:apply-templates select="@*|node()" mode="post-process"/>
+		</xsl:copy>
+	</xsl:template>
+	<xsl:template match="xhtml:table" mode="post-process">
+		<xsl:copy>
+			<xsl:apply-templates select="@*" mode="post-process"/>
+			<xsl:choose>
+				<xsl:when test="xhtml:thead">
+					<xsl:apply-templates mode="post-process"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:if test="xhtml:colgroup">
+						<xsl:apply-templates select="xhtml:colgroup" mode="post-process"/>
+					</xsl:if>
+					<xsl:choose>
+						<xsl:when test="count(xhtml:tbody/xhtml:tr[1]/xhtml:td) = count(xhtml:tbody/xhtml:tr[1]/xhtml:td/xhtml:strong)">
+							<thead>
+								<xsl:apply-templates select="xhtml:tbody/xhtml:tr[1]" mode="post-process"/>
+							</thead>
+							<tbody>
+							<xsl:for-each select="xhtml:tbody/xhtml:tr">
+								<xsl:if test="position() != 1">
+									<xsl:apply-templates select="." mode="post-process"/>
+								</xsl:if>
+							</xsl:for-each>
+							</tbody>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="count(xhtml:tbody/xhtml:tr[1]/xhtml:td)"/>
+							<xsl:value-of select="count(xhtml:tbody/xhtml:tr[1]/xhtml:td/xhtml:strong)"/>
+							<xsl:apply-templates select="xhtml:tbody" mode="post-process"/>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:copy>
+	</xsl:template>
+	<xsl:template match="xhtml:section[@class='notice-category']/xhtml:section[1][@class='notice-type']" mode="post-process">
+		<xsl:copy>
+			<xsl:copy-of select="@id"/>
+			<xsl:attribute name="class">
+				<xsl:value-of select="@class"/>
+				<xsl:text> first-child</xsl:text>
+			</xsl:attribute>
+			<xsl:choose>
+				<xsl:when test="xhtml:article[1][contains(@class,'full-width')]">
+					<header class="full-width">
+						<xsl:copy-of select="xhtml:header/*"/>
+					</header>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:copy-of select="xhtml:header"/>
+				</xsl:otherwise>
+			</xsl:choose>
+			<xsl:for-each select="*[local-name() != 'header']">
+				<xsl:apply-templates select="." mode="post-process"/>
+			</xsl:for-each>
+		</xsl:copy>
+	</xsl:template>
+	<xsl:template match="xhtml:section[@class='notice-type']/xhtml:article[1]" mode="post-process">
+		<xsl:copy>
+			<xsl:attribute name="class">
+				<xsl:value-of select="@class"/>
+				<xsl:text> first-notice</xsl:text>
+			</xsl:attribute>
+			<xsl:apply-templates select="node()" mode="post-process"/>
+		</xsl:copy>
+	</xsl:template>
 	<xsl:template match="atom:feed">
 		<!-- Force the HTML5 doctype. -->
 		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;
@@ -216,10 +302,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2
 				</xsl:attribute>
 				<xsl:call-template name="front-cover"/>
 				<section class="two-columns">
-					<xsl:for-each select="$taxonomy-notice-type/tax:notice-taxonomy/tax:notice-type">
-						<xsl:sort select="@sort" data-type="number"/>
-						<xsl:apply-templates select="."/>
-					</xsl:for-each>
+					<xsl:variable name="notices">
+						<xsl:for-each select="$taxonomy-notice-type/tax:notice-taxonomy/tax:notice-type">
+							<xsl:sort select="@sort" data-type="number"/>
+							<xsl:apply-templates select="."/>
+						</xsl:for-each>
+					</xsl:variable>
+					<xsl:apply-templates select="$notices" mode="post-process"/>
 				</section>
 				<xsl:call-template name="adverts"/>
 				<xsl:if test="$bespoke != 'true'">
@@ -283,7 +372,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2
 											estate among the persons entitled thereto having regard only to the claims and interests of which they have had notice and will not, as respects the property so distributed, be
 											liable to any person of whose claim they shall not then have had notice</p>
 									</div>
-									<table>
+									<table class="wills-and-probate-2903-table">
 										<thead>
 											<tr>
 												<th class="name">Name of Deceased (Surname first)</th>
@@ -603,22 +692,32 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2
 				<xsl:value-of select="concat('full-notice-',.//*:dd[@property='gaz:hasNoticeCode'][1])"/>
 				<xsl:text> </xsl:text>
 				<xsl:value-of select="concat('full-notice-',substring(.//*:dd[@property='gaz:hasNoticeCode'][1],1,2))"/>
-				<xsl:if test=".//*:div[@class='content' and @data-gazettes-colspan='2']">
-					<xsl:text> full-width</xsl:text>
-				</xsl:if>
-				<xsl:if test=".//*:div[@class='content']//*[@data-original-width]">
-					<xsl:variable name="widths" as="xs:integer*">
-						<xsl:for-each select=".//*:div[@class='content']//*[@data-original-width]">
-							<xsl:variable name="this" select="replace(@data-original-width,'pt','')"/>
-							<xsl:if test="$this castable as xs:integer">
-								<xsl:value-of select="$this"/>
-							</xsl:if>
-						</xsl:for-each>
-					</xsl:variable>
-					<xsl:if test="max($widths) &gt; 240">
+				<xsl:choose>
+					<xsl:when test=".//*:div[@class='content' and @data-gazettes-colspan='2']">
 						<xsl:text> full-width</xsl:text>
-					</xsl:if>
-				</xsl:if>
+					</xsl:when>
+					<xsl:when test=".//*:div[@class='content']//*[@data-original-width] and not(substring(.//*:dd[@property='gaz:hasNoticeCode'][1],1,2) = ('24','25','26','27','28','29'))">
+						<xsl:variable name="widths" as="xs:integer*">
+							<xsl:for-each select=".//*:div[@class='content']//*[@data-original-width]">
+								<xsl:variable name="this" select="replace(@data-original-width,'pt','')"/>
+								<xsl:if test="$this castable as xs:integer">
+									<xsl:value-of select="$this"/>
+								</xsl:if>
+							</xsl:for-each>
+						</xsl:variable>
+						<xsl:choose>
+							<xsl:when test="max($widths) &gt; 383">
+								<xsl:text> full-width</xsl:text>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:text> single-width</xsl:text>
+							</xsl:otherwise>
+						</xsl:choose>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:text> single-width</xsl:text>
+					</xsl:otherwise>
+				</xsl:choose>
 			</xsl:attribute>
 			<div class="content">
 				<span property="gaz:hasNoticeID" class="metadata">
