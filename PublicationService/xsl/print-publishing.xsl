@@ -104,7 +104,7 @@ Change history
 			<xsl:choose>
 				<xsl:when test=".//*:notice-category-code/text() = ('G101000000','G102000000','G103000000','G104000000','G107000000')">
 					<xsl:choose>
-						<xsl:when test=".//*:notice-category-code/text() = ('G406010003','G406010002','G406010001','G206030000','G205010000')">
+						<xsl:when test=".//*:notice-category-code/text() = ('G306010300','G406010003','G406010002','G406010001','G206030000','G205010000')">
 							<xsl:for-each select=".//*:notice-category-code">
 								<xsl:if test="not(text() = ('G101000000','G102000000','G103000000','G104000000','G107000000'))">
 									<code>
