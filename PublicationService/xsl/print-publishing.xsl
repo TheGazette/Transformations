@@ -104,7 +104,7 @@ Change history
 			<xsl:choose>
 				<xsl:when test=".//*:notice-category-code/text() = ('G101000000','G102000000','G103000000','G104000000','G107000000')">
 					<xsl:choose>
-						<xsl:when test=".//*:notice-category-code/text() = ('G306010300','G406010003','G406010002','G406010001','G206030000','G205010000')">
+						<xsl:when test=".//*:notice-category-code/text() = ('G406010003','G406010002','G406010001','G206030000','G205010000')">
 							<xsl:for-each select=".//*:notice-category-code">
 								<xsl:if test="not(text() = ('G101000000','G102000000','G103000000','G104000000','G107000000'))">
 									<code>
@@ -168,6 +168,7 @@ Change history
 			<xsl:otherwise/>
 		</xsl:choose>
 	</xsl:variable>
+  
 	<xsl:template match="/">
 		<xsl:apply-templates/>
 	</xsl:template>
@@ -176,6 +177,7 @@ Change history
 			<xsl:apply-templates select="@*|node()" mode="post-process"/>
 		</xsl:copy>
 	</xsl:template>
+  
 	<xsl:template match="xhtml:section[@class='notice-category'][./xhtml:section[1][@class='notice-type']/xhtml:article[1][contains(@class,'full-width')]]" mode="post-process">
 		<xsl:copy>
 			<xsl:copy-of select="@id"/>
@@ -188,11 +190,13 @@ Change history
 			</xsl:for-each>
 		</xsl:copy>
 	</xsl:template>
+  
 	<xsl:template match="xhtml:section/xhtml:table" mode="post-process" priority="6">
 		<xsl:copy>
 			<xsl:apply-templates select="@*|node()" mode="post-process"/>
 		</xsl:copy>
 	</xsl:template>
+  
 	<xsl:template match="xhtml:table" mode="post-process">
 		<xsl:copy>
 			<xsl:apply-templates select="@*" mode="post-process"/>
@@ -205,12 +209,12 @@ Change history
 						<xsl:apply-templates select="xhtml:colgroup" mode="post-process"/>
 					</xsl:if>
 					<xsl:choose>
-						<xsl:when test="count(xhtml:tbody/xhtml:tr[1]/xhtml:td) = count(xhtml:tbody/xhtml:tr[1]/xhtml:td/xhtml:strong)">
+						<xsl:when test="count(.//xhtml:tr[1]/xhtml:td) = count(.//xhtml:tr[1]/xhtml:td/xhtml:strong)">
 							<thead>
-								<xsl:apply-templates select="xhtml:tbody/xhtml:tr[1]" mode="post-process"/>
+								<xsl:apply-templates select=".//xhtml:tr[1]" mode="post-process"/>
 							</thead>
 							<tbody>
-							<xsl:for-each select="xhtml:tbody/xhtml:tr">
+							<xsl:for-each select=".//xhtml:tr">
 								<xsl:if test="position() != 1">
 									<xsl:apply-templates select="." mode="post-process"/>
 								</xsl:if>
@@ -218,9 +222,17 @@ Change history
 							</tbody>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:value-of select="count(xhtml:tbody/xhtml:tr[1]/xhtml:td)"/>
-							<xsl:value-of select="count(xhtml:tbody/xhtml:tr[1]/xhtml:td/xhtml:strong)"/>
-							<xsl:apply-templates select="xhtml:tbody" mode="post-process"/>
+						<xsl:choose>
+						  <xsl:when test="xhtml:tbody">
+						    <xsl:apply-templates select="xhtml:tbody " mode="post-process"/>
+						  </xsl:when>
+						  <xsl:otherwise>
+						    <tbody>
+						    <xsl:apply-templates select=" .//xhtml:tr" mode="post-process"/>
+						    </tbody>
+						  </xsl:otherwise>
+						</xsl:choose>
+						
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:otherwise>
