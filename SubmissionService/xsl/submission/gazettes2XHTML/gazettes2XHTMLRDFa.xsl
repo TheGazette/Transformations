@@ -1122,7 +1122,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </xsl:choose>
     </xsl:if>
     <xsl:if test="gz:Person/gz:DeathDetails/gz:NoticeOfClaims">
-      <dt>Executor/Personal Representative:</dt>
+      <dt>Executor/Administrator:</dt>
       <dd about="this:estateExecutor" property="foaf:name" typeof="foaf:Agent">
         <xsl:value-of select="gz:Person/gz:DeathDetails/gz:NoticeOfClaims"/>
       </dd>
