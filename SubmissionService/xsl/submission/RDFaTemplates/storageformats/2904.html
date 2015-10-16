@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--� Crown copyright You may use and re-use this code free of charge under the terms of the Open Government Licence http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
+<html xmlns="http://www.w3.org/1999/xhtml" IdURI="gaz: https://www.thegazette.co.uk/id/notice/undefined" prefix="gaz: https://www.thegazette.co.uk/def/publication# dc11: http://purl.org/dc/elements/1.1/ person: https://www.thegazette.co.uk/def/person# personal-legal: https://www.thegazette.co.uk/def/personal-legal# court: https://www.thegazette.co.uk/def/court# org: http://www.w3.org/ns/org# gazorg: https://www.thegazette.co.uk/def/organisation# gzw: https://www.thegazette.co.uk/def/working# loc: https://www.thegazette.co.uk/def/location# this: https://www.thegazette.co.uk/id/notice/undefined# noticeid: https://www.thegazette.co.uk/id/notice/undefined issue: https://www.thegazette.co.uk/id/edition/undefined/issue/undefined edition: https://www.thegazette.co.uk/id/edition/undefined vcard: http://www.w3.org/2006/vcard/ns# prov: http://www.w3.org/ns/prov#">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Place an Unclaimed Assets Notice</title>
+	</head>
+	<body>
+		<article>
+			<!-- header> <h1>Place an Unclaimed Assets notice</h1> </header -->
+			<div class="rdfa-data">
+				<span about="noticeid:" property="dc11:publisher" content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk" />
+				<span about="noticeid:" property="gaz:isAbout" resource="this:notifiableThing" />
+				<span about="noticeid:" property="prov:has_provenance" resource="provenance:" />
+				<span about="noticeid:" property="prov:hasAnchor" resource="noticeid:" />
+				<span about="noticeid:" property="gaz:isInIssue" resource="issue:" />
+				<span about="noticeid:" property="gaz:hasNoticeCode" datatype="xsd:integer" content="2904" />
+				<span resource="noticeid:" typeof="gaz:Notice gaz:WillsAndProbateNotice" />
+				<span resource="issue:" typeof="gaz:Issue" />
+				<span about="issue:" property="gaz:hasEdition" resource="edition:" />
+				<span about="issue:" property="gaz:hasIssueNumber" datatype="xsd:string" content="0" />
+				<span resource="edition:" typeof="gaz:Edition" />
+				<span about="noticeid:" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="0" />
+				
+				<!--Notice Classes-->
+				<span resource="issue:" typeof="gaz:Issue" />
+				<!--Notifiable Thing-->
+				<span resource="this:notifiableThing" typeof="personal-legal:NoticeForUnclaimedAssets" />
+				<!-- court related details -->
+				<span resource="this:deceasedPerson" typeof="gaz:Person" data-hide="true" />
+				<span about="this:deceasedPerson" property="person:hasEmployment" resource="this:occupationOfDeceased" data-hide="true" />
+				<span resource="this:occupationOfDeceased" typeof="person:Employment" data-hide="true" />
+				<span data-hide="true" resource="this:estateExecutor" typeof="foaf:Agent"/>
+
+			</div>
+			<dl class="metadata">
+				<dt>Notice category:</dt>
+				<dd data-ui-class="category">Personal Legal</dd>
+				<dt>Notice type:</dt>
+				<dd data-ui-class="notice-type">Unclaimed Assets</dd>
+				<dt data-gazettes="earliestpublicationdate">Earliest publication date:</dt>
+				<dd>
+					<span about="noticeid:" property="gaz:earliestPublicationDate" datatype="xsd:dateTime" data-required="true" />
+				</dd>
+				<dt>Claim expires:</dt>
+				<dd about="this:notifiableThing" property="personal-legal:hasClaimDeadline" datatype="xsd:date" />
+				<dt>Edition:</dt>
+				<dd>The <span about="edition:" property="gaz:editionName" datatype="xsd:string"></span> Gazette</dd>
+				<dt>Notice ID:</dt>
+				<dd about="noticeid:" property="gaz:hasNoticeID" data-gazettes="noticeid" />
+				<dt>Notice code:</dt>
+				<dd about="noticeid:" datatype="xsd:integer" property="gaz:hasNoticeCode">2904</dd>
+			</dl>
+			<div class="content" about="this:notifiableThing" data-gazettes="Notice" data-gazettes-type="2904">
+				<div class="full-form">
+					<div class="error-list" />
+					<!-- div data-gazettes="Before you start"> <div class="fileupload"> <span data-option="PROBATE" data-label="Grant of Probate"></span> <span data-option="ADMIN" data-label="Letters of Admin"></span> </div> </div -->
+					<dl data-gazettes="Notice Details">
+						<!-- <dt>Claim number:</dt> <dd about="this:notifiableThing" property="gaz:claimNumber" datatype="xsd:string"></dd> -->
+					</dl>
+					<dl about="this:notifiableThing" property="legislation:isEnabledByLegislation" resource="this:legislation-1" data-gazettes="Legislation">
+						<!-- RDFa: impossible to tie down to specific URIs until we know what the possibilities are -->
+						<dt>Legislation:</dt>
+						<dd about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string" />
+						<dt>Legislation Section:</dt>
+						<dd about="this:legislation-1" property="legislation:legislationSection" datatype="xsd:string" />
+					</dl>
+					<div data-gazettes="Deceased details" about="this:notifiableThing" property="personal-legal:hasEstateOf" resource="this:deceasedPerson">
+						<dl>
+							<dt>Deceased Surname:</dt>
+							<dd about="this:deceasedPerson" property="foaf:familyName" datatype="xsd:string" data-required="true" />
+							<dt>Deceased First name:</dt>
+							<dd about="this:deceasedPerson" property="foaf:firstName" datatype="xsd:string" data-required="true" />
+							<dt>Deceased Middle name(s):</dt>
+							<dd about="this:deceasedPerson" property="foaf:givenName" />
+							<dt>Deceased Title:</dt>
+							<dd about="this:deceasedPerson" property="foaf:title" />
+							<dt>Deceased Honour:</dt>
+							<dd about="this:deceasedPerson" property="person:honour" datatype="xsd:string" />
+							<dt>Marital Status</dt>
+							<dd about="this:deceasedPerson" data-required="true" datatype="personal-legal:MaritalStatus" property="personal-legal:hasMaritalStatus" content="personal-legal:MarriedMaritalStatus"/>
+							<dt>Maiden name:</dt>
+							<dd about="this:deceasedPerson" property="person:hasMaidenName" datatype="xsd:string" />
+							<dt>Date of Marriage:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:date" property="personal-legal:dateOfMarriage"/>
+							<dt>Place of Marriage:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:placeOfMarriage"/>
+							<dt>Spouse</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:spouse"/>
+							<dt>Nationality</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:nationality"/>
+							<dt>Religion</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:religion"/>
+							<dt>Previous name/any other name/also known as name:</dt>
+							<dd about="this:deceasedPerson" property="person:alsoKnownAs" datatype="xsd:string" data-button="true" data-name="add-more-names" data-title="Add more names" data-class-inner="add-names more" data-class-outer="add-names-link" />
+							<dt>Date of Death:</dt>
+							<dd about="this:deceasedPerson" property="personal-legal:dateOfDeath" datatype="xsd:date" />
+							<dt>Date of Death: Between dates of</dt>
+							<dd>
+								<span about="this:deceasedPerson" property="personal-legal:startDateOfDeath" datatype="xsd:date" data-control="nobreak" /> and <span about="this:deceasedPerson" property="personal-legal:endDateOfDeath" datatype="xsd:date" />
+							</dd>
+							<dt>Place of Death:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:placeOfDeath"/>
+							<dt>Deceased Occupation:</dt>
+							<dd about="this:occupationOfDeceased" property="person:jobTitle" datatype="xsd:string" data-required="true" />
+							<dt>Date entered UK:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:date" property="personal-legal:dateEnteredUK"/>
+							<dt>Date of Naturalisation:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:date" property="personal-legal:dateOfNaturalisation"/>
+							<dt>Date of adoption:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:date" property="personal-legal:dateOfAdoption"/>
+							<dt>Date of divorce:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:date" property="personal-legal:dateOfDivorce"/>
+							<dt>Next of Kin or other details:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:hasNextOfKin"/>
+							<dt>Any other information</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:otherInfo"/>
+						</dl>
+					</div>
+					<div about="this:deceasedPerson" property="person:hasAddress" resource="this:deceased-address-1" data-container="address" data-gazettes="Deceased Address" data-duplicable="true">
+						<dl>
+							<dt>Address Line 1:</dt>
+							<dd about="this:deceased-address-1" typeof="vcard:Address" property="vcard:street-address" data-required="true" data-ui-class="addressLine1" />
+							<dt>Address Line 2:</dt>
+							<dd about="this:deceased-address-1" property="vcard:extended-address" data-ui-class="addressLine2" />
+							<dt>Town:</dt>
+							<dd about="this:deceased-address-1" property="vcard:locality" data-ui-class="locality" />
+							<dt>County:</dt>
+							<dd about="this:deceased-address-1" property="vcard:region" data-ui-class="region" />
+							<dt>Country:</dt>
+							<dd about="this:deceased-address-1" property="vcard:country-name" data-ui-class="country" />
+							<dt>Postcode:</dt>
+							<dd about="this:deceased-address-1" property="vcard:postal-code" data-required="true" data-ui-class="postcode" />
+						</dl>
+					</div>
+					<div about="this:deceasedPerson" property="person:hasPreviousAddress" resource="this:previous-deceased-address-1" data-container="address" data-gazettes="Previous Deceased Address">
+						<dl>
+							<dt>Address Line 1:</dt>
+							<dd about="this:previous-deceased-address-1" typeof="vcard:Address" property="vcard:street-address" data-required="true" data-ui-class="addressLine1" />
+							<dt>Address Line 2:</dt>
+							<dd about="this:previous-deceased-address-1" property="vcard:extended-address" data-ui-class="addressLine2" />
+							<dt>Town:</dt>
+							<dd about="this:previous-deceased-address-1" property="vcard:locality" data-ui-class="locality" />
+							<dt>County:</dt>
+							<dd about="this:previous-deceased-address-1" property="vcard:region" data-ui-class="region" />
+							<dt>Country:</dt>
+							<dd about="this:previous-deceased-address-1" property="vcard:country-name" data-ui-class="country" />
+							<dt>Postcode:</dt>
+							<dd about="this:previous-deceased-address-1" property="vcard:postal-code" data-required="true" data-ui-class="postcode" />
+						</dl>
+					</div>
+					
+					<div about="this:notifiableThing" property="personal-legal:hasPersonalRepresentative" resource="this:estateExecutor" data-gazettes="Executors Details">
+					  <dl data-gazettes="Executors Name">
+					        <dt>Executor/Administrator Company Name: </dt>
+					        <dd about="this:estateExecutor" data-required="true" datatype="xsd:string" property="foaf:name"/> 
+							<dt>Executor/Administrator Surname: </dt>
+							<dd about="this:estateExecutor" property="foaf:familyName" datatype="xsd:string" data-required="true" />
+							<dt>Executor/Administrator First name: </dt>
+							<dd about="this:estateExecutor" property="foaf:firstName" datatype="xsd:string" data-required="true" />
+							<dt>Executor/Administrator Middle name(s): </dt>
+							<dd about="this:estateExecutor" property="foaf:givenName" />
+						</dl>
+						<div about="this:estateExecutor" property="vcard:adr" resource="this:addressOfExecutor-1" data-container="address" data-gazettes="Executors Address">
+							<dl>
+								<dt>Address 1:</dt>
+								<dd about="this:addressOfExecutor-1" typeof="vcard:Address" property="vcard:street-address" />
+								<dt>Address 2:</dt>
+								<dd about="this:addressOfExecutor-1" property="vcard:extended-address" />
+								<dt>Town:</dt>
+								<dd about="this:addressOfExecutor-1" property="vcard:locality" />
+								<dt>County:</dt>
+								<dd about="this:addressOfExecutor-1" property="vcard:region" />
+								<dt>Country:</dt>
+								<dd about="this:addressOfExecutor-1" property="vcard:country-name" />
+								<dt>Postcode:</dt>
+								<dd about="this:addressOfExecutor-1" property="vcard:postal-code" />
+							</dl>
+						</div>
+						<dl data-gazettes="Executors Contact">
+							<dt>Telephone: </dt>
+							<dd about="this:estateExecutor" property="gaz:telephone" datatype="xsd:string" />
+							<dt>Fax: </dt>
+							<dd about="this:estateExecutor" property="gaz:fax" datatype="xsd:string" />
+							<dt>Email address: </dt>
+							<dd about="this:estateExecutor" property="gaz:email" datatype="xsd:string" />
+							<dt>Reference Number: </dt>
+							<dd about="this:notifiableThing" property="gaz:claimNumber" datatype="xsd:string" />
+						</dl>
+					</div>
+					<dl data-gazettes="Claims Date">
+						<dt>Claims Date:</dt>
+						<dd about="this:notifiableThing" property="personal-legal:hasClaimDeadline" datatype="xsd:date" />
+					</dl>
+				</div>
+			</div>
+			<section>
+				<p>Notice is hereby given pursuant to section 27 (Deceased Estates) of the Trustee Act 1925, that any person having a claim against or an interest in the estate of any of the deceased persons whose names and addresses are set out above is hereby required to send particulars in writing of his claim or interest to the person or persons whose names and addresses are set out above, and to send such particulars before the date specified in relation to that deceased person displayed above, after which date the personal representatives will distribute the estate among the persons entitled thereto having regard only to the claims and interests of which they have had notice and will not, as respects the property so distributed, be liable to any person of whose claim they shall not then have had notice.</p>
+			</section>
+		</article>
+	</body>
+</html>
