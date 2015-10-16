@@ -481,6 +481,89 @@ Change history
 								</section>
 							</xsl:if>
 						</xsl:when>
+						<xsl:when test="$first//*:notice-code = 2904">
+							<xsl:if
+								test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() ='London']) &gt; 0">
+								<section id="nt-{@code}" class="{$class}">
+									<header>
+										<xsl:element name="{$heading}">
+											<xsl:value-of select="@name"/>
+										</xsl:element>
+									</header>
+									<div class="legal-notice">
+										<!-- @TODO: Legal text for 2903 notices needs passed through by Java Layer or drawn from the notices -->
+										<p>Notice is hereby given pursuant to s. 27 of the Trustee
+											Act 1925, that any person having a claim against or an
+											interest in the estate of any of the deceased persons
+											whose names and addresses are set out above is hereby
+											required to send particulars in writing of his claim or
+											interest to the person or persons whose names and
+											addresses are set out above, and to send such
+											particulars before the date specified in relation to
+											that deceased person displayed above, after which date
+											the personal representatives will distribute the estate
+											among the persons entitled thereto having regard only to
+											the claims and interests of which they have had notice
+											and will not, as respects the property so distributed,
+											be liable to any person of whose claim they shall not
+											then have had notice</p>
+									</div>
+									<table class="wills-and-probate-2903-table">
+										<thead>
+											<tr>
+												<th class="name">Name of Deceased (Surname
+													first)</th>
+												<th class="address">Address, description and date of
+													death of Deceased</th>
+												<th class="represent">Names addresses and
+													descriptions of Persons to whom notices of claims
+													are to be given and names, in parentheses, of
+													Personal Representatives</th>
+												<th class="claimsDate">Date before which notice of
+													claims to be given</th>
+												<th class="noticeNum"/>
+											</tr>
+										</thead>
+										<tbody>
+											<xsl:for-each
+												select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() = 'London' and not(*//*:p[@class='substitution'])]">
+												<xsl:sort
+													select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+												<xsl:call-template name="table_2903"/>
+											</xsl:for-each>
+											<xsl:for-each
+												select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() = 'London' and *//*:p[@class='substitution']]">
+												<xsl:sort
+													select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+												<xsl:call-template name="table_2903"/>
+											</xsl:for-each>
+										</tbody>
+									</table>
+								</section>
+							</xsl:if>
+							<xsl:if
+								test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() != 'London']) &gt; 0">
+								<xsl:if
+									test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() ='London']) &gt; 0">
+									<xsl:text disable-output-escaping="yes">&lt;/section&gt;&lt;section&gt;</xsl:text>
+								</xsl:if>
+								<section class="{$class}">
+									<xsl:attribute name="class">
+										<xsl:value-of select="$class"/>
+										<xsl:if
+											test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() ='London']) &gt; 0">
+											<xsl:text> full-width</xsl:text>
+										</xsl:if>
+									</xsl:attribute>
+									<xsl:for-each
+										select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() != 'London']">
+										<xsl:sort
+											select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+										<xsl:apply-templates/>
+									</xsl:for-each>
+								</section>
+							</xsl:if>
+						</xsl:when>
 						<!-- Sorting drawn from Taxonomy File -->
 						<xsl:when test="exists($sortByXPath)">
 							<section id="nt-{@code}" class="{$class}">
@@ -650,19 +733,19 @@ Change history
 		</xsl:if>
 		<tr>
 			<td>
-				<xsl:apply-templates mode="table_2903"
-					select=".//*:dd[@about='this:deceasedPerson']"/>
 				<!-- The familyName is set to uppercase by the css. -->
-				<!--	<span class="familyName">
+				<span class="familyName">
 					<xsl:value-of select=".//*:dd[@property='foaf:familyName' and @about='this:deceasedPerson']"/>
 				</span>
 				<xsl:text>, </xsl:text>
-				<xsl:if test=".//*:dd[@property='foaf:familyName' and @about='this:deceasedPerson']/following-sibling::.//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson']">
-					
-				</xsl:if>
 				<xsl:value-of select=".//*:dd[@property='foaf:firstName' and @about='this:deceasedPerson']"/>
 				<xsl:text> </xsl:text>
-				<xsl:value-of select=".//*:dd[@property='foaf:givenName' and @about='this:deceasedPerson']"/>-->
+				<xsl:value-of select=".//*:dd[@property='foaf:givenName' and @about='this:deceasedPerson']"/>
+				<xsl:if test=".//*:dd[@property='foaf:familyName' and @about='this:deceasedPerson']/following-sibling::*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson']/node()">
+					<xsl:text> (</xsl:text>
+					<xsl:value-of select=".//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson']"/>
+					<xsl:text>)</xsl:text>
+				</xsl:if>
 				<!-- @TODO, check this, can there be more than 1? -->
 				<!--	<xsl:if test=".//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson'] != ''">
 					<xsl:text> </xsl:text>
@@ -742,6 +825,7 @@ Change history
 				</xsl:choose>
 			</td>
 			<td>
+				<xsl:if test=".//*:notice-code='2903'">
 				<xsl:choose>
 					<xsl:when test="count(.//*:dd[@about='this:estateExecutor']) &gt; 1">
 						<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor-1']">
@@ -767,6 +851,10 @@ Change history
 						<xsl:value-of select=".//*:dd[@about='this:estateExecutor']"/>
 					</xsl:otherwise>
 				</xsl:choose>
+				</xsl:if>
+				<xsl:if test=".//*:notice-code='2904'">
+					<xsl:text>Bona Vacantia Division (BVD), PO Box 70165, London, WC1A 9HG</xsl:text>
+				</xsl:if>
 			</td>
 			<td>
 				<xsl:choose>
