@@ -729,9 +729,14 @@ Change history
 						/>
 					</xsl:when>
 					<!-- Exact Date -->
-					<xsl:otherwise>
+					<xsl:when test=".//*:dd[@property='personal-legal:dateOfDeath']/@content">
 						<xsl:value-of
 							select="gfn:safe-date(.//*:dd[@property='personal-legal:dateOfDeath']/@content)"
+						/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of
+							select="gfn:safe-date(.//*:dd[@property='personal-legal:dateOfDeath']/text())"
 						/>
 					</xsl:otherwise>
 				</xsl:choose>
