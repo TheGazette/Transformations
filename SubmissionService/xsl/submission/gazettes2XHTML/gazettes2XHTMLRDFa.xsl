@@ -1904,6 +1904,29 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
    <xsl:template match="gz:Notice/gz:Company/gz:CompanyType">
   </xsl:template>
 
+	<xsl:template match="gz:Notice/gz:CorporateBody/gz:DocumentType">
+		<p>
+			<xsl:text>Document Type: </xsl:text>
+			<strong datatype="xsd:string" data-gazettes="DocumentType">
+				<xsl:value-of select="(.)" />
+			</strong>
+		</p>
+	</xsl:template>
+
+	<xsl:template match="gz:Notice/gz:CorporateBody/gz:Company/gz:CompanyName">
+		<xsl:choose>
+			<xsl:when test="$noticeCode = (3301)">
+				<p>
+					<xsl:text>Name of Company: </xsl:text>
+					<strong property="{$has-company-name}" datatype="xsd:string"
+						data-gazettes="CompanyName" data-gazettes-class="{@Class}">
+						<xsl:value-of select="upper-case(.)" />
+					</strong>
+				</p>
+			</xsl:when>
+		</xsl:choose>
+	</xsl:template>
+
   <xsl:template match="gz:Company/gz:CompanyNumber">
     <xsl:choose>
       <xsl:when test="$edition = 'London' or $edition = 'Belfast'">
@@ -1924,6 +1947,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span property="{$has-company-number}" datatype="xsd:string" data-gazettes="CompanyNumber">
               <xsl:apply-templates/>
             </span>
+            </p>
+          </xsl:when>
+          <xsl:when test="$noticeCode = (3301)">
+            <p>
+          	<xsl:text>Company Number: </xsl:text>
+            <strong property="{$has-company-number}" datatype="xsd:string" data-gazettes="CompanyNumber">
+              <xsl:apply-templates/>
+            </strong>
             </p>
           </xsl:when>
           <xsl:otherwise>
@@ -3442,6 +3473,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:apply-templates/>
     </span>
   </xsl:template>
+
+	<xsl:template match="gz:Date[@Class='Issued']">
+		<p>
+			<xsl:text>Date Issued: </xsl:text>
+			<strong property="{$has-date-of-appointment}" datatype="xsd:date"
+				content="{@Date}" data-gazettes="Date" data-gazettes-class="{@Class}"
+				data-date="{@Date}">
+				<xsl:apply-templates />
+			</strong>
+		</p>
+	</xsl:template>
 
   <xsl:template match="gz:Date">
     <span property="gaz:relatedDate" content="{@Date}" datatype="xsd:date" data-gazettes="Date"
