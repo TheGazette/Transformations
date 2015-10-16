@@ -2493,6 +2493,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <span data-gazettes="Rank" about="this:rank-1" property="military:rankName" typeof="military:Rank"><xsl:apply-templates/></span>
       </xsl:otherwise>
     </xsl:choose>
+    <xsl:text> </xsl:text>
   </xsl:template>
   
   <xsl:template match="gz:Notice/gz:Person/gz:Workplace">
@@ -3030,7 +3031,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           <xsl:apply-templates/>
         </span>
       </xsl:otherwise>
-    </xsl:choose>   
+    </xsl:choose>  
+    <xsl:text> </xsl:text>
   </xsl:template>
   <!--1130-->
   <xsl:template match="gz:AddressLineGroup/gz:country"/>
