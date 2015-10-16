@@ -1828,24 +1828,32 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:variable>
     <xsl:variable name="companyType">
       <xsl:choose>
-        <xsl:when test="$noticeType='2450' and ./gz:CompanyType= 'Unregistered'">
-          <xsl:text>gazorg:UnregisteredCompany</xsl:text>
-        </xsl:when>
-        <xsl:when test="$noticeType='2450' and ./gz:CompanyType = 'LimitedCompany'">
-          <xsl:text>gazorg:LimitedCompany</xsl:text> 
-        </xsl:when>
-        <xsl:when test="$noticeType='2450' and ./gz:CompanyType = 'SocietyClub'">
-          <xsl:text>gazorg:SocietyClub</xsl:text> 
-        </xsl:when>
-        <xsl:when test="$noticeType='2450' and ./gz:CompanyType = 'OverseasCompany'">
-          <xsl:text>gazorg:OverseasCompany</xsl:text> 
-        </xsl:when>
-        <xsl:when test="$noticeType='2450' and ./gz:CompanyType = 'Partnership'">
-          <xsl:text>gazorg:Partnership</xsl:text> 
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>gazorg:LimitedCompany</xsl:text> 
-        </xsl:otherwise>
+        <xsl:when test="$noticeType=('2450','2411','2421','2410','2432','2423','2459','2404','2452', 
+          '2462','2464','2407','2406','2445','2435','2412','2444','2442',
+          '2434','2422','2401','2402','2408','2460','2446','2433','2413',
+          '2441','2431','2451','2453','2458','2443','2454','2455','2403','2461' )">
+          <xsl:choose>
+            <xsl:when test="lower-case(./gz:CompanyType)= 'unregistered'">
+              <xsl:text>gazorg:UnregisteredCompany</xsl:text>
+            </xsl:when>
+            <xsl:when test="lower-case(./gz:CompanyType) = 'limitedcompany'">
+              <xsl:text>gazorg:LimitedCompany</xsl:text>
+            </xsl:when>
+            <xsl:when test="lower-case(./gz:CompanyType) = 'societyclub'">
+              <xsl:text>gazorg:SocietyClub</xsl:text>
+            </xsl:when>
+            <xsl:when test="lower-case(./gz:CompanyType) = 'overseascompany'">
+              <xsl:text>gazorg:OverseasCompany</xsl:text>
+            </xsl:when>
+            <xsl:when test="lower-case(./gz:CompanyType) = 'partnership'">
+              <xsl:text>gazorg:Partnership</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:text>gazorg:LimitedCompany</xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:when>   
+        <xsl:otherwise><xsl:text>gazorg:LimitedCompany</xsl:text></xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <div data-gazettes="Company" property="{$prop}" resource="{wlf:name-sibling(.)}"
