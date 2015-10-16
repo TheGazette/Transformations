@@ -78,7 +78,7 @@
 							<dt>Deceased Honour:</dt>
 							<dd about="this:deceasedPerson" property="person:honour" datatype="xsd:string" />
 							<dt>Marital Status</dt>
-							<dd about="this:deceasedPerson" data-required="true" datatype="personal-legal:MaritalStatus" property="personal-legal:hasMaritalStatus" content="personal-legal:MarriedMaritalStatus"/>
+							<dd about="this:deceasedPerson" data-required="true" datatype="personal-legal:MaritalStatus" property="personal-legal:hasMaritalStatus"/>
 							<dt>Maiden name:</dt>
 							<dd about="this:deceasedPerson" property="person:hasMaidenName" datatype="xsd:string" />
 							<dt>Date of Marriage:</dt>
@@ -191,6 +191,8 @@
 					<dl data-gazettes="Claims Date">
 						<dt>Claims Date:</dt>
 						<dd about="this:notifiableThing" property="personal-legal:hasClaimDeadline" datatype="xsd:date" />
+						<dt>Informant:</dt>
+                        <dd about="this:notifiableThing" datatype="xsd:string" property="personal-legal:informant"/>
 					</dl>
 				</div>
 			</div>
