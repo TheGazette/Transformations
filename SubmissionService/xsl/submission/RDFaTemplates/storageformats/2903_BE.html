@@ -30,7 +30,7 @@
 				<span resource="this:deceasedPerson" typeof="gaz:Person" data-hide="true" />
 				<span about="this:deceasedPerson" property="person:hasEmployment" resource="this:occupationOfDeceased" data-hide="true" />
 				<span resource="this:occupationOfDeceased" typeof="person:Employment" data-hide="true" />
-				<span resource="this:estateExecutor" typeof="person:Person" data-hide="true" />
+				<span data-hide="true" resource="this:estateExecutor" typeof="foaf:Agent"/>
 			</div>
 			<dl class="metadata">
 				<dt>Notice category:</dt>
@@ -125,6 +125,8 @@
 					
 					<div about="this:notifiableThing" property="personal-legal:hasPersonalRepresentative" resource="this:estateExecutor" data-gazettes="Executors Details">
 					  <dl data-gazettes="Executors Name">
+					        <dt>Executor/Administrator Company Name: </dt>
+					        <dd about="this:estateExecutor" data-required="true" datatype="xsd:string" property="foaf:name"/> 
 							<dt>Executor/Administrator Surname: </dt>
 							<dd about="this:estateExecutor" property="foaf:familyName" datatype="xsd:string" data-required="true" />
 							<dt>Executor/Administrator First name: </dt>
