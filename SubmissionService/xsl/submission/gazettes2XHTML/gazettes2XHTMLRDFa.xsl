@@ -396,8 +396,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <xsl:variable name="has-registered-office">gazorg:hasRegisteredOffice</xsl:variable>
   <xsl:variable name="has-resolutionLiquidator">insolvency:resolutionLiquidator</xsl:variable>
   <xsl:variable name="has-liquidator">insolvency:hasLiquidator</xsl:variable>
-  <xsl:variable name="has-society-name">gzw:hasSocietyName</xsl:variable>
-  <xsl:variable name="has-society-number">gzw:hasSocietyNumber</xsl:variable>
+  <xsl:variable name="has-society-name">societies:societyName</xsl:variable>
+  <xsl:variable name="has-society-number">societies:societyNumber</xsl:variable>
   <xsl:variable name="has-status">gzw:hasStatus</xsl:variable>
   <xsl:variable name="has-trade-classification">gazorg:sitcTradeClassification</xsl:variable>
   <xsl:variable name="is-about">gaz:isAbout</xsl:variable>
@@ -441,6 +441,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       org: http://www.w3.org/ns/org#
       gazorg: https://www.thegazette.co.uk/def/organisation#
       leg: https://www.thegazette.co.uk/def/legislation#
+      societies: https://www.thegazette.co.uk/def/societies#
       loc: https://www.thegazette.co.uk/def/location#
       dc11: http://purl.org/dc/elements/1.1/
       this: https://www.thegazette.co.uk/id/notice/{$noticeId}#
@@ -847,8 +848,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </xsl:variable>
       <xsl:apply-templates select="$firstPass" mode="dlSecondPass"/>
         
-      
-    <dl>
+      <dl>
+    
     <xsl:if test="gz:Person/gz:DeathDetails/gz:Date">
       <dt>Date of death:</dt>
       <dd property="personal-legal:dateOfDeath" typeof="gaz:Person" datatype="xsd:date"
@@ -861,14 +862,15 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:if test="gz:Person/gz:PersonDetails">
       <xsl:variable name="list_before" select="('St')"/>
       <xsl:variable name="list_occupation" select="('previously of')"/>
-            
-      <xsl:variable name="chunck" select="tokenize(gz:Person/gz:PersonDetails/text(),'\.')[last()]"/>
-      <xsl:variable name="chunck_before" select="tokenize(gz:Person/gz:PersonDetails/text(),'\.')[last()-1]"/>
+      
+      <xsl:variable name="personDetails_serialize" select="wlf:serialize(gz:Person/gz:PersonDetails)"/> 
+      <xsl:variable name="chunk" select="tokenize($personDetails_serialize,'\.')[last()]"/>
+      <xsl:variable name="chunk_before" select="tokenize($personDetails_serialize,'\.')[last()-1]"/>
       <xsl:choose>
-      	<xsl:when test="chunck_before and not(wlf:ends-with($chunck_before, $list_before)) and not(wlf:starts-with(normalize-space(lower-case($chunck)), $list_occupation))">
+      	<xsl:when test="$chunk_before and not(wlf:ends-with($chunk_before, $list_before)) and not(wlf:starts-with(normalize-space(lower-case($chunk)), $list_occupation))">
           <dt data-gazettes="custom-title">Deceased Occupation:</dt>
           <dd about="this:occupationOfDeceased" datatype="xsd:string" property="person:jobTitle">
-            <xsl:value-of select="normalize-space($chunck)"/>
+            <xsl:value-of select="normalize-space($chunk)"/>
           </dd>
           <dt>Person Address Details</dt>
           <dd about="this:addressOfDeceased-address-1" typeof="vcard:Address" property="vcard:adr">
@@ -889,7 +891,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:value-of select="gz:Person/gz:DeathDetails/gz:NoticeOfClaims"/>
       </dd>
     </xsl:if>
-    </dl>
+      </dl>
   </xsl:template>
 
   <xsl:template match="@*|node()" mode="init">
@@ -1626,17 +1628,21 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:choose>
           <xsl:when
             test="$noticeCode = (2301, 2410, 2411, 2412, 2413, 2421, 2422, 2423, 2431, 2433, 2434, 2435, 2441, 2442, 2444, 2445, 2446, 2450, 2452, 2454, 2455, 2456, 2457, 2458, 2459, 2460, 2461, 2462, 2601, 2602, 2608, 2609, 2610, 2613, 2614)">
-            <xsl:text>(Company Number </xsl:text>
+            <p>
+          	<xsl:text>(Company Number </xsl:text>
             <span property="{$has-company-number}" datatype="xsd:string" data-gazettes="CompanyNumber">
               <xsl:apply-templates/>
             </span>
             <xsl:text>)</xsl:text>
+            </p>
           </xsl:when>
           <xsl:when test="$noticeCode = (2401, 2402, 2432, 2443, 2603)">
-            <xsl:text>Company Number: </xsl:text>
+            <p>
+          	<xsl:text>Company Number: </xsl:text>
             <span property="{$has-company-number}" datatype="xsd:string" data-gazettes="CompanyNumber">
               <xsl:apply-templates/>
             </span>
+            </p>
           </xsl:when>
           <xsl:otherwise>
             <span property="{$has-company-number}" datatype="xsd:string" data-gazettes="CompanyNumber">
@@ -1646,10 +1652,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:choose>
       </xsl:when>
       <xsl:when test="$edition = 'Edinburgh'">
-        <xsl:text>Company Number: </xsl:text>
+        <p>
+      	<xsl:text>Company Number: </xsl:text>
         <span property="{$has-company-number}" datatype="xsd:string" data-gazettes="CompanyNumber">
           <xsl:apply-templates/>
         </span>
+        </p>
       </xsl:when>
     </xsl:choose>
   </xsl:template>
@@ -1689,27 +1697,38 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   </xsl:template>
 
 
-  <xsl:template match="gz:Notice/gz:Company/gz:CompanyOtherNames">
-    <p>
-      <xsl:choose>
-        <xsl:when test="gz:TradingAs and $noticeCode = '2443'">
-          <xsl:text>Trading Name: </xsl:text>
-          <xsl:apply-templates/>
-        </xsl:when>
-        <xsl:when test="gz:TradingAs">
-          <xsl:text>Other Names of Company: </xsl:text>
-          <xsl:apply-templates/>
-        </xsl:when>
-        <xsl:when test="gz:CompanyPrevious">
-          <xsl:text>Previous Name of Company: </xsl:text>
-          <xsl:apply-templates/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:apply-templates/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </p>
-  </xsl:template>
+	<xsl:template match="gz:Notice/gz:Company/gz:CompanyOtherNames">
+		<xsl:for-each select="*">
+			<p>
+				<xsl:choose>
+					<xsl:when test="self::gz:TradingAs">
+						<xsl:choose>
+							<xsl:when test="@Type">
+								<xsl:value-of select="@Type"/>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:text>Trading Name: </xsl:text>
+							</xsl:otherwise>
+						</xsl:choose>
+						<span property="gazorg:isTradingAs" data-gazettes="TradingAs">
+							<xsl:apply-templates/>
+						</span>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:choose>
+							<xsl:when test="@Type">
+								<xsl:value-of select="@Type"/>
+							</xsl:when>
+							<xsl:when test="self::gz:CompanyPrevious">
+								<xsl:text>Previous Name of Company: </xsl:text>
+							</xsl:when>
+						</xsl:choose>
+						<xsl:apply-templates/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</p>
+		</xsl:for-each>
+	</xsl:template>
 
   <xsl:template match="gz:NatureOfBusiness">
     <p data-gazettes="NatureOfBusiness">
@@ -1791,8 +1810,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </span>
   </xsl:template>
 
-  <xsl:template match="gz:CompanyOtherNames/gz:TradingAs">
-    <span property="gazorg:isTradingAs" data-gazettes="TradingAs">
+	<xsl:template match="gz:CompanyOtherNames/gz:TradingAs">
+		<span property="gazorg:isTradingAs" data-gazettes="TradingAs">
       <xsl:apply-templates/>
     </span>
   </xsl:template>
@@ -3211,7 +3230,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </em>
   </xsl:template>
   <xsl:template match="gz:ExternalLink">
-    <a target="_blank" href="@URI">
+    <a target="_blank" href="{@URI}">
       <xsl:apply-templates/>
     </a>
   </xsl:template>
