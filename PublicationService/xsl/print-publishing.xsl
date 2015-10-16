@@ -13,21 +13,25 @@ Change history
 
 -->
 <!-- This transformation is used for displaying dynamic contents for single notice -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:f="http://www.gazettes.co.uk/facets"
-	xmlns:tax="http://www.gazettes.co.uk/assets/taxonomy" xmlns:m="http://www.gazettes.co.uk/metadata" xmlns="http://www.w3.org/1999/xhtml" xmlns:xhtml="http://www.w3.org/1999/xhtml"
-	xmlns:saxon="http://saxon.sf.net/" xmlns:gfn="http://www.thegazette.co.uk/ns/functions" version="2.0" exclude-result-prefixes="#all" extension-element-prefixes="saxon">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:f="http://www.gazettes.co.uk/facets" xmlns:tax="http://www.gazettes.co.uk/assets/taxonomy"
+	xmlns:m="http://www.gazettes.co.uk/metadata" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:saxon="http://saxon.sf.net/"
+	xmlns:gfn="http://www.thegazette.co.uk/ns/functions" version="2.0"
+	exclude-result-prefixes="#all" extension-element-prefixes="saxon">
 	<xsl:output indent="no" method="xhtml" encoding="ascii" omit-xml-declaration="yes"/>
-	<!--xsl:strip-space elements="*"/-->
+	<!-- the string should contain base64 encoded image/png -->
 	<xsl:param name="barcode" required="yes" as="xs:string"/>
-	<!-- ideally the string contains an SVG document, -->
-	<!-- if not, a path to a TIFF, PNG or JPEG on the filesystem - let us know which, thanx -->
-	<xsl:param name="initial-page" required="yes"/>
 	<!-- page number -->
+	<xsl:param name="initial-page" required="yes"/>
+	<!-- isbn number ## -->
 	<xsl:param name="isbn-number" required="no"/>
-	<!-- isbn number ## -->
+	<!-- issn number ## -->
 	<xsl:param name="ISSN" required="no" select="''"/>
-	<!-- isbn number ## -->
+	<!-- decimal #.## value -->
 	<xsl:param name="cover-price" as="xs:string" required="no" select="''"/>
 	<!-- limit the table of contents to just the comma separated list of top level notice categories , blank or not set = all -->
 	<xsl:param name="limit-table-of-contents" as="xs:string">
@@ -43,53 +47,58 @@ Change history
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:param>
-	<!-- SVG files -->
+	<!-- SVG file of the Gazette Crest -->
 	<xsl:param name="crest" as="node()" select="doc('local-test/gazette.svg')"/>
+	<!-- SVG file of the TSO logo -->
 	<xsl:param name="tso_logo" as="node()" select="doc('local-test/tso-gazettes.svg')"/>
-	<!-- cover price ## -->
+	<!-- publication date (dd-mm-yyyy) -->
 	<xsl:param name="publication-date" required="yes" as="xs:date"/>
-	<!-- publication date -->
+	<!-- start of the search range (dd-mm-yyyy) -->
 	<xsl:param name="publication-date-start"/>
-	<!-- publication date -->
+	<!-- end of the search range (dd-mm-yyyy) -->
 	<xsl:param name="publication-date-end"/>
-	<!-- publication date -->
-	<xsl:param name="number" required="yes"/>
 	<!-- issue number -->
-	<xsl:param name="edition-name" required="yes"/>
-	<xsl:param name="mourningBorder" select="'false'"/>
+	<xsl:param name="number" required="yes"/>
 	<!-- edition name needs to be passed as printed e.g. "London Gazette" ## -->
+	<xsl:param name="edition-name" required="yes"/>
+	<!-- Should the edition carry the thick black mourning border -->
+	<xsl:param name="mourningBorder" select="'false'"/>
+	<!-- Is this a bespoke gazette -->
 	<xsl:param name="bespoke" select="'false'"/>
 	<!-- Created should be firstname surname, only used for Bespoke gazettes -->
 	<xsl:param name="created"/>
 	<!-- What sort of bookmarks should be created - one of 'notice' or 'section'-->
 	<xsl:param name="bookmarks" select="'notice'"/>
-	<xsl:param name="taxonomy-notice-type" as="node()" select="doc('new-taxonomy.xml')"/>
 	<!-- we need access to the FULL taxonomy to create the table of contents and section headings - therefore mandatory -->
-	<xsl:param name="terms-and-conditions" as="node()" select="doc('local-test/terms.xhtml')"/>
-	<!--local-test/terms.xhtml-->
-	<!-- HTML document containing terms and conditions ## -->
+	<xsl:param name="taxonomy-notice-type" as="node()" select="doc('new-taxonomy.xml')"/>
+	<!-- HTML document containing terms and conditions -->
 	<!-- Java layer should make the choice as to which terms and conditions to pass -->
+	<!-- local-test/terms.xhtml as test, production drawn from ML -->
+	<xsl:param name="terms-and-conditions" as="node()" select="doc('local-test/terms.xhtml')"/>
+	<!-- HTML document containing contact information -->
+	<!-- local-test/contact.xhtml as test, production drawn from ML  -->
 	<xsl:param name="contact-document" as="node()" select="doc('local-test/contact.xhtml')"/>
-	<!--local-test/contact.xhtml-->
-	<!-- HTML document containing contact information ## -->
+	<!-- HTML document containing information needed to generate pricing table -->
+	<!-- local-test/prices.xhtml as test, production drawn from ML -->
 	<xsl:param name="prices" as="node()" select="doc('local-test/prices.xhtml')"/>
-	<!--local-test/prices.xhtml-->
-	<!-- HTML document containing information needed to generate pricing table ## -->
-	<!-- the pricing information needs to be drawn from the ecommerce solution -->
-	<xsl:param name="number-of-extra-pages" as="xs:integer" select="0"/>
+	<!-- total number of pages modulo 4 = number of extra pages ## -->
 	<!-- to be used on the second pass to add an appropriate number of advert pages  (1-3) -->
 	<!-- if number of extra pages = 0, no need to push it through a second time -->
-	<!-- total number of pages modulo 4 = number of extra pages ## -->
+	<xsl:param name="number-of-extra-pages" as="xs:integer" select="0"/>
+	<!-- used for retrieving images, no trailing slash-->
 	<xsl:param name="gazette-host-name" as="xs:string"/>
-	<!-- used for images no trailing slash-->
+	<!-- prints out extra information for debugging -->
 	<xsl:param name="DEBUG">false</xsl:param>
 	<xsl:variable name="feed" select="/"/>
 	<xsl:variable name="classreadyedition1">
-		<xsl:value-of select="lower-case(replace(normalize-space(replace(replace(replace($edition-name,' &amp; ',' and '),'The',''),'Gazette','')),' ','-'))"/>
+		<xsl:value-of
+			select="lower-case(replace(normalize-space(replace(replace(replace($edition-name,' &amp; ',' and '),'The',''),'Gazette','')),' ','-'))"
+		/>
 	</xsl:variable>
 	<xsl:variable name="classreadyedition">
 		<xsl:choose>
-			<xsl:when test="$classreadyedition1 = ('london','edinburgh','belfast','all-notices','wills-and-probate','insolvency')">
+			<xsl:when
+				test="$classreadyedition1 = ('london','edinburgh','belfast','all-notices','wills-and-probate','insolvency')">
 				<xsl:text>standard </xsl:text>
 				<xsl:value-of select="$classreadyedition1"/>
 			</xsl:when>
@@ -102,11 +111,14 @@ Change history
 	<xsl:variable name="existing">
 		<xsl:for-each select="//atom:entry">
 			<xsl:choose>
-				<xsl:when test=".//*:notice-category-code/text() = ('G101000000','G102000000','G103000000','G104000000','G107000000')">
+				<xsl:when
+					test=".//*:notice-category-code/text() = ('G101000000','G102000000','G103000000','G104000000','G107000000')">
 					<xsl:choose>
-						<xsl:when test=".//*:notice-category-code/text() = ('G406010003','G406010002','G406010001','G206030000','G205010000')">
+						<xsl:when
+							test=".//*:notice-category-code/text() = ('G406010003','G406010002','G406010001','G206030000','G205010000')">
 							<xsl:for-each select=".//*:notice-category-code">
-								<xsl:if test="not(text() = ('G101000000','G102000000','G103000000','G104000000','G107000000'))">
+								<xsl:if
+									test="not(text() = ('G101000000','G102000000','G103000000','G104000000','G107000000'))">
 									<code>
 										<xsl:value-of select="."/>
 									</code>
@@ -134,13 +146,16 @@ Change history
 	</xsl:variable>
 	<xsl:variable name="publishingStatement">
 		<xsl:choose>
-			<xsl:when test="$publication-date-start castable as xs:dateTime and $publication-date-end castable as xs:dateTime">
+			<xsl:when
+				test="$publication-date-start castable as xs:dateTime and $publication-date-end castable as xs:dateTime">
 				<xsl:text> all notices published online</xsl:text>
 				<xsl:choose>
 					<!-- only one day's notices -->
-					<xsl:when test="format-dateTime($publication-date-start,'[Y0001][M01][D01]') = format-dateTime($publication-date-end,'[Y0001][M01][D01]')">
+					<xsl:when
+						test="format-dateTime($publication-date-start,'[Y0001][M01][D01]') = format-dateTime($publication-date-end,'[Y0001][M01][D01]')">
 						<xsl:text> on </xsl:text>
-						<xsl:value-of select="format-dateTime($publication-date-end,'[D] [MNn] [Y0001]')"/>
+						<xsl:value-of
+							select="format-dateTime($publication-date-end,'[D] [MNn] [Y0001]')"/>
 					</xsl:when>
 					<!-- more than one day's notices -->
 					<xsl:otherwise>
@@ -148,27 +163,34 @@ Change history
 						<!-- define format -->
 						<xsl:choose>
 							<!-- different day same month -->
-							<xsl:when test="format-dateTime($publication-date-start,'[Y0001][M01]') = format-dateTime($publication-date-end,'[Y0001][M01]')">
-								<xsl:value-of select="format-dateTime($publication-date-start,'[D]')"/>
+							<xsl:when
+								test="format-dateTime($publication-date-start,'[Y0001][M01]') = format-dateTime($publication-date-end,'[Y0001][M01]')">
+								<xsl:value-of
+									select="format-dateTime($publication-date-start,'[D]')"/>
 							</xsl:when>
 							<!-- different day and month same year -->
-							<xsl:when test="format-dateTime($publication-date-start,'[Y0001]') = format-dateTime($publication-date-end,'[Y0001]')">
-								<xsl:value-of select="format-dateTime($publication-date-start,'[D] [MNn]')"/>
+							<xsl:when
+								test="format-dateTime($publication-date-start,'[Y0001]') = format-dateTime($publication-date-end,'[Y0001]')">
+								<xsl:value-of
+									select="format-dateTime($publication-date-start,'[D] [MNn]')"/>
 							</xsl:when>
 							<!-- different day, month and year -->
 							<xsl:otherwise>
-								<xsl:value-of select="format-dateTime($publication-date-start,'[D] [MNn] [Y0001]')"/>
+								<xsl:value-of
+									select="format-dateTime($publication-date-start,'[D] [MNn] [Y0001]')"
+								/>
 							</xsl:otherwise>
 						</xsl:choose>
 						<xsl:text> and </xsl:text>
-						<xsl:value-of select="format-dateTime($publication-date-end,'[D] [MNn] [Y0001]')"/>
+						<xsl:value-of
+							select="format-dateTime($publication-date-end,'[D] [MNn] [Y0001]')"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:when>
 			<xsl:otherwise/>
 		</xsl:choose>
 	</xsl:variable>
-  
+
 	<xsl:template match="/">
 		<xsl:apply-templates/>
 	</xsl:template>
@@ -177,8 +199,10 @@ Change history
 			<xsl:apply-templates select="@*|node()" mode="post-process"/>
 		</xsl:copy>
 	</xsl:template>
-  
-	<xsl:template match="xhtml:section[@class='notice-category'][./xhtml:section[1][@class='notice-type']/xhtml:article[1][contains(@class,'full-width')]]" mode="post-process">
+
+	<xsl:template
+		match="xhtml:section[@class='notice-category'][./xhtml:section[1][@class='notice-type']/xhtml:article[1][contains(@class,'full-width')]]"
+		mode="post-process">
 		<xsl:copy>
 			<xsl:copy-of select="@id"/>
 			<xsl:copy-of select="@class"/>
@@ -190,13 +214,13 @@ Change history
 			</xsl:for-each>
 		</xsl:copy>
 	</xsl:template>
-  
+
 	<xsl:template match="xhtml:section/xhtml:table" mode="post-process" priority="6">
 		<xsl:copy>
 			<xsl:apply-templates select="@*|node()" mode="post-process"/>
 		</xsl:copy>
 	</xsl:template>
-  
+
 	<xsl:template match="xhtml:table" mode="post-process">
 		<xsl:copy>
 			<xsl:apply-templates select="@*" mode="post-process"/>
@@ -209,37 +233,41 @@ Change history
 						<xsl:apply-templates select="xhtml:colgroup" mode="post-process"/>
 					</xsl:if>
 					<xsl:choose>
-						<xsl:when test="count(.//xhtml:tr[1]/xhtml:td) = count(.//xhtml:tr[1]/xhtml:td/xhtml:strong)">
+						<xsl:when
+							test="count(.//xhtml:tr[1]/xhtml:td) = count(.//xhtml:tr[1]/xhtml:td/xhtml:strong)">
 							<thead>
 								<xsl:apply-templates select=".//xhtml:tr[1]" mode="post-process"/>
 							</thead>
 							<tbody>
-							<xsl:for-each select=".//xhtml:tr">
-								<xsl:if test="position() != 1">
-									<xsl:apply-templates select="." mode="post-process"/>
-								</xsl:if>
-							</xsl:for-each>
+								<xsl:for-each select=".//xhtml:tr">
+									<xsl:if test="position() != 1">
+										<xsl:apply-templates select="." mode="post-process"/>
+									</xsl:if>
+								</xsl:for-each>
 							</tbody>
 						</xsl:when>
 						<xsl:otherwise>
-						<xsl:choose>
-						  <xsl:when test="xhtml:tbody">
-						    <xsl:apply-templates select="xhtml:tbody " mode="post-process"/>
-						  </xsl:when>
-						  <xsl:otherwise>
-						    <tbody>
-						    <xsl:apply-templates select=" .//xhtml:tr" mode="post-process"/>
-						    </tbody>
-						  </xsl:otherwise>
-						</xsl:choose>
-						
+							<xsl:choose>
+								<xsl:when test="xhtml:tbody">
+									<xsl:apply-templates select="xhtml:tbody " mode="post-process"/>
+								</xsl:when>
+								<xsl:otherwise>
+									<tbody>
+										<xsl:apply-templates select=" .//xhtml:tr"
+											mode="post-process"/>
+									</tbody>
+								</xsl:otherwise>
+							</xsl:choose>
+
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:copy>
 	</xsl:template>
-	<xsl:template match="xhtml:section[@class='notice-category']/xhtml:section[1][@class='notice-type']" mode="post-process">
+	<xsl:template
+		match="xhtml:section[@class='notice-category']/xhtml:section[1][@class='notice-type']"
+		mode="post-process">
 		<xsl:copy>
 			<xsl:copy-of select="@id"/>
 			<xsl:attribute name="class">
@@ -315,7 +343,8 @@ Change history
 				<xsl:call-template name="front-cover"/>
 				<section class="two-columns">
 					<xsl:variable name="notices">
-						<xsl:for-each select="$taxonomy-notice-type/tax:notice-taxonomy/tax:notice-type">
+						<xsl:for-each
+							select="$taxonomy-notice-type/tax:notice-taxonomy/tax:notice-type">
 							<xsl:sort select="@sort" data-type="number"/>
 							<xsl:apply-templates select="."/>
 						</xsl:for-each>
@@ -366,10 +395,12 @@ Change history
 			</xsl:variable>
 			<xsl:choose>
 				<xsl:when test="@level='notice'">
-					<xsl:variable name="first" select="$feed//atom:entry[*//*:notice-category-code[not(@secondary)]/text() = $code][1]"/>
+					<xsl:variable name="first"
+						select="$feed//atom:entry[*//*:notice-category-code[not(@secondary)]/text() = $code][1]"/>
 					<xsl:choose>
 						<xsl:when test="$first//*:notice-code = 2903">
-							<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() ='London']) &gt; 0">
+							<xsl:if
+								test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() ='London']) &gt; 0">
 								<section id="nt-{@code}" class="{$class}">
 									<header>
 										<xsl:element name="{$heading}">
@@ -378,48 +409,73 @@ Change history
 									</header>
 									<div class="legal-notice">
 										<!-- @TODO: Legal text for 2903 notices needs passed through by Java Layer or drawn from the notices -->
-										<p>Notice is hereby given pursuant to s. 27 of the Trustee Act 1925, that any person having a claim against or an interest in the estate of any of the deceased persons whose names
-											and addresses are set out above is hereby required to send particulars in writing of his claim or interest to the person or persons whose names and addresses are set out above,
-											and to send such particulars before the date specified in relation to that deceased person displayed above, after which date the personal representatives will distribute the
-											estate among the persons entitled thereto having regard only to the claims and interests of which they have had notice and will not, as respects the property so distributed, be
-											liable to any person of whose claim they shall not then have had notice</p>
+										<p>Notice is hereby given pursuant to s. 27 of the Trustee
+											Act 1925, that any person having a claim against or an
+											interest in the estate of any of the deceased persons
+											whose names and addresses are set out above is hereby
+											required to send particulars in writing of his claim or
+											interest to the person or persons whose names and
+											addresses are set out above, and to send such
+											particulars before the date specified in relation to
+											that deceased person displayed above, after which date
+											the personal representatives will distribute the estate
+											among the persons entitled thereto having regard only to
+											the claims and interests of which they have had notice
+											and will not, as respects the property so distributed,
+											be liable to any person of whose claim they shall not
+											then have had notice</p>
 									</div>
 									<table class="wills-and-probate-2903-table">
 										<thead>
 											<tr>
-												<th class="name">Name of Deceased (Surname first)</th>
-												<th class="address">Address, description and date of death of Deceased</th>
-												<th class="represent">Names addresses and descriptions of Persons to whom notices of claims are to be given and names, in parentheses, of Personal Representatives</th>
-												<th class="claimsDate">Date before which notice of claims to be given</th>
+												<th class="name">Name of Deceased (Surname
+												first)</th>
+												<th class="address">Address, description and date of
+												death of Deceased</th>
+												<th class="represent">Names addresses and
+												descriptions of Persons to whom notices of claims
+												are to be given and names, in parentheses, of
+												Personal Representatives</th>
+												<th class="claimsDate">Date before which notice of
+												claims to be given</th>
 												<th class="noticeNum"/>
 											</tr>
 										</thead>
 										<tbody>
-											<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() = 'London' and not(*//*:p[@class='substitution'])]">
-												<xsl:sort select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+											<xsl:for-each
+												select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() = 'London' and not(*//*:p[@class='substitution'])]">
+												<xsl:sort
+												select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
 												<xsl:call-template name="table_2903"/>
 											</xsl:for-each>
-											<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() = 'London' and *//*:p[@class='substitution']]">
-												<xsl:sort select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+											<xsl:for-each
+												select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() = 'London' and *//*:p[@class='substitution']]">
+												<xsl:sort
+												select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
 												<xsl:call-template name="table_2903"/>
 											</xsl:for-each>
 										</tbody>
 									</table>
 								</section>
 							</xsl:if>
-							<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() != 'London']) &gt; 0">
-								<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() ='London']) &gt; 0">
+							<xsl:if
+								test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() != 'London']) &gt; 0">
+								<xsl:if
+									test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() ='London']) &gt; 0">
 									<xsl:text disable-output-escaping="yes">&lt;/section&gt;&lt;section&gt;</xsl:text>
 								</xsl:if>
 								<section class="{$class}">
 									<xsl:attribute name="class">
 										<xsl:value-of select="$class"/>
-										<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() ='London']) &gt; 0">
+										<xsl:if
+											test="count($feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() ='London']) &gt; 0">
 											<xsl:text> full-width</xsl:text>
 										</xsl:if>
 									</xsl:attribute>
-									<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() != 'London']">
-										<xsl:sort select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+									<xsl:for-each
+										select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() != 'London']">
+										<xsl:sort
+											select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
 										<xsl:apply-templates/>
 									</xsl:for-each>
 								</section>
@@ -433,7 +489,8 @@ Change history
 										<xsl:value-of select="@name"/>
 									</xsl:element>
 								</header>
-								<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code]">
+								<xsl:for-each
+									select="$feed//atom:entry[*//*:notice-category-code/text() = $code]">
 									<xsl:sort select="saxon:evaluate($sortByXPath)[1]"/>
 									<xsl:apply-templates/>
 								</xsl:for-each>
@@ -446,7 +503,8 @@ Change history
 										<xsl:value-of select="@name"/>
 									</xsl:element>
 								</header>
-								<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code]">
+								<xsl:for-each
+									select="$feed//atom:entry[*//*:notice-category-code/text() = $code]">
 									<xsl:apply-templates/>
 								</xsl:for-each>
 							</section>
@@ -469,7 +527,8 @@ Change history
 	<xsl:template match="atom:entry | atom:content | *:div">
 		<xsl:apply-templates/>
 	</xsl:template>
-	<xsl:template match="f:* | atom:id | atom:link | atom:title | atom:updated | atom:openSearch | atom:author | m:gazette-metadata"/>
+	<xsl:template
+		match="f:* | atom:id | atom:link | atom:title | atom:updated | atom:openSearch | atom:author | m:gazette-metadata"/>
 	<xsl:template match="*:dd" mode="table_2903">
 		<xsl:variable name="attribute">
 			<xsl:if test="$DEBUG = 'true'">
@@ -504,11 +563,14 @@ Change history
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:for-each>
-		<xsl:if test="$property = 'foaf:familyName' and ./following-sibling::*:dd[1][@about='this:deceasedPerson' and @property != 'personal-legal:dateOfDeath']">
+		<xsl:if
+			test="$property = 'foaf:familyName' and ./following-sibling::*:dd[1][@about='this:deceasedPerson' and @property != 'personal-legal:dateOfDeath']">
 			<xsl:text>, </xsl:text>
 		</xsl:if>
 	</xsl:template>
-	<xsl:template match="*:dd[@property=('person:alsoKnownAs','person:hasMaidenName','something:something')]" mode="table_2903">
+	<xsl:template
+		match="*:dd[@property=('person:alsoKnownAs','person:hasMaidenName','something:something')]"
+		mode="table_2903">
 		<xsl:if test="text() and text() != ''">
 			<xsl:variable name="attribute">
 				<xsl:if test="$DEBUG = 'true'">
@@ -527,12 +589,14 @@ Change history
 				</xsl:if>
 			</xsl:variable>
 			<span style="{$attribute}">
-				<xsl:variable name="first" select="./preceding-sibling::*:dd[1][@about='this:deceasedPerson' and not(@property = ('person:alsoKnownAs','person:hasMaidenName'))]"/>
+				<xsl:variable name="first"
+					select="./preceding-sibling::*:dd[1][@about='this:deceasedPerson' and not(@property = ('person:alsoKnownAs','person:hasMaidenName'))]"/>
 				<xsl:if test="$first">
 					<xsl:text> (</xsl:text>
 				</xsl:if>
 				<xsl:if test="./preceding-sibling::*:dt[1][@data-gazettes = 'custom-title']">
-					<xsl:variable name="title" select="concat(replace(./preceding-sibling::*:dt[1],':',''),' ')"/>
+					<xsl:variable name="title"
+						select="concat(replace(./preceding-sibling::*:dt[1],':',''),' ')"/>
 					<span>
 						<xsl:if test="$DEBUG = 'true'">
 							<xsl:attribute name="style">font-weight:bold</xsl:attribute>
@@ -546,18 +610,21 @@ Change history
 					<xsl:when test="./following-sibling::*:dd[1][@property != 'person:alsoKnownAs']">
 						<xsl:text>)</xsl:text>
 					</xsl:when>
-					<xsl:when test="./following-sibling::*:dd[1][@about='this:deceasedPerson' and @property = 'personal-legal:dateOfDeath']">
+					<xsl:when
+						test="./following-sibling::*:dd[1][@about='this:deceasedPerson' and @property = 'personal-legal:dateOfDeath']">
 						<xsl:text>)</xsl:text>
 					</xsl:when>
 					<xsl:when test="./following-sibling::*:dd[1][@about ='this:deceasedPerson']"/>
-					<xsl:when test="./following-sibling::*:dd[1][not(@property = ('person:alsoKnownAs','person:hasMaidenName'))]">
+					<xsl:when
+						test="./following-sibling::*:dd[1][not(@property = ('person:alsoKnownAs','person:hasMaidenName'))]">
 						<xsl:text>)</xsl:text>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:text>)</xsl:text>
 					</xsl:otherwise>
 				</xsl:choose>
-				<xsl:if test="./following-sibling::*:dd[1][@about='this:deceasedPerson' and @property != 'personal-legal:dateOfDeath'] ">
+				<xsl:if
+					test="./following-sibling::*:dd[1][@about='this:deceasedPerson' and @property != 'personal-legal:dateOfDeath'] ">
 					<xsl:text>, </xsl:text>
 				</xsl:if>
 			</span>
@@ -570,13 +637,15 @@ Change history
 		<xsl:if test=".//*:p[@class='substitution']">
 			<tr>
 				<td class="substitution">
-					<xsl:apply-templates select=".//*:p[@class='substitution']" mode="substitution_2903"/>
+					<xsl:apply-templates select=".//*:p[@class='substitution']"
+						mode="substitution_2903"/>
 				</td>
 			</tr>
 		</xsl:if>
 		<tr>
 			<td>
-				<xsl:apply-templates mode="table_2903" select=".//*:dd[@about='this:deceasedPerson']"/>
+				<xsl:apply-templates mode="table_2903"
+					select=".//*:dd[@about='this:deceasedPerson']"/>
 				<!-- The familyName is set to uppercase by the css. -->
 				<!--	<span class="familyName">
 					<xsl:value-of select=".//*:dd[@property='foaf:familyName' and @about='this:deceasedPerson']"/>
@@ -601,7 +670,8 @@ Change history
 			</td>
 			<td>
 				<!-- Find all the different @about contents which relate to an address of the deceased. -->
-				<xsl:variable name="addressSections" select=".//*[@property='person:hasAddress' and @about='this:deceasedPerson']"/>
+				<xsl:variable name="addressSections"
+					select=".//*[@property='person:hasAddress' and @about='this:deceasedPerson']"/>
 				<xsl:variable name="addressCell">
 					<xsl:choose>
 						<xsl:when test="count(.//*:dd[@about=$addressSections[1]/@resource]) &gt; 0">
@@ -626,7 +696,8 @@ Change history
 							</xsl:if>
 						</xsl:when>
 						<xsl:when test="count($addressSections/@resource) = 0">
-							<xsl:value-of select=".//*:dd[@about='this:addressOfDeceased-address-1']"/>
+							<xsl:value-of
+								select=".//*:dd[@about='this:addressOfDeceased-address-1']"/>
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:value-of select=".//*:dd[@about=$addressSections[1]/@resource]"/>
@@ -641,15 +712,21 @@ Change history
 				<xsl:value-of select="replace($addressCell,'\.\.','.')"/>
 				<xsl:choose>
 					<!-- Date Range -->
-					<xsl:when test=".//*:span[@property='personal-legal:startDateOfDeath']/. and .//*:span[@property='personal-legal:endDateOfDeath']">
+					<xsl:when
+						test=".//*:span[@property='personal-legal:startDateOfDeath']/. and .//*:span[@property='personal-legal:endDateOfDeath']">
 						<xsl:text>Between </xsl:text>
-						<xsl:value-of select="gfn:safe-date(.//*:dd[@property='personal-legal:startDateOfDeath']/@content)"/>
+						<xsl:value-of
+							select="gfn:safe-date(.//*:dd[@property='personal-legal:startDateOfDeath']/@content)"/>
 						<xsl:text> and </xsl:text>
-						<xsl:value-of select="gfn:safe-date(.//*:dd[@property='personal-legal:endDateOfDeath']/@content)"/>
+						<xsl:value-of
+							select="gfn:safe-date(.//*:dd[@property='personal-legal:endDateOfDeath']/@content)"
+						/>
 					</xsl:when>
 					<!-- Exact Date -->
 					<xsl:otherwise>
-						<xsl:value-of select="gfn:safe-date(.//*:dd[@property='personal-legal:dateOfDeath']/@content)"/>
+						<xsl:value-of
+							select="gfn:safe-date(.//*:dd[@property='personal-legal:dateOfDeath']/@content)"
+						/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</td>
@@ -663,11 +740,16 @@ Change history
 							<xsl:value-of select="."/>
 						</xsl:for-each>
 						<xsl:text>. (</xsl:text>
-						<xsl:value-of select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:firstName'],' ')"/>
-						<xsl:if test=".//*:dd[@about='this:estateExecutor' and @property='foaf:givenName']">
-							<xsl:value-of select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:givenName'], ' ')"/>
+						<xsl:value-of
+							select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:firstName'],' ')"/>
+						<xsl:if
+							test=".//*:dd[@about='this:estateExecutor' and @property='foaf:givenName']">
+							<xsl:value-of
+								select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:givenName'], ' ')"
+							/>
 						</xsl:if>
-						<xsl:value-of select=".//*:dd[@about='this:estateExecutor' and @property='foaf:familyName']"/>
+						<xsl:value-of
+							select=".//*:dd[@about='this:estateExecutor' and @property='foaf:familyName']"/>
 						<xsl:text>)</xsl:text>
 					</xsl:when>
 					<xsl:otherwise>
@@ -676,7 +758,9 @@ Change history
 				</xsl:choose>
 			</td>
 			<td>
-				<xsl:value-of select="gfn:safe-date(.//*:dd[@property='personal-legal:hasClaimDeadline']/@content)"/>
+				<xsl:value-of
+					select="gfn:safe-date(.//*:dd[@property='personal-legal:hasClaimDeadline']/@content)"
+				/>
 			</td>
 			<td>
 				<xsl:text>(</xsl:text>
@@ -701,17 +785,22 @@ Change history
 		<article>
 			<xsl:attribute name="class">
 				<xsl:text>full-notice </xsl:text>
-				<xsl:value-of select="concat('full-notice-',.//*:dd[@property='gaz:hasNoticeCode'][1])"/>
+				<xsl:value-of
+					select="concat('full-notice-',.//*:dd[@property='gaz:hasNoticeCode'][1])"/>
 				<xsl:text> </xsl:text>
-				<xsl:value-of select="concat('full-notice-',substring(.//*:dd[@property='gaz:hasNoticeCode'][1],1,2))"/>
+				<xsl:value-of
+					select="concat('full-notice-',substring(.//*:dd[@property='gaz:hasNoticeCode'][1],1,2))"/>
 				<xsl:choose>
 					<xsl:when test=".//*:div[@class='content' and @data-gazettes-colspan='2']">
 						<xsl:text> full-width</xsl:text>
 					</xsl:when>
-					<xsl:when test=".//*:div[@class='content']//*[@data-original-width] and not(substring(.//*:dd[@property='gaz:hasNoticeCode'][1],1,2) = ('24','25','26','27','28','29'))">
+					<xsl:when
+						test=".//*:div[@class='content']//*[@data-original-width] and not(substring(.//*:dd[@property='gaz:hasNoticeCode'][1],1,2) = ('24','25','26','27','28','29'))">
 						<xsl:variable name="widths" as="xs:integer*">
-							<xsl:for-each select=".//*:div[@class='content']//*[@data-original-width]">
-								<xsl:variable name="this" select="replace(@data-original-width,'pt','')"/>
+							<xsl:for-each
+								select=".//*:div[@class='content']//*[@data-original-width]">
+								<xsl:variable name="this"
+									select="replace(@data-original-width,'pt','')"/>
 								<xsl:if test="$this castable as xs:integer">
 									<xsl:value-of select="$this"/>
 								</xsl:if>
@@ -750,25 +839,27 @@ Change history
 										<xsl:choose>
 											<xsl:when test="position() = last()">
 												<xsl:choose>
-													<xsl:when test="name(.) = 'p'">
-														<p>
-															<xsl:copy-of select="@*"/>
-															<xsl:copy-of select="node()"/>
-															<span class="noticeID">
-																<xsl:text>(</xsl:text>
-																<xsl:value-of select="gfn:short-notice-id($noticeid)"/>
-																<xsl:text>)</xsl:text>
-															</span>
-														</p>
-													</xsl:when>
-													<xsl:otherwise>
-														<xsl:copy-of select="."/>
-														<p class="noticeID">
-															<xsl:text>(</xsl:text>
-															<xsl:value-of select="gfn:short-notice-id($noticeid)"/>
-															<xsl:text>)</xsl:text>
-														</p>
-													</xsl:otherwise>
+												<xsl:when test="name(.) = 'p'">
+												<p>
+												<xsl:copy-of select="@*"/>
+												<xsl:copy-of select="node()"/>
+												<span class="noticeID">
+												<xsl:text>(</xsl:text>
+												<xsl:value-of
+												select="gfn:short-notice-id($noticeid)"/>
+												<xsl:text>)</xsl:text>
+												</span>
+												</p>
+												</xsl:when>
+												<xsl:otherwise>
+												<xsl:copy-of select="."/>
+												<p class="noticeID">
+												<xsl:text>(</xsl:text>
+												<xsl:value-of
+												select="gfn:short-notice-id($noticeid)"/>
+												<xsl:text>)</xsl:text>
+												</p>
+												</xsl:otherwise>
 												</xsl:choose>
 											</xsl:when>
 											<xsl:otherwise>
@@ -826,8 +917,11 @@ Change history
 					<xsl:if test="@data-width">
 						<xsl:attribute name="width">
 							<xsl:choose>
-								<xsl:when test="matches(@data-width,'pt')"><xsl:variable name="numeric" select="number(replace(@data-width,'pt','')) * 0.352777778"/><xsl:value-of
-										select="format-number($numeric,'###.##')"/>mm</xsl:when>
+								<xsl:when test="matches(@data-width,'pt')"><xsl:variable
+										name="numeric"
+										select="number(replace(@data-width,'pt','')) * 0.352777778"
+										/><xsl:value-of select="format-number($numeric,'###.##')"
+									/>mm</xsl:when>
 								<xsl:otherwise>
 									<xsl:value-of select="@data-width"/>
 								</xsl:otherwise>
@@ -874,7 +968,9 @@ Change history
 					<xsl:if test="@width">
 						<xsl:attribute name="width">
 							<xsl:choose>
-								<xsl:when test="matches(@width,'pt')"><xsl:variable name="numeric" select="number(replace(@width,'pt','')) * 0.352777778"/><xsl:value-of select="format-number($numeric,'###.##')"
+								<xsl:when test="matches(@width,'pt')"><xsl:variable name="numeric"
+										select="number(replace(@width,'pt','')) * 0.352777778"
+										/><xsl:value-of select="format-number($numeric,'###.##')"
 									/>mm</xsl:when>
 								<xsl:otherwise>
 									<xsl:value-of select="@width"/>
@@ -886,7 +982,9 @@ Change history
 					<xsl:if test="@Width">
 						<xsl:attribute name="width">
 							<xsl:choose>
-								<xsl:when test="matches(@Width,'pt')"><xsl:variable name="numeric" select="number(replace(@Width,'pt','')) * 0.352777778"/><xsl:value-of select="format-number($numeric,'###.##')"
+								<xsl:when test="matches(@Width,'pt')"><xsl:variable name="numeric"
+										select="number(replace(@Width,'pt','')) * 0.352777778"
+										/><xsl:value-of select="format-number($numeric,'###.##')"
 									/>mm</xsl:when>
 								<xsl:otherwise>
 									<xsl:value-of select="@Width"/>
@@ -898,7 +996,9 @@ Change history
 					<xsl:if test="@height">
 						<xsl:attribute name="height">
 							<xsl:choose>
-								<xsl:when test="matches(@height,'pt')"><xsl:variable name="numeric" select="number(replace(@height,'pt','')) * 0.352777778"/><xsl:value-of select="format-number($numeric,'###.##')"
+								<xsl:when test="matches(@height,'pt')"><xsl:variable name="numeric"
+										select="number(replace(@height,'pt','')) * 0.352777778"
+										/><xsl:value-of select="format-number($numeric,'###.##')"
 									/>mm</xsl:when>
 								<xsl:otherwise>
 									<xsl:value-of select="@height"/>
@@ -910,7 +1010,9 @@ Change history
 					<xsl:if test="@Height">
 						<xsl:attribute name="height">
 							<xsl:choose>
-								<xsl:when test="matches(@Height,'pt')"><xsl:variable name="numeric" select="number(replace(@Height,'pt','')) * 0.352777778"/><xsl:value-of select="format-number($numeric,'###.##')"
+								<xsl:when test="matches(@Height,'pt')"><xsl:variable name="numeric"
+										select="number(replace(@Height,'pt','')) * 0.352777778"
+										/><xsl:value-of select="format-number($numeric,'###.##')"
 									/>mm</xsl:when>
 								<xsl:otherwise>
 									<xsl:value-of select="@Height"/>
@@ -970,7 +1072,8 @@ Change history
 			<section class="publication-details">
 				<!-- Date and issue number to be passed through. -->
 				<xsl:choose>
-					<xsl:when test="$publishingStatement and $publishingStatement != '' and $bespoke != 'true'">
+					<xsl:when
+						test="$publishingStatement and $publishingStatement != '' and $bespoke != 'true'">
 						<p class="bold">
 							<!-- content span class="publication-date" is used as the middle part of the running foot -->
 							<span class="publication-date">
@@ -987,7 +1090,8 @@ Change history
 									<xsl:text>Printed on </xsl:text>
 								</xsl:otherwise>
 							</xsl:choose>
-							<xsl:value-of select="format-date($publication-date,'[D] [MNn] [Y0001]')"/>
+							<xsl:value-of
+								select="format-date($publication-date,'[D] [MNn] [Y0001]')"/>
 							<xsl:if test="$number != '' and $bespoke != 'true'">
 								<xsl:text> | Number </xsl:text>
 								<xsl:value-of select="$number"/>
@@ -1005,7 +1109,8 @@ Change history
 								</xsl:otherwise>
 							</xsl:choose>
 							<span class="publication-date">
-								<xsl:value-of select="format-date($publication-date,'[D] [MNn] [Y0001]')"/>
+								<xsl:value-of
+									select="format-date($publication-date,'[D] [MNn] [Y0001]')"/>
 							</span>
 							<xsl:if test="$number != '' and $bespoke != 'true'">
 								<xsl:text> | Number </xsl:text>
@@ -1031,7 +1136,8 @@ Change history
 						<xsl:sort select="@sort" data-type="number"/>
 						<xsl:variable name="code" select="@code"/>
 						<!-- Display the ToC item if there is a list of limits and the code is in it, or if there isn't a list. -->
-						<xsl:if test="(count($limits//*:code) != 0 and $limits//.[@value=$code]) or (count($limits//*:code) = 0)">
+						<xsl:if
+							test="(count($limits//*:code) != 0 and $limits//.[@value=$code]) or (count($limits//*:code) = 0)">
 							<li>
 								<xsl:variable name="code" select="@code"/>
 								<xsl:choose>
@@ -1052,12 +1158,14 @@ Change history
 					</xsl:for-each>
 					<xsl:if test="count($terms-and-conditions//*:body//*:article/*)">
 						<li class="active">
-							<a href="#terms">Terms &amp; Conditions<xsl:if test="$bespoke != 'true'">/</xsl:if>
+							<a href="#terms">Terms &amp; Conditions<xsl:if test="$bespoke != 'true'"
+									>/</xsl:if>
 							</a>
 						</li>
 					</xsl:if>
 				</ul>
-				<xsl:if test="$bespoke != 'true' and ($publishingStatement and $publishingStatement != '')">
+				<xsl:if
+					test="$bespoke != 'true' and ($publishingStatement and $publishingStatement != '')">
 					<footer>
 						<xsl:text>* Containing </xsl:text>
 						<xsl:value-of select="$publishingStatement"/>
@@ -1115,15 +1223,18 @@ Change history
 				<section class="charges">
 					<!--<xsl:copy-of select="$prices//*:body/*"/>-->
 					<xsl:apply-templates select="$prices//*:body/*:table" mode="notice"/>
-					<xsl:apply-templates select="$prices//*:body/*:footer/*:div[@id='subscriptions']" mode="notice"/>
-					<xsl:if test="$bespoke != 'true' and ($publishingStatement and $publishingStatement != '')">
+					<xsl:apply-templates
+						select="$prices//*:body/*:footer/*:div[@id='subscriptions']" mode="notice"/>
+					<xsl:if
+						test="$bespoke != 'true' and ($publishingStatement and $publishingStatement != '')">
 						<p>
 							<xsl:text>This printed edition contains </xsl:text>
 							<xsl:value-of select="$publishingStatement"/>
 							<xsl:text>.</xsl:text>
 						</p>
 					</xsl:if>
-					<xsl:apply-templates select="$prices//*:body/*:footer/*:div[@id='moreInfo']" mode="notice"/>
+					<xsl:apply-templates select="$prices//*:body/*:footer/*:div[@id='moreInfo']"
+						mode="notice"/>
 				</section>
 			</xsl:if>
 			<div class="sales">
@@ -1131,14 +1242,19 @@ Change history
 					<header>
 						<!--TODO: needs checked-->
 						<xsl:copy-of select="$tso_logo"/>
-						<xsl:copy-of select="$contact-document//*:article/*:section[@class='contact-information']/*:header/*"/>
+						<xsl:copy-of
+							select="$contact-document//*:article/*:section[@class='contact-information']/*:header/*"
+						/>
 					</header>
-					<xsl:copy-of select="$contact-document//*:article/*:section[@class='contact-information']/*:div[@class='content']/*"/>
+					<xsl:copy-of
+						select="$contact-document//*:article/*:section[@class='contact-information']/*:div[@class='content']/*"/>
 					<xsl:if test="$cover-price or $ISSN">
 						<dl>
 							<xsl:if test="$cover-price">
 								<dt>Price:</dt>
-								<dd>&#x00A3; <xsl:value-of select="format-number(number($cover-price),'###,###.00')"/></dd>
+								<dd>&#x00A3; <xsl:value-of
+										select="format-number(number($cover-price),'###,###.00')"
+									/></dd>
 							</xsl:if>
 							<xsl:if test="$ISSN">
 								<dt>ISSN:</dt>
@@ -1188,7 +1304,8 @@ Change history
 	<xsl:function name="gfn:short-notice-id">
 		<xsl:param name="noticeid"/>
 		<xsl:choose>
-			<xsl:when test="starts-with($noticeid,'L') or starts-with($noticeid,'E') or starts-with($noticeid,'B')">
+			<xsl:when
+				test="starts-with($noticeid,'L') or starts-with($noticeid,'E') or starts-with($noticeid,'B')">
 				<xsl:value-of select="substring-after(substring-after($noticeid,'-'),'-')"/>
 			</xsl:when>
 			<xsl:otherwise>
