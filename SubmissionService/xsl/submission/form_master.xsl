@@ -40,64 +40,64 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
    <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
   <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
   <xsl:param name="updates" as="node()">
-  	<form draftTitle="Firstname Surname" draftURI="/my-gazette/draft/11090" noticeTypeCode="2509">
-  		<entry about="this:person-principal-trading-address-1" property="vcard:postal-code"/>
-  		<entry about="this:IP1-address-1" property="vcard:locality">BRADFORD</entry>
-  		<entry about="this:IP1-address-1" property="vcard:street-address">2 PINFOLD</entry>
-  		<entry about="this:person-1" property="foaf:firstName">Firstname</entry>
-  		<entry about="this:person-1" property="foaf:givenName"/>
-  		<entry about="this:legislation-2" property="legislation:legislationTitle">Insolvency Act 1986</entry>
-  		<entry about="this:IP1-address-1" property="vcard:extended-address">CLAYTON</entry>
-  		<entry about="this:IP1" property="person:additionalInformationIP"/>
-  		<entry about="this:IP2" property="foaf:name"/>
-  		<entry about="this:IP1" property="gaz:fax"/>
-  		<entry about="this:authoriser-1" property="gaz:dateAuthorisationSigned"/>
-  		<entry about="this:person-address-1" property="vcard:street-address">2 PINFOLD</entry>
-  		<entry about="this:IP-company-1" property="gazorg:name">blah!</entry>
-  		<entry about="this:IP2" property="person:hasIPnum"/>
-  		<entry about="this:person-address-1" property="vcard:extended-address">CLAYTON</entry>
-  		<entry about="this:person-principal-trading-address-1" property="vcard:region"/>
-  		<entry about="this:person-address-1" property="vcard:region"/>
-  		<entry about="this:court-case-1" property="court:caseNumber">987654321</entry>
-  		<entry about="this:signatory-1" property="foaf:name"/>
-  		<entry about="this:IP1-address-1" property="vcard:postal-code">BD14 6ST</entry>
-  		<entry about="this:notifiableThing" property="corp-insolvency:dateOfAppointment">2014-09-08</entry>
-  		<entry about="this:court-1" property="court:courtName">aaaa</entry>
-  		<entry about="this:occupation" property="person:jobTitle"/>
-  		<entry about="this:IP1" property="gaz:telephone">447761978587</entry>
-  		<entry about="this:court-1" property="court:courtDistrict">a</entry>
-  		<entry about="this:person-principal-trading-address-1" property="vcard:country-name"/>
-  		<entry about="this:IP1" property="gaz:email"/>
-  		<entry about="this:person-principal-trading-address-1" property="vcard:street-address"/>
-  		<entry about="this:IP1" property="person:hasIPCapacity">cap</entry>
-  		<entry about="this:IP1" property="foaf:name">IP</entry>
-  		<entry about="noticeid:" property="gaz:earliestPublicationDate">2014-09-04</entry>
-  		<entry about="this:IP1" property="person:hasIPReferenceNumber"/>
-  		<entry about="this:person-address-1" property="vcard:locality">BRADFORD</entry>
-  		<entry about="this:person-principal-trading-address-1" property="vcard:locality"/>
-  		<entry about="issue:" property="gaz:hasEdition">london</entry>
-  		<entry about="this:person-1" property="person:dateOfBirth">1994-09-01</entry>
-  		<entry about="this:person-1" property="foaf:familyName">Surname</entry>
-  		<entry about="this:person-1" property="person:alsoKnownAs">Prev 1</entry>
-  		<entry about="this:person-1" property="person:alsoKnownAs">Prev 2</entry>
-  		<entry about="this:person-1" property="person:alsoKnownAs">Prev 3</entry>
-  		<entry about="this:person-1" property="corp-insolvency:addressType">Residential Address</entry>
-  		<entry about="this:IP1-address-1" property="vcard:country-name"/>
-  		<entry about="this:person-1" property="person:isDeceased">no</entry>
-  		<entry about="this:notifiableThing" property="corp-insolvency:dateOfBankruptcyOrder">2014-09-01</entry>
-  		<entry about="this:court-case-1" property="court:caseYear">2013</entry>
-  		<entry about="this:role-signatory-1" property="person:roleName"/>
-  		<entry about="this:IP1-address-1" property="vcard:region"/>
-  		<entry about="this:person-principal-trading-address-1" property="vcard:extended-address"/>
-  		<entry about="this:person-address-1" property="vcard:country-name"/>
-  		<entry about="this:person-1" property="person:bankruptcyStatus">InBankruptcy</entry>
-  		<entry about="this:person-1" property="person:isTradingAs"/>
-  		<entry about="this:notifiableThing" property="corp-insolvency:onOrBeforeClaimSubmit">2014-09-09</entry>
-  		<entry about="this:IP2" property="person:hasIPCapacity"/>
-  		<entry about="this:IP1" property="person:hasIPnum">987986546</entry>
-  		<entry about="this:notifiableThing" property="gaz:hasNoticeDetails">Details</entry>
-  		<entry about="this:person-address-1" property="vcard:postal-code">BD14 6ST</entry>
-  	</form>
+    <form draftTitle="Firstname Surname" draftURI="/my-gazette/draft/11090" noticeTypeCode="2509">
+      <entry about="this:person-principal-trading-address-1" property="vcard:postal-code"/>
+      <entry about="this:IP1-address-1" property="vcard:locality">BRADFORD</entry>
+      <entry about="this:IP1-address-1" property="vcard:street-address">2 PINFOLD</entry>
+      <entry about="this:person-1" property="foaf:firstName">Firstname</entry>
+      <entry about="this:person-1" property="foaf:givenName"/>
+      <entry about="this:legislation-2" property="legislation:legislationTitle">Insolvency Act 1986</entry>
+      <entry about="this:IP1-address-1" property="vcard:extended-address">CLAYTON</entry>
+      <entry about="this:IP1" property="person:additionalInformationIP"/>
+      <entry about="this:IP2" property="foaf:name"/>
+      <entry about="this:IP1" property="gaz:fax"/>
+      <entry about="this:authoriser-1" property="gaz:dateAuthorisationSigned"/>
+      <entry about="this:person-address-1" property="vcard:street-address">2 PINFOLD</entry>
+      <entry about="this:IP-company-1" property="gazorg:name">blah!</entry>
+      <entry about="this:IP2" property="person:hasIPnum"/>
+      <entry about="this:person-address-1" property="vcard:extended-address">CLAYTON</entry>
+      <entry about="this:person-principal-trading-address-1" property="vcard:region"/>
+      <entry about="this:person-address-1" property="vcard:region"/>
+      <entry about="this:court-case-1" property="court:caseNumber">987654321</entry>
+      <entry about="this:signatory-1" property="foaf:name"/>
+      <entry about="this:IP1-address-1" property="vcard:postal-code">BD14 6ST</entry>
+      <entry about="this:notifiableThing" property="corp-insolvency:dateOfAppointment">2014-09-08</entry>
+      <entry about="this:court-1" property="court:courtName">aaaa</entry>
+      <entry about="this:occupation" property="person:jobTitle"/>
+      <entry about="this:IP1" property="gaz:telephone">447761978587</entry>
+      <entry about="this:court-1" property="court:courtDistrict">a</entry>
+      <entry about="this:person-principal-trading-address-1" property="vcard:country-name"/>
+      <entry about="this:IP1" property="gaz:email"/>
+      <entry about="this:person-principal-trading-address-1" property="vcard:street-address"/>
+      <entry about="this:IP1" property="person:hasIPCapacity">cap</entry>
+      <entry about="this:IP1" property="foaf:name">IP</entry>
+      <entry about="noticeid:" property="gaz:earliestPublicationDate">2014-09-04</entry>
+      <entry about="this:IP1" property="person:hasIPReferenceNumber"/>
+      <entry about="this:person-address-1" property="vcard:locality">BRADFORD</entry>
+      <entry about="this:person-principal-trading-address-1" property="vcard:locality"/>
+      <entry about="issue:" property="gaz:hasEdition">london</entry>
+      <entry about="this:person-1" property="person:dateOfBirth">1994-09-01</entry>
+      <entry about="this:person-1" property="foaf:familyName">Surname</entry>
+      <entry about="this:person-1" property="person:alsoKnownAs">Prev 1</entry>
+      <entry about="this:person-1" property="person:alsoKnownAs">Prev 2</entry>
+      <entry about="this:person-1" property="person:alsoKnownAs">Prev 3</entry>
+      <entry about="this:person-1" property="corp-insolvency:addressType">Residential Address</entry>
+      <entry about="this:IP1-address-1" property="vcard:country-name"/>
+      <entry about="this:person-1" property="person:isDeceased">no</entry>
+      <entry about="this:notifiableThing" property="corp-insolvency:dateOfBankruptcyOrder">2014-09-01</entry>
+      <entry about="this:court-case-1" property="court:caseYear">2013</entry>
+      <entry about="this:role-signatory-1" property="person:roleName"/>
+      <entry about="this:IP1-address-1" property="vcard:region"/>
+      <entry about="this:person-principal-trading-address-1" property="vcard:extended-address"/>
+      <entry about="this:person-address-1" property="vcard:country-name"/>
+      <entry about="this:person-1" property="person:bankruptcyStatus">InBankruptcy</entry>
+      <entry about="this:person-1" property="person:isTradingAs"/>
+      <entry about="this:notifiableThing" property="corp-insolvency:onOrBeforeClaimSubmit">2014-09-09</entry>
+      <entry about="this:IP2" property="person:hasIPCapacity"/>
+      <entry about="this:IP1" property="person:hasIPnum">987986546</entry>
+      <entry about="this:notifiableThing" property="gaz:hasNoticeDetails">Details</entry>
+      <entry about="this:person-address-1" property="vcard:postal-code">BD14 6ST</entry>
+    </form>
   </xsl:param>
   <!-- local functions -->
   
@@ -339,6 +339,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:copy-of copy-namespaces="no" select="."/>
     </xsl:if>
   </xsl:template>
+  
   <xsl:template
     match="x:span[@about='noticeid:' and @property='gaz:earliestPublicationDate' and @datatype='xsd:dateTime']">
     <xsl:element name="{name()}">
@@ -461,10 +462,43 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:honour']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'person:honour']"/>
       </xsl:if>
+      <!-- 2904 -->
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:hasMaritalStatus'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:hasMaritalStatus']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:hasMaritalStatus']"/>
+      </xsl:if>
+      
       <xsl:if test="$updates//*:entry[@property = 'person:hasMaidenName'] != ''">
         <xsl:apply-templates
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:hasMaidenName']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'person:hasMaidenName']"/>
+      </xsl:if>
+      <!-- 2904 -->
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:dateOfMarriage'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:dateOfMarriage']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:dateOfMarriage']"/>
+      </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:placeOfMarriage'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:placeOfMarriage']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:placeOfMarriage']"/>
+      </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:spouse'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:spouse']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:spouse']"/>
+      </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:nationality'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:nationality']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:nationality']"/>
+      </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:religion'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:religion']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:religion']"/>
       </xsl:if>
      
       <xsl:if test="$updates//*:entry[@property = 'person:alsoKnownAs'] != ''">
@@ -483,13 +517,56 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:startDateOfDeath']]]"/>
         <xsl:apply-templates select="x:dd[x:span[@property='personal-legal:startDateOfDeath']]"/>
       </xsl:if>
+      
+      <!-- 2904 -->
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:placeOfDeath'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:placeOfDeath']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:placeOfDeath']"/>
+      </xsl:if>
+      
       <xsl:if test="$updates//*:entry[@property = 'person:jobTitle'] != ''">
         <xsl:apply-templates
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:jobTitle']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'person:jobTitle']"/>
       </xsl:if>
+      
+      <!-- 2904 -->
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:dateEnteredUK'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:dateEnteredUK']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:dateEnteredUK']"/>
+      </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:dateOfNaturalisation'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:dateOfNaturalisation']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:dateOfNaturalisation']"/>
+      </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:dateOfAdoption'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:dateOfAdoption']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:dateOfAdoption']"/>
+      </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:dateOfDivorce'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:dateOfDivorce']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:dateOfDivorce']"/>
+      </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:nextOfKin'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:nextOfKin']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:nextOfKin']"/>
+      </xsl:if>
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:otherInfo'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:otherInfo']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:otherInfo']"/>
+      </xsl:if>
+      
     </dl>
   </xsl:template>
+ 
+ 
   <!-- 2903 -->
   <xsl:template match="x:dl[@data-gazettes = 'Executors Name']">
     <dl>
@@ -562,6 +639,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:apply-templates
               select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:hasClaimDeadline']]]"/>
             <xsl:apply-templates select="x:dd [@property = 'personal-legal:hasClaimDeadline']"/>
+          </xsl:if>
+          <xsl:if test="$updates//*:entry[@property = 'personal-legal:informant'] != ''">
+            <xsl:apply-templates
+              select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:informant']]]"/>
+            <xsl:apply-templates select="x:dd [@property = 'personal-legal:informant']"/>
           </xsl:if>
         </dl>
       </xsl:when>
@@ -790,6 +872,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </xsl:when>
                 <xsl:otherwise>
                   <xsl:copy>
+                    <xsl:if test="@property='personal-legal:hasMaritalStatus'">
+                      <xsl:attribute name="content">
+                        <xsl:text>personal-legal:</xsl:text><xsl:value-of select="$updates//*[@property='personal-legal:hasMaritalStatus']/text()"/><xsl:text>MaritalStatus</xsl:text>
+                      </xsl:attribute>
+                    </xsl:if>
                     <xsl:apply-templates select="@*"/>
                     <xsl:if test="$debug='true'">|||</xsl:if>
                     <xsl:choose>
