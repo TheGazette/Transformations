@@ -47,8 +47,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <xsl:param name="mapping" as="node()" select="doc('')"/>
   <xsl:variable name="noticeCode" select="//gz:Notice/@Type"/>
   <xsl:variable name="vHTMLcompatible" select="false()" as="xs:boolean"/>
-
-
+  <xsl:variable name="crownDependancy" select="gz:Notice//gz:CrownDependency"/>
+  <xsl:variable name="workplace" select="//gz:Notice//gz:Workplace"/>
+  <xsl:variable name="department" select="gz:Notice//gz:Department"/>
+  <xsl:variable name="honour" select="translate($paramConfigXml/gzc:Configuration//gzc:Notice[@Code = $noticeType]/gzc:Name,'','')"/>
   <xsl:function name="wlf:generateXPath" as="xs:string">
     <xsl:param name="pNode" as="node()"/>
     <xsl:for-each select="$pNode/ancestor::*">
@@ -308,9 +310,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   </xsl:variable>
   <xsl:variable name="idURI" select="concat($gaz,'id','/notice/', $noticeId)"/>
   <xsl:variable name="documentURI" select="concat($gaz,'notice/', $noticeId)"/>
+  
   <xsl:variable name="publishDate">
     <xsl:variable name="test"
-      select="concat(//ukm:PublishDate,'T',(if (//ukm:TimeStamp != '') then wlf:getTimeStamp(//ukm:TimeStamp) else '01:00:00'))"/>
+      select="concat(.//ukm:PublishDate,'T',(if (//ukm:TimeStamp != '') then wlf:getTimeStamp(//ukm:TimeStamp) else '01:00:00'))"/>
     <xsl:value-of select="$test"/>
     <xsl:if test="not($test castable as xs:dateTime)">
       <xsl:text>:00</xsl:text>
@@ -335,6 +338,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       select="$noticeNo"/>
   </xsl:variable>
   <xsl:variable name="notifiable-thing">this:notifiableThing</xsl:variable>
+  <xsl:variable name="publication-Occasion">this:publicationOccasion</xsl:variable>
   <xsl:variable name="address-of-administrator">this:addressOfAdministrator</xsl:variable>
   <xsl:variable name="notice-provenance">https://www.thegazette.co.uk/id/notice/<xsl:value-of
       select="$noticeId"/>/provenance</xsl:variable>
@@ -417,7 +421,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <xsl:variable name="has-receiver">insolvency:hasReceiver</xsl:variable>
 	<xsl:variable name="has-personal-representative">personal-legal:hasPersonalRepresentative</xsl:variable>
 	<xsl:variable name="has-estate-of">personal-legal:hasEstateOf</xsl:variable>
-
+  <xsl:variable name="publicationOccasion">gaz:publicationOccasion</xsl:variable>
   <!-- ################# -->
   <!-- ##### TYPES ##### -->
   <!-- ################# -->
@@ -451,6 +455,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           select="concat('https://www.thegazette.co.uk/id/notice/', $noticeId)"/>
       </xsl:if>
       <head>
+        <xsl:if test="$noticeCode='1122' or $noticeCode='1131' or $noticeCode='1132' or $noticeCode='1133'">
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        </xsl:if>
         <title>
           <xsl:value-of
             select="normalize-space(string-join($paramConfigXml/gzc:Configuration//gzc:Notice[@Code = $noticeCode]/gzc:Name/text(), ' '))"
@@ -556,6 +563,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:for-each>
   </xsl:template>
 
+ 
   <xsl:template name="rdfa-data">
     <!-- Construct the RDFa div that contains much of the non-inline linkage information. -->
 
@@ -563,6 +571,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <span about="{$noticeURI}" property="{$has-publisher}"
         content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk"/>
       <span about="{$noticeURI}" property="{$is-about}" resource="{$notifiable-thing}"/>
+      <xsl:if test="$noticeCode='1122'">
+        <span about="{$noticeURI}" property="{$publicationOccasion}" resource="{$publication-Occasion}"/>
+      </xsl:if>
       <span about="{$noticeURI}" property="{$has-provenance}" resource="{$notice-provenance}"/>
       <span about="{$noticeURI}" property="prov:has_anchor" resource="{$noticeURI}"/>
       <span resource="{$editionURI}" typeof="{$edition-type}"/>
@@ -591,6 +602,31 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:for-each select="$class/*/*[@noticecode = $noticeType and @type='notifiablething']">
         <span resource="this:notifiableThing" typeof="{.}"/>
       </xsl:for-each>
+      <!--honour-->
+      <xsl:if test="$noticeCode='1122' or $noticeCode='1123' or $noticeCode='1124' or $noticeCode='1125' or $noticeCode='1128' or $noticeCode='1129'"> 
+        <xsl:comment>helper</xsl:comment>
+        <span about="this:notifiableThing" property="honours:isAppointedAs" resource="this:honour-1"></span>
+        <span about="this:honour-1" property="rdf:type" resource="honours:{wlf:stripSpecialChars($honour)}"></span>
+        <xsl:if test="$noticeCode='1123' or $noticeCode='1124'">
+          <span about="this:honour-1" property="honours:isMemberOfOrder" resource="[Order]"></span>
+        </xsl:if>
+        <span about="this:honour-1" property="honours:isAwardedTo" resource="this:person-1"></span>
+      </xsl:if>      
+      <!---Medal-->
+      <xsl:if test="$noticeCode='1127' or $noticeCode='1130' or $noticeCode='1131' or $noticeCode='1132' or $noticeCode='1133' or $noticeCode='1134' or $noticeCode='1135' or  $noticeCode='1136'"> 
+        <xsl:comment>helper</xsl:comment>
+        <span about="this:notifiableThing" property="honours:isAwarded" resource="this:medal-1"></span>
+        <span about="this:medal-1" property="rdf:type" resource="honours:{wlf:stripSpecialChars($honour)}"></span>
+        <span about="this:medal-1" property="honours:isAwardedTo" resource="this:person-1"></span>
+      </xsl:if>
+      <!--bar-->
+      <xsl:if test="$noticeCode='1126'">
+        <xsl:comment>helper</xsl:comment>
+        <span about="this:notifiableThing" property="honours:isAwarded" resource="this:bar" typeof="honours:Bar"></span>
+        <span about="this:bar" property="honours:isAwardedTo" resource="this:person-1"></span>
+        <span about="this:bar" property="honours:isAssociatedWithAward" resource="this:award-1"></span>
+        <span about="this:award-1" property="rdf:type" resource="honours:{wlf:stripSpecialChars($honour)}"></span>
+      </xsl:if>
       <xsl:choose>
         <xsl:when test="$noticeCode = '2903'">
           <!-- Deceased estates notices only. -->
@@ -622,8 +658,18 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         			resource="this:addressOfDeceased-address-1"/>
          	 <span about="{$personURI}" content="{$personFullName}" property="foaf:name"/>
         	</xsl:if>
-        </xsl:when>
+        </xsl:when>  
       </xsl:choose>
+      
+     <xsl:if test="$crownDependancy">    
+        <span about="this:notifiableThing" property="honours:hasCrownDependency" resource="this:crownDependency"/>
+      </xsl:if>
+      <xsl:if test="$workplace">        
+        <span about="this:occupation-1" property="organisation:isMemberOfOrganisation" resource="this:organisation-1"/>
+      </xsl:if>
+      <xsl:if test="$department">       
+        <span about="this:occupation-1" property="organisation:isMemberOfDepartment" resource="this:department-1"/>
+      </xsl:if>
     </div>
   </xsl:template>
 
@@ -1511,6 +1557,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           </li>
         </ul>
       </xsl:when>
+      <xsl:when test="gz:AwardDivision and $noticeCode='1131'">
+        <xsl:next-match/>
+      </xsl:when>
       <xsl:otherwise>
         <div data-gazettes="P">
           <xsl:next-match/>
@@ -2041,12 +2090,15 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:when test="$noticeType='2901'">personal-legal:changesNameOf</xsl:when>
         <xsl:when test="$noticeType='2902'">personal-legal:isSearchForNextOfKinOf</xsl:when>
       	<xsl:when test="$noticeType='2903'">personal-legal:hasEstateOf</xsl:when>
+        <xsl:when test="$noticeType='1122'">honours:isAwardedTo</xsl:when>
         <xsl:otherwise>gaz:hasPerson</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <div property="{$prop}" resource="{if ($noticeCode = '2903') then 'this:deceasedPerson' else wlf:name-sibling(.)}" typeof="person:Person"
+    <div property="{$prop}" resource="{if ($noticeCode = '2903') then 'this:deceasedPerson' else wlf:name-sibling(.)}" typeof=" {if ($noticeCode = '1122') then 'gz:Person' else 'person:Person'} "
       data-gazettes="Person">
-      <xsl:apply-templates/>
+      <xsl:if test="$noticeCode='1131'"><xsl:attribute name="about">this:person-1</xsl:attribute></xsl:if>
+   <xsl:apply-templates/>
+   <xsl:apply-templates select="following-sibling::gz:Citation" mode="persondiv"/>
     </div>
   </xsl:template>
 
@@ -2111,6 +2163,26 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:when test="$noticeType='2901'">
           <span property="foaf:name personal-legal:assumesName" content="{wlf:serialize-name(if(*) then * else .)}"/>
         </xsl:when>
+        <xsl:when test="$noticeType='1122'">
+          <span property="foaf:name">
+            <xsl:attribute name="content">
+              <xsl:apply-templates select="gz:Title"/>
+              <xsl:text> </xsl:text>
+              <xsl:apply-templates select="gz:Forename"/>
+              <xsl:text> </xsl:text>
+              <xsl:apply-templates select="gz:MiddleNames"/>
+              <xsl:text> </xsl:text>
+              <xsl:apply-templates select="gz:Surname"/>
+              <xsl:text> </xsl:text>
+              <xsl:for-each select="gz:PostNominal">
+                <xsl:apply-templates/>
+                <xsl:if test="not(position()=last())">
+                  <xsl:text> </xsl:text>
+                </xsl:if>
+              </xsl:for-each>              
+            </xsl:attribute>
+          </span>
+        </xsl:when>
         <xsl:otherwise>
           <span property="foaf:name" content="{wlf:serialize-name(if(*) then * else .)}"/>
         </xsl:otherwise>
@@ -2118,7 +2190,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:apply-templates/>
     </h2>
   </xsl:template>
-
+  <xsl:template match="gz:Notice/gz:Person/gz:PersonName/gz:Title">
+    <span data-gazettes="Title" property="foaf:title"><xsl:apply-templates/></span>
+  </xsl:template>
+  <xsl:template match="gz:Notice/gz:Person/gz:PersonName/gz:PostNominal">
+    <span data-gazettes="PostNominal" property="person:honour"><xsl:apply-templates/></span>
+  </xsl:template>
   <xsl:template match="gz:Notice/gz:Person/gz:PersonAddress">
     <p typeof="vcard:Address" property="person:hasAddress" resource="{wlf:compound-name(..,.)}"
       data-gazettes="PersonAddress">
@@ -2140,14 +2217,90 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   </xsl:template>
 
   <xsl:template match="gz:Notice/gz:Person/gz:Occupation">
+    <xsl:choose>
+      <xsl:when test="$noticeCode=''"></xsl:when>
+    </xsl:choose>
     <p about="{wlf:name-sibling(..)}" property="person:hasEmployment"
-      resource="{wlf:compound-name(..,.)}" typeof="gaz:Employment" data-gazettes="Occupation">
+      resource="{ if  ($noticeCode='1122') then 'this:occupation-1' else  wlf:compound-name(..,.)}" typeof="gaz:Employment" data-gazettes="Occupation">
       <span property="person:jobTitle" datatype="xsd:string">
+        <xsl:if test="$noticeCode='1132' or  $noticeCode='1133'">
+          <xsl:attribute name="about">this:person-1-Occupation-1</xsl:attribute>
+        </xsl:if>
         <xsl:apply-templates/>
       </span>
+      <xsl:apply-templates select="parent::gz:*/gz:Workplace | parent::gz:*/gz:Department " mode="notice_1122"/>
+        <!--<span about="this:person-1-Occupation-1" property="person:basedAt"><xsl:value-of select="parent::gz:*/gz:Workplace"/></span>-->
     </p>
   </xsl:template>
-
+  
+  <xsl:template match="gz:Citation" mode="persondiv">
+    <xsl:apply-templates mode="persondiv"/>
+  </xsl:template>
+    
+  <xsl:template match="gz:Citation"/>
+  
+  <xsl:template match="gz:Regiment">
+    <span data-gazettes="Rank" property="military:withDivision"><xsl:apply-templates/></span>
+  </xsl:template>
+  <xsl:template match="gz:MilitaryServiceNumber">
+    <span data-gazettes="Rank" property="military:serviceNumber"><xsl:apply-templates/></span>
+  </xsl:template>
+  <xsl:template match="gz:Citation/gz:CrownDependency" mode="persondiv">
+    <span about="this:crownDependency" typeof="{concat('honours:CrownDependency', .)}" property="rdfs:label"><xsl:apply-templates/></span>
+  </xsl:template>
+  
+  <xsl:template match="gz:Notice/gz:P/gz:Text/gz:Occasion">
+    <span about="this:publicationOccasion" typeof="gaz:HerMajestysBirthdayHonours" property="rdfs:label"><xsl:apply-templates/></span>
+  </xsl:template>
+ <xsl:template match="gz:Notice/gz:Person/gz:Workplace" mode="notice_1122">
+   <span about="this:organisation-1" typeof="organisation:Organisation" property="organisation:name"><xsl:apply-templates/></span>
+ </xsl:template>
+  <xsl:template match="gz:Notice/gz:Person/gz:Department" mode="notice_1122">
+    <span about="this:department-1" typeof="organisation:Department" property="organisation:departmentName"><xsl:apply-templates/></span>
+  </xsl:template>
+  <xsl:template match="gz:Notice/gz:Person/gz:Department">
+    <xsl:choose>
+      <xsl:when test="$noticeCode ='1122'"/>
+      <xsl:otherwise>
+        <span about="this:department-1" typeof="organisation:Department" property="organisation:departmentName"><xsl:apply-templates/></span>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  <xsl:template match="gz:Notice/gz:Person/gz:PersonName/gz:Rank">
+    <span data-gazettes="Rank" property="military:hasRank"><xsl:apply-templates/></span>
+  </xsl:template>
+  
+  <xsl:template match="gz:Notice/gz:Person/gz:Workplace">
+   <xsl:choose>
+     <xsl:when test="$noticeCode ='1122' or $noticeCode ='1123' or $noticeCode ='1132' or $noticeCode ='1133'"/>
+      <xsl:otherwise>      
+          <span about="this:organisation-1" typeof="organisation:Organisation" property="organisation:name"><xsl:apply-templates/></span>        
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>   
+  <!-- notice type -1131-->
+  <xsl:template match="gz:AwardDivision">
+    <span property="honours:awardDivision"><xsl:apply-templates/></span>
+  </xsl:template>
+ 
+  <xsl:template match="gz:Notice/gz:Honour">   
+    <xsl:choose>
+      <xsl:when test="$noticeCode='1131'">
+        <span property="honours:isAwarded" resource="this:award" typeof="honours:RoyalRedCross"><xsl:apply-templates/></span>
+      </xsl:when>
+      <xsl:when test="$noticeCode='1132'">
+        <span property="honours:isAwarded" resource="this:award" typeof="honours:QueensPoliceMedal">Q.P.M.</span>
+      </xsl:when>
+      <xsl:otherwise>
+        <span property="honours:isAwarded" resource="this:award" typeof="honours:{wlf:stripSpecialChars($honour)}"><xsl:apply-templates/></span>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:template>
+  
+  <xsl:template match="gz:Notice/gz:Region">
+    <span property="honours:inRegion" ><xsl:apply-templates/></span>
+  </xsl:template>
   <xsl:template match="gz:Notice/gz:Person/gz:PersonDetails">
     <p resource="{wlf:name-sibling(..)}" data-gazettes="PersonDetails">
       <span property="person:hasPersonDetails" datatype="xsd:string" content="{wlf:serialize(.)}"/>
@@ -2571,17 +2724,40 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <!-- ##### GENERIC ELEMENT PROCESSING ##### -->
   <!-- ###################################### -->
   <xsl:template match="gz:AddressLineGroup">
-    <span resource="{wlf:clean(wlf:serialize(.))}" property="gzw:has{name()}"
-      content="{wlf:serialize(.)}" data-gazettes="AddressLineGroup" data-gazettes-class="{@Class}">
-
-      <xsl:apply-templates/>
-    </span>
+    <xsl:choose>
+      <xsl:when test="$noticeCode ='1122' or $noticeCode ='1132' or $noticeCode ='1133'">
+        <span data-gazettes="AddressLineGroup" data-gazettes-class="Awardee" about="this:organisation-1" property="vcard:adr" resource="this:organisationAddress">
+          <xsl:apply-templates/>
+        </span>
+      </xsl:when>
+      <xsl:otherwise>
+        <span resource="{wlf:clean(wlf:serialize(.))}" property="gzw:has{name()}"
+          content="{wlf:serialize(.)}" data-gazettes="AddressLineGroup" data-gazettes-class="{@Class}">
+          <xsl:apply-templates/>
+        </span>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="gz:AddressLine[1]">
-    <span property="vcard:street-address" data-gazettes="AddressLine">
-      <xsl:apply-templates/>
-    </span>
+    <xsl:choose>
+      <xsl:when test="$noticeCode='1122'">
+        <span about="this:organisationAddress" data-gazettes="AddressLine" typeof="vcard:Address">
+          <span  property="vcard:locality"><xsl:apply-templates/></span>
+        </span>
+      </xsl:when>
+      <xsl:when test="$noticeCode='1132' or $noticeCode='1133' ">
+        <span about="this:organisationAddress" data-gazettes="AddressLine" typeof="vcard:Address">
+          <span  property="vcard:extended-address"><xsl:apply-templates/></span>
+        </span>
+      </xsl:when>
+      <xsl:otherwise>
+        <span property="vcard:street-address" data-gazettes="AddressLine">
+          <xsl:apply-templates/>
+        </span>
+      </xsl:otherwise>
+    </xsl:choose>
+   
   </xsl:template>
 
   <xsl:template match="gz:AddressLine[position() &gt; 1]">
@@ -2604,7 +2780,15 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </span>
     </h2>
   </xsl:template>
-
+  
+  <xsl:template match="gz:AwardSubCategrory">
+    <xsl:choose>
+      <xsl:when test="$noticeCode='1122'"><span property="honours:inSubDivision" resource="honours:{wlf:stripSpecialChars(.)}"><xsl:apply-templates/></span></xsl:when>
+      <xsl:otherwise><span property="honours:AwardSubCategory"><xsl:apply-templates/></span></xsl:otherwise>
+    </xsl:choose>
+   
+  </xsl:template>
+  
   <xsl:template match="gz:Character">
     <span data-gazettes="Character">
       <xsl:copy-of select="@*"/>
@@ -3709,4 +3893,16 @@ returns integer set: (2,4,5,6)
     />
   </xsl:function>
 
+  <xsl:function name="wlf:stripSpecialChars">
+    <xsl:param name="string" />
+    <!--<xsl:variable name="AllowedSymbols" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789()*%$#@!~&lt;&gt;,.?[]=- +   /\ '"/>-->
+    <xsl:variable name="AllowedSymbols" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'"/>
+    <xsl:value-of select="
+      translate(
+      $string,
+      translate($string, $AllowedSymbols, ''),
+      '')
+      "/>
+  </xsl:function> 
+  
 </xsl:stylesheet>
