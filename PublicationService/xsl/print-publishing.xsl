@@ -758,9 +758,17 @@ Change history
 				</xsl:choose>
 			</td>
 			<td>
-				<xsl:value-of
-					select="gfn:safe-date(.//*:dd[@property='personal-legal:hasClaimDeadline']/@content)"
-				/>
+				<xsl:choose>
+					<xsl:when
+						test="exists(.//*:dd[@property='personal-legal:hasClaimDeadline'][1]/@content)">
+						<xsl:value-of
+							select="gfn:safe-date(.//*:dd[@property='personal-legal:hasClaimDeadline'][1]/@content)" />
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of
+							select="gfn:safe-date(.//*:dl[@class='metadata']/*:dd[@property='personal-legal:hasClaimDeadline'][1]/text())" />
+					</xsl:otherwise>
+				</xsl:choose>	
 			</td>
 			<td>
 				<xsl:text>(</xsl:text>
