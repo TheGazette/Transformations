@@ -628,6 +628,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:value-of select="$noticeId"/>
     </dd>
   </xsl:template>
+   
+  
   <xsl:template match="@*">
     <xsl:copy-of select="."/>
   </xsl:template>
@@ -845,6 +847,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 	 </span>
 	</xsl:template>-->
 
+<xsl:template match="x:span[@about='noticeid:' and @property='gaz:hasNoticeNumber']">
+	 <span about="noticeid:" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="{$noticeId}" />
+</xsl:template>
+
   <xsl:template
     match="x:span[@about='issue:' and @property='gaz:hasEdition' and @resource='edition:']">
     <span about="issue:" property="gaz:hasEdition" resource="edition:">
@@ -937,6 +943,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </xsl:when>
       <xsl:when test="$noticeCode = '1601'">
         <xsl:call-template name="boilerPlateText1601">
+          <xsl:with-param name="updates" select="$updates"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="$noticeCode = '3301'">
+        <xsl:call-template name="boilerPlateText3301">
           <xsl:with-param name="updates" select="$updates"/>
         </xsl:call-template>
       </xsl:when>
@@ -4907,6 +4918,161 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
       </xsl:if>
     </p>
+  </xsl:template>
+  
+  <xsl:template name="boilerPlateText3301">
+    <xsl:param name="updates"/>
+    <xsl:if test="$updates//*[@about='https://www.thegazette.co.uk/id/honour/PointsOfLight' and @property='honours:hasAwardNumber']/text() != ''">
+    <p data-gazettes="AwardNumber">Award Number: <span about="https://www.thegazette.co.uk/id/honour/PointsOfLight" property="honours:hasAwardNumber"
+                    typeof="honours:PointsOfLightAward">
+                    <xsl:value-of
+            select="$updates//*[@about='https://www.thegazette.co.uk/id/honour/PointsOfLight' and @property='honours:hasAwardNumber']/text()" /></span></p>
+    </xsl:if>
+     	<h2 property="gaz:hasAuthority"  resource="this:authority-1" typeof="gaz:Authority"><span property="rdfs:label" >The Prime Minister's Office</span></h2>
+     	<div data-gazettes="Administration"><p data-gazettes="authoriser"><span property="gaz:hasAuthoriser" resource="this:authoriser" typeof="gaz:Authoriser">10 Downing Street, SW1A 2AA</span></p></div> 
+    <xsl:variable name="dateAuthorisationSigned">
+      <xsl:value-of
+        select="$updates//*[@about='this:authoriser-1' and @property='gaz:dateAuthorisationSigned']/text()"
+      />
+    </xsl:variable>
+
+    <xsl:if
+      test="$updates//*[@about='this:authoriser-1' and @property='gaz:dateAuthorisationSigned']/text() != ''">
+      <p data-gazettes="DateSigned">
+        <span property="gaz:dateAuthorisationSigned" datatype="xsd:date"
+          content="{$dateAuthorisationSigned}">
+          <xsl:value-of
+            select="format-date(xs:date($dateAuthorisationSigned), '[D01] [MNn] [Y0001]')"/>
+        </span>
+      </p>
+      </xsl:if>
+
+	<xsl:variable name="personName">
+				<xsl:value-of
+					select="$updates//*[@about='this:person' and @property='foaf:title']/text()" />
+				 <xsl:if test="$updates//*[@about='this:person' and @property='foaf:title']/text() != ''">
+					<xsl:value-of
+						select="concat(' ', $updates//*[@about='this:person' and @property='foaf:firstName']/text())" />
+				 </xsl:if>
+				 <xsl:if test="$updates//*[@about='this:person' and @property='foaf:title']/text() = ''">
+				 	<xsl:value-of
+						select="$updates//*[@about='this:person' and @property='foaf:firstName']/text()" />
+				 </xsl:if>
+				<xsl:value-of
+					select="concat(' ', $updates//*[@about='this:person' and @property='foaf:givenName']/text())" />
+				<xsl:value-of
+					select="concat(' ', $updates//*[@about='this:person' and @property='foaf:familyName']/text())" />
+				<xsl:value-of
+					select="concat(' ', $updates//*[@about='this:person' and @property='person:honour']/text())" />
+	</xsl:variable>
+                            
+    <div data-gazettes="Person" property="honours:hasAwardee" resource="this:person-1" typeof="person:Person"><h2
+                        data-gazettes="PersonName"><span content="{$personName}" property="foaf:name"
+                            ></span>
+                        <xsl:if test="$updates//*[@about='this:person' and @property='foaf:title']/text() != ''">
+                        	<span data-gazettes="Title" property="foaf:title">
+                        		<xsl:value-of select ="$updates//*[@about='this:person' and @property='foaf:title']/text()"/>
+                        	</span>
+                        	<xsl:text> </xsl:text>
+                        </xsl:if>
+                        <xsl:if test="$updates//*[@about='this:person' and @property='foaf:firstName']/text() != ''">
+                        	<span data-gazettes="Forename" property="foaf:firstName">
+                        		<xsl:value-of select ="$updates//*[@about='this:person' and @property='foaf:firstName']/text()"/>
+                        	</span>
+                        	<xsl:text> </xsl:text>
+                        </xsl:if>
+                        <xsl:if test="$updates//*[@about='this:person' and @property='foaf:givenName']/text() != ''">
+                        	<span data-gazettes="GivenName" property="foaf:givenName">
+                        		<xsl:value-of select ="$updates//*[@about='this:person' and @property='foaf:givenName']/text()"/>
+                        	</span>
+                        	<xsl:text> </xsl:text>
+                        </xsl:if>
+                        <xsl:if test="$updates//*[@about='this:person' and @property='foaf:familyName']/text() != ''">
+                        	<span data-gazettes="Surname" property="foaf:familyName">
+                        		<xsl:value-of select ="$updates//*[@about='this:person' and @property='foaf:familyName']/text()"/>
+                        	</span>
+                        	<xsl:text> </xsl:text>
+                        </xsl:if>
+                        <xsl:if test="$updates//*[@about='this:person' and @property='person:honour']/text() != ''">
+                        	<span data-gazettes="Honour" property="person:honour">
+                        		<xsl:value-of select ="$updates//*[@about='this:person' and @property='person:honour']/text()"/>
+                        	</span>
+                        </xsl:if>
+                    </h2>
+	</div>
+
+
+
+	<xsl:if
+		test="($updates//*[@about='this:person-address-1' and @property='vcard:locality']/text() != '') 
+		or ($updates//*[@about='this:person-address-1' and @property='vcard:region']/text() != '')">
+		<xsl:variable name="town">
+			<xsl:call-template name="titlecase">
+				<xsl:with-param name="text">
+					<xsl:value-of
+				  		select="$updates//*[@about='this:person-address-1' and @property='vcard:locality']/text()" />
+				</xsl:with-param>
+				</xsl:call-template>
+		</xsl:variable>
+		<xsl:variable name="region">
+			<xsl:call-template name="titlecase">
+				<xsl:with-param name="text">
+					<xsl:value-of
+				  		select="$updates//*[@about='this:person-address-1' and @property='vcard:region']/text()" />
+				</xsl:with-param>
+				</xsl:call-template>
+		</xsl:variable>
+		<p data-gazettes="PersonAddress" property="person:hasAddress"
+			resource="this:person-1-PersonAddress-1" typeof="vcard:Address">			 
+			<xsl:choose>
+				<xsl:when
+					test="($town/text() != '') and ($region/text() != '')"> <span content="{$town}, {$region}" data-gazettes="AddressLineGroup"
+                            data-gazettes-class="Awardee" property="vcard:label"></span>
+            	</xsl:when>
+            	<xsl:when test="($town/text() != '') and ($region/text() = '')"> <span content="{$town}" data-gazettes="AddressLineGroup"
+                            data-gazettes-class="Awardee" property="vcard:label"></span>
+                </xsl:when>
+                <xsl:when test="($town/text() = '') and ($region/text() != '')"> <span content="{$region}" data-gazettes="AddressLineGroup"
+                            data-gazettes-class="Awardee" property="vcard:label"></span>
+                </xsl:when>
+            </xsl:choose>
+            <xsl:if test="($updates//*[@about='this:person-address-1' and @property='vcard:locality']/text() != '')">
+            </xsl:if>
+			<xsl:if
+				test="$town/text() != ''">
+				<span data-gazettes="AddressLine"
+					property="vcard:locality">
+					<xsl:call-template name="titlecase">
+						<xsl:with-param name="text">
+							<xsl:value-of
+								select="$town/text()" />
+						</xsl:with-param>
+					</xsl:call-template>
+				</span>
+				<xsl:if
+					test="$region/text() != ''">
+					<xsl:text>, </xsl:text>
+				</xsl:if>
+			</xsl:if>
+
+			<xsl:if
+				test="$region/text() != ''">
+				<span data-gazettes="AddressLine"
+					property="vcard:region">
+					<xsl:call-template name="titlecase">
+						<xsl:with-param name="text">
+							<xsl:value-of
+								select="$region/text()" />
+						</xsl:with-param>
+					</xsl:call-template>
+				</span>
+			</xsl:if>
+		</p>
+	</xsl:if>
+		
+    <div data-gazettes="P"><p data-gazettes="Text"><xsl:value-of
+            select="$updates//*[@about='https://www.thegazette.co.uk/id/honour/PointsOfLight' and @property='honours:hasCitation']/text()" /></p></div>                        
+                                          
   </xsl:template>
 
   <xsl:template name="titlecase">

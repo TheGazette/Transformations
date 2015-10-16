@@ -41,6 +41,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <xsl:param name="status" as="xs:string" required="no">0</xsl:param>
   <xsl:param name="version-count" as="xs:string" required="no">0</xsl:param>
   <xsl:param name="user-submitted" as="xs:string" required="no">0</xsl:param>
+  <xsl:param name="submitted-date" as="xs:dateTime" required="no">
+    <xsl:value-of select="current-dateTime()"/>
+  </xsl:param>
   <xsl:param name="issue-isbn" as="xs:string" required="no">0</xsl:param>
   <xsl:param name="organisationId" as="xs:string" required="no">0</xsl:param>
   <xsl:param name="debug">false</xsl:param>
@@ -1823,8 +1826,30 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:otherwise>gaz:hasCompany</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
+    <xsl:variable name="companyType">
+      <xsl:choose>
+        <xsl:when test="$noticeType='2450' and ./gz:CompanyType= 'Unregistered'">
+          <xsl:text>gazorg:UnregisteredCompany</xsl:text>
+        </xsl:when>
+        <xsl:when test="$noticeType='2450' and ./gz:CompanyType = 'LimitedCompany'">
+          <xsl:text>gazorg:LimitedCompany</xsl:text> 
+        </xsl:when>
+        <xsl:when test="$noticeType='2450' and ./gz:CompanyType = 'SocietyClub'">
+          <xsl:text>gazorg:SocietyClub</xsl:text> 
+        </xsl:when>
+        <xsl:when test="$noticeType='2450' and ./gz:CompanyType = 'OverseasCompany'">
+          <xsl:text>gazorg:OverseasCompany</xsl:text> 
+        </xsl:when>
+        <xsl:when test="$noticeType='2450' and ./gz:CompanyType = 'Partnership'">
+          <xsl:text>gazorg:Partnership</xsl:text> 
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>gazorg:LimitedCompany</xsl:text> 
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <div data-gazettes="Company" property="{$prop}" resource="{wlf:name-sibling(.)}"
-      typeof="gazorg:LimitedCompany">
+      typeof="{$companyType}">
       <xsl:apply-templates/>
     </div>
   </xsl:template>
@@ -1875,6 +1900,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </h3>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+   <xsl:template match="gz:Notice/gz:Company/gz:CompanyType">
   </xsl:template>
 
   <xsl:template match="gz:Company/gz:CompanyNumber">
@@ -4338,6 +4365,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <status>
         <xsl:value-of select="$status"/>
       </status>
+      <submitted-date>
+        <xsl:value-of select="$submitted-date"/>
+      </submitted-date>
       <version-count>
         <xsl:value-of select="$version-count"/>
       </version-count>
