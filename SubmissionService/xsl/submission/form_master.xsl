@@ -325,7 +325,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <!-- 2903 -->
   <xsl:template
     match="x:dd[x:span[@about='this:deceasedPerson' and @property='personal-legal:startDateOfDeath']]">
-    <xsl:if
+       <xsl:copy-of copy-namespaces="no" select="preceding-sibling::x:dt[1]"/>
+       <xsl:if
       test="$updates//*:entry[@about='this:deceasedPerson' and @property='personal-legal:startDateOfDeath']/normalize-space(.)">
       <xsl:next-match/>
     </xsl:if>
@@ -471,10 +472,16 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:alsoKnownAs']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'person:alsoKnownAs']"/>
       </xsl:if>
+
       <xsl:if test="$updates//*:entry[@property = 'personal-legal:dateOfDeath'] != ''">
         <xsl:apply-templates
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:dateOfDeath']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'personal-legal:dateOfDeath']"/>
+      </xsl:if>
+        <xsl:if test="$updates//*:entry[@property = 'personal-legal:startDateOfDeath'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:startDateOfDeath']]]"/>
+        <xsl:apply-templates select="x:dd[x:span[@property='personal-legal:startDateOfDeath']]"/>
       </xsl:if>
       <xsl:if test="$updates//*:entry[@property = 'person:jobTitle'] != ''">
         <xsl:apply-templates
