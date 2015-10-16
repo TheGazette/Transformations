@@ -512,14 +512,20 @@ Change history
 					</xsl:choose>
 				</xsl:when>
 				<xsl:otherwise>
-					<section id="nt-{@code}" class="{$class}">
-						<header>
-							<xsl:element name="{$heading}">
-								<xsl:value-of select="@name"/>
-							</xsl:element>
-						</header>
+					<!-- MH 10/08/2015 only display the heading if there will be notices appearing under it -->
+					<xsl:variable name="taxonomyNotices" select = "$taxonomy-notice-type/tax:notice-taxonomy//tax:notice-type[@code = $code]//tax:notice-type[@level = 'notice']/@code"/>
+					<xsl:variable name="codesForNotice" select="$existing/*:code"/>
+					<xsl:variable name="showHeading" select="$codesForNotice = $taxonomyNotices"/>
+						<xsl:if test="$showHeading">
+						<section id="nt-{@code}" class="{$class}">
+							<header>
+								<xsl:element name="{$heading}">
+									<xsl:value-of select="@name"/>
+								</xsl:element>
+							</header>
 						<xsl:apply-templates/>
-					</section>
+						</section>
+						</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:if>
