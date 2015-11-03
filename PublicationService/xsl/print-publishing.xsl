@@ -445,7 +445,7 @@ Change history
 											<xsl:for-each
 												select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:edition/text() = 'London' and not(*//*:p[@class='substitution'])]">
 												<xsl:sort
-												select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+												select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson' and position()=1]"/>
 												<xsl:call-template name="table_2903"/>
 											</xsl:for-each>
 											<xsl:for-each
@@ -723,160 +723,210 @@ Change history
 	<xsl:template name="table_2903">
 		<xsl:variable name="noticeid" select=".//*[@property='gaz:hasNoticeID']"/>
 		<!-- START -->
-		<xsl:if test=".//*:p[@class='substitution']">
+		<xsl:choose>
+		<xsl:when test=".//*:p[@class='substitution']">
 			<tr>
 				<td class="substitution">
 					<xsl:apply-templates select=".//*:p[@class='substitution']"
 						mode="substitution_2903"/>
 				</td>
 			</tr>
-		</xsl:if>
-		<tr>
-			<td>
-				<!-- The familyName is set to uppercase by the css. -->
-				<span class="familyName">
-					<xsl:value-of select=".//*:dd[@property='foaf:familyName' and @about='this:deceasedPerson']"/>
-				</span>
-				<xsl:text>, </xsl:text>
-				<xsl:value-of select=".//*:dd[@property='foaf:firstName' and @about='this:deceasedPerson']"/>
-				<xsl:text> </xsl:text>
-				<xsl:value-of select=".//*:dd[@property='foaf:givenName' and @about='this:deceasedPerson']"/>
-				<xsl:if test=".//*:dd[@property='foaf:familyName' and @about='this:deceasedPerson']/following-sibling::*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson']/node()">
-					<xsl:text> (</xsl:text>
-					<xsl:value-of select=".//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson']"/>
+		</xsl:when>
+		<xsl:when test=".//*:p[@class='retraction']">
+			<tr>
+				<td class="substitution" colspan="4">
+					<xsl:apply-templates select=".//*:p[@class='retraction']"
+						mode="substitution_2903"/>
+				</td>
+				<td>
+					<xsl:text>(</xsl:text>
+					<span property="gaz:hasNoticeID">
+						<xsl:value-of select="gfn:short-notice-id($noticeid)"/>
+					</span>
 					<xsl:text>)</xsl:text>
-				</xsl:if>
-				<!-- @TODO, check this, can there be more than 1? -->
-				<!--	<xsl:if test=".//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson'] != ''">
+				</td>
+			</tr>
+		</xsl:when>
+			<xsl:otherwise>
+			<tr>
+				<td>
+					<!-- The familyName is set to uppercase by the css. -->
+					<span class="familyName">
+						<xsl:value-of select=".//*:dd[@property='foaf:familyName' and @about='this:deceasedPerson']"/>
+					</span>
 					<xsl:text> </xsl:text>
-					<xsl:if
-						test="not(contains(.//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson'],'otherwise') or contains(.//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson'],'also known as'))">
-						<xsl:text>otherwise </xsl:text>
+					<xsl:if test=".//*:dd[@property='person:postNominal' and @about='this:deceasedPerson']">
+						<xsl:value-of select=".//*:dd[@property='person:postNominal' and @about='this:deceasedPerson']"/>
 					</xsl:if>
-					<xsl:value-of select=".//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson']"/>
-				</xsl:if>-->
-				<!-- @TODO, Maiden name? -->
-			</td>
-			<td>
-				<!-- Find all the different @about contents which relate to an address of the deceased. -->
-				<xsl:variable name="addressSections"
-					select=".//*[@property='person:hasAddress' and @about='this:deceasedPerson']"/>
-				<xsl:variable name="addressCell">
+					<xsl:text>, </xsl:text>
+					<xsl:if test=".//*:dd[@property='person:rank' and @about='this:deceasedPerson']">
+						<xsl:value-of select=".//*:dd[@property='person:rank' and @about='this:deceasedPerson']"/>
+					</xsl:if>
+					<xsl:text> </xsl:text>
+					<xsl:if test=".//*:dd[@property='foaf:title' and @about='this:deceasedPerson']">
+						<xsl:value-of select=".//*:dd[@property='foaf:title' and @about='this:deceasedPerson']"/>
+					</xsl:if>
+					<xsl:text> </xsl:text>
+					<xsl:value-of select=".//*:dd[@property='foaf:firstName' and @about='this:deceasedPerson']"/>
+					<xsl:text> </xsl:text>
+					<xsl:value-of select=".//*:dd[@property='foaf:givenName' and @about='this:deceasedPerson']"/>
+					<xsl:if test=".//*:dd[@property='foaf:familyName' and @about='this:deceasedPerson']/following-sibling::*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson']/node()">
+						<xsl:text> (</xsl:text>
+						<xsl:value-of select=".//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson']"/>
+						<xsl:text>)</xsl:text>
+					</xsl:if>
+					<!-- @TODO, check this, can there be more than 1? -->
+					<!--	<xsl:if test=".//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson'] != ''">
+						<xsl:text> </xsl:text>
+						<xsl:if
+							test="not(contains(.//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson'],'otherwise') or contains(.//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson'],'also known as'))">
+							<xsl:text>otherwise </xsl:text>
+						</xsl:if>
+						<xsl:value-of select=".//*:dd[@property='person:alsoKnownAs' and @about='this:deceasedPerson']"/>
+					</xsl:if>-->
+					<!-- @TODO, Maiden name? -->
+				</td>
+				<td>
+					<!-- Find all the different @about contents which relate to an address of the deceased. -->
+					<xsl:variable name="addressSections"
+						select=".//*[@property='person:hasAddress' and @about='this:deceasedPerson']"/>
+					<xsl:variable name="addressCell">
+						<xsl:choose>
+							<xsl:when test="count(.//*:dd[@about=$addressSections[1]/@resource]) &gt; 0">
+								<xsl:for-each select=".//*:dd[@about=$addressSections[1]/@resource]">
+									<xsl:if test="position() != 1">
+										<xsl:text>, </xsl:text>
+									</xsl:if>
+									<xsl:value-of select="."/>
+								</xsl:for-each>
+								<xsl:if test="count($addressSections/@resource) &gt; 1">
+									<xsl:for-each select="$addressSections">
+										<xsl:variable name="resource" select="./@resource"/>
+										<xsl:if test="position() != 1">
+											<xsl:for-each select=".//*:dd[@about=$resource]">
+												<xsl:if test="position() != 1">
+													<xsl:text>, </xsl:text>
+												</xsl:if>
+												<xsl:value-of select="."/>
+											</xsl:for-each>
+										</xsl:if>
+									</xsl:for-each>
+								</xsl:if>
+							</xsl:when>
+							<xsl:when test="count($addressSections/@resource) = 0">
+								<xsl:value-of
+									select=".//*:dd[@about='this:addressOfDeceased-address-1']"/>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:value-of select=".//*:dd[@about=$addressSections[1]/@resource]"/>
+							</xsl:otherwise>
+						</xsl:choose>
+						<xsl:text>. </xsl:text>
+						<xsl:if test=".//*:dd[@property='person:jobTitle']">
+							<xsl:value-of select=".//*:dd[@property='person:jobTitle']"/>
+							<xsl:text>. </xsl:text>
+						</xsl:if>
+					</xsl:variable>
+					<xsl:value-of select="replace($addressCell,'\.\.','.')"/>
 					<xsl:choose>
-						<xsl:when test="count(.//*:dd[@about=$addressSections[1]/@resource]) &gt; 0">
-							<xsl:for-each select=".//*:dd[@about=$addressSections[1]/@resource]">
+						<!-- Date Range -->
+						<xsl:when
+							test=".//*:span[@property='personal-legal:startDateOfDeath']/. and .//*:span[@property='personal-legal:endDateOfDeath']">
+							<xsl:text>Between </xsl:text>
+							<xsl:value-of
+								select="gfn:safe-date(.//*:dd[@property='personal-legal:startDateOfDeath']/@content)"/>
+							<xsl:text> and </xsl:text>
+							<xsl:value-of
+								select="gfn:safe-date(.//*:dd[@property='personal-legal:endDateOfDeath']/@content)"
+							/>
+						</xsl:when>
+						<!-- Exact Date -->
+						<xsl:when test=".//*:dd[@property='personal-legal:dateOfDeath']/@content">
+							<xsl:value-of
+								select="gfn:safe-date(.//*:dd[@property='personal-legal:dateOfDeath']/@content)"
+							/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of
+								select="gfn:safe-date(.//*:dd[@property='personal-legal:dateOfDeath']/text())"
+							/>
+						</xsl:otherwise>
+					</xsl:choose>
+				</td>
+				<td>
+					<xsl:if test=".//*:notice-code='2903'">
+					<xsl:choose>
+						<xsl:when test="count(.//*:dd[@about='this:estateExecutor']) &gt; 1">
+							<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor-1']">
 								<xsl:if test="position() != 1">
 									<xsl:text>, </xsl:text>
 								</xsl:if>
 								<xsl:value-of select="."/>
 							</xsl:for-each>
-							<xsl:if test="count($addressSections/@resource) &gt; 1">
-								<xsl:for-each select="$addressSections">
-									<xsl:variable name="resource" select="./@resource"/>
-									<xsl:if test="position() != 1">
-										<xsl:for-each select=".//*:dd[@about=$resource]">
-											<xsl:if test="position() != 1">
-												<xsl:text>, </xsl:text>
-											</xsl:if>
-											<xsl:value-of select="."/>
-										</xsl:for-each>
-									</xsl:if>
-								</xsl:for-each>
+							<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor']">
+								<xsl:if test="position() != 1">
+									<xsl:text>, </xsl:text>
+								</xsl:if>
+								<xsl:value-of select="."/>
+							</xsl:for-each>
+							<xsl:text>. (</xsl:text>
+							<xsl:if test=".//*:dd[@property='person:rank' and @about='this:estateExecutor']">
+								<xsl:value-of select=".//*:dd[@property='person:rank' and @about='this:estateExecutor']"/>
+								<xsl:text> </xsl:text>
+							</xsl:if>							
+							<xsl:if test=".//*:dd[@property='foaf:title' and @about='this:estateExecutor']">
+								<xsl:value-of select=".//*:dd[@property='foaf:title' and @about='this:estateExecutor']"/>
+								<xsl:text> </xsl:text>
 							</xsl:if>
-						</xsl:when>
-						<xsl:when test="count($addressSections/@resource) = 0">
 							<xsl:value-of
-								select=".//*:dd[@about='this:addressOfDeceased-address-1']"/>
+								select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:firstName'],' ')"/>
+							<xsl:if
+								test=".//*:dd[@about='this:estateExecutor' and @property='foaf:givenName']">
+								<xsl:value-of
+									select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:givenName'], ' ')"
+								/>
+							</xsl:if>
+							<xsl:value-of
+								select=".//*:dd[@about='this:estateExecutor' and @property='foaf:familyName']"/>
+							<xsl:if test=".//*:dd[@property='person:postNominal' and @about='this:estateExecutor']">
+								<xsl:text> </xsl:text>
+								<xsl:value-of select=".//*:dd[@property='person:postNominal' and @about='this:estateExecutor']"/>
+							</xsl:if>
+							<xsl:text>)</xsl:text>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:value-of select=".//*:dd[@about=$addressSections[1]/@resource]"/>
+							<xsl:value-of select=".//*:dd[@about='this:estateExecutor']"/>
 						</xsl:otherwise>
 					</xsl:choose>
-					<xsl:text>. </xsl:text>
-					<xsl:if test=".//*:dd[@property='person:jobTitle']">
-						<xsl:value-of select=".//*:dd[@property='person:jobTitle']"/>
-						<xsl:text>. </xsl:text>
 					</xsl:if>
-				</xsl:variable>
-				<xsl:value-of select="replace($addressCell,'\.\.','.')"/>
-				<xsl:choose>
-					<!-- Date Range -->
-					<xsl:when
-						test=".//*:span[@property='personal-legal:startDateOfDeath']/. and .//*:span[@property='personal-legal:endDateOfDeath']">
-						<xsl:text>Between </xsl:text>
-						<xsl:value-of
-							select="gfn:safe-date(.//*:dd[@property='personal-legal:startDateOfDeath']/@content)"/>
-						<xsl:text> and </xsl:text>
-						<xsl:value-of
-							select="gfn:safe-date(.//*:dd[@property='personal-legal:endDateOfDeath']/@content)"
-						/>
-					</xsl:when>
-					<!-- Exact Date -->
-					<xsl:when test=".//*:dd[@property='personal-legal:dateOfDeath']/@content">
-						<xsl:value-of
-							select="gfn:safe-date(.//*:dd[@property='personal-legal:dateOfDeath']/@content)"
-						/>
-					</xsl:when>
-					<xsl:otherwise>
-						<xsl:value-of
-							select="gfn:safe-date(.//*:dd[@property='personal-legal:dateOfDeath']/text())"
-						/>
-					</xsl:otherwise>
-				</xsl:choose>
-			</td>
-			<td>
-				<xsl:if test=".//*:notice-code='2903'">
-				<xsl:choose>
-					<xsl:when test="count(.//*:dd[@about='this:estateExecutor']) &gt; 1">
-						<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor-1']">
-							<xsl:if test="position() != 1">
-								<xsl:text>, </xsl:text>
-							</xsl:if>
-							<xsl:value-of select="."/>
-						</xsl:for-each>
-						<xsl:text>. (</xsl:text>
-						<xsl:value-of
-							select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:firstName'],' ')"/>
-						<xsl:if
-							test=".//*:dd[@about='this:estateExecutor' and @property='foaf:givenName']">
+					<xsl:if test=".//*:notice-code='2904'">
+						<xsl:text>Bona Vacantia Division (BVD), PO Box 70165, London, WC1A 9HG</xsl:text>
+					</xsl:if>
+				</td>
+				<td>
+					<xsl:choose>
+						<xsl:when
+							test="exists(.//*:dd[@property='personal-legal:hasClaimDeadline'][1]/@content)">
 							<xsl:value-of
-								select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:givenName'], ' ')"
-							/>
-						</xsl:if>
-						<xsl:value-of
-							select=".//*:dd[@about='this:estateExecutor' and @property='foaf:familyName']"/>
-						<xsl:text>)</xsl:text>
-					</xsl:when>
-					<xsl:otherwise>
-						<xsl:value-of select=".//*:dd[@about='this:estateExecutor']"/>
-					</xsl:otherwise>
-				</xsl:choose>
-				</xsl:if>
-				<xsl:if test=".//*:notice-code='2904'">
-					<xsl:text>Bona Vacantia Division (BVD), PO Box 70165, London, WC1A 9HG</xsl:text>
-				</xsl:if>
-			</td>
-			<td>
-				<xsl:choose>
-					<xsl:when
-						test="exists(.//*:dd[@property='personal-legal:hasClaimDeadline'][1]/@content)">
-						<xsl:value-of
-							select="gfn:safe-date(.//*:dd[@property='personal-legal:hasClaimDeadline'][1]/@content)" />
-					</xsl:when>
-					<xsl:otherwise>
-						<xsl:value-of
-							select="gfn:safe-date(.//*:dl[@class='metadata']/*:dd[@property='personal-legal:hasClaimDeadline'][1]/text())" />
-					</xsl:otherwise>
-				</xsl:choose>	
-			</td>
-			<td>
-				<xsl:text>(</xsl:text>
-				<span property="gaz:hasNoticeID">
-					<xsl:value-of select="gfn:short-notice-id($noticeid)"/>
-				</span>
-				<xsl:text>)</xsl:text>
-			</td>
-		</tr>
+								select="gfn:safe-date(.//*:dd[@property='personal-legal:hasClaimDeadline'][1]/@content)" />
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of
+								select="gfn:safe-date(.//*:dl[@class='metadata']/*:dd[@property='personal-legal:hasClaimDeadline'][1]/text())" />
+						</xsl:otherwise>
+					</xsl:choose>	
+				</td>
+				<td>
+					<xsl:text>(</xsl:text>
+					<span property="gaz:hasNoticeID">
+						<xsl:value-of select="gfn:short-notice-id($noticeid)"/>
+					</span>
+					<xsl:text>)</xsl:text>
+				</td>
+			</tr>
+			</xsl:otherwise>
+		</xsl:choose>
+		
 		<!-- END -->
 	</xsl:template>
 	<xsl:template match="@*|node()" mode="substitution_2903">
