@@ -40,63 +40,77 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
    <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
   <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
   <xsl:param name="updates" as="node()">
-    <form draftTitle="Firstname Surname" draftURI="/my-gazette/draft/11090" noticeTypeCode="2509">
-      <entry about="this:person-principal-trading-address-1" property="vcard:postal-code"/>
-      <entry about="this:IP1-address-1" property="vcard:locality">BRADFORD</entry>
-      <entry about="this:IP1-address-1" property="vcard:street-address">2 PINFOLD</entry>
-      <entry about="this:person-1" property="foaf:firstName">Firstname</entry>
-      <entry about="this:person-1" property="foaf:givenName"/>
-      <entry about="this:legislation-2" property="legislation:legislationTitle">Insolvency Act 1986</entry>
-      <entry about="this:IP1-address-1" property="vcard:extended-address">CLAYTON</entry>
-      <entry about="this:IP1" property="person:additionalInformationIP"/>
-      <entry about="this:IP2" property="foaf:name"/>
-      <entry about="this:IP1" property="gaz:fax"/>
-      <entry about="this:authoriser-1" property="gaz:dateAuthorisationSigned"/>
-      <entry about="this:person-address-1" property="vcard:street-address">2 PINFOLD</entry>
-      <entry about="this:IP-company-1" property="gazorg:name">blah!</entry>
-      <entry about="this:IP2" property="person:hasIPnum"/>
-      <entry about="this:person-address-1" property="vcard:extended-address">CLAYTON</entry>
-      <entry about="this:person-principal-trading-address-1" property="vcard:region"/>
-      <entry about="this:person-address-1" property="vcard:region"/>
-      <entry about="this:court-case-1" property="court:caseNumber">987654321</entry>
-      <entry about="this:signatory-1" property="foaf:name"/>
-      <entry about="this:IP1-address-1" property="vcard:postal-code">BD14 6ST</entry>
-      <entry about="this:notifiableThing" property="corp-insolvency:dateOfAppointment">2014-09-08</entry>
-      <entry about="this:court-1" property="court:courtName">aaaa</entry>
-      <entry about="this:occupation" property="person:jobTitle"/>
-      <entry about="this:IP1" property="gaz:telephone">447761978587</entry>
-      <entry about="this:court-1" property="court:courtDistrict">a</entry>
-      <entry about="this:person-principal-trading-address-1" property="vcard:country-name"/>
-      <entry about="this:IP1" property="gaz:email"/>
-      <entry about="this:person-principal-trading-address-1" property="vcard:street-address"/>
-      <entry about="this:IP1" property="person:hasIPCapacity">cap</entry>
-      <entry about="this:IP1" property="foaf:name">IP</entry>
-      <entry about="noticeid:" property="gaz:earliestPublicationDate">2014-09-04</entry>
-      <entry about="this:IP1" property="person:hasIPReferenceNumber"/>
-      <entry about="this:person-address-1" property="vcard:locality">BRADFORD</entry>
-      <entry about="this:person-principal-trading-address-1" property="vcard:locality"/>
+    <form draftTitle="Barbara Chappell" draftURI="/my-gazette/draft/2337" noticeTypeCode="2903" uploadUri="/my-gazette/draft/2337/attachment/BEC+-+Grant+of+Probate.jpg">
+      <entry about="this:uploadDocument" property="gaz:hasUploaded">true</entry>
+      
+      <entry about="system:file-upload" property="system:type">PROBATE</entry>
+      <!-- missing from v2 -->
+      <entry about="this:notifiableThing" property="gaz:claimNumber">12000</entry>
+      
+      <entry about="this:notifiableThing" property="personal-legal:hasClaimDeadline">2015-11-05</entry>
+      
+      <entry about="noticeid:" property="gaz:earliestPublicationDate">2015-09-03</entry>
+      
       <entry about="issue:" property="gaz:hasEdition">london</entry>
-      <entry about="this:person-1" property="person:dateOfBirth">1994-09-01</entry>
-      <entry about="this:person-1" property="foaf:familyName">Surname</entry>
-      <entry about="this:person-1" property="person:alsoKnownAs">Prev 1</entry>
-      <entry about="this:person-1" property="person:alsoKnownAs">Prev 2</entry>
-      <entry about="this:person-1" property="person:alsoKnownAs">Prev 3</entry>
-      <entry about="this:person-1" property="corp-insolvency:addressType">Residential Address</entry>
-      <entry about="this:IP1-address-1" property="vcard:country-name"/>
-      <entry about="this:person-1" property="person:isDeceased">no</entry>
-      <entry about="this:notifiableThing" property="corp-insolvency:dateOfBankruptcyOrder">2014-09-01</entry>
-      <entry about="this:court-case-1" property="court:caseYear">2013</entry>
-      <entry about="this:role-signatory-1" property="person:roleName"/>
-      <entry about="this:IP1-address-1" property="vcard:region"/>
-      <entry about="this:person-principal-trading-address-1" property="vcard:extended-address"/>
-      <entry about="this:person-address-1" property="vcard:country-name"/>
-      <entry about="this:person-1" property="person:bankruptcyStatus">InBankruptcy</entry>
-      <entry about="this:person-1" property="person:isTradingAs"/>
-      <entry about="this:notifiableThing" property="corp-insolvency:onOrBeforeClaimSubmit">2014-09-09</entry>
-      <entry about="this:IP2" property="person:hasIPCapacity"/>
-      <entry about="this:IP1" property="person:hasIPnum">987986546</entry>
-      <entry about="this:notifiableThing" property="gaz:hasNoticeDetails">Details</entry>
-      <entry about="this:person-address-1" property="vcard:postal-code">BD14 6ST</entry>
+      <entry about="gzw:purchasePDF" property="gzw:requestPDFpurchase">on</entry>
+      
+      <entry about="this:deceasedPerson" property="personal-legal:dateOfDeath">2014-11-25</entry>
+      <entry about="this:deceasedPerson" property="foaf:title">Mrs</entry>
+      <entry about="this:deceasedPerson" property="foaf:familyName">Chappell</entry>
+      <entry about="this:deceasedPerson" property="foaf:firstName">Barbara</entry>
+      <entry about="this:deceasedPerson" property="foaf:givenName">Elizabeth</entry>
+      <entry about="this:deceasedPerson" property="person:honour">MBE</entry>
+      <entry about="this:deceasedPerson" property="person:hasMaidenName">Kinsey</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:startDateOfDeath">2014-11-25</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:endDateOfDeath">2014-11-25</entry>
+      <entry about="this:deceasedPerson" property="person:alsoKnownAs">knownAs</entry>
+      
+      <entry about="this:occupationOfDeceased" property="person:jobTitle">Carpenter</entry>
+      <entry about="this:deceased-address-1" property="vcard:extended-address"/>
+      <entry about="this:deceased-address-1" property="vcard:street-address">46 Cherry Orchard</entry>
+      <entry about="this:deceased-address-1" property="vcard:postal-code">CM0 7HE</entry>
+      <entry about="this:deceased-address-1" property="vcard:locality">Southminster</entry>
+      <entry about="this:deceased-address-1" property="vcard:country-name"/>
+      <entry about="this:deceased-address-1" property="vcard:region"/>
+      
+      <entry about="this:legislation-1" property="legislation:legislationSection">Section 27 (Deceased Estates)</entry>
+      <entry about="this:legislation-1" property="legislation:legislationTitle">Trustee Act 1925</entry>
+      
+      <!-- executor, same as 2903 -->
+      
+      <entry about="this:estateExecutor" property="gaz:fax"/>
+      <entry about="this:estateExecutor" property="foaf:firstName">Peter</entry>
+      <entry about="this:estateExecutor" property="foaf:givenName">John</entry>
+      <entry about="this:estateExecutor" property="foaf:familyName">Phillips</entry>
+      <entry about="this:estateExecutor" property="gaz:email"/>
+      <entry about="this:estateExecutor" property="gaz:telephone"/>
+      <entry about="this:addressOfExecutor-1" property="vcard:region"/>
+      <entry about="this:addressOfExecutor-1" property="vcard:street-address">22 Ryhill Way</entry>
+      <entry about="this:addressOfExecutor-1" property="vcard:extended-address"/>
+      <entry about="this:addressOfExecutor-1" property="vcard:locality">Reading</entry>
+      <entry about="this:addressOfExecutor-1" property="vcard:postal-code">RG6 4AZ</entry>
+      <entry about="this:addressOfExecutor-1" property="vcard:country-name"/>
+      
+      <!-- 2904 specific -->
+      
+      <entry about="this:deceasedPerson" property="personal-legal:hasMaritalStatus">Married</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:dateOfMarriage">2014-11-25</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:placeOfMarriage">London</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:spouse">Susan</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:nationality">English</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:religion">None</entry>
+      
+      <entry about="this:notifiableThing" property="personal-legal:informant">name</entry>
+      
+      <entry about="this:deceasedPerson" property="personal-legal:placeOfDeath">London</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:dateEnteredUK">2012-11-25</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:dateOfNaturalisation">2013-11-25</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:dateOfAdoption">2013-11-25</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:dateOfDivorce">2013-11-25</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:nextOfKin">None</entry>
+      <entry about="this:deceasedPerson" property="personal-legal:otherInfo">None</entry>
+      
+      
     </form>
   </xsl:param>
   <!-- local functions -->
@@ -150,6 +164,26 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:param name="arg"/>
     <xsl:value-of
       select="if ($arg castable as xs:integer) then format-number(number($arg),'00') else $arg"/>
+  </xsl:function>
+  <xsl:function name="wlf:getCompanyType">
+    <xsl:param name="type"/>
+     <xsl:choose>
+    <xsl:when test="lower-case($type) = 'unregistered'">
+    <xsl:text>gazorg:Organisation gazorg:UnregisteredCompany</xsl:text>
+    </xsl:when>
+     <xsl:when test="lower-case($type) = 'societyclub'">
+    <xsl:text>gazorg:Organisation gazorg:SocietyClub</xsl:text>
+    </xsl:when>
+     <xsl:when test="lower-case($type) = 'overseascompany'">
+    <xsl:text>gazorg:Organisation gazorg:OverseasCompany</xsl:text>
+    </xsl:when>
+     <xsl:when test="lower-case($type) = 'partnership'">
+    <xsl:text>gazorg:Organisation gazorg:Partnership</xsl:text>
+    </xsl:when>
+     <xsl:otherwise>
+    <xsl:text>gazorg:LimitedCompany gazorg:Organisation gazorg:ForProfitCompany</xsl:text>
+    </xsl:otherwise>
+    </xsl:choose>
   </xsl:function>
   <xsl:template name="editionName">
     <xsl:variable name="edition_local">
@@ -457,13 +491,36 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:title']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'foaf:title']"/>
       </xsl:if>
-      <xsl:if test="$updates//*:entry[@property = 'person:honour'] != ''">
+      <xsl:if test="$updates//*:entry[@property = 'person:postNominal'] != ''">
         <xsl:apply-templates
-          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:honour']]]"/>
-        <xsl:apply-templates select="x:dd [@property = 'person:honour']"/>
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:postNominal']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'person:postNominal']"/>
       </xsl:if>
+      
+      <xsl:if test="$updates//*:entry[@property = 'person:dateOfBirth'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:dateOfBirth']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'person:dateOfBirth']"/>
+      </xsl:if>
+      
+        <xsl:if test="$updates//*:entry[@property = 'person:placeOfBirth'] != ''">
+        <xsl:apply-templates
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:placeOfBirth']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'person:placeOfBirth']"/>
+      </xsl:if>
+      
       <!-- 2904 -->
       <xsl:if test="$updates//*:entry[@property = 'personal-legal:hasMaritalStatus'] != ''">
+        <span typeof="personal-legal:MaritalStatus" property="rdfs:label">
+          <xsl:attribute name="about">
+            <xsl:text>personal-legal:</xsl:text>
+            <xsl:value-of select="$updates//*:entry[@property = 'personal-legal:hasMaritalStatus']"/>
+            <xsl:text>MaritalStatus</xsl:text>
+          </xsl:attribute>
+          <xsl:attribute name="content">
+            <xsl:value-of select="$updates//*:entry[@property = 'personal-legal:hasMaritalStatus']"/>
+          </xsl:attribute>
+        </span>
         <xsl:apply-templates
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:hasMaritalStatus']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'personal-legal:hasMaritalStatus']"/>
@@ -873,7 +930,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:otherwise>
                   <xsl:copy>
                     <xsl:if test="@property='personal-legal:hasMaritalStatus'">
-                      <xsl:attribute name="content">
+                      <xsl:attribute name="resource">
                         <xsl:text>personal-legal:</xsl:text><xsl:value-of select="$updates//*[@property='personal-legal:hasMaritalStatus']/text()"/><xsl:text>MaritalStatus</xsl:text>
                       </xsl:attribute>
                     </xsl:if>
@@ -1078,11 +1135,16 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <p>
       <xsl:text>In the matter of</xsl:text>
     </p>
-    <h3 about="this:company-1" property="gazorg:name" datatype="xsd:string">
+    <h3 about="this:company-1" property="gazorg:name" typeof= " " datatype="xsd:string">
+    <xsl:attribute name="typeof">
+     <xsl:value-of
+                select="wlf:getCompanyType($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text())"/>
+    </xsl:attribute>
       <xsl:value-of
         select="upper-case($updates//*[@about='this:company-1' and @property='gazorg:name']/text())"
       />
     </h3>
+    <xsl:if test="lower-case($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text()) = 'registered'">
     <p>
       <xsl:text>(Company Number </xsl:text>
       <span about="this:company-1" property="gazorg:companyNumber" datatype="xsd:string">
@@ -1092,6 +1154,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </span>
       <xsl:text>)</xsl:text>
     </p>
+    </xsl:if>
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
       <p>
@@ -2421,15 +2484,21 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
   <xsl:template name="boilerPlateText2441">
     <xsl:param name="updates"/>
-    <h3 about="this:company-1" property="gazorg:name" datatype="xsd:string">
+    <h3 about="this:company-1" property="gazorg:name" typeof ="" datatype="xsd:string">
+    <xsl:attribute name="typeof">
+    <xsl:value-of
+                select="wlf:getCompanyType($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text())"/>
+    </xsl:attribute>
       <xsl:value-of
         select="upper-case($updates//*[@about='this:company-1' and @property='gazorg:name']/text())"
       />
     </h3>
+     <xsl:if test="lower-case($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text()) = 'registered'">
     <p> (Company Number <span about="this:company-1" property="gazorg:companyNumber"
         datatype="xsd:string"><xsl:value-of
           select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"
         /></span>)</p>
+        </xsl:if>
 
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
@@ -2660,15 +2729,21 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
   <xsl:template name="boilerPlateText2442">
     <xsl:param name="updates"/>
-    <h3 about="this:company-1" property="gazorg:name" datatype="xsd:string">
+    <h3 about="this:company-1" property="gazorg:name" typeof="" datatype="xsd:string">
+    <xsl:attribute name="typeof">
+    <xsl:value-of
+                select="wlf:getCompanyType($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text())"/>
+    </xsl:attribute>
       <xsl:value-of
         select="upper-case($updates//*[@about='this:company-1' and @property='gazorg:name']/text())"
       />
     </h3>
+     <xsl:if test="lower-case($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text()) = 'registered'">
     <p> (Company Number <span about="this:company-1" property="gazorg:companyNumber"
         datatype="xsd:string"><xsl:value-of
           select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"
         /></span>) </p>
+        </xsl:if>
 
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
@@ -2960,12 +3035,16 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
   <xsl:template name="boilerPlateText2443">
     <xsl:param name="updates"/>
-    <h3 about="this:company-1" property="gazorg:name" datatype="xsd:string">
+    <h3 about="this:company-1" property="gazorg:name" typeof="" datatype="xsd:string">
+    <xsl:attribute name="typeof">
+    <xsl:value-of
+                select="wlf:getCompanyType($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text())"/>
+    </xsl:attribute>
       <xsl:value-of
         select="upper-case($updates//*[@about='this:company-1' and @property='gazorg:name']/text())"
       />
     </h3>
-
+ 	<xsl:if test="lower-case($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text()) = 'registered'">
     <p>(Company Number <span about="this:company-1" property="gazorg:companyNumber"
         datatype="xsd:string">
         <xsl:value-of
@@ -2973,6 +3052,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         />
       </span><xsl:text>)</xsl:text>
     </p>
+    </xsl:if>
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
       <p>(previously <span about="this:company-1" property="gazorg:previousCompanyName"
@@ -3169,11 +3249,16 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
   <xsl:template name="boilerPlateText2445">
     <xsl:param name="updates"/>
-    <h3 about="this:company-1" property="gazorg:name" datatype="xsd:string">
+    <h3 about="this:company-1" property="gazorg:name" typeof="" datatype="xsd:string">
+     <xsl:attribute name="typeof">
+    <xsl:value-of
+                select="wlf:getCompanyType($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text())"/>
+    </xsl:attribute>
       <xsl:value-of
         select="upper-case($updates//*[@about='this:company-1' and @property='gazorg:name']/text())"
       />
     </h3>
+    <xsl:if test="lower-case($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text()) = 'registered'">
     <p>
       <xsl:text>(Company Number </xsl:text>
       <span about="this:company-1" property="gazorg:companyNumber" datatype="xsd:string">
@@ -3183,6 +3268,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </span>
       <xsl:text>)</xsl:text>
     </p>
+    </xsl:if>
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
       <p>
@@ -3537,11 +3623,16 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
   <xsl:template name="boilerPlateText2446">
     <xsl:param name="updates"/>
-    <h3 about="this:company-1" property="gazorg:name" datatype="xsd:string">
+    <h3 about="this:company-1" property="gazorg:name" typeof="" datatype="xsd:string">
+     <xsl:attribute name="typeof">
+   <xsl:value-of
+                select="wlf:getCompanyType($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text())"/>
+    </xsl:attribute>
       <xsl:value-of
         select="upper-case($updates//*[@about='this:company-1' and @property='gazorg:name']/text())"
       />
     </h3>
+     <xsl:if test="lower-case($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text()) = 'registered'">
     <p>
       <xsl:text>(Company Number </xsl:text>
       <span about="this:company-1" property="gazorg:companyNumber" datatype="xsd:string">
@@ -3551,6 +3642,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </span>
       <xsl:text>)</xsl:text>
     </p>
+    </xsl:if>
     <xsl:if
       test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
       <p>

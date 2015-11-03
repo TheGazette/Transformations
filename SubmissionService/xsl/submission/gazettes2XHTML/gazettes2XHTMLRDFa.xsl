@@ -54,6 +54,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <xsl:variable name="crownDependancy" select="gz:Notice//gz:CrownDependency"/>
   <xsl:variable name="workplace" select="//gz:Notice//gz:Workplace"/>
   <xsl:variable name="OccupationPosition" select="//gz:Notice//gz:OccupationPosition"/>
+  <xsl:variable name="Occupation" select="//gz:Notice//gz:Occupation"/>
   <xsl:variable name="department" select="gz:Notice//gz:Department"/>
   <xsl:variable name="rank" select="gz:Notice//gz:Rank"/> 
   <xsl:variable name="honour">
@@ -71,7 +72,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:choose>
         <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='G.C.M.G.'">DameGrandCrossOrderOfStMichaelAndStGeorge</xsl:when>
         <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='D.C.M.G.'">DameCommanderOrderOfStMichaelAndStGeorge</xsl:when>
-        <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='K.C.M.G.'">KnightCommanderOrderOfStMichaelAndStGeorg</xsl:when>
+        <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='K.C.M.G.'">KnightCommanderOrderOfStMichaelAndStGeorge</xsl:when>
         <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='C.M.G.'">CompanionOrderOfStMichaelAndStGeorge</xsl:when>
         </xsl:choose>
       </xsl:when>
@@ -88,7 +89,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:when test="$noticeCode='1128'">CompanionOrderOfTheCompanionsOfHonour</xsl:when>
       <xsl:when test="$noticeCode='1129'">
         <xsl:choose>
-          <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='G.B.E.'">DameGrandCrossOrderOfTheBritishEmpire</xsl:when>
+          <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='G.B.E.'">KnightGrandCrossOrderOfTheBritishEmpire</xsl:when>
           <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='D.B.E.'">DameCommanderOrderOfTheBritishEmpire</xsl:when>
           <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='K.B.E.'">KnightCommanderOrderOfTheBritishEmpire</xsl:when>
           <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='C.B.E.'">CommanderOrderOfTheBritishEmpire</xsl:when>
@@ -151,7 +152,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </xsl:when>
       <xsl:when test="$noticeCode='1127'">RVM</xsl:when>
       <xsl:when test="$noticeCode='1130'">BEM</xsl:when>
-      <xsl:when test="$noticeCode='1131'">RRC</xsl:when>
+      <xsl:when test="$noticeCode='1131'">
+        <xsl:choose>
+          <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='R.R.C.'">RRC</xsl:when>        
+          <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='A.R.R.C.'">ARRC</xsl:when>
+        </xsl:choose>
+      </xsl:when>
       <xsl:when test="$noticeCode='1132'">QPM</xsl:when>
       <xsl:when test="$noticeCode='1133'">QFSM</xsl:when>
       <xsl:when test="$noticeCode='1134'">QAM</xsl:when>
@@ -183,7 +189,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:when test="$noticeCode='1130'">BritishEmpireMedal</xsl:when>
       <xsl:when test="$noticeCode='1131'">
         <xsl:choose>
-          <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='R.R.C.'">RoyalRedCross</xsl:when>
+          <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='R.R.C.'">MemberRoyalRedCross</xsl:when>
           <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='A.R.R.C.'">AssociateRoyalRedCross</xsl:when>
           <xsl:otherwise>RoyalRedCross</xsl:otherwise>
         </xsl:choose>       
@@ -857,6 +863,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:if test="$department[. !='']">       
         <span about="this:occupation-1" property="gazorg:isMemberOfDepartment" resource="this:department-1"/>
       </xsl:if>
+      <!-- Support for jobTitle rdf in below noticecodes -->
+      <xsl:if test="$noticeCode='1132' or $noticeCode='1133' or $noticeCode='1134' or $noticeCode='1136'">
+        <xsl:if test="$Occupation[. !='']">
+          <span about="this:occupation-1" property="gazorg:isMemberOfOrganisation" resource="this:organisation-1"/>
+        </xsl:if>
+      </xsl:if>
     </div>
   </xsl:template>
 
@@ -1060,6 +1072,16 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:value-of select="."/>
     </dd>
   </xsl:template>
+  
+  <xsl:template match="gz:MaidenName" mode="person2903">
+    <xsl:param name="personURI"/>
+    <dt>Maiden name:</dt>
+    <dd about="{$personURI}" property="person:hasMaidenName"
+      data-gazettes="Maiden" datatype="xsd:string">
+      <xsl:value-of select="."/>
+    </dd>
+  </xsl:template>
+  
   <xsl:template match="gz:AlsoKnownAs" mode="person2903">
     <xsl:param name="personURI"/>
     <dt>Alternative name:</dt>
@@ -1068,6 +1090,102 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:value-of select="."/>
     </dd>
   </xsl:template>
+  
+  <xsl:template match="gz:Initials" mode="person2903">
+    <xsl:param name="personURI"/>
+    <dt>Initials:</dt>
+    <dd typeof="gaz:Person" about="{$personURI}" property="person:initials"
+      data-gazettes="Initials">
+      <xsl:value-of select="."/>
+    </dd>
+  </xsl:template>
+  
+  <xsl:template match="gz:Title" mode="person2903">
+    <xsl:param name="personURI"/>
+    <dt>Title:</dt>
+    <dd typeof="gaz:Person" about="{$personURI}" property="foaf:title"
+      data-gazettes="Title">
+      <xsl:value-of select="."/>
+    </dd>
+  </xsl:template>
+  
+  <xsl:template match="gz:Rank" mode="person2903">
+    <xsl:param name="personURI"/>
+    <dt>Rank:</dt>
+    <dd typeof="gaz:Person" about="{$personURI}" property="person:rank"
+      data-gazettes="Title">
+      <xsl:value-of select="."/>
+    </dd>
+  </xsl:template>
+  
+  <xsl:template match="gz:PostNominal" mode="person2903">
+    <xsl:param name="personURI"/>
+    <dt>Post Nominal Award:</dt>
+    <dd typeof="gaz:Person" about="{$personURI}" property="person:postNominal"
+      data-gazettes="PostNominal">
+      <xsl:value-of select="."/>
+    </dd>
+  </xsl:template>
+  
+  <xsl:template match="gz:Email" mode="person2903">
+    <xsl:param name="personURI"/>
+    <dt>Email address:</dt>
+    <dd about="{$personURI}" property="gaz:email" data-gazettes="email" datatype="xsd:string">
+      <xsl:value-of select="."/>
+    </dd>
+  </xsl:template>
+  
+  <xsl:template match="gz:Telephone[@Class='Administrator']" mode="person2903">
+    <xsl:param name="personURI"/>
+    <dt>Telephone:</dt>
+    <dd about="{$personURI}" property="gaz:telephone" data-gazettes="telephone" datatype="xsd:string">
+      <xsl:value-of select="."/>
+    </dd>
+  </xsl:template>
+  
+  <xsl:template match="gz:Telephone[@Class='Fax']" mode="person2903">
+    <xsl:param name="personURI"/>
+    <dt>Fax:</dt>
+    <dd about="{$personURI}" property="gaz:fax" data-gazettes="fax" datatype="xsd:string">
+      <xsl:value-of select="."/>
+    </dd>
+  </xsl:template>
+  
+  <!-- Modified to support structured admin/executor address -->
+  <xsl:template match="gz:NoticeOfClaims/gz:AddressLineGroup" mode="person2903">
+    <xsl:param name="personURI"/>
+    <xsl:if test="gz:AddressLine[@Class='street-address']">
+      <dt>Address 1:</dt>
+      <dd about="this:addressOfExecutor-1" property="vcard:street-address" typeof="vcard:Address">
+        <xsl:value-of select="gz:AddressLine[1]"/>
+      </dd>
+    </xsl:if>
+    <xsl:if test="gz:AddressLine[@Class='extended-address']">
+      <dt>Address 2:</dt>
+      <dd about="this:addressOfExecutor-1" property="vcard:extended-address">
+        <xsl:value-of select="gz:AddressLine[2]"/>
+      </dd>
+    </xsl:if>
+    <xsl:if test="gz:AddressLine[@Class='locality']">
+      <dt>Town:</dt>
+      <dd about="this:addressOfExecutor-1" property="vcard:locality">
+        <xsl:value-of select="gz:AddressLine[3]"/>
+      </dd>
+    </xsl:if>
+    <xsl:if test="gz:AddressLine[@Class='country-name']">
+      <dt>Country:</dt>
+      <dd about="this:addressOfExecutor-1" property="vcard:country-name">
+        <xsl:value-of select="gz:AddressLine[4]"/>
+      </dd>
+    </xsl:if>
+    <xsl:if test="gz:Postcode">
+      <dt>Postcode:</dt>
+      <dd about="this:addressOfExecutor-1" property="vcard:postal-code">
+        <xsl:value-of select="gz:Postcode"/>
+      </dd>
+    </xsl:if>
+  </xsl:template>
+  
   <xsl:template name="type2903">
     <!-- Specific rules for handling Deceased Estates notices. -->
     <xsl:variable name="personURI" select="string-join(('this:','deceasedPerson'),'')"/>
@@ -1095,6 +1213,19 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </time>
       </dd>
     </xsl:if>
+    <xsl:if test="gz:Person/gz:DeathDetails/gz:DateStart">
+      <dt>Date of Death: Between dates of</dt>
+      <dd>
+        <span property="personal-legal:startDateOfDeath" datatype="xsd:date" about="{$personURI}">
+          <xsl:value-of select="gz:Person/gz:DeathDetails/gz:DateStart/@Date"/>
+        </span>
+        <xsl:text> and </xsl:text>
+        <span property="personal-legal:endDateOfDeath" datatype="xsd:date" about="{$personURI}">
+          <xsl:value-of select="gz:Person/gz:DeathDetails/gz:DateEnd/@Date"/>
+        </span>
+      </dd>
+    </xsl:if>
+        
     <xsl:if test="gz:Person/gz:PersonDetails">
       <xsl:variable name="list_before" select="('St')"/>
       <xsl:variable name="list_occupation" select="('previously of')"/>
@@ -1121,15 +1252,97 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:otherwise>
       </xsl:choose>
     </xsl:if>
+        
+    <!-- Support for structured person address -->
+    <xsl:if test="gz:Person/gz:PersonAddress">
+      <xsl:if test="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='street-address']">
+        <dt>Address Line 1:</dt>
+        <dd about="this:deceased-address-1" data-required="true" data-ui-class="addressLine1" property="vcard:street-address" typeof="vcard:Address">
+          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[1]"/>
+        </dd>
+      </xsl:if>
+      <xsl:if test="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='extended-address']">
+        <dt>Address Line 2:</dt>
+        <dd about="this:deceased-address-1" data-ui-class="addressLine2" property="vcard:extended-address">
+          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[2]"/>
+        </dd>
+      </xsl:if> 
+      <xsl:if test="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='locality']">
+        <dt>Town:</dt>
+        <dd about="this:deceased-address-1" data-ui-class="locality" property="vcard:locality">
+          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[3]"/>
+        </dd>
+      </xsl:if>
+      <xsl:if test="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='country-name']">
+        <dt>Country:</dt>
+        <dd about="this:deceased-address-1" data-ui-class="country" property="vcard:country-name">
+          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[4]"/>
+        </dd>
+      </xsl:if>
+      <xsl:if test="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='street-address']">
+        <dt>Postcode:</dt>
+        <dd about="this:deceased-address-1" data-required="true" data-ui-class="postcode" property="vcard:postal-code">
+          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:Postcode"/>
+        </dd>
+      </xsl:if> 
+    </xsl:if>    
+        
     <xsl:if test="gz:Person/gz:DeathDetails/gz:NoticeOfClaims">
       <dt>Executor/Administrator:</dt>
-      <dd about="this:estateExecutor" property="foaf:name" typeof="foaf:Agent">
-        <xsl:value-of select="gz:Person/gz:DeathDetails/gz:NoticeOfClaims"/>
-      </dd>
+      <xsl:if test="gz:Person/gz:DeathDetails/gz:NoticeOfClaims/gz:CompanyName">
+        <dt>Company Name: </dt>
+        <dd about="this:estateExecutor" data-gazettes="company" datatype="xsd:string" property="foaf:name">
+          <xsl:value-of select="gz:Person/gz:DeathDetails/gz:NoticeOfClaims/gz:CompanyName"/>
+        </dd>
+      </xsl:if>
+      <xsl:if test="gz:Person/gz:DeathDetails/gz:NoticeOfClaims[not(gz:PersonName)]">
+        <dd about="this:estateExecutor" property="foaf:name" typeof="foaf:Agent">
+          <xsl:value-of select="gz:Person/gz:DeathDetails/gz:NoticeOfClaims"/>        
+        </dd>
+      </xsl:if>
+      <xsl:if test="gz:Person/gz:DeathDetails/gz:NoticeOfClaims/gz:PersonName">
+        <xsl:variable name="personURI" select="string-join(('this:','estateExecutor'),'')"/>
+        <xsl:for-each select="gz:Person/gz:DeathDetails/gz:NoticeOfClaims/gz:PersonName/node()">
+          <xsl:apply-templates select="." mode="person2903">
+            <xsl:with-param name="personURI" select="$personURI"/>
+          </xsl:apply-templates>
+        </xsl:for-each>
+      </xsl:if>
+      <xsl:if test="gz:Person/gz:DeathDetails/gz:NoticeOfClaims/gz:AddressLineGroup">
+        <xsl:apply-templates select="gz:Person/gz:DeathDetails/gz:NoticeOfClaims/gz:AddressLineGroup" mode="person2903">
+          <xsl:with-param name="personURI" select="$personURI"/>
+        </xsl:apply-templates>
+      </xsl:if>
     </xsl:if>
+        <xsl:if test="gz:Person/gz:AlsoKnownAs">
+          <dt>Previous name/any other name/also known as name:</dt>
+          <dd about="this:deceasedPerson" data-button="true" data-class-inner="add-names more" data-class-outer="add-names-link" data-name="add-more-names" data-title="Add more names" datatype="xsd:string" property="person:alsoKnownAs">
+            <xsl:value-of select="gz:Person/gz:AlsoKnownAs"/>
+          </dd>
+        </xsl:if>
+        <xsl:if test="gz:Person/gz:Occupation">
+          <dt>Deceased Occupation:</dt>
+          <dd about="this:occupationOfDeceased" data-required="true" datatype="xsd:string" property="person:jobTitle">
+            <xsl:value-of select="gz:Person/gz:Occupation"/>
+          </dd>
+        </xsl:if>
+        <xsl:if test="gz:Person/gz:DeathDetails/gz:NoticeOfClaimsRefNumber">
+          <dt>Reference Number:</dt>
+          <dd about="this:notifiableThing" datatype="xsd:string" property="gaz:claimNumber">
+            <xsl:value-of select="gz:Person/gz:DeathDetails/gz:NoticeOfClaimsRefNumber"/>
+          </dd>
+        </xsl:if>
       </dl>
+      <xsl:if test="gz:Person/gz:DeathDetails/gz:NoticeOfClaimsDate">
+        <dl>
+          <dt>Claims Date:</dt>
+          <dd about="this:notifiableThing" datatype="xsd:date" property="personal-legal:hasClaimDeadline">
+            <xsl:value-of select="gz:Person/gz:DeathDetails/gz:NoticeOfClaimsDate/@Date"/>
+          </dd>
+        </dl>
+      </xsl:if>
   </xsl:template>
-
+  
   <xsl:template match="@*|node()" mode="init">
     <xsl:param name="personURI"/>
     <xsl:variable name="rawname" select="if(.[1]=',') then substring(.,2) else (.)"/>
@@ -2811,7 +3024,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                <span about="https://www.thegazette.co.uk/id/honour/{$honourShortName}" typeof="honours:{$honour}" property="rdfs:label"><xsl:apply-templates/></span>
              </xsl:when>
              <xsl:when test="$noticeCode =('1127','1130','1131','1132','1133','1134','1135','1136')">        
-               <span about="https://www.thegazette.co.uk/id/honour/{$honourShortName}" typeof="honours:{$medal}" property="rdfs:label"><xsl:apply-templates/></span>
+               <span about="https://www.thegazette.co.uk/id/honour/{$honourShortName}" typeof="honours:{$medal}" property="rdfs:label">
+                 <xsl:apply-templates/>
+               </span>
              </xsl:when>
              <xsl:otherwise>
               <span about="https://www.thegazette.co.uk/id/honour/{$honourShortName}" typeof="honours:{$honour}" property="rdfs:label"><xsl:apply-templates/></span>
