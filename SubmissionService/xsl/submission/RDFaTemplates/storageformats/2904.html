@@ -3,11 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" IdURI="gaz: https://www.thegazette.co.uk/id/notice/undefined" prefix="gaz: https://www.thegazette.co.uk/def/publication# dc11: http://purl.org/dc/elements/1.1/ person: https://www.thegazette.co.uk/def/person# personal-legal: https://www.thegazette.co.uk/def/personal-legal# court: https://www.thegazette.co.uk/def/court# org: http://www.w3.org/ns/org# gazorg: https://www.thegazette.co.uk/def/organisation# gzw: https://www.thegazette.co.uk/def/working# loc: https://www.thegazette.co.uk/def/location# this: https://www.thegazette.co.uk/id/notice/undefined# noticeid: https://www.thegazette.co.uk/id/notice/undefined issue: https://www.thegazette.co.uk/id/edition/undefined/issue/undefined edition: https://www.thegazette.co.uk/id/edition/undefined vcard: http://www.w3.org/2006/vcard/ns# prov: http://www.w3.org/ns/prov#">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Place an Unclaimed Assets Notice</title>
+		<title>Place an Unclaimed Estates Notice</title>
 	</head>
 	<body>
 		<article>
-			<!-- header> <h1>Place an Unclaimed Assets notice</h1> </header -->
+			<!-- header> <h1>Place an Unclaimed Estates notice</h1> </header -->
 			<div class="rdfa-data">
 				<span about="noticeid:" property="dc11:publisher" content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk" />
 				<span about="noticeid:" property="gaz:isAbout" resource="this:notifiableThing" />
@@ -37,7 +37,7 @@
 				<dt>Notice category:</dt>
 				<dd data-ui-class="category">Personal Legal</dd>
 				<dt>Notice type:</dt>
-				<dd data-ui-class="notice-type">Unclaimed Assets</dd>
+				<dd data-ui-class="notice-type">Unclaimed Estates</dd>
 				<dt data-gazettes="earliestpublicationdate">Earliest publication date:</dt>
 				<dd>
 					<span about="noticeid:" property="gaz:earliestPublicationDate" datatype="xsd:dateTime" data-required="true" />
@@ -75,21 +75,25 @@
 							<dd about="this:deceasedPerson" property="foaf:givenName" />
 							<dt>Deceased Title:</dt>
 							<dd about="this:deceasedPerson" property="foaf:title" />
-							<dt>Deceased Honour:</dt>
-							<dd about="this:deceasedPerson" property="person:honour" datatype="xsd:string" />
-							<dt>Marital Status</dt>
-							<dd about="this:deceasedPerson" data-required="true" datatype="personal-legal:MaritalStatus" property="personal-legal:hasMaritalStatus"/>
+							<dt>Deceased Post Nominal Award:</dt>
+							<dd about="this:deceasedPerson" property="person:postNominal" datatype="xsd:string" />
+							<dt>Date of Birth:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:date"  property="person:dateOfBirth"/>
+							<dt>Place of Birth:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:string"  property="person:placeOfBirth"/>
+							<dt>Marital Status:</dt>
+							<dd about="this:deceasedPerson" data-required="true" property="personal-legal:hasMaritalStatus"/>
 							<dt>Maiden name:</dt>
 							<dd about="this:deceasedPerson" property="person:hasMaidenName" datatype="xsd:string" />
 							<dt>Date of Marriage:</dt>
 							<dd about="this:deceasedPerson" datatype="xsd:date" property="personal-legal:dateOfMarriage"/>
 							<dt>Place of Marriage:</dt>
 							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:placeOfMarriage"/>
-							<dt>Spouse</dt>
+							<dt>Spouse:</dt>
 							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:spouse"/>
-							<dt>Nationality</dt>
+							<dt>Nationality:</dt>
 							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:nationality"/>
-							<dt>Religion</dt>
+							<dt>Religion:</dt>
 							<dd about="this:deceasedPerson" datatype="xsd:string" property="personal-legal:religion"/>
 							<dt>Previous name/any other name/also known as name:</dt>
 							<dd about="this:deceasedPerson" property="person:alsoKnownAs" datatype="xsd:string" data-button="true" data-name="add-more-names" data-title="Add more names" data-class-inner="add-names more" data-class-outer="add-names-link" />
