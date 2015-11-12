@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.tso.co.uk/assets/namespace/gazette" xmlns="http://www.tso.co.uk/assets/namespace/gazette" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" id="schemaGazetteIncludes">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Gazette Modules Includes Schema</dc:title>
+			<dc:description>Describes Gazette includes</dc:description>
+			<dc:contributor>Paul Appleby</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>schemaGazetteIncludes</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2004</dc:rights>
+			<dc:date>
+				<dcq:created>2004-11-02</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>Put modified date here (format 2003-03-20)</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Modification information
+			Version	Name				Modification
+			1.1			Griff Chamberlain	Include schemaLegislationMetadata.xsd and schemaGazetteOntologyDefinedAttributeGroups.xsd"
+			1.0			Paul Appleby		Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<!-- Gazette types -->
+	<xsd:include schemaLocation="schemaGazetteTypes.xsd"/>
+	<!-- Standard attributes applicable to all elements -->
+	<xsd:include schemaLocation="schemaGazetteCommonAttributes.xsd"/>
+	<!-- Gazette main elements -->
+	<xsd:include schemaLocation="schemaGazetteMain.xsd"/>
+	<!-- Gazette Notice elements -->
+	<xsd:include schemaLocation="schemaGazetteNoticeContent.xsd"/>
+	<!-- Very generic elements -->
+	<xsd:include schemaLocation="schemaGazetteElements.xsd"/>
+	<!-- High-level structure constructs -->
+	<xsd:include schemaLocation="schemaGazetteStructure.xsd"/>
+	<!-- Medium level struture constructs -->
+	<xsd:include schemaLocation="schemaGazetteNumberedSections.xsd"/>
+	<!-- Standard inline elements -->
+	<xsd:include schemaLocation="schemaGazetteInline.xsd"/>
+	<!-- Formatting -->
+	<xsd:include schemaLocation="schemaGazetteFormatting.xsd"/>
+	<!-- Image elements -->
+	<xsd:include schemaLocation="schemaGazetteImage.xsd"/>
+	<!-- Class groups whose names are set by the ontology - these are extracted by XSLT -->
+	<xsd:include schemaLocation="schemaGazetteOntologyDefinedAttributeGroups.xsd"/>
+	<!-- LEgislation metadata types -->
+	<xsd:include schemaLocation="../schemaModules/schemaLegislationMetadata.xsd"/>
+	<!-- Derived standard types -->
+	<xsd:include schemaLocation="../schemaModules/schemaDerivedTypes.xsd"/>
+	<!-- Standard text emphasis elements -->
+	<xsd:include schemaLocation="../schemaModules/schemaEmphasis.xsd"/>
+	<!-- Footnote elements -->
+	<xsd:include schemaLocation="../schemaModules/schemaFootnote.xsd"/>
+	<!-- Links -->
+	<xsd:include schemaLocation="../schemaModules/schemaLinks.xsd"/>
+	<!-- List elements -->
+	<xsd:include schemaLocation="../schemaModules/schemaLists.xsd"/>
+	<!-- Table container elements -->
+	<xsd:include schemaLocation="schemaGazetteTabular.xsd"/>
+	<!-- Tables -->
+	<xsd:include schemaLocation="schemaGazetteTableTypes.xsd"/>
+	<!-- Standard metadata elements -->
+	<xsd:import namespace="http://www.tso.co.uk/assets/namespace/metadata" schemaLocation="schemaGazetteMetadata.xsd"/>
+	<xsd:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="schemaGazetteTable-XHTML.xsd"/>
+	<xsd:import namespace="http://www.w3.org/1999/XSL/Format" schemaLocation="schemaGazetteTableAttributes-FO.xsd"/>
+</xsd:schema>

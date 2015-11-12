@@ -1,0 +1,2173 @@
+<?xml version="1.0"?>
+<!DOCTYPE DTDExtensions SYSTEM "ctm.dtd">
+<DTDExtensions Version="2.0">
+	<NSPrefixMap>
+    <NSPrefixPair prefix="dc" ns="http://purl.org/dc/elements/1.1/"></NSPrefixPair>
+    <NSPrefixPair prefix="fo" ns="http://www.w3.org/1999/XSL/Format"></NSPrefixPair>
+    <NSPrefixPair prefix="lga" ns="http://www.tso.co.uk/assets/namespace/gazette"></NSPrefixPair>
+    <NSPrefixPair prefix="math" ns="http://www.w3.org/1998/Math/MathML"></NSPrefixPair>
+    <NSPrefixPair prefix="namespace" ns="http://www.w3.org/XML/1998/namespace"></NSPrefixPair>
+    <NSPrefixPair prefix="ukm" ns="http://www.tso.co.uk/assets/namespace/metadata"></NSPrefixPair>
+    <NSPrefixPair prefix="xhtml" ns="http://www.w3.org/1999/xhtml"></NSPrefixPair>
+    <NSPrefixPair prefix="xlink" ns="http://www.w3.org/1999/xlink"></NSPrefixPair>
+    <NSPrefixPair prefix="xsd" ns="http://www.w3.org/2001/XMLSchema"></NSPrefixPair>
+  </NSPrefixMap>
+	<ElementPropertiesList>
+    <GlobalPrettyPrintOptions>
+      <IndentAmount>2</IndentAmount>
+      <MaxLineLength>80</MaxLineLength>
+      <NoPrettyPrinting/>
+    </GlobalPrettyPrintOptions>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">contributor</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">coverage</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">creator</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">date</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">description</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">format</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">identifier</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">language</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">publisher</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">relation</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">rights</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">source</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">subject</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">title</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://purl.org/dc/elements/1.1/">type</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Address</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">AddressLine</Name>
+		  <TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">AppendText</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">BinaryContent</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">BlockText</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Body</Name>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Category</Name>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Character</Name>
+		  <TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Department</Name>
+		  <TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Emphasis</Name>
+			<TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">ExternalLink</Name>
+			<TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">ExternalVersion</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Figure</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Footnote</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">FootnoteRef</Name>
+		  <TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">FootnoteText</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Footnotes</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Formula</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Image</Name>
+		  <TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Inferior</Name>
+		  <TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">InternalLink</Name>
+		  <TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">InternalVersion</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">JobTitle</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Key</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">KeyList</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">KeyListItem</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">ListItem</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">LondonGazette</Name>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Notes</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Notice</Name>
+			<LongDescription>A notice enty</LongDescription>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Number</Name>
+		  <TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">OrderedList</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P</Name>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P1</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P1group</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P1para</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P2</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P2group</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P2para</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P3</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P3group</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P3para</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P4</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P4para</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P5</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P5para</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P6</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P6para</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P7</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">P7para</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Para</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">PersonName</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Pnumber</Name>
+		  <TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Resource</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">ResourceGroup</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Resources</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Section</Name>
+			<TagColor>FFFF66</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">SmallCaps</Name>
+			<TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Span</Name>
+		  <TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Strong</Name>
+		  <TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Subtitle</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Superior</Name>
+		  <TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">TableText</Name>
+		  <TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Tabular</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Text</Name>
+			<LongDescription>Text</LongDescription>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Title</Name>
+		  <TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">TitleBlock</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Underline</Name>
+		  <TagColor>6699FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">UnorderedList</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Where</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">XMLcontent</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">equationNumber</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">and</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">annotation</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">annotation-xml</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">apply</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">approx</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arccos</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arccosh</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arccot</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arccoth</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arccsc</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arccsch</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arcsec</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arcsech</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arcsin</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arcsinh</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arctan</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arctanh</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">arg</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">bvar</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">card</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">cartesianproduct</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">ceiling</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">cn</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">codomain</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">complexes</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">compose</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">condition</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">conjugate</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">cos</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">cosh</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">cot</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">coth</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">csc</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">csch</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">csymbol</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">curl</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">declare</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">degree</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">determinant</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">diff</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">divergence</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">divide</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">domain</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">domainofapplication</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">emptyset</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">eq</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">equivalent</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">eulergamma</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">exists</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">exp</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">exponentiale</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">factorial</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">factorof</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">false</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">floor</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">forall</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">gcd</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">geq</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">grad</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">gt</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">ident</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">image</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">imaginary</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">imaginaryi</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">implies</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">in</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">infinity</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">int</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">integers</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">intersect</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">interval</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">inverse</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">lambda</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">laplacian</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">lcm</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">leq</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">limit</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">list</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">ln</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">log</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">logbase</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">lowlimit</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">maction</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">maligngroup</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">malignmark</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">math</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">matrix</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">matrixrow</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">max</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mean</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">median</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">menclose</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">merror</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mfenced</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mfrac</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mglyph</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mi</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">min</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">minus</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mlabeledtr</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mmultiscripts</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mn</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mo</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mode</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">moment</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">momentabout</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mover</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mpadded</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mphantom</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mprescripts</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mroot</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mrow</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">ms</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mspace</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">msqrt</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mstyle</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">msub</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">msubsup</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">msup</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mtable</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mtd</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mtext</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">mtr</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">munder</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">munderover</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">naturalnumbers</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">neq</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">none</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">not</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">notanumber</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">notin</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">notprsubset</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">notsubset</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">or</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">otherwise</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">outerproduct</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">partialdiff</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">pi</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">piece</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">piecewise</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">plus</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">power</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">primes</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">product</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">prsubset</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">quotient</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">rationals</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">real</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">reals</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">rem</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">root</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">scalarproduct</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">sdev</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">sec</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">sech</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">selector</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">semantics</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">sep</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">set</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">setdiff</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">sin</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">sinh</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">subset</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">sum</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">tan</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">tanh</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">tendsto</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">times</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">transpose</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">true</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">union</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">uplimit</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">variance</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">vector</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">vectorproduct</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1998/Math/MathML">xor</Name>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/metadata">Metadata</Name>
+			<TagColor>CC99FF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1999/xhtml">caption</Name>
+      <ShortDescription>caption</ShortDescription>
+		  <TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1999/xhtml">col</Name>
+      <ShortDescription>col</ShortDescription>
+		  <TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1999/xhtml">colgroup</Name>
+      <ShortDescription>colgroup</ShortDescription>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1999/xhtml">table</Name>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1999/xhtml">tbody</Name>
+      <ShortDescription>tbody</ShortDescription>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1999/xhtml">td</Name>
+      <ShortDescription>td</ShortDescription>
+		  <TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1999/xhtml">tfoot</Name>
+      <ShortDescription>tfoot</ShortDescription>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1999/xhtml">th</Name>
+      <ShortDescription>th</ShortDescription>
+		  <TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1999/xhtml">thead</Name>
+      <ShortDescription>thead</ShortDescription>
+		  <TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.w3.org/1999/xhtml">tr</Name>
+      <ShortDescription>tr</ShortDescription>
+		  <TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions>
+				<IndentContent/>
+			</PrettyPrintOptions>
+    </ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">NoticeHeading</Name>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">CompanyName</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Company</Name>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Administration</Name>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Administrator</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">NatureOfBusiness</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Substitution</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/metadata">SupplierName</Name>
+			<TagColor>FFCCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/metadata">SupplierNoticeID</Name>
+			<TagColor>FFCCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/metadata">PublishDate</Name>
+			<TagColor>FFCCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/metadata">SupplierID</Name>
+			<TagColor>FFCCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/metadata">TimeOfReceipt</Name>
+			<TagColor>FFCCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/metadata">DateOfReceipt</Name>
+			<TagColor>FFCCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/metadata">GazetteID</Name>
+			<TagColor>FFCCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">CourtNumber</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">CourtName</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">DateOfAppointment</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">CompanyNumber</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Court</Name>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">TradeClassification</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">AdministrationOrderMade</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">CompanyRegisteredOffice</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">CompanyOtherNames</Name>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">CompanyPrevious</Name>
+			<TagColor>FFFFFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">CourtDistrict</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">DateSigned</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">TradingAs</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Appointer</Name>
+			<TagColor>99CCFF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+		<ElementProperties>
+			<Name ns="http://www.tso.co.uk/assets/namespace/gazette">Initials</Name>
+			<TagColor>6699FF</TagColor>
+			<PrettyPrintOptions/>
+		</ElementProperties>
+	  <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Surname</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">MiddleNames</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Forename</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">OfficeHolderNumber</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">OfficeHolderNumbers</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">AddressLineGroup</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">InformationGroup</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">FirmName</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">LegislationSection</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Legislation</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">PostCode</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Time</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Note</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">TypeOfLiquidation</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Date</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Resolution</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Partnership</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">PartnershipName</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">PetitionFilingDate</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">WindingUpOrderDate</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">RelatedCase</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Reference</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">PartnershipAddress</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">CompanyStatus</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">CourtPrevious</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">PsubBlock</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Authority</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Pblock</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">PersonStatus</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Person</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">TypeOfPetition</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">BankruptcyOrderDate</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">PersonDetails</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">CompanyRegisteredCountries</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">CompanyRegisteredCountry</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">DefinedAs</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Society</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">SocietyName</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">AlsoKnownAs</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/metadata">PublishDateText</Name>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/metadata">InitialPageNumber</Name>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/metadata">IssueNumber</Name>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/metadata">ISBN</Name>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <GlobalPrettyPrintOptions></GlobalPrettyPrintOptions>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Metadata</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Gazette</Name>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/metadata">NoticeClass</Name>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">DeathDetails</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">NoticeOfClaims</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">NoticeOfClaimsDate</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">DateOfAnnulment</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">DateOfDischarge</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">CompanyGroup</Name>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">PartnershipNumber</Name>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/metadata">Language</Name>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/metadata">KeyedBy</Name>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/metadata">ContentClass</Name>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <GlobalPrettyPrintOptions></GlobalPrettyPrintOptions>
+    <GlobalPrettyPrintOptions></GlobalPrettyPrintOptions>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/metadata">TimeStamp</Name>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/metadata">SortKey</Name>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+  </ElementPropertiesList>
+  <Templates>
+    <Template>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazette">Tabular</Name>
+      <MiniTemplate><![CDATA[<lga:Tabular xmlns:lga="http://www.tso.co.uk/assets/namespace/gazette"></lga:Tabular>]]></MiniTemplate>
+    </Template>
+  </Templates>
+  <Images>
+  </Images>
+</DTDExtensions>

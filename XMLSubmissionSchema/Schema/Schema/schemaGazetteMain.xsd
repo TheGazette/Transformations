@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.tso.co.uk/assets/namespace/gazette" xmlns="http://www.tso.co.uk/assets/namespace/gazette" xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" id="SchemaGazetteMain">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Gazette Schema Main Elements</dc:title>
+			<dc:description>Describes Gazette main elements</dc:description>
+			<dc:contributor>Paul Appleby</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>SchemaGazetteMain</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2004</dc:rights>
+			<dc:date>
+				<dcq:created>2004-11-02</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>Put modified date here (format 2003-10-20)</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Modification information
+			Version	Name				Modification
+			1.1			Put name here	Put modification text here
+			1.0			Paul Appleby		Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+	
+	<xsd:import namespace="http://www.tso.co.uk/assets/namespace/metadata" schemaLocation="schemaGazetteMetadata.xsd"/>	
+	
+	<xsd:element name="Metadata">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:group ref="ukm:GazetteGlobalMetadata"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="Body">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:choice>
+					<xsd:element ref="Category" maxOccurs="unbounded"/>
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attributeGroup ref="CommonSubAttributes"/>
+			<xsd:attributeGroup ref="PelementIDattributes"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>

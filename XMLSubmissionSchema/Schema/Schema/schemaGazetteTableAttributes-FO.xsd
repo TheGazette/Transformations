@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.w3.org/1999/XSL/Format" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/1999/XSL/Format" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1" id="SchemaGazetteFO">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Table Formatting Attributes Schema</dc:title>
+			<dc:description>Describes FO material for table attributes</dc:description>
+			<dc:description>This module can serve as a standalone module</dc:description>
+			<dc:contributor>Paul Appleby</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>SchemaFO</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2006</dc:rights>
+			<dc:date>
+				<dcq:created>2004-12-30</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>2006-10-20</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Modification information
+			Version	Name					Modification
+			1.1			Paul Appleby		Changed order of patterns in TableSimpleLengthType to get around an XMetal bug
+			1.0			Paul Appleby		Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+	
+	<xsd:attributeGroup name="TableIndentAttributes">
+		<xsd:annotation>
+			<xsd:documentation>Defines margins on the table</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="start-indent" type="TableSimpleLengthType"/>
+	</xsd:attributeGroup>	
+	
+	<xsd:attributeGroup name="TableBackgroundColorAttributes">
+		<xsd:annotation>
+			<xsd:documentation>Defines a background color</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="background-color" type="TableColorType"/>
+	</xsd:attributeGroup>
+	
+	<xsd:attributeGroup name="TableBorderLeftAttributes">
+		<xsd:annotation>
+			<xsd:documentation>Defines a table left border, using either default values, or a combination of style, color and width</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="border-left-style" type="TableBorderStyleType" default="inherit"/>
+		<xsd:attribute name="border-left-color" type="TableColorType" default="inherit"/>
+		<xsd:attribute name="border-left-width" type="TableSimpleLengthType" default="inherit"/>
+	</xsd:attributeGroup>
+	
+	<xsd:attributeGroup name="TableBorderTopAttributes">
+		<xsd:annotation>
+			<xsd:documentation>Defines a table top border, using either default values, or a combination of style, color and width</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="border-top-style" type="TableBorderStyleType" default="inherit"/>
+		<xsd:attribute name="border-top-color" type="TableColorType" default="inherit"/>
+		<xsd:attribute name="border-top-width" type="TableSimpleLengthType" default="inherit"/>
+	</xsd:attributeGroup>
+	
+	<xsd:attributeGroup name="TableBorderAttributes">
+		<xsd:annotation>
+			<xsd:documentation>Defines table right and bottom borders, using either default values, or a combination of style, color and width</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="border-right-style" type="TableBorderStyleType" default="inherit"/>
+		<xsd:attribute name="border-bottom-style" type="TableBorderStyleType" default="inherit"/>
+		<xsd:attribute name="border-right-color" type="TableColorType" default="inherit"/>
+		<xsd:attribute name="border-bottom-color" type="TableColorType" default="inherit"/>
+		<xsd:attribute name="border-right-width" type="TableSimpleLengthType" default="inherit"/>
+		<xsd:attribute name="border-bottom-width" type="TableSimpleLengthType" default="inherit"/>
+	</xsd:attributeGroup>
+
+	<xsd:attributeGroup name="TableCellPaddingAttributes">
+		<xsd:annotation>
+			<xsd:documentation>Defines table cell padding values</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="padding-top" type="TableSimpleLengthType" default="inherit"/>
+		<xsd:attribute name="padding-left" type="TableSimpleLengthType" default="inherit"/>
+		<xsd:attribute name="padding-right" type="TableSimpleLengthType" default="inherit"/>
+		<xsd:attribute name="padding-bottom" type="TableSimpleLengthType" default="inherit"/>						
+	</xsd:attributeGroup>
+	
+	<!--
+			Table type definitions
+	-->
+	<xsd:simpleType name="TableBorderStyleType">
+		<xsd:annotation>
+			<xsd:documentation>Defines a border style type</xsd:documentation>
+			<xsd:documentation>Values taken from the CSS2 specification http://www.w3.org/TR/REC-CSS2/box.html#value-def-border-style</xsd:documentation>
+			<xsd:documentation>Note: the value 'none' has not been used</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="inherit"/>
+			<xsd:enumeration value="solid"/>
+			<xsd:enumeration value="dashed"/>
+			<xsd:enumeration value="dotted"/>
+			<xsd:enumeration value="double"/>
+			<xsd:enumeration value="groove"/>
+			<xsd:enumeration value="inset"/>
+			<xsd:enumeration value="outset"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="TableColorType">
+		<xsd:annotation>
+			<xsd:documentation>Defines a colour type</xsd:documentation>
+			<xsd:documentation>NEED TO DEFINE THE FORMAT OF VALUES ALLOWED HERE</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="TableSimpleLengthType">
+		<xsd:annotation>
+			<xsd:documentation>Defines a length in either pixels, points or ems; alternatively the value can be inherited</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="inherit"/>
+			<xsd:pattern value="\d{1,}px"/>
+			<xsd:pattern value="\d{1,}\.?\d{0,3}em"/>
+			<xsd:pattern value="\d{1,}\.?\d{0,3}pt"/>			
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:attributeGroup name="BlockOrientation">
+		<xsd:attribute name="reference-orientation">
+			<xsd:annotation>
+				<xsd:documentation>Defines the rotation of the text in the cell</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="0"/>
+					<xsd:enumeration value="90"/>
+					<xsd:enumeration value="180"/>
+					<xsd:enumeration value="270"/>
+					<xsd:enumeration value="-90"/>
+					<xsd:enumeration value="-180"/>
+					<xsd:enumeration value="-270"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	
+</xsd:schema>

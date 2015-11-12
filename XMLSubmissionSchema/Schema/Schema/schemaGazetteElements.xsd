@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.tso.co.uk/assets/namespace/gazette" xmlns="http://www.tso.co.uk/assets/namespace/gazette" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.2" id="SchemaGazetteCommonElements">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Common Elements Schema</dc:title>
+			<dc:description>Defines generic elements applicable to multiple document types. These are elements that can be reused as they define very general constructs</dc:description>
+			<dc:contributor>Paul Appleby</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>SchemaCommonElements</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2006</dc:rights>
+			<dc:date>
+				<dcq:created>2005-01-20</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>2010-07-20</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Modification information
+			Version	Name					Modification
+			1.2			Chris Cole			Added enumeration to PersonName/@Class
+			1.1			Paul Appleby		Loosened content model on PersonName to allow inline formatting
+			1.0			Paul Appleby		Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+	
+	<xsd:element name="Para" type="InlineModelStructure">
+		<xsd:annotation>
+			<xsd:documentation>This is a generic paragraph element</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	
+	<xsd:element name="Title" type="InlineFullStructure">
+		<xsd:annotation>
+			<xsd:documentation>This is a generic title element</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	
+	<xsd:element name="Number" type="InlineFullStructure">
+		<xsd:annotation>
+			<xsd:documentation>This is a generic number element desinged to hold the number of say a chapter or numbered paragraph</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	
+	<xsd:element name="PersonName">
+		<xsd:annotation>
+			<xsd:documentation>This defines a full name. Have had to loosen the model from all due to the requirement to allow inline formatting within a name</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType mixed="true">
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element name="Title" type="EmphasisBasicStructure"/>
+        <xsd:element name="Rank" type="EmphasisBasicStructure"/>
+				<xsd:element name="Salutation" type="EmphasisBasicStructure"/>
+				<xsd:element name="Forename" type="EmphasisBasicStructure"/>
+				<xsd:element name="Initials" type="EmphasisBasicStructure"/>
+				<xsd:element name="MiddleNames" type="EmphasisBasicStructure"/>
+				<xsd:element name="Surname" type="EmphasisBasicStructure"/>
+        <xsd:element name="PostNominal" type="EmphasisBasicStructure"/>
+				<xsd:group ref="EmphasisBasic"/>
+				<xsd:element ref="Span"/>			
+				<xsd:element ref="Character"/>
+			</xsd:choice>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+			<xsd:attribute name="Class">
+				<xsd:simpleType>
+					<xsd:list>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">					
+								<xsd:enumeration value="Receiver"/>
+								<xsd:enumeration value="Administrator"/>
+								<xsd:enumeration value="Solicitor"/>
+								<xsd:enumeration value="Member"/>
+								<xsd:enumeration value="Liquidator"/>
+								<xsd:enumeration value="Petitioner"/>
+								<xsd:enumeration value="Director"/>
+								<xsd:enumeration value="Contact"/> <!-- 2010-07-20 CRJC: enumeration added as AdditionalContact/PersonName didn't have an appropriate @Class. Called it 'Contact' so it could potentially be re-used by other areas -->
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:list>
+				</xsd:simpleType>
+			</xsd:attribute>				
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="Character">
+		<xsd:annotation>
+			<xsd:documentation>Allows for Unicode characters to be altered in element fashion to avoid ambiguity and make for easier editing, e.g. spaces, minus vs hyphen, etc. Also allows for some entities from existing documents that are not in Unicode</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="Name">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="DotPadding"/>
+						<xsd:enumeration value="EmSpace"/>
+						<xsd:enumeration value="EnSpace"/>
+						<xsd:enumeration value="LinePadding"/>
+						<xsd:enumeration value="NonBreakingSpace"/>
+						<xsd:enumeration value="Minus"/>
+						<xsd:enumeration value="ThinSpace"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>

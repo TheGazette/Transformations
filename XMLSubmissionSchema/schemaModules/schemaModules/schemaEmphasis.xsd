@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.tso.co.uk/assets/namespace/gazette" xmlns="http://www.tso.co.uk/assets/namespace/gazette" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" id="SchemaEmphasis">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Emphasis Schema</dc:title>
+			<dc:description>Describes elements used for standard text highlighting</dc:description>
+			<dc:contributor>Paul Appleby, Peter Lazar</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>SchemaEmphasis</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2003</dc:rights>
+			<dc:date>
+				<dcq:created>2003-10-20</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>Put modified date here (format 2003-10-20)</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Modification information
+			Version	Name				Modification
+			1.1			Put name here	Put modification text here
+			1.0			Paul Appleby		Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:element name="Emphasis">
+		<xsd:annotation>
+			<xsd:documentation>Describes emphasised text. This will generally turn roman text italic or italic text roman</xsd:documentation>
+			<xsd:documentation>The content model allows all standard inline constructs apart from emphasis which should not be nested</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType mixed="true">
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="Strong"/>
+				<xsd:element ref="Inferior"/>
+				<xsd:element ref="Superior"/>
+				<xsd:element ref="SmallCaps"/>
+				<xsd:element ref="Underline"/>
+				<xsd:group ref="InlineBasic"/>
+			</xsd:choice>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Strong">
+		<xsd:annotation>
+			<xsd:documentation>Describes emboldened (highlighted) text. This will generally turn roman text bold or bold text roman</xsd:documentation>
+			<xsd:documentation>The content model allows all standard inline constructs apart from strong which should not be nested</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType mixed="true">
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="Emphasis"/>
+				<xsd:element ref="Inferior"/>
+				<xsd:element ref="Superior"/>
+				<xsd:element ref="SmallCaps"/>
+				<xsd:element ref="Underline"/>
+				<xsd:group ref="InlineBasic"/>
+			</xsd:choice>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SmallCaps">
+		<xsd:annotation>
+			<xsd:documentation>Describes smallcaps text</xsd:documentation>
+			<xsd:documentation>The content model allows all standard inline constructs apart from small caps which should not be nested</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType mixed="true">
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="Strong"/>
+				<xsd:element ref="Emphasis"/>
+				<xsd:element ref="Inferior"/>
+				<xsd:element ref="Superior"/>
+				<xsd:element ref="Underline"/>
+				<xsd:group ref="InlineBasic"/>
+			</xsd:choice>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Inferior" type="InlineStructure">
+		<xsd:annotation>
+			<xsd:documentation>Describes inferior (subscript) text. To get second order inferior characters nest this element</xsd:documentation>
+			<xsd:documentation>The content model allows all standard inline constructs</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Superior" type="InlineStructure">
+		<xsd:annotation>
+			<xsd:documentation>Describes superior (superscript) text. To get second order superior characters nest this element</xsd:documentation>
+			<xsd:documentation>The content model allows all standard inline constructs</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Underline" type="InlineStructure">
+		<xsd:annotation>
+			<xsd:documentation>Describes underlined text. To get double underline nest this element</xsd:documentation>
+			<xsd:documentation>The content model allows all standard inline constructs</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

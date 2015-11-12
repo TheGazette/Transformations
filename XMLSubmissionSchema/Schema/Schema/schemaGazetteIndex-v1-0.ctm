@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!DOCTYPE DTDExtensions SYSTEM "ctm.dtd">
+<DTDExtensions>
+  <NSPrefixMap>
+    <NSPrefixPair prefix="gazetteindex" ns="http://www.tso.co.uk/assets/namespace/gazetteindex"></NSPrefixPair>
+    <NSPrefixPair prefix="xsd" ns="http://www.w3.org/2001/XMLSchema"></NSPrefixPair>
+  </NSPrefixMap>
+  <ElementPropertiesList>
+    <GlobalPrettyPrintOptions>
+      <NoPrettyPrinting/>
+    </GlobalPrettyPrintOptions>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">IndexItem</Name>
+      <ShortDescription>IndexItem</ShortDescription>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Text</Name>
+      <ShortDescription>Text</ShortDescription>
+      <LongDescription>Text of index term</LongDescription>
+      <TagColor>FF0000</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">PageNumber</Name>
+      <ShortDescription>PageNumber</ShortDescription>
+      <TagColor>99CCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+<Alias>pp</ALias>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Category</Name>
+      <ShortDescription>Category</ShortDescription>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Section</Name>
+      <ShortDescription>Section</ShortDescription>
+      <TagColor>FF9933</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">SectionSubgroup</Name>
+      <ShortDescription>SectionSubgroup</ShortDescription>
+      <TagColor>FFFF00</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Inferior</Name>
+      <ShortDescription>Inferior</ShortDescription>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Emphasis</Name>
+      <ShortDescription>Emphasis</ShortDescription>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Title</Name>
+      <ShortDescription>Title</ShortDescription>
+      <TagColor>FFCCFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Superior</Name>
+      <ShortDescription>Superior</ShortDescription>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Subsection</Name>
+      <ShortDescription>Subsection</ShortDescription>
+      <TagColor>FFCC66</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">SmallCaps</Name>
+      <ShortDescription>SmallCaps</ShortDescription>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Index</Name>
+      <ShortDescription>Index</ShortDescription>
+      <TagColor>FFFFFF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Strong</Name>
+      <ShortDescription>Strong</ShortDescription>
+      <TagColor>6699FF</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+    <ElementProperties>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">SeeAlso</Name>
+      <ShortDescription>SeeAlso</ShortDescription>
+      <LongDescription>Other connected index terms</LongDescription>
+      <TagColor>33CC33</TagColor>
+      <PrettyPrintOptions></PrettyPrintOptions>
+    </ElementProperties>
+  </ElementPropertiesList>
+  <Templates>
+  </Templates>
+  <FollowedByList>
+    <FollowedByListItem>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">IndexItem</Name>
+      <FollowedBy ns="http://www.tso.co.uk/assets/namespace/gazetteindex">IndexItem</FollowedBy>
+    </FollowedByListItem>
+    <FollowedByListItem>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Section</Name>
+      <FollowedBy ns="http://www.tso.co.uk/assets/namespace/gazetteindex">Section</FollowedBy>
+    </FollowedByListItem>
+    <FollowedByListItem>
+      <Name ns="http://www.tso.co.uk/assets/namespace/gazetteindex">PageNumber</Name>
+      <FollowedBy ns="http://www.tso.co.uk/assets/namespace/gazetteindex">PageNumber</FollowedBy>
+    </FollowedByListItem>
+  </FollowedByList>
+</DTDExtensions>

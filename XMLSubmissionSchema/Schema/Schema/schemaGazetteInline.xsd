@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.tso.co.uk/assets/namespace/gazette" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.tso.co.uk/assets/namespace/gazette" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1" id="SchemaGazetteInline">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Basic Inline Elements Schema</dc:title>
+			<dc:description>Describes common elements applicable to inline text</dc:description>
+			<dc:contributor>Paul Appleby</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>SchemaGazetteInline</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2005</dc:rights>
+			<dc:date>
+				<dcq:created>2004-12-30</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>2005-03-13</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Modification information
+			Version	Name			Modification
+			1.0			Paul Appleby	Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+	
+	<xsd:element name="Text">
+		<xsd:annotation>
+			<xsd:documentation>A container for a line of text</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType mixed="true">
+			<xsd:group ref="InlineFull" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+			<xsd:attributeGroup ref="CommonFormattingAttributes"/>
+			<xsd:attributeGroup ref="CommonHangingAttributes"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="Span">
+		<xsd:annotation>
+			<xsd:documentation>An inline container</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType mixed="true">
+			<xsd:group ref="InlineFull" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+			<xsd:attribute name="Class" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>

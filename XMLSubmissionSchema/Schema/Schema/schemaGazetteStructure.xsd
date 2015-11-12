@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.tso.co.uk/assets/namespace/gazette" xmlns="http://www.tso.co.uk/assets/namespace/gazette" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.6" id="SchemaGazetteStructure">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Schema High-level Structure</dc:title>
+			<dc:description>Defines the high-level structures that are containers for content</dc:description>
+			<dc:contributor>Paul Appleby</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>SchemaGazetteStructure</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2006</dc:rights>
+			<dc:date>
+				<dcq:created>2004-11-02</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>2010-07-20</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Modification information
+			Version		Name			Modification
+			1.6			Chris Cole		Removed 'AdditionalContact' from 'Notice' (now a child of 'Administration' instead)
+			1.5			Griff Chamberlain Added LegislationType and LegislationSubType to Notice
+			1.4			Paul Appleby	Allowed multiple authorities
+			1.3			Paul Appleby	Allowed TradingAs within a Notice element
+			1.0			Paul Appleby	Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+
+	<xsd:import namespace="http://www.tso.co.uk/assets/namespace/metadata" schemaLocation="schemaGazetteMetadata.xsd"/>
+	
+	<xsd:element name="Category">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element name="Section" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="Notice" maxOccurs="unbounded"/>
+						</xsd:sequence>
+						<xsd:attribute name="Type" type="xsd:string" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element ref="Notice" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+			<xsd:attribute name="Type" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="10"/>
+						<xsd:maxInclusive value="99"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="Notice">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ukm:Metadata"/>
+				<xsd:element name="NoticeHeading" type="EmphasisBasicStructure" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Some notice types (e.g. 1107) do not have a defined heading. This element should be used to describe the heading</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+        <xsd:element name="AwardSubCategrory" type="EmphasisBasicStructure" minOccurs="0"/>
+  				<xsd:choice>
+					<xsd:element name="Substitution" type="InlineFullStructure" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>In rare circumstances a notice is placed in substituion of one printed at an earlier date. This element should be used for the accompanying note that explains the substitution</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Retraction" type="InlineFullStructure" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>In rare circumstances a notice is placed to retract one printed at an earlier date. This element should be used for the accompanying note that explains the retraction</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+				<xsd:choice>
+					<xsd:sequence>
+            <xsd:choice minOccurs="0" maxOccurs="unbounded">
+              <xsd:element ref="AwardType" minOccurs="0" maxOccurs="unbounded"/>
+              <xsd:element ref="AwardSubCategory" minOccurs="0" maxOccurs="unbounded"/>
+              <xsd:element ref="AwardDivision" minOccurs="0" maxOccurs="unbounded"/>
+              <xsd:element ref="AwardSubdivision" minOccurs="0" maxOccurs="unbounded"/>
+              <xsd:element ref="ServiceBranch" minOccurs="0" maxOccurs="unbounded"/>
+							<xsd:element ref="Authority" minOccurs="0" maxOccurs="unbounded"/>						
+              <xsd:element ref="Honour"/>
+							<xsd:element ref="Title"/>
+							<xsd:element ref="DefinedAs"/>
+							<xsd:element ref="Person"/>
+							<xsd:element ref="Legislation"/>
+							<xsd:element ref="LegislationType"/>
+							<xsd:element ref="LegislationSubType"/>
+							<xsd:element ref="Company"/>
+							<xsd:element ref="CompanyGroup"/>							
+							<xsd:element ref="Partnership"/>
+							<xsd:element ref="TradingAs"/>
+							<xsd:element ref="TradingDetails"/>							
+							<xsd:element ref="Society"/>
+							<xsd:element ref="Court"/>
+							<xsd:element ref="P"/>
+							<xsd:element ref="ForceP"/>							
+							<xsd:element ref="P1group"/>
+							<xsd:element ref="P1"/>
+							<xsd:element ref="P2"/>
+							<xsd:element ref="P3"/>
+							<xsd:element ref="Tabular"/>
+							<xsd:element ref="Note"/>
+							<xsd:element ref="Administration"/>
+							<xsd:element ref="Pblock"/>
+							<xsd:element ref="PsubBlock"/>
+              <xsd:element ref="Citation"/>
+						</xsd:choice>
+					</xsd:sequence>
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+			<xsd:attribute name="Type" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="1000"/>
+						<xsd:maxInclusive value="9999"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Reference" type="xsd:positiveInteger"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- ========== Main structures ========== -->
+	
+	<xsd:element name="Pblock">
+		<xsd:annotation>
+			<xsd:documentation>Contains the text of a block of paragraphs</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Title" minOccurs="0"/>
+				<xsd:element ref="Ref" minOccurs="0"/>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="PsubBlock"/>
+					<xsd:element ref="P"/>
+					<xsd:element ref="P1group"/>
+					<xsd:element ref="P1"/>
+					<xsd:element ref="P2group"/>
+					<xsd:element ref="P2"/>
+					<xsd:element ref="P3group"/>
+					<xsd:element ref="P3"/>
+					<xsd:element ref="Tabular"/>
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="PsubBlock">
+		<xsd:annotation>
+			<xsd:documentation>Contains the text of a block of paragraphs</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Title" minOccurs="0"/>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="P"/>
+					<xsd:element ref="P1group"/>
+					<xsd:element ref="P1"/>
+					<xsd:element ref="P2group"/>
+					<xsd:element ref="P2"/>
+					<xsd:element ref="P3group"/>
+					<xsd:element ref="P3"/>
+					<xsd:element ref="Tabular"/>
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="Ref" type="EmphasisBasicStructure">
+		<xsd:annotation>
+			<xsd:documentation>Text relating this part of the document to another part</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	
+</xsd:schema>

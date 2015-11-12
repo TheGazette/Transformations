@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.tso.co.uk/assets/namespace/gazette" xmlns="http://www.tso.co.uk/assets/namespace/gazette" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1" id="SchemaLinks">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Schema Links Structure</dc:title>
+			<dc:description>Defines link structures</dc:description>
+			<dc:contributor>Paul Appleby, Peter Lazar</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>SchemaLinks</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2003</dc:rights>
+			<dc:date>
+				<dcq:created>2003-10-20</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>2003-03-13</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Modification information
+			Version	Name				Modification
+			1.1			Paul Appleby	Expanded contents models for InternalLink and ExternalLink to include Character and Span elements
+			1.0			Paul Appleby	Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:element name="InternalLink">
+		<xsd:annotation>
+			<xsd:documentation>Describes a link with a target inside of the document</xsd:documentation>
+			<xsd:documentation>The ref attribute should point to an ID attribute</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType mixed="true">
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:group ref="EmphasisBasic"/>
+				<xsd:element ref="Character"/>
+				<xsd:element ref="Span"/>
+			</xsd:choice>
+			<xsd:attribute name="Ref" type="xsd:IDREF" use="required"/>
+			<xsd:attribute name="EndRef" type="xsd:IDREF" use="optional"/>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ExternalLink">
+		<xsd:annotation>
+			<xsd:documentation>Describes a link with a target outside of the document</xsd:documentation>
+			<xsd:documentation>The uri attribute should describe the target as a URI. For DOIs use the format doi:10.1000/182</xsd:documentation>
+			<xsd:documentation>The title attribute should describe the link</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType mixed="true">
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:group ref="EmphasisBasic"/>
+				<xsd:element ref="Character"/>
+				<xsd:element ref="Span"/>
+			</xsd:choice>
+			<xsd:attribute name="URI" type="xsd:anyURI"/>
+			<xsd:attribute name="Title" type="xsd:string"/>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.tso.co.uk/assets/namespace/gazette" targetNamespace="http://www.tso.co.uk/assets/namespace/gazette" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" id="SchemaGazette">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Gazette Schema</dc:title>
+			<dc:description>Describes Gazette Content</dc:description>
+			<dc:contributor>Paul Appleby</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>SchemaGazette</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2004</dc:rights>
+			<dc:date>
+				<dcq:created>2004-11-02</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>2004-11-02</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Namespace information:
+			This schema is defined as being the in the namespace 'http://www.tso.co.uk/assets/namespace/gazette'
+			The suggested namespace prefix is lga ([L]ondon [Ga]zette)
+			</xsd:documentation>
+			<xsd:documentation>
+			Modification information
+			Version	Name				Modification
+			1.0			Paul Appleby	Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:include schemaLocation="schemaGazetteIncludes.xsd"/>
+	<xsd:import namespace="http://www.tso.co.uk/assets/namespace/metadata" schemaLocation="schemaGazetteMetadata.xsd"/>
+	<!--
+	========== Element Definitions ==========
+	-->
+	<xsd:element name="Gazette">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Metadata" minOccurs="0"/>
+				<xsd:element ref="Body" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+			<xsd:attribute name="SchemaVersion" type="xsd:NMTOKEN" use="required" fixed="1.0"/>
+			<xsd:attribute name="Title">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="London"/>
+						<xsd:enumeration value="Edinburgh"/>
+						<xsd:enumeration value="Belfast"/>
+						<!--supplements-->
+						<xsd:enumeration value="London-Supplement-BirthdayHonours"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursUnitedKingdom"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursAntiguaAndBarbados"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursBahamas"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursBarbados"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursBelize"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursCookIslands"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursGrenada"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursPapuaNewGuinea"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursSolomonIslands"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursSaintLucia"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursSaintChristopherAndNevis"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursSaintVincentAndGrenadines"/>
+						<xsd:enumeration value="London-Supplement-BirthdayHonoursTuvalu"/>
+						<xsd:enumeration value="London-Supplement-CompanyLaw"/>
+						<xsd:enumeration value="London-Supplement-ExtraordinaryLondonGazette"/>
+						<xsd:enumeration value="London-Supplement-HonoursAndAwards"/>
+						<xsd:enumeration value="London-Supplement-HonoursAndAwardsImperialServiceMedal"/>
+						<xsd:enumeration value="London-Supplement-MinistryOfDefence"/>
+						<xsd:enumeration value="London-Supplement-PremiumBondUnclaimedPrizes"/>
+						<xsd:enumeration value="London-Supplement-StatutoryPublications"/>
+						<xsd:enumeration value="London-Supplement-SupplementToExtraordinaryLondonGazette"/>
+						<xsd:enumeration value="London-Supplement-TheQueensAwardForEnterprise"/>
+						<xsd:enumeration value="London-Supplement-TheQueensAwardForVoluntaryService"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonours "/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursUnitedKingdom"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursBahamas"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursBarbados"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursBelize"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursCookIslands"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursGrenada"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursPapuaNewGuinea"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursSolomonIslands"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursSaintLucia "/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursSaintChristopherAndNevis"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursSaintVincentAndGrenadines"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursAntiguaAndBarbuda"/>
+						<xsd:enumeration value="London-Supplement-NewYearsHonoursTuvalu"/>
+						<xsd:enumeration value="Edinburgh-Supplement-CompanyLaw"/>
+						<xsd:enumeration value="Edinburgh-Supplement-CompanyLawOfficialNotifications"/>
+						<xsd:enumeration value="Edinburgh-Supplement-ExtraordinaryEdinburghGazette"/>
+						<xsd:enumeration value="Edinburgh-Supplement-SupplementToTheExtraordinaryEdinburghGazette"/>
+						<xsd:enumeration value="Belfast-Supplement-CompanyLaw"/>
+						<xsd:enumeration value="Belfast-Supplement-ExtraordinaryBelfastGazette"/>
+						<xsd:enumeration value="Belfast-Supplement-NewYearsHonoursNorthernIreland"/>
+						<xsd:enumeration value="Belfast-Supplement-SupplementToTheExtraordinaryBelfastGazette"/>
+						<xsd:enumeration value="Belfast-Supplement-TheFlagsRegulationsNorthernIreland2000"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+		<xsd:keyref name="refCrossrefToFootnote" refer="keyFootnote">
+			<xsd:annotation>
+				<xsd:documentation>Ensures that a footnote reference has a corresponding footnote</xsd:documentation>
+			</xsd:annotation>
+			<xsd:selector xpath=".//FootnoteRef"/>
+			<xsd:field xpath="@Ref"/>
+		</xsd:keyref>
+		<xsd:key name="keyFootnote">
+			<xsd:selector xpath=".//Footnote"/>
+			<xsd:field xpath="@id"/>
+		</xsd:key>
+		<xsd:keyref name="refNoticeTriple" refer="keyNoticeTriple">
+			<xsd:annotation>
+				<xsd:documentation>Ensures that a notice triple object points to a valid subject</xsd:documentation>
+			</xsd:annotation>
+			<xsd:selector xpath=".//NoticeTriple"/>
+			<xsd:field xpath="@Object"/>
+		</xsd:keyref>
+		<xsd:key name="keyNoticeTriple">
+			<xsd:selector xpath=".//Gazette"/>
+			<xsd:field xpath="@Subject | @id"/>
+		</xsd:key>
+	</xsd:element>
+</xsd:schema>

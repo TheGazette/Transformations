@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.tso.co.uk/assets/namespace/gazette" xmlns="http://www.tso.co.uk/assets/namespace/gazette" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:math="http://www.w3.org/1998/Math/MathML" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" id="SchemaFormula">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Formula schema</dc:title>
+			<dc:description>Describes display equations</dc:description>
+			<dc:contributor>Paul Appleby, Peter Lazar</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>SchemaFormula</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2003</dc:rights>
+			<dc:date>
+				<dcq:created>2003-10-20</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>Put modified date here (format 2003-10-20)</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Modification information
+			Version	Name				Modification
+			1.1			Put name here	Put modification text here
+			1.0			Paul Appleby		Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:import namespace="http://www.w3.org/1998/Math/MathML" schemaLocation="mathml2/mathml2.xsd"/>
+	<xsd:element name="Formula">
+		<xsd:annotation>
+			<xsd:documentation>Allows for a mathematical formula to be inserted</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="equationNumber" minOccurs="0" type="EmphasisBasicStructure"/>
+				<xsd:element ref="math:math"/>
+				<xsd:element ref="Where" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attributeGroup ref="CommonSubAttributes"/>
+			<xsd:attribute name="ID">
+				<xsd:annotation>
+					<xsd:documentation>A unique identifier in the format x00000</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:ID">
+						<xsd:pattern value="x[0-9]{5}"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attributeGroup ref="CommonFormattingAttributes"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Where">
+		<xsd:annotation>
+			<xsd:documentation>Explains the nomenclature used in the formula</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="KeyList"/>
+				<xsd:element ref="UnorderedList"/>
+				<xsd:element ref="Para" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attributeGroup ref="CommonAttributes"/>
+			<xsd:attributeGroup ref="CommonFormattingAttributes"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

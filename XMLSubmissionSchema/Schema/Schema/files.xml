@@ -1,0 +1,141 @@
+<OntologyDatatypes>
+	<files>
+		<!--names of the ontology module files-->
+		<file>authority.owl</file>
+		<file>consultation.owl</file>
+		<file>corp-insolvency.owl</file>
+		<file>court.owl</file>
+		<file>duration.owl</file>
+		<file>environment.owl</file>
+		<file>gazette.owl</file>
+		<file>legislation.owl</file>
+		<file>location.owl</file>
+		<file>organisation.owl</file>
+		<file>partnerships.owl</file>
+		<file>person.owl</file>
+		<file>personal-legal.owl</file>
+		<file>planning.owl</file>
+		<file>water.owl</file>
+		<file>transport.owl</file>
+		<file>cache/ontology_v2.0_Lite.rdf</file>
+		<file>cache/vcard.owl</file>
+		<file>cache/foaf.owl</file>
+		<file>cache/wgs84_pos.rdf</file>
+	</files>	
+		<!--values that should be excluded because they are taken care of by other schema elements-->
+	<ommissions>
+		<omitValues attributeGroup="ThingClass">
+			<omitValue>organisation:name</omitValue>
+			<omitValue>person:initial</omitValue>
+			<omitValue>geoNames:postalCode</omitValue>
+			<omitValue>person:hasIPnum</omitValue>
+			<omitValue>authority:isKnownAs</omitValue>
+			<omitValue>corp-insolvency:description</omitValue>
+			<omitValue>corp-insolvency:hasNoticeNumber</omitValue>
+			<omitValue>gazette:hasIssueNumber</omitValue>
+			<omitValue>gazette:hasNoticeCode</omitValue>
+			<omitValue>gazette:hasNoticeNumber</omitValue>
+			<omitValue>legislation:hasLegislationPartNumber</omitValue>
+			<omitValue>legislation:shortTitle</omitValue>
+			<omitValue>organisation:alsoKnownAs</omitValue>
+			<omitValue>organisation:definedAs</omitValue>
+			<omitValue>organisation:departmentName</omitValue>
+			<omitValue>person:salutation</omitValue>
+			<omitValue>corp-insolvency:hasLongCode</omitValue>
+			<omitValue>corp-insolvency:hasShortCode</omitValue>
+			<omitValue>legislation:reference</omitValue>
+			<omitValue>geoNames:officialName</omitValue>
+			<omitValue>geoNames:population</omitValue>
+			<omitValue>vcard:uid</omitValue>
+			<omitValue>vcard:category</omitValue>
+			<omitValue>vcard:class</omitValue>
+			<omitValue>vcard:family-name</omitValue>
+			<omitValue>vcard:fn</omitValue>
+			<omitValue>vcard:given-name</omitValue>
+			<omitValue>vcard:mailer</omitValue>
+			<omitValue>vcard:title</omitValue>
+			<omitValue>vcard:role</omitValue>
+			<omitValue>foaf:sha1</omitValue>
+			<omitValue>foaf:nick</omitValue>
+			<omitValue>vcard:tz</omitValue>
+			<omitValue>vcard:sort-string</omitValue>
+			<omitValue>vcard:additional-name</omitValue>
+			<omitValue>vcard:honorific-prefix</omitValue>
+			<omitValue>vcard:honorific-suffix</omitValue>
+			<omitValue>vcard:note</omitValue>
+			<omitValue>vcard:country-name</omitValue>
+			<omitValue>vcard:extended-address</omitValue>
+			<omitValue>vcard:label</omitValue>
+			<omitValue>foaf:givenname</omitValue>
+			<omitValue>vcard:locality</omitValue>
+			<omitValue>vcard:organization-unit</omitValue>
+			<omitValue>vcard:organization-name</omitValue>
+			<omitValue>vcard:nickname</omitValue>
+			<omitValue>vcard:post-office-box</omitValue>
+			<omitValue>vcard:postal-code</omitValue>
+			<omitValue>vcard:region</omitValue>
+			<omitValue>vcard:street-address</omitValue>
+			<omitValue>vcard:rev</omitValue>
+			<omitValue>foaf:title</omitValue>
+			<omitValue>vcard:latitude</omitValue>
+			<omitValue>vcard:longitude</omitValue>
+		</omitValues>	
+		<omitValues attributeGroup="DateTimeClass">
+			<omitValue>personal-legal:diedOn</omitValue>
+			<omitValue>gazette:dateAuthorisationSigned</omitValue>
+			<omitValue>environment:dateSigned</omitValue>
+			<omitValue>gazette:hasPublicationDate</omitValue>
+			<omitValue>legislation:hasLegislationYear</omitValue>
+			<omitValue>court:caseYear</omitValue>
+			<omitValue>vcard:bday</omitValue>
+		</omitValues>
+		<omitValues attributeGroup="DurationClass">
+		</omitValues>
+		<omitValues attributeGroup="TimeClass">
+		</omitValues>
+		<omitValues attributeGroup="ValueClass">
+			<omitValue>legislation:hasLegislationNumber</omitValue>
+			<omitValue>legislation:hasSSInumber</omitValue>
+			<omitValue>legislation:isRepealed</omitValue>
+		</omitValues>
+		<!-- omit external properties that are replicated by other ontologies or are not used or deprecated-->
+		<omitValues attributeGroup="PredicateClass">
+			<omitValue>vcard:latitude</omitValue><!--we use the wgs_lat and long properties-->
+			<omitValue>vcard:longitude</omitValue>
+			<!--we are using the foaf ontology rather than vcard for name capturing-->
+			<omitValue>vcard:family-name</omitValue>
+			<omitValue>vcard:given-name</omitValue>
+			<omitValue>vcard:fn</omitValue>
+			<omitValue>vcard:title</omitValue>
+			<omitValue>vcard:role</omitValue>
+			<omitValue>vcard:additional-name</omitValue>
+			<omitValue>vcard:honorific-prefix</omitValue>
+			<omitValue>vcard:honorific-suffix</omitValue>
+		</omitValues>
+	</ommissions>
+	<!--Deprecated values are the previous enumeration for each attribute group-->
+	<deprecated>
+		<deprecatedValues attributeGroup="DateTimeClass">
+			<deprecatedValue>Appointment</deprecatedValue>
+			<deprecatedValue>General</deprecatedValue>
+			<deprecatedValue>Hearing</deprecatedValue>
+			<deprecatedValue>Meeting</deprecatedValue>
+			<deprecatedValue>Presentation</deprecatedValue>
+			<deprecatedValue>Resolution</deprecatedValue>
+		</deprecatedValues>
+		<deprecatedValues attributeGroup="TimeClass">
+			<deprecatedValue>Appointment</deprecatedValue>
+			<deprecatedValue>General</deprecatedValue>
+			<deprecatedValue>Hearing</deprecatedValue>
+			<deprecatedValue>Meeting</deprecatedValue>
+			<deprecatedValue>Presentation</deprecatedValue>
+			<deprecatedValue>Resolution</deprecatedValue>
+		</deprecatedValues>
+	</deprecated>
+	<!--We may need to add some object properties - these can be added here-->
+	<additional>
+		<additionalValues attributeGroup="DateTimeClass">
+			<additionalValue></additionalValue>
+		</additionalValues>
+	</additional>
+</OntologyDatatypes>

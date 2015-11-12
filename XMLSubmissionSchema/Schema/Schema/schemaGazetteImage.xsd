@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.tso.co.uk/assets/namespace/gazette" xmlns="http://www.tso.co.uk/assets/namespace/gazette" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" id="SchemaGazetteImage">
+	<xsd:annotation>
+		<xsd:appinfo xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+			<dc:title>Image Schema</dc:title>
+			<dc:description>Describes images</dc:description>
+			<dc:contributor>Paul Appleby</dc:contributor>
+			<dc:creator>TSO</dc:creator>
+			<dc:identifier>SchemaGazetteImage</dc:identifier>
+			<dc:language>en</dc:language>
+			<dc:publisher>The Stationery Office</dc:publisher>
+			<dc:rights>Copyright The Stationery Office 2005</dc:rights>
+			<dc:date>
+				<dcq:created>2005-10-22</dcq:created>
+			</dc:date>
+			<dc:date>
+				<dcq:modified>2006-10-20</dcq:modified>
+			</dc:date>
+			<xsd:documentation>
+			Modification information
+			Version	Name					Modification
+			1.1			Paul Appleby		Changed order of patterns in TableSimpleLengthType to get around an XMetal bug
+			1.0			Paul Appleby		Created
+			</xsd:documentation>
+		</xsd:appinfo>
+	</xsd:annotation>
+	
+	<xsd:element name="Image">
+		<xsd:complexType mixed="true">
+			<xsd:attribute name="Description" type="xsd:string" use="optional"/>
+			<xsd:attribute name="URI" type="xsd:string" use="required"/>
+			<xsd:attribute name="Format" type="xsd:string" use="required"/>						
+			<xsd:attributeGroup ref="CommonSubAttributes"/>
+			<xsd:attribute name="Height" type="FigureSizeType" use="required"/>
+			<xsd:attribute name="Width" type="FigureSizeType" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:simpleType name="FigureSizeType">
+		<xsd:annotation>
+			<xsd:documentation>Defines a size in either pixels, points or ems; alternatively the value can be auto (inherent, but cropped if larger than the page size), scale-to-fit (i.e. image is scaled to fit the page), spread (as in a two-page spread), or fit-page-to-image (where the page grows to fit around the image).</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="auto"/>
+			<xsd:pattern value="scale-to-fit"/>
+			<xsd:pattern value="fit-page-to-image"/>
+			<xsd:pattern value="spread"/>
+			<xsd:pattern value="\d{1,}\.?\d{0,3}%"/>
+			<xsd:pattern value="\d{1,}\.?\d{0,3}em"/>
+			<xsd:pattern value="\d{1,}\.?\d{0,3}pt"/>			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>

@@ -1,0 +1,3024 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.tso.co.uk/assets/namespace/gazette"
+            xmlns:ns1="http://purl.org/dc/terms/"
+            targetNamespace="http://www.tso.co.uk/assets/namespace/gazette"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            version="1.0"
+            id="schemaGazetteOntologyDefinedAttributeGroups">
+   <xsd:annotation xmlns:dcq="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <xsd:appinfo>
+         <dc:title>Ontology defined attribute groups</dc:title>
+         <dc:description>Attribute groups whose values are defined by the Gazette ontology
+									THIS IS AUTO GENERATED FROM AN XSLT STYLESHEET
+									extractGazetteOntologyDefinedAttributeGroups.xslt
+									DO NOT AMEND THIS SCHEMA MANUALLY</dc:description>
+         <dc:contributor>Griff Chamberlain</dc:contributor>
+         <dc:creator>TSO</dc:creator>
+         <dc:identifier>schemaGazetteOntologyDefinedAttributeGroups</dc:identifier>
+         <dc:language>en</dc:language>
+         <dc:publisher>The Stationery Office</dc:publisher>
+         <dc:rights>Copyright The Stationery Office 2008</dc:rights>
+         <dc:date>
+            <dcq:created>2009-02-12T09:25:13.68Z</dcq:created>
+         </dc:date>
+         <dc:date>
+            <dcq:modified>2009-02-12T09:25:13.68Z</dcq:modified>
+         </dc:date>
+         <xsd:documentation>
+					Modification information
+					Version				Name
+						1.01		Griff Chamberlain</xsd:documentation>
+      </xsd:appinfo>
+   </xsd:annotation>
+   <xsd:attributeGroup name="DateTimeClass">
+      <xsd:attribute name="Class" use="required">
+         <xsd:annotation>
+            <xsd:documentation>The non-prefixed values are previous attribute values retained for backward compatibility</xsd:documentation>
+            <xsd:documentation>The prefixed values are date, year and datetime datatype properties extracted from the Gazette ontology</xsd:documentation>
+         </xsd:annotation>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:enumeration value="Appointment"/>
+               <xsd:enumeration value="General"/>
+               <xsd:enumeration value="Hearing"/>
+               <xsd:enumeration value="Meeting"/>
+               <xsd:enumeration value="Presentation"/>
+               <xsd:enumeration value="Resolution"/>
+               <xsd:enumeration value="consultation:dateAvailableFrom"/>
+               <xsd:enumeration value="consultation:dateAvailableTo"/>
+               <xsd:enumeration value="corp-insolvency:dateOfAppointment"/>
+               <xsd:enumeration value="corp-insolvency:dateOfHearing"/>
+               <xsd:enumeration value="corp-insolvency:dateAdministrationOrderMade"/>
+               <xsd:enumeration value="corp-insolvency:dateOfPetitionPresentation"/>
+               <xsd:enumeration value="corp-insolvency:dateOfResolution"/>
+               <xsd:enumeration value="corp-insolvency:datePetitionFiled"/>
+               <xsd:enumeration value="corp-insolvency:datePetitionSigned"/>
+               <xsd:enumeration value="corp-insolvency:dateWoundUp"/>
+               <xsd:enumeration value="legislation:objectionDeadline"/>
+               <xsd:enumeration value="partnerships:inEffectFrom"/>
+               <xsd:enumeration value="personal-legal:deedPollDate"/>
+               <xsd:enumeration value="personal-legal:hasClaimDeadline"/>
+               <xsd:enumeration value="planning:dateAcquiredOn"/>
+               <xsd:enumeration value="planning:dateCorrespondenceReceivedBy"/>
+               <xsd:enumeration value="planning:dateEnvironmentalStatementReceived">
+                  <xsd:annotation>
+                     <xsd:documentation>Date Environmental Statement Received</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateProposalsAdvertised">
+                  <xsd:annotation>
+                     <xsd:documentation>Date Proposals for making an order were origianlly advertised</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:dateReviewCompleted">
+                  <xsd:annotation>
+                     <xsd:documentation>Date Review Completed</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dateOfApproval">
+                  <xsd:annotation>
+                     <xsd:documentation>Date approved</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateApplicationMade">
+                  <xsd:annotation>
+                     <xsd:documentation>Date order being withdrawn was origianlly applied for</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:dateTookEffectFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Date revoked specification took effect from</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:dateTakesEffectFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Date the specification takes effect from</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:representationDeadline">
+                  <xsd:annotation>
+                     <xsd:documentation>Deadline for representations to be made</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:startDate">
+                  <xsd:annotation>
+                     <xsd:documentation>STreet work start date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:completionDate">
+                  <xsd:annotation>
+                     <xsd:documentation>Street work completion date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:enrollmentDate">
+                  <xsd:annotation>
+                     <xsd:documentation>The date on which the Deed Poll is enrolled at the Supreme Court (of Judicature/of England and Wales).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:objectionCommencementDate">
+                  <xsd:annotation>
+                     <xsd:documentation>commencement date objections can be placed</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateOfDecisionLetter">
+                  <xsd:annotation>
+                     <xsd:documentation>date Of Decision Letter</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dateOfApplication">
+                  <xsd:annotation>
+                     <xsd:documentation>date application made</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateOfConfirmation">
+                  <xsd:annotation>
+                     <xsd:documentation>date of conformation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dateOfDesignation">
+                  <xsd:annotation>
+                     <xsd:documentation>date of mineral water designation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateGrantedOn">
+                  <xsd:annotation>
+                     <xsd:documentation>date planning permission granted on</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:dateDeclarationMade">
+                  <xsd:annotation>
+                     <xsd:documentation>date the declaration was made</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:dateOrderComesIntoEffect">
+                  <xsd:annotation>
+                     <xsd:documentation>date the order comes into operation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:dateProposedOrderComesIntoEffect">
+                  <xsd:annotation>
+                     <xsd:documentation>date the order comes into operation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:dateOrderMade">
+                  <xsd:annotation>
+                     <xsd:documentation>date the order was made</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:completionDate">
+                  <xsd:annotation>
+                     <xsd:documentation>date work is scheduled for completion</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:startDate">
+                  <xsd:annotation>
+                     <xsd:documentation>date work is scheduled to start</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:meetingTime"/>
+               <xsd:enumeration value="consultation:hearingDateTime">
+                  <xsd:annotation>
+                     <xsd:documentation>Date and Time of hearing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:meetingDateTime">
+                  <xsd:annotation>
+                     <xsd:documentation>Date and Time of meeting</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:attributeGroup>
+   <xsd:attributeGroup name="DurationClass">
+      <xsd:attribute name="Class" use="required">
+         <xsd:annotation>
+            <xsd:documentation>Duration datatypes extracted from the Gazette ontology</xsd:documentation>
+         </xsd:annotation>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:enumeration value="consultation:availableDuration"/>
+               <xsd:enumeration value="legislation:objectionDuration"/>
+               <xsd:enumeration value="transport:duration">
+                  <xsd:annotation>
+                     <xsd:documentation>Duration of street works</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:attributeGroup>
+   <xsd:attributeGroup name="TimeClass">
+      <xsd:attribute name="Class" use="required">
+         <xsd:annotation>
+            <xsd:documentation>The non-prefixed values are previous attribute values retained for backward compatibility</xsd:documentation>
+            <xsd:documentation>The prefixed values are time and dateTime datatype properties extracted from the Gazette ontology</xsd:documentation>
+         </xsd:annotation>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:enumeration value="Appointment"/>
+               <xsd:enumeration value="General"/>
+               <xsd:enumeration value="Hearing"/>
+               <xsd:enumeration value="Meeting"/>
+               <xsd:enumeration value="Presentation"/>
+               <xsd:enumeration value="Resolution"/>
+               <xsd:enumeration value="corp-insolvency:meetingTime"/>
+               <xsd:enumeration value="consultation:hearingDateTime">
+                  <xsd:annotation>
+                     <xsd:documentation>Date and Time of hearing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:meetingDateTime">
+                  <xsd:annotation>
+                     <xsd:documentation>Date and Time of meeting</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="duration:closeTime"/>
+               <xsd:enumeration value="duration:openTime"/>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:attributeGroup>
+   <xsd:attributeGroup name="ThingClass">
+      <xsd:attribute name="Class" use="required">
+         <xsd:annotation>
+            <xsd:documentation>String datatype and annotation properties extracted from the Gazette ontology</xsd:documentation>
+         </xsd:annotation>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:enumeration value="corp-insolvency:hasAppointer"/>
+               <xsd:enumeration value="corp-insolvency:typeOfPetition"/>
+               <xsd:enumeration value="location:hasRoadNumber"/>
+               <xsd:enumeration value="location:hasRoadName"/>
+               <xsd:enumeration value="location:isInTown"/>
+               <xsd:enumeration value="location:isInDistrict"/>
+               <xsd:enumeration value="location:isInParish"/>
+               <xsd:enumeration value="location:gridReference"/>
+               <xsd:enumeration value="location:countryName"/>
+               <xsd:enumeration value="organisation:registeredCountries"/>
+               <xsd:enumeration value="organisation:natureOfBusiness"/>
+               <xsd:enumeration value="organisation:isTradingAs"/>
+               <xsd:enumeration value="organisation:officeName"/>
+               <xsd:enumeration value="organisation:status"/>
+               <xsd:enumeration value="organisation:partnershipNumber"/>
+               <xsd:enumeration value="organisation:companyNumber"/>
+               <xsd:enumeration value="organisation:sitcTradeClassification"/>
+               <xsd:enumeration value="person:roleName"/>
+               <xsd:enumeration value="person:jobTitle"/>
+               <xsd:enumeration value="planning:disposalReference"/>
+               <xsd:enumeration value="transport:speedLimit"/>
+               <xsd:enumeration value="transport:restrictedWidth"/>
+               <xsd:enumeration value="transport:height"/>
+               <xsd:enumeration value="transport:length"/>
+               <xsd:enumeration value="transport:plotCode"/>
+               <xsd:enumeration value="transport:railwayName"/>
+               <xsd:enumeration value="planning:berrNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>BERR number (also known as DTI number)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:courtDistrict">
+                  <xsd:annotation>
+                     <xsd:documentation>District the court resides in</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:limitOfWork">
+                  <xsd:annotation>
+                     <xsd:documentation>Limit of street work</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:project">
+                  <xsd:annotation>
+                     <xsd:documentation>Name of operation project</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:publicationName">
+                  <xsd:annotation>
+                     <xsd:documentation>Name of publication</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:zooName">
+                  <xsd:annotation>
+                     <xsd:documentation>Name of zoo</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:courtName">
+                  <xsd:annotation>
+                     <xsd:documentation>Name that court is known by</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:caseNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>Number issued to a Court Case</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:quadBlock">
+                  <xsd:annotation>
+                     <xsd:documentation>Quad/Block reference (part of BERR well number)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:totalArea">
+                  <xsd:annotation>
+                     <xsd:documentation>approx total area of nature reserve</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:estimatedCost">
+                  <xsd:annotation>
+                     <xsd:documentation>estimated cost of coastal protection work</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:footpathName">
+                  <xsd:annotation>
+                     <xsd:documentation>name of footpath</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:nameOfMineralWater">
+                  <xsd:annotation>
+                     <xsd:documentation>name of mineral water</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:scheduleNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>number appointed to a schedule</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:planningReference">
+                  <xsd:annotation>
+                     <xsd:documentation>planning permission reference number</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dischargeQuantity">
+                  <xsd:annotation>
+                     <xsd:documentation>quantity of discharge being applied for</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:concerning">
+                  <xsd:annotation>
+                     <xsd:documentation>the nature of the notice - ie zebra crossing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dischargeType">
+                  <xsd:annotation>
+                     <xsd:documentation>type of discharge being applied for</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:typeOfInstallation">
+                  <xsd:annotation>
+                     <xsd:documentation>type of installation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:documentReference"/>
+               <xsd:enumeration value="consultation:shortDescription"/>
+               <xsd:enumeration value="location:featureDescription"/>
+               <xsd:enumeration value="corp-insolvency:typeOfLiquidation"/>
+               <xsd:enumeration value="wgs84_pos:lat_long">
+                  <xsd:annotation>
+                     <xsd:documentation>A comma-separated representation of a latitude, longitude coordinate.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:alternateName">
+                  <xsd:annotation>
+                     <xsd:documentation>An alternate name for a feature</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="wgs84_pos:alt">
+                  <xsd:annotation>
+                     <xsd:documentation>The WGS84 altitude of a SpatialThing (decimal meters 
+above the local reference ellipsoid).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="wgs84_pos:lat">
+                  <xsd:annotation>
+                     <xsd:documentation>The WGS84 latitude of a SpatialThing (decimal degrees).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="wgs84_pos:long">
+                  <xsd:annotation>
+                     <xsd:documentation>The WGS84 longitude of a SpatialThing (decimal degrees).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:name">
+                  <xsd:annotation>
+                     <xsd:documentation>The preferred name of the feature.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:attributeGroup>
+   <xsd:attributeGroup name="ValueClass">
+      <xsd:attribute name="Class" use="required">
+         <xsd:annotation>
+            <xsd:documentation>Boolean, double and integer datatype properties extracted from the Gazette ontology</xsd:documentation>
+         </xsd:annotation>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:enumeration value="partnerships:capitalContribution">
+                  <xsd:annotation>
+                     <xsd:documentation>The amount of capital contribution the investor is making in the limited partnership, in pounds; this will usually be a small amount.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:loanContribution">
+                  <xsd:annotation>
+                     <xsd:documentation>The amount of loan contribution the investor is making the limited partnership, in pounds. This will usually be a large amount.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:latitude">
+                  <xsd:annotation>
+                     <xsd:documentation>The latitude of a geographic location</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:longitude">
+                  <xsd:annotation>
+                     <xsd:documentation>The longitude of a geographic location</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:interestPercentage">
+                  <xsd:annotation>
+                     <xsd:documentation>The percentage of the interest that is transferred. Often the whole (100%) amount.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:interestValue">
+                  <xsd:annotation>
+                     <xsd:documentation>The value of the interest that is transferred. This may be used if the percentage is not available/calculated.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:numberOfCabs">
+                  <xsd:annotation>
+                     <xsd:documentation>Number of cabs specified per stand</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:newNumberOfMembers">
+                  <xsd:annotation>
+                     <xsd:documentation>new number of member in reconstituted drainage board</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:previousNumberOfMembers">
+                  <xsd:annotation>
+                     <xsd:documentation>previous number of member in reconstituted drainage board</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:attributeGroup>
+   <xsd:attributeGroup name="PredicateClass">
+      <xsd:attribute name="Predicate" use="required">
+         <xsd:annotation>
+            <xsd:documentation>All properties extracted from the Gazette ontology</xsd:documentation>
+         </xsd:annotation>
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:enumeration value="authority:hasAuthorised">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="authority:hasAuthority">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:isAbout">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:appliesToCourt">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasLocation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasLocationFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasLocationTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasSchedule">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasAssociatedPlanningPermission">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasMeetingLocation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasOriginalNoticePublication">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:grantedBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:grantedTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasWhoAppliedForOrder">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:submitOrderTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:meetingLocation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:orderAdministrator">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:resolutionMeetingLocation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="duration:onDayOfWeek">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:isAboutDocument">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:hasAppliedTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:hasApplicant">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:isPartOfLegislationPart">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:containsLegislationPart">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:isPartOfLegislation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:hasObjectionOrganisationContact">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:isPartOfTrunkRoad">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:hasSpatialLocation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:isInCounty">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:mobileNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:phoneNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:faxNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:email">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:hasOwner">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:ownsProperty">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:hasDepartment">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:hasPreviousName">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:isPartOfOrganisation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:isBasedAt">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:isBaseFor">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:hasArea">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:hasITCTradeClassification">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:hasRegisteredOffice">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:isInterestIn">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:transfers">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:transfersInterestIn">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:isHeldBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:hasInterest">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:isAffectedBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:dissolves">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:hadPartner">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:isPartnerIn">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:holds">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:isGeneralPartnerIn">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:hasPartner">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:isTransferredBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:isAbout">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:receivesBusinessThrough">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:hasInterestTransferredBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:hasMembershipChangedBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:isLimitedPartnerIn">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:receivesInterestThrough">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:transfersInterestTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:transfersBusinessTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:hasLimitedPartner">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:isDissolvedBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:changesMembershipOf">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:changesMembersOf">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:hasGeneralPartner">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:hasMembersChangedBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:wasPartnerIn">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:hasEmployee">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:hasAddress">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:confersCitizenship">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:belongsToCitizen">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasCitizenship">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:isMaritalStatusOf">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasNextOfKin">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasNextOfKinBeingSearchedFor">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasPersonalRepresentative">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:isConsentedToBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:isAbandonedBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:consentsToChangeOfName">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:conferredByLegislation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:isNextOfKinOf">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:isPersonalRepresentativeFor">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:isParentalResponsibilityOf">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasParentalResponsibilityFor">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasNameChange">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:changesNameOf">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:isAssumedBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasContactOrganisation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:isContactOrganisationFor">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasMaritalStatus">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:makesRepresentation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasDocuments">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:isSearchingForPerson">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:isSearchingForOrganisation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasContact">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:isAboutProperty">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:acquiredFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasCorrespondenceContact">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:addsPermitParkingBay">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:revokesPermitParkingBay">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:amendsPermitParkingBay">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:addsParkingBay">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:revokesParkingBay">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:amendsParkingBay">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:addsSpeedLimitFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:addsSpeedLimitTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:revokesSpeedLimitFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:revokesSpeedLimitTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:amendsSpeedLimitFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:amendsSpeedLimitTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasDuration">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasAmendedDuration">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:addsBusLane">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:revokesBusLane">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:amendsBusLane">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasProhibitionLocation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasDesignatedHarbourAuthority">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasRelinquishedHarbourAuthority">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasCompulsoryPurchaseOfProperty">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasExistingOperator">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasNewOperator">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:isPartOfStation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:isOfType">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:isPartOfRailway">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:mbox">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:myersBriggs">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A Myers Briggs (MBTI) personality classification.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:url">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A URL associated with a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:wikipediaArticle">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A Wikipedia article of which subject is the resource.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:inCountry">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A country in the ISO country list</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:currentProject">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A current project this person works on.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:depiction">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A depiction of some thing.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:thumbnail">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A derived thumbnail image.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:fax">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A fax number of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:nearby">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A feature close to the reference feature</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:parentFeature">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A feature parent of the current one, in either administrative or physical subdivision.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:neighbour">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A feature sharing a common boarder with the reference feature</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:geo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A geographic location associated with a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:locationMap">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A geonames map centered on the feature.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:homeAdr">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A home address of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:homeTel">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A home phone number of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:homepage">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A homepage for some thing.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:schoolHomepage">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A homepage of a school attended by the person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:key">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A key (e.g, PKI key) of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:publications">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A link to the publications of this person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:based_near">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A location that something is based near, for some broadly human notion of near.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:logo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A logo associated with a person or their organization</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:logo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A logo representing some thing.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:mobileEmail">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A mobile email address of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:mobileTel">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A mobile phone number of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:interest">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A page about a topic of interest to this person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:page">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A page or document about this thing.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:knows">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A person known by this person (indicating some level of reciprocated interaction between the parties).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:agent">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A person that acts as one's agent</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:phone">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:photo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A photograph of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:adr">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A postal or street address of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:pastProject">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A project this person has previously worked on.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:sound">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A sound (e.g., a greeting or pronounciation) of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:tel">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A telephone number of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:theme">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A theme.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:depicts">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A thing depicted in this representation.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:topic_interest">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A thing of interest to this person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:tipjar">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A tipjar document for this agent, describing means for payment and reward.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:topic">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A topic of some page or document.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:weblog">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A weblog of some thing (whether person, group, company etc.).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:workAdr">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A work address of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:workEmail">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A work email address of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:workInfoHomepage">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A work info homepage of some person; a page about their work for some organization.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:workTel">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A work phone number of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:workplaceHomepage">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: A workplace homepage of some person; the homepage of an organization they work for.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:concernsAerodrome">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Aerodromes that specification concerns</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:unlabeledAdr">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: An (explicitly) unlabeled address of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:unlabeledEmail">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: An (explicitly) unlabeled email address of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:unlabeledTel">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: An (explicitly) unlabeled phone number of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:openid">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: An OpenID  for an Agent.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:maker">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: An agent that  made this thing.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:email">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: An email address</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:personalEmail">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: An email address unaffiliated with any particular
+organization or employer; a personal email address</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:img">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:org">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: An organization associated with a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:fundedBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: An organization funding a project or person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasApplication">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Associated Application</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasAuthority">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Authority that is associated with an Authority Notice</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasByelaw">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Bylaw that is being confirmed</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:tag">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Classification of a feature against a Concept, either defined by its URI taken from any Concept Scheme, or by a blank node description.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:hasPetitioner">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Company or person who acts as the petitioner</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:isAvailableFromOrganisation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Contact Organisation that holds the Order</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:isAvailableFromPerson">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Contact Person that holds the Order</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:isAvailableFromRole">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Contact Role that holds the Order</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasInspectionCopy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Copy of documents/plans for inspection</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:hasNotifiableThing">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Corporate Insolvency notices that are part of a court case</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:concernsCountry">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Country that specification concerns</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:hasCourtCase">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Court Case associated with a Court
+			Inverse of hasCourt</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:involvedInCourtCase">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Court Case that involves the organisation
+			Inverse of isAboutOrganisation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:hasCourtCase">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Court Case that is part of a notice thing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:hasCourt">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Court associated with a Court Case
+			Inverse of hasCourtCase</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasMineralWaterDesignation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Designation of mineral water</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:isAboutDocument">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Document that Authority thing is concerned about</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:isCopyOf">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Document that is copied</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasDrainageBoard">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Drainage board that is assocaited with the change of drainage baord</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasAvailableTimes">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Duration that Orders are available for inspection
+		This can use time durations ie 9.30 - 17.00
+		or Monday to Friday
+		</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasEdition">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Edition that a particular Issue belongs to</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:hasDepartmentMember">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Employment that is held at specific location</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:hasOrganisationMember">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Employment that is held at specific location</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:isBaseFor">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Employment that is held at specific location</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:isInIssue">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Gazette Issue that Notice belongs to</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:accountServiceHomepage">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Indicates a homepage of the service provide for this online account.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:member">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Indicates a member of a Group</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:holdsAccount">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Indicates an account held by this agent.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:locatedIn">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Indicates that the subject resource is located in the object feature</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasEstateOf">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Indicates the person who has died.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasIssue">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Issues that are contained within an Edition</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:isEnabledByLegislation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Legislation that enables the act(s) contained in the Notifiable Thing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:isRequiredByLegislation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Legislation that requires this Notice to be published</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:childrenFeatures">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Links to an RDF document containing the descriptions of children features</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:nearbyFeatures">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Links to an RDF document containing the descriptions of nearby features</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:neighbouringFeatures">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Links to an RDF document containing the descriptions of neighbouring features. Applies when the feature has definite boarders.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:runsTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Location of end of pipeline</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasPipeline">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Location of start of pipeline</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:runsFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Location of start of pipeline</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasZooLocation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Location of zoo</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:isAvailableAt">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Location that holds the Copy</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:isMemberOfDepartment">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Location that role is based at</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:isMemberOfOrganisation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Location that role is based at</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:isBasedAt">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Location that role is based at</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:hasLocation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Locations associated with an organisation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:runsThrough">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Locations traversed by pipeline</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:isInNotice">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Notice that this is included in</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasNotice">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Notices contained within an Issue</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasOperation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Operation that is run by an Organisation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasStatutoryConsultationNotification">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Order is included in Statutory Consulatation Notification</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:isAboutOrder">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Order that notice is about</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasApplicationFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation applying for authorisation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:isHeldBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation authorisaton is held by</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasOperator">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation authorised to operate pipeline</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasOrganiser">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation in charge of operation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:isAboutOrganisation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation involved in a Court Case
+			Inverse of involvedInCourtCase</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:isAboutPerson">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation involved in a Court Case
+			Inverse of involvedInCourtCase</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:involvedInPersonCourtCase">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation involved in a Court Case
+			Inverse of involvedInCourtCase</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasAuthorisingOrganisation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation that authorises the NotifiableThing </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasApplicationMadeBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation that made the application </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasApplicationMadeTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation the application has been submitted to</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasApplicationOnBehalfOf">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Organisation(s) application is on behalf of</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:hasApplicant">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Person and/or organisation applying for licence</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasInspector">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Person appointed as Inpsector for Public Inquiry</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasProgramOfficer">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Person appointed as Program Officer for Public Inquiry</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:hasObjectionPersonContact">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Person associated with objections</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasAuthorisingPerson">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Person that authorises the NotifiableThing </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:isAboutPlans">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Plans and maps that notice is about</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:equivalentTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Property for defining equivalance to another coding system such as SITC2003 or SITC2007</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:appointLiquidator">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Property to define the appointed Liquidator (role based)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:appointReceiver">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Property to define the appointed Receiver (role based)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:appointAdministrator">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Property to define the appointed administrator (role based)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:isAbout">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Property to set the content of the Notice</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasAuthoriser">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Property to set the content of the Notice</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:isAuthoriserFor">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Property to set the content of the Notice</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:orderReceiver">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Receiver role assigned to a winding up order</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:hasOfficialReceiver">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Receiver role assigned to winding up order</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasNoticeForClaims">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Relates a deceased person to the notice for claims on their estate.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:companyMeetingRole">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Role assigned to a Company Issued Meeting</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:courtMeetingRole">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Role associated with Court issued meeting</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:hasObjectionRoleContact">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Role associated with objections</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:releasedLiquidator">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Role of liquidator assigned to a release</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:resolutionLiquidator">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Role of liquidator assigned to a resoltuion</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:petitionSolicitor">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Role of solicitor assigned to a petition</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasAuthorisingRole">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Role that authorises the NotifiableThing </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:isAvailableFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Role that holds the Order</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasSchedule">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Schedule of work associated with Transport Thing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:made">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Something that was made by this agent.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasStreetWork">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Street Work associated with new roads and street works thing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:appointRole">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Superclass for all role appointed properties</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:n">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: The components of the name of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:featureClass">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: The main category of the feature, as defined in geonames taxonomy.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:assumesName">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: The new name of the person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:abandonsName">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: The old name of the person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:isForNextOfKinOf">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: The person for whom next of kin are being searched for; the person is usually deceased.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:primaryTopic">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: The primary topic of some page or document.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:hasRole">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: The role associated with a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:employedAs">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: The role associated with an employment</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:retractsNotice">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: This should point to the relevant page of the issue that the notice is substituting
+			using the uri scheme
+			http://www.{edition}-gazette.co.uk/id/issues/{issueNumber}/notices/{notice}</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasNoticeRetraction">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: This should point to the relevant page of the issue that the notice is substituting
+			using the uri scheme
+			http://www.{edition}-gazette.co.uk/id/issues/{issueNumber}/notices/{notice}</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:substitutesNotice">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: This should point to the relevant page of the issue that the notice is substituting
+			using the uri scheme
+			http://www.{edition}-gazette.co.uk/id/issues/{issueNumber}/notices/{notice}
+		</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasNoticeSubstitution">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: This should point to the relevant page of the issue that the notice is substituting
+			using the uri scheme
+			http://www.{edition}-gazette.co.uk/id/issues/{issueNumber}/notices/{notice}
+		</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasParkingRuleTimes">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Times allocated to the parking rule</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:changesParkingRuleTimesTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Times allocated to the parking rule</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:featureCode">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: Type of the feature, as defined in geonames taxonomy.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:hasOfficeAddress">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: address associated with an office location</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:enquiriesAddressedTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: address for Information and queries</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hasCopy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: copies of document</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:hasFollowingCourtCase">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: court case that follows on from this court case</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:isRelatedToCourtCase">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: court case that is related this court case</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:amalgamatesDrainageDistrict">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: drainage districts that are being amalgamated</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasDrainageDistrict">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: drainage districts within a drainage board</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:inPlaceOfExistingUndertaker">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: existing undertaker</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:isAboutConsultationThing">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: isAboutConsultationThing property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:isAboutDocument">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: isAboutDocument property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasSource">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: location (source) of mineral water</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:sitsAt">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: location at which the court sits</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dischargeTo">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: location effluent will discharge into</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:amendsDisabledParkingBay">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: location of amended disabled parking bay</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:hasStandLocation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: location of hackney carriage stand</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:addsDisabledParkingBay">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: location of new disabled parking bay</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:revokesDisabledParkingBay">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: location of revoked disabled parking bay</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasLocationOfUndertaking">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: location that is being undertaken</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dischargeFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: location where effluent generated</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:hasExemptedProperty">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: location within smoke control area that is exempted from the control</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:hasAirQualityManagementAreaBoundaries">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: locations that mark the boundaries to an Air Quality Management Area</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:hasSmokeControlAreaBoundaries">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: locations that mark the boundaries to an Smoke Control Area</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasDesignation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: mineral water designation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasNewDesignation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: new mineral water designation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasNewUndertaker">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: new undertaker</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:hasCompany">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: organisation associated with a company issued thing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasProducer">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: organisation associated with mineral water production</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:hasOrganisation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: organisation(s) associated with location</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:hasPreviousCourtCase">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: previous court case</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:hasPreviousDesignation">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: previous mineral water designation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:hasRelatedCourtCase">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: related court case</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:assignedBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: role assigned to an employment</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:isAboutChangeOfSpecification">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: specification related to the Civil Avaition Thing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:meetingRole">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: super property for all meeting role properties</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:hasSolicitor">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: super property for all solictor subproperties</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:undertakenBy">
+                  <xsd:annotation>
+                     <xsd:documentation>Object property: the person that is associated with the role</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="authority:isKnownAs">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:hasAppointer">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:hasNoticeNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:typeOfPetition">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:hasLegislationPartNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:shortTitle">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:hasRoadNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:hasRoadName">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:isInTown">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:isInDistrict">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:isInParish">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:gridReference">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:countryName">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:alsoKnownAs">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:departmentName">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:registeredCountries">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:natureOfBusiness">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:isTradingAs">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:definedAs">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:officeName">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:name">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:status">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:partnershipNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:companyNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="organisation:sitcTradeClassification">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:roleName">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:jobTitle">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:initial">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:salutation">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:disposalReference">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:speedLimit">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:restrictedWidth">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:height">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:length">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:plotCode">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:railwayName">
+                  <xsd:annotation>
+                     <xsd:documentation>string</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:berrNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>string: BERR number (also known as DTI number)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasNoticeCode">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Code associated with a notice</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:description">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Description of Trade Classification</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:courtDistrict">
+                  <xsd:annotation>
+                     <xsd:documentation>string: District the court resides in</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasNoticeNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Identifying number associated with a notice</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:limitOfWork">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Limit of street work</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:project">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Name of operation project</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:publicationName">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Name of publication</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:zooName">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Name of zoo</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:courtName">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Name that court is known by</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasIssueNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Number associated with an Issue</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:caseNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Number issued to a Court Case</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:quadBlock">
+                  <xsd:annotation>
+                     <xsd:documentation>string: Quad/Block reference (part of BERR well number)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:totalArea">
+                  <xsd:annotation>
+                     <xsd:documentation>string: approx total area of nature reserve</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:estimatedCost">
+                  <xsd:annotation>
+                     <xsd:documentation>string: estimated cost of coastal protection work</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:footpathName">
+                  <xsd:annotation>
+                     <xsd:documentation>string: name of footpath</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:nameOfMineralWater">
+                  <xsd:annotation>
+                     <xsd:documentation>string: name of mineral water</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:scheduleNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>string: number appointed to a schedule</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:planningReference">
+                  <xsd:annotation>
+                     <xsd:documentation>string: planning permission reference number</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dischargeQuantity">
+                  <xsd:annotation>
+                     <xsd:documentation>string: quantity of discharge being applied for</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:concerning">
+                  <xsd:annotation>
+                     <xsd:documentation>string: the nature of the notice - ie zebra crossing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dischargeType">
+                  <xsd:annotation>
+                     <xsd:documentation>string: type of discharge being applied for</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:typeOfInstallation">
+                  <xsd:annotation>
+                     <xsd:documentation>string: type of installation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:documentReference">
+                  <xsd:annotation>
+                     <xsd:documentation>Annotation property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:shortDescription">
+                  <xsd:annotation>
+                     <xsd:documentation>Annotation property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:reference">
+                  <xsd:annotation>
+                     <xsd:documentation>Annotation property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="location:featureDescription">
+                  <xsd:annotation>
+                     <xsd:documentation>Annotation property</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:availableDuration">
+                  <xsd:annotation>
+                     <xsd:documentation>duration</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:objectionDuration">
+                  <xsd:annotation>
+                     <xsd:documentation>duration</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:duration">
+                  <xsd:annotation>
+                     <xsd:documentation>duration: Duration of street works</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateAvailableFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateAvailableTo">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:dateOfAppointment">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:dateOfHearing">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:dateAdministrationOrderMade">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:dateOfPetitionPresentation">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:dateOfResolution">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:datePetitionFiled">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:datePetitionSigned">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:dateWoundUp">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="environment:dateSigned">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:hasPublicationDate">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:objectionDeadline">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:inEffectFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:diedOn">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:deedPollDate">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:hasClaimDeadline">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:dateAcquiredOn">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:dateCorrespondenceReceivedBy">
+                  <xsd:annotation>
+                     <xsd:documentation>date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:dateEnvironmentalStatementReceived">
+                  <xsd:annotation>
+                     <xsd:documentation>date: Date Environmental Statement Received</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateProposalsAdvertised">
+                  <xsd:annotation>
+                     <xsd:documentation>date: Date Proposals for making an order were origianlly advertised</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:dateReviewCompleted">
+                  <xsd:annotation>
+                     <xsd:documentation>date: Date Review Completed</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dateOfApproval">
+                  <xsd:annotation>
+                     <xsd:documentation>date: Date approved</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateApplicationMade">
+                  <xsd:annotation>
+                     <xsd:documentation>date: Date order being withdrawn was origianlly applied for</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:dateTookEffectFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>date: Date revoked specification took effect from</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="gazette:dateAuthorisationSigned">
+                  <xsd:annotation>
+                     <xsd:documentation>date: Date that an Authority Notice has been signed</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:dateTakesEffectFrom">
+                  <xsd:annotation>
+                     <xsd:documentation>date: Date the specification takes effect from</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="planning:representationDeadline">
+                  <xsd:annotation>
+                     <xsd:documentation>date: Deadline for representations to be made</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:startDate">
+                  <xsd:annotation>
+                     <xsd:documentation>date: STreet work start date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:completionDate">
+                  <xsd:annotation>
+                     <xsd:documentation>date: Street work completion date</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:bday">
+                  <xsd:annotation>
+                     <xsd:documentation>date: The birthday of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="personal-legal:enrollmentDate">
+                  <xsd:annotation>
+                     <xsd:documentation>date: The date on which the Deed Poll is enrolled at the Supreme Court (of Judicature/of England and Wales).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:objectionCommencementDate">
+                  <xsd:annotation>
+                     <xsd:documentation>date: commencement date objections can be placed</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateOfDecisionLetter">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date Of Decision Letter</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dateOfApplication">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date application made</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateOfConfirmation">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date of conformation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:dateOfDesignation">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date of mineral water designation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:dateGrantedOn">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date planning permission granted on</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:dateDeclarationMade">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date the declaration was made</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:dateOrderComesIntoEffect">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date the order comes into operation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:dateProposedOrderComesIntoEffect">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date the order comes into operation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:dateOrderMade">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date the order was made</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:completionDate">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date work is scheduled for completion</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:startDate">
+                  <xsd:annotation>
+                     <xsd:documentation>date: date work is scheduled to start</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:meetingTime">
+                  <xsd:annotation>
+                     <xsd:documentation>dateTime</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:hearingDateTime">
+                  <xsd:annotation>
+                     <xsd:documentation>dateTime: Date and Time of hearing</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="consultation:meetingDateTime">
+                  <xsd:annotation>
+                     <xsd:documentation>dateTime: Date and Time of meeting</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:typeOfLiquidation">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:population">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:postalCode">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:uid">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: A UID of a person's vCard</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:category">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: A category of a vCard</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:class">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: A class (e.g., public, private, etc.) of a vCard</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="wgs84_pos:lat_long">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: A comma-separated representation of a latitude, longitude coordinate.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:mailer">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: A mailer associated with a vCard</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:officialName">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: A name in an official local language</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:sha1">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: A sha1sum hash, in hex.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:nick">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:tz">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: A timezone associated with a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:sort-string">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: A version of a person's name suitable for collation</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:alternateName">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: An alternate name for a feature</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:hasLongCode">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: ITC Long Code</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="corp-insolvency:hasShortCode">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: ITC Short Code</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="person:hasIPnum">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: Insolvency Practice number - this is associated with a person - the Insolvency Service provide a free database search at http://www.insolvency-service.co.uk/newipsearch.htm</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:note">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: Notes about a person on a vCard</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="wgs84_pos:alt">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The WGS84 altitude of a SpatialThing (decimal meters 
+above the local reference ellipsoid).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="wgs84_pos:lat">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The WGS84 latitude of a SpatialThing (decimal degrees).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="wgs84_pos:long">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The WGS84 longitude of a SpatialThing (decimal degrees).</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:country-name">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The country of a postal address</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:extended-address">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The extended address of a postal address</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:label">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The formatted version of a postal address (a string with embedded line breaks, punctuation, etc.)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:givenname">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The given name of some person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:locality">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The locality (e.g., city) of a postal address</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:organization-unit">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The name of a unit within an organization</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:organization-name">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The name of an organization</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:nickname">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The nickname of a person</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:post-office-box">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The post office box of a postal address</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:postal-code">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The postal code (e.g., U.S. ZIP code) of a postal address</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="geoNames:name">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The preferred name of the feature.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:region">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The region (e.g., state or province) of a postal address</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:street-address">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The street address of a postal address</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="vcard:rev">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: The timestamp of a revision of a vCard</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:title">
+                  <xsd:annotation>
+                     <xsd:documentation>NotSpecified: Title (Mr, Mrs, Ms, Dr. etc)</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:hasLegislationYear">
+                  <xsd:annotation>
+                     <xsd:documentation>gYear: The year in which an Act was enacted or an SI came into force.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="court:caseYear">
+                  <xsd:annotation>
+                     <xsd:documentation>gYear: Year specific to a Court Case</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="duration:closeTime">
+                  <xsd:annotation>
+                     <xsd:documentation>time</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="duration:openTime">
+                  <xsd:annotation>
+                     <xsd:documentation>time</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:isRepealed">
+                  <xsd:annotation>
+                     <xsd:documentation>boolean</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:hasLegislationNumber">
+                  <xsd:annotation>
+                     <xsd:documentation>int</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="legislation:hasSSInumber">
+                  <xsd:annotation>
+                     <xsd:documentation>int: The number of the legislation under the UK SI numbering scheme. A given piece of legislation may have numbers under a number of legislation numbering schemes.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:capitalContribution">
+                  <xsd:annotation>
+                     <xsd:documentation>double: The amount of capital contribution the investor is making in the limited partnership, in pounds; this will usually be a small amount.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:loanContribution">
+                  <xsd:annotation>
+                     <xsd:documentation>double: The amount of loan contribution the investor is making the limited partnership, in pounds. This will usually be a large amount.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:interestPercentage">
+                  <xsd:annotation>
+                     <xsd:documentation>double: The percentage of the interest that is transferred. Often the whole (100%) amount.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="partnerships:interestValue">
+                  <xsd:annotation>
+                     <xsd:documentation>double: The value of the interest that is transferred. This may be used if the percentage is not available/calculated.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="transport:numberOfCabs">
+                  <xsd:annotation>
+                     <xsd:documentation>integer: Number of cabs specified per stand</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:newNumberOfMembers">
+                  <xsd:annotation>
+                     <xsd:documentation>integer: new number of member in reconstituted drainage board</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="water:previousNumberOfMembers">
+                  <xsd:annotation>
+                     <xsd:documentation>integer: previous number of member in reconstituted drainage board</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:plan">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: A .plan comment, in the tradition of finger and '.plan' files.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:yahooChatID">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: A Yahoo chat ID</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:dnaChecksum">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: A checksum for the DNA of some thing. Joke.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:jabberID">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: A jabber ID for something.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:name">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: A name for some thing.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:geekcode">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: A textual geekcode for this person, see http://www.geekcode.com/geek.html</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:aimChatID">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: An AIM chat ID</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:icqChatID">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: An ICQ chat ID</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:msnChatID">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: An MSN chat ID</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:accountName">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: Indicates the name (identifier) associated with this online account.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:birthday">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: The birthday of this Agent, represented in mm-dd string form, eg. '12-31'.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:family_name">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: The family_name of some person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:firstName">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: The first name of a person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:gender">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: The gender of this Agent (typically but not necessarily 'male' or 'female').</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:mbox_sha1sum">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+               <xsd:enumeration value="foaf:surname">
+                  <xsd:annotation>
+                     <xsd:documentation>Literal: The surname of some person.</xsd:documentation>
+                  </xsd:annotation>
+               </xsd:enumeration>
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+   </xsd:attributeGroup>
+</xsd:schema>
