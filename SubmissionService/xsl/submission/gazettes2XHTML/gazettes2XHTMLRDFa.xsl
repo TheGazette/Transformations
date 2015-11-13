@@ -673,7 +673,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:attribute name="data-gazettes-colspan">2</xsl:attribute>
       </xsl:if>
       <xsl:choose>
-        <xsl:when test="$noticeCode = '2903' and lower-case($edition) = 'london'">
+        <xsl:when test="$noticeCode = '2903'">
           <!-- Notices of type 2903 are treated as a special case. They have a more fielded structure than other notice types. -->
           <xsl:call-template name="type2903"/>
         </xsl:when>
@@ -843,11 +843,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           <span about="this:notifiableThing" property="personal-legal:hasEstateOf"
             resource="{$personURI}"/>
           <span about="{$personURI}" typeof="gaz:Person"/>
-        	<xsl:if test="lower-case($edition) = 'london'">
-        		<span about="{$personURI}" property="person:hasAddress"
-        			resource="this:addressOfDeceased-address-1"/>
-         	 <span about="{$personURI}" content="{$personFullName}" property="foaf:name"/>
-        	</xsl:if>
+        	<span about="{$personURI}" property="person:hasAddress"
+        	  resource="this:deceased-address-1"/>
+         	<span about="{$personURI}" content="{$personFullName}" property="foaf:name"/>
         </xsl:when>  
       </xsl:choose>
       
@@ -1157,25 +1155,25 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:if test="gz:AddressLine[@Class='street-address']">
       <dt>Address 1:</dt>
       <dd about="this:addressOfExecutor-1" property="vcard:street-address" typeof="vcard:Address">
-        <xsl:value-of select="gz:AddressLine[1]"/>
+        <xsl:value-of select="gz:AddressLine[@Class='street-address']"/>
       </dd>
     </xsl:if>
     <xsl:if test="gz:AddressLine[@Class='extended-address']">
       <dt>Address 2:</dt>
       <dd about="this:addressOfExecutor-1" property="vcard:extended-address">
-        <xsl:value-of select="gz:AddressLine[2]"/>
+        <xsl:value-of select="gz:AddressLine[@Class='extended-address']"/>
       </dd>
     </xsl:if>
     <xsl:if test="gz:AddressLine[@Class='locality']">
       <dt>Town:</dt>
       <dd about="this:addressOfExecutor-1" property="vcard:locality">
-        <xsl:value-of select="gz:AddressLine[3]"/>
+        <xsl:value-of select="gz:AddressLine[@Class='locality']"/>
       </dd>
     </xsl:if>
     <xsl:if test="gz:AddressLine[@Class='country-name']">
       <dt>Country:</dt>
       <dd about="this:addressOfExecutor-1" property="vcard:country-name">
-        <xsl:value-of select="gz:AddressLine[4]"/>
+        <xsl:value-of select="gz:AddressLine[@Class='country-name']"/>
       </dd>
     </xsl:if>
     <xsl:if test="gz:Postcode">
@@ -1258,25 +1256,25 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:if test="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='street-address']">
         <dt>Address Line 1:</dt>
         <dd about="this:deceased-address-1" data-required="true" data-ui-class="addressLine1" property="vcard:street-address" typeof="vcard:Address">
-          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[1]"/>
+          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='street-address']"/>
         </dd>
       </xsl:if>
       <xsl:if test="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='extended-address']">
         <dt>Address Line 2:</dt>
         <dd about="this:deceased-address-1" data-ui-class="addressLine2" property="vcard:extended-address">
-          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[2]"/>
+          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='extended-address']"/>
         </dd>
       </xsl:if> 
       <xsl:if test="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='locality']">
         <dt>Town:</dt>
         <dd about="this:deceased-address-1" data-ui-class="locality" property="vcard:locality">
-          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[3]"/>
+          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='locality']"/>
         </dd>
       </xsl:if>
       <xsl:if test="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='country-name']">
         <dt>Country:</dt>
         <dd about="this:deceased-address-1" data-ui-class="country" property="vcard:country-name">
-          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[4]"/>
+          <xsl:value-of select="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='country-name']"/>
         </dd>
       </xsl:if>
       <xsl:if test="gz:Person/gz:PersonAddress/gz:AddressLineGroup/gz:AddressLine[@Class='street-address']">

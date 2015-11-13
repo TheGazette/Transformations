@@ -609,10 +609,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:dateOfDivorce']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'personal-legal:dateOfDivorce']"/>
       </xsl:if>
-      <xsl:if test="$updates//*:entry[@property = 'personal-legal:nextOfKin'] != ''">
+      <xsl:if test="$updates//*:entry[@property = 'personal-legal:hasNextOfKin'] != ''">
         <xsl:apply-templates
-          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:nextOfKin']]]"/>
-        <xsl:apply-templates select="x:dd [@property = 'personal-legal:nextOfKin']"/>
+          select="x:dt[following-sibling::*[1][self::x:dd [@property = 'personal-legal:hasNextOfKin']]]"/>
+        <xsl:apply-templates select="x:dd [@property = 'personal-legal:hasNextOfKin']"/>
       </xsl:if>
       <xsl:if test="$updates//*:entry[@property = 'personal-legal:otherInfo'] != ''">
         <xsl:apply-templates
