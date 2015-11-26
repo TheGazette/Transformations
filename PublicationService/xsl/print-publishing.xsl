@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE stylesheet [
+<!ENTITY ndash  "&#8211;" >
+<!ENTITY mdash  "&#8212;" >
+<!ENTITY nbsp	"&#160;" >
+]>
 <!--
 (c)  Crown copyright
 You may use and re-use this code free of charge under the terms of the Open Government Licence v3.0
@@ -22,6 +27,7 @@ Change history
 	xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:saxon="http://saxon.sf.net/"
 	xmlns:gfn="http://www.thegazette.co.uk/ns/functions" version="2.0"
 	exclude-result-prefixes="#all" extension-element-prefixes="saxon">
+	
 	<xsl:output indent="no" method="xhtml" encoding="ascii" omit-xml-declaration="yes"/>
 	<!-- the string should contain base64 encoded image/png -->
 	<xsl:param name="barcode" required="yes" as="xs:string"/>
@@ -399,72 +405,196 @@ Change history
 						select="$feed//atom:entry[*//*:notice-category-code[not(@secondary)]/text() = $code][1]"/>
 					<xsl:choose>
 						<xsl:when test="$first//*:notice-code = 2903">
-							<xsl:if
-								test="count($feed//atom:entry[*//*:notice-category-code/text() = $code]) &gt; 0">
+							<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code]) &gt; 0 and $feed//atom:entry[*//*:edition/text() = 'London']">
 								<section id="nt-{@code}" class="{$class}">
+									<xsl:variable name="edition">
+										<xsl:value-of select="$first/*//*:edition/text()"/>
+									</xsl:variable>
 									<header>
 										<xsl:element name="{$heading}">
 											<xsl:value-of select="@name"/>
+											<xsl:text>&nbsp;&ndash;&nbsp;London Edition</xsl:text>
 										</xsl:element>
 									</header>
 									<div class="legal-notice">
-										<xsl:variable name="edition">
-											<xsl:value-of select="$feed//atom:entry/*//*:edition/text()"/>
-										</xsl:variable>				
 										<!-- @TODO: Legal text for 2903 notices needs passed through by Java Layer or drawn from the notices -->
-										<xsl:for-each select="document('legislation_text.xml')//legislation[@edition=$edition]/p">
+										<xsl:for-each select="document('legislation_text.xml')//legislation[@edition='London']/p">
 											<p>
 												<xsl:value-of select="."/>
 											</p>
 										</xsl:for-each>
-										<!--<p>Notice is hereby given pursuant to s. 27 of the Trustee
-											Act 1925, that any person having a claim against or an
-											interest in the estate of any of the deceased persons
-											whose names and addresses are set out above is hereby
-											required to send particulars in writing of his claim or
-											interest to the person or persons whose names and
-											addresses are set out above, and to send such
-											particulars before the date specified in relation to
-											that deceased person displayed above, after which date
-											the personal representatives will distribute the estate
-											among the persons entitled thereto having regard only to
-											the claims and interests of which they have had notice
-											and will not, as respects the property so distributed,
-											be liable to any person of whose claim they shall not
-											then have had notice</p>-->
 									</div>
-									<table class="wills-and-probate-2903-table">
-										<thead>
-											<tr>
-												<th class="name">Name of Deceased (Surname
-												first)</th>
-												<th class="address">Address, description and date of
-												death of Deceased</th>
-												<th class="represent">Names addresses and
-												descriptions of Persons to whom notices of claims
-												are to be given and names, in parentheses, of
-												Personal Representatives</th>
-												<th class="claimsDate">Date before which notice of
-												claims to be given</th>
-												<th class="noticeNum"/>
-											</tr>
-										</thead>
-										<tbody>
-											<xsl:for-each
-												select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:p[@class='substitution'])]">
-												<xsl:sort
-												select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson' and position()=1]"/>
-												<xsl:call-template name="table_2903"/>
-											</xsl:for-each>
-											<xsl:for-each
-												select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:p[@class='substitution']]">
-												<xsl:sort
-												select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
-												<xsl:call-template name="table_2903"/>
-											</xsl:for-each>
-										</tbody>
-									</table>
+									<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'London']//*:div[@resource='this:deceasedPerson' and *:dl]">
+										<table class="wills-and-probate-2903-table">
+											<thead>
+												<tr>
+													<th class="name">Name of Deceased (Surname
+													first)</th>
+													<th class="address">Address, description and date of
+													death of Deceased</th>
+													<th class="represent">Names addresses and
+													descriptions of Persons to whom notices of claims
+													are to be given and names, in parentheses, of
+													Personal Representatives</th>
+													<th class="claimsDate">Date before which notice of
+													claims to be given</th>
+													<th class="noticeNum"/>
+												</tr>
+											</thead>
+											<tbody>
+												<xsl:for-each
+													select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:p[@class='substitution']) and *//*:edition/text() = 'London']">
+													<xsl:sort
+													select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson' and position()=1]"/>
+													<xsl:call-template name="table_2903"/>
+												</xsl:for-each>
+												<xsl:for-each
+													select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:p[@class='substitution'] and *//*:edition/text() = 'London']">
+													<xsl:sort
+													select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+													<xsl:call-template name="table_2903"/>
+												</xsl:for-each>
+											</tbody>
+										</table>
+									</xsl:if>
+								</section><!-- 
+								<xsl:if test="$feed//atom:entry//*:div[not(@resource='this:deceasedPerson' and *:dl)] and $feed//atom:entry[*//*:edition/text() = 'London']">
+									<section id="nt-{@code}" class="two-columns">
+										<br/>
+										<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:div[@resource='this:deceasedPerson']) and *//*:edition/text() = 'London']">
+											<xsl:sort select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+											<xsl:apply-templates/>
+										</xsl:for-each>		
+									</section>
+								</xsl:if> -->
+							</xsl:if>
+							<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code]) &gt; 0 and $feed//atom:entry[*//*:edition/text() = 'Belfast']">
+								<section id="nt-{@code}" class="{$class}">
+									<xsl:variable name="edition">
+										<xsl:value-of select="$first/*//*:edition/text()"/>
+									</xsl:variable>
+									<br/>
+									<header>
+										<xsl:element name="{$heading}">
+											<xsl:value-of select="@name"/>
+											<xsl:text>&nbsp;&ndash;&nbsp;Belfast Edition</xsl:text>
+										</xsl:element>
+									</header>
+									<div class="legal-notice">
+										<!-- @TODO: Legal text for 2903 notices needs passed through by Java Layer or drawn from the notices -->
+										<xsl:for-each select="document('legislation_text.xml')//legislation[@edition='Belfast']/p">
+											<p>
+												<xsl:value-of select="."/>
+											</p>
+										</xsl:for-each>
+									</div>
+									<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Belfast']//*:div[@resource='this:deceasedPerson' and *:dl]">
+										<table class="wills-and-probate-2903-table">
+											<thead>
+												<tr>
+													<th class="name">Name of Deceased (Surname
+														first)</th>
+													<th class="address">Address, description and date of
+														death of Deceased</th>
+													<th class="represent">Names addresses and
+														descriptions of Persons to whom notices of claims
+														are to be given and names, in parentheses, of
+														Personal Representatives</th>
+													<th class="claimsDate">Date before which notice of
+														claims to be given</th>
+													<th class="noticeNum"/>
+												</tr>
+											</thead>
+											<tbody>
+												<xsl:for-each
+													select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:p[@class='substitution']) and *//*:edition/text() = 'Belfast' and *//*:div[@resource='this:deceasedPerson']]">
+													<xsl:sort
+														select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson' and position()=1]"/>
+													<xsl:call-template name="table_2903"/>
+												</xsl:for-each>
+												<xsl:for-each
+													select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:p[@class='substitution'] and *//*:edition/text() = 'Belfast']">
+													<xsl:sort
+														select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+													<xsl:call-template name="table_2903"/>
+												</xsl:for-each>
+											</tbody>
+										</table>
+									</xsl:if>
 								</section>
+								<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Belfast']//*:div[not(@resource='this:deceasedPerson' or *:dl)]">
+									<section id="nt-{@code}" class="two-columns">
+										<br/>
+										<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:div[not(@resource='this:deceasedPerson' or *:dl)] and *//*:edition/text() = 'Belfast']">
+											<xsl:sort select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+											<xsl:apply-templates/>
+										</xsl:for-each>		
+									</section>
+								</xsl:if>
+							</xsl:if>
+							<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code]) &gt; 0 and $feed//atom:entry[*//*:edition/text() = 'Edinburgh']">
+								<section id="nt-{@code}" class="{$class}">
+									<xsl:variable name="edition">
+										<xsl:value-of select="$first/*//*:edition/text()"/>
+									</xsl:variable>
+									<br/>
+									<header>
+										<xsl:element name="{$heading}">
+											<xsl:value-of select="@name"/>
+											<xsl:text>&nbsp;&ndash;&nbsp;Edinburgh Edition</xsl:text>
+										</xsl:element>
+									</header>
+									<div class="legal-notice">
+										<!-- @TODO: Legal text for 2903 notices needs passed through by Java Layer or drawn from the notices -->
+										<xsl:for-each select="document('legislation_text.xml')//legislation[@edition='Edinburgh']/p">
+											<p>
+												<xsl:value-of select="."/>
+											</p>
+										</xsl:for-each>
+									</div>
+									<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Edinburgh']//*:div[@resource='this:deceasedPerson' and *:dl]">						
+										<table class="wills-and-probate-2903-table">
+											<thead>
+												<tr>
+													<th class="name">Name of Deceased (Surname
+														first)</th>
+													<th class="address">Address, description and date of
+														death of Deceased</th>
+													<th class="represent">Names addresses and
+														descriptions of Persons to whom notices of claims
+														are to be given and names, in parentheses, of
+														Personal Representatives</th>
+													<th class="claimsDate">Date before which notice of
+														claims to be given</th>
+													<th class="noticeNum"/>
+												</tr>
+											</thead>
+											<tbody>
+												<xsl:for-each
+													select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:p[@class='substitution']) and *//*:edition/text() = 'Edinburgh' and //*:div[@resource='this:deceasedPerson' and *:dl]]">
+													<xsl:sort
+														select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson' and position()=1]"/>
+													<xsl:call-template name="table_2903"/>
+												</xsl:for-each>
+												<xsl:for-each
+													select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:p[@class='substitution'] and *//*:edition/text() = 'Edinburgh']">
+													<xsl:sort
+														select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+													<xsl:call-template name="table_2903"/>
+												</xsl:for-each>
+											</tbody>
+										</table>
+										</xsl:if>
+								</section>
+								<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Edinburgh']//*:div[not(@resource='this:deceasedPerson' or *:dl)]">
+									<section id="nt-{@code}" class="two-columns">
+										<br/>
+										<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code and *//*:div[not(@resource='this:deceasedPerson' or *:dl)] and *//*:edition/text() = 'Edinburgh']">
+											<xsl:sort select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
+											<xsl:apply-templates/>
+										</xsl:for-each>		
+									</section>
+								</xsl:if>
 							</xsl:if>
 							<!-- 
 							<xsl:if
@@ -502,7 +632,7 @@ Change history
 									</header>
 									<div class="legal-notice">
 										<xsl:variable name="edition">
-											<xsl:value-of select="$feed//atom:entry/*//*:edition/text()"/>
+											<xsl:value-of select="$first/*//*:edition/text()"/>
 										</xsl:variable>
 										<!-- @TODO: Legal text for 2903 notices needs passed through by Java Layer or drawn from the notices -->
 										<xsl:for-each select="document('legislation_text.xml')//legislation[@edition=$edition]/p">
