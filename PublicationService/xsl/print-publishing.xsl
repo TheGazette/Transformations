@@ -81,6 +81,7 @@ Change history
 	<!-- Java layer should make the choice as to which terms and conditions to pass -->
 	<!-- local-test/terms.xhtml as test, production drawn from ML -->
 	<xsl:param name="terms-and-conditions" as="node()" select="doc('local-test/terms.xhtml')"/>
+	<xsl:param name="legislationText" as="node()" select="doc('legislation_text.xml')"/>
 	<!-- HTML document containing contact information -->
 	<!-- local-test/contact.xhtml as test, production drawn from ML  -->
 	<xsl:param name="contact-document" as="node()" select="doc('local-test/contact.xhtml')"/>
@@ -418,7 +419,7 @@ Change history
 									</header>
 									<div class="legal-notice">
 										<!-- @TODO: Legal text for 2903 notices needs passed through by Java Layer or drawn from the notices -->
-										<xsl:for-each select="document('legislation_text.xml')//legislation[@edition='London']/p">
+										<xsl:for-each select="$legislationText//legislation[@edition='London']/p">
 											<p>
 												<xsl:value-of select="."/>
 											</p>
@@ -482,7 +483,7 @@ Change history
 									</header>
 									<div class="legal-notice">
 										<!-- @TODO: Legal text for 2903 notices needs passed through by Java Layer or drawn from the notices -->
-										<xsl:for-each select="document('legislation_text.xml')//legislation[@edition='Belfast']/p">
+										<xsl:for-each select="$legislationText//legislation[@edition='Belfast']/p">
 											<p>
 												<xsl:value-of select="."/>
 											</p>
@@ -546,7 +547,7 @@ Change history
 									</header>
 									<div class="legal-notice">
 										<!-- @TODO: Legal text for 2903 notices needs passed through by Java Layer or drawn from the notices -->
-										<xsl:for-each select="document('legislation_text.xml')//legislation[@edition='Edinburgh']/p">
+										<xsl:for-each select="$legislationText//legislation[@edition='Edinburgh']/p">
 											<p>
 												<xsl:value-of select="."/>
 											</p>
@@ -635,7 +636,7 @@ Change history
 											<xsl:value-of select="$first/*//*:edition/text()"/>
 										</xsl:variable>
 										<!-- @TODO: Legal text for 2903 notices needs passed through by Java Layer or drawn from the notices -->
-										<xsl:for-each select="document('legislation_text.xml')//legislation[@edition=$edition]/p">
+										<xsl:for-each select="$legislationText//legislation[@edition=$edition]/p">
 											<p>
 												<xsl:value-of select="."/>
 											</p>
