@@ -496,12 +496,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:postNominal']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'person:postNominal']"/>
       </xsl:if>
-      <xsl:if test="$updates//*:entry[@property = 'person:honour'] != ''">
+            <xsl:if test="$updates//*:entry[@property = 'person:honour'] != ''">
         <xsl:apply-templates
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:honour']]]"/>
         <xsl:apply-templates select="x:dd [@property = 'person:honour']"/>
       </xsl:if>
-      
+	  
       <xsl:if test="$updates//*:entry[@property = 'person:dateOfBirth'] != ''">
         <xsl:apply-templates
           select="x:dt[following-sibling::*[1][self::x:dd [@property = 'person:dateOfBirth']]]"/>
@@ -3958,7 +3958,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:variable name="bankruptcyStatus">
         <xsl:choose>
           <xsl:when
-            test="$updates//*[@about='this:person-1' and @property='person:bankruptcyStatus']/text() = 'InBankruptcy'">
+            test="$updates//*[@about='this:person-1' and @property='person:bankruptcyStatus']/text() = 'inBankruptcy'">
             <xsl:text>(In Bankruptcy)</xsl:text>
           </xsl:when>
           <xsl:otherwise>
@@ -3984,7 +3984,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     	</xsl:for-each>
     </xsl:if>
     <xsl:if
-      test="$updates//*[starts-with(@about, 'this:person-address-') and @property='vcard:street-address']/text() != ''">
+      test="$updates//*[@about='this:person-address-1' and @property='vcard:street-address']/text() != ''">
       <p>
       	<xsl:for-each-group select="$updates//*[starts-with(@about, 'this:person-address-') and text() != '']"
       	group-by="@about">
@@ -3996,18 +3996,28 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       		<xsl:variable name="index">
         		<xsl:value-of select="substring-after($about,'this:person-address-')"/>
         	</xsl:variable>
-        	
-        	<xsl:value-of
-          		select="$updates//*[@about=$about and @property='corp-insolvency:addressType']/text()"/>
+        	<xsl:choose>
+        	<xsl:when test="$index=1">
+        		<xsl:value-of
+          		select="$updates//*[@about='this:person-1' and @property='corp-insolvency:addressType']/text()"/>
         		<xsl:text>: </xsl:text>
         		<xsl:call-template name="address">
           		<xsl:with-param name="updates" select="$updates"/>
-         		<xsl:with-param name="about" select="$about"/>		
+         		<xsl:with-param name="about" select="concat('this:person-address-',$index)"/>		
        			</xsl:call-template>
        			<xsl:text>. </xsl:text>
+        	</xsl:when>
+        	<xsl:otherwise>
+        		<xsl:text>Former Address: </xsl:text>
+        		<xsl:call-template name="address">
+          			<xsl:with-param name="updates" select="$updates"/>
+          		<xsl:with-param name="about" select="concat('this:person-address-',$index)"/>
+        		</xsl:call-template>
+        		<xsl:text>. </xsl:text>
+        	</xsl:otherwise>
+        	</xsl:choose>
         </xsl:for-each-group>
-        </p>
-        <p>    
+    
         <xsl:variable name="dateOfBirth">
           <xsl:value-of
             select="$updates//*[@about='this:person-1' and @property='person:dateOfBirth']/text()"/>
@@ -4017,7 +4027,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           <xsl:text>Date of Birth: </xsl:text>
           <span about="this:person-1" property="person:dateOfBirth" datatype="xsd:date"
             content="{$dateOfBirth}">
-            <xsl:value-of select="format-date(xs:date($dateOfBirth), '[D01] [MNn] [Y0001]')"/>
+            <xsl:value-of select="format-date(xs:date($dateOfBirth), '[FNn] [D01] [MNn] [Y0001]')"/>
           </span>
           <xsl:text>. </xsl:text>
         </xsl:if>
@@ -4045,7 +4055,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <span about="this:notifiableThing" property="corp-insolvency:dateOfBankruptcyOrder"
           datatype="xsd:dateTime" content="{concat($dateOfBankruptcyOrder,'T00:00:00')}">
           <xsl:value-of
-            select="format-date(xs:date($dateOfBankruptcyOrder), '[D01] [MNn] [Y0001]')"/>
+            select="format-date(xs:date($dateOfBankruptcyOrder), '[FNn] [D01] [MNn] [Y0001]')"/>
         </span>
       </p>
     </xsl:if>
@@ -4077,15 +4087,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       />
     </xsl:variable>
     <p>
-    <xsl:text>Last date of proving: </xsl:text>
       <span about="this:notifiableThing" property="corp-insolvency:onOrBeforeClaimSubmit"
         datatype="xsd:date" content="{$onOrBeforeClaimSubmit}">
         <xsl:value-of
-          select="format-date(xs:date($onOrBeforeClaimSubmit), '[D01] [MNn] [Y0001]')"/>
+          select="format-date(xs:date($onOrBeforeClaimSubmit), '[FNn] [D01] [MNn] [Y0001]')"/>
       </span>
     </p>
     <p>
-    <xsl:text>IP/office holder details: </xsl:text>
       <span about="this:IP1" property="foaf:name">
         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/>
       </span>
@@ -4106,7 +4114,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         />
       </span>
       <xsl:if test="$updates//*[@about='this:IP2' and @property='foaf:name']/text() != ''">
-        <xsl:text> and </xsl:text>
+        <xsl:text> and</xsl:text>
         <span about="this:IP2" property="foaf:name" datatype="xsd:string">
           <xsl:value-of select="$updates//*[@about='this:IP2' and @property='foaf:name']/text()"/>
         </span>
@@ -4121,7 +4129,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           <xsl:value-of
             select="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text()"/>
         </span>
-        <xsl:text>) </xsl:text>
+        <xsl:text>)</xsl:text>
       </xsl:if>
        <xsl:if
         test="$updates//*[@about='this:IP2' and @property='person:hasIPCapacity']/text() != ''">
@@ -4167,29 +4175,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:text>)</xsl:text>
       </xsl:if>
     </p>
-    
-     <xsl:variable name="dateOfAppointment">
-      <xsl:value-of
-        select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfAppointment']/text()"
-      />
-    </xsl:variable>
-    <xsl:if
-        test="$dateOfAppointment != ''">
-    <p>
-    <xsl:text>Date of appointment: </xsl:text>
-      <span about="this:notifiableThing" property="corp-insolvency:dateOfAppointment"
-        datatype="xsd:date" content="{$dateOfAppointment}">
-        <xsl:value-of
-          select="format-date(xs:date($dateOfAppointment), '[D01] [MNn] [Y0001]')"/>
-      </span>
-    </p>
-    </xsl:if>
-    
-    
     <xsl:if
       test="$updates//*[@about='this:IP1' and @property='person:additionalInformationIP']/text() != ''">
       <p>
-       <xsl:text> Additional information: </xsl:text>
         <span about="this:IP1" property="person:additionalInformationIP">
           <xsl:value-of
             select="$updates//*[@about='this:IP1' and @property='person:additionalInformationIP']/text()"
@@ -4197,50 +4185,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </span>
       </p>
     </xsl:if>
-    
-    <xsl:if
-      test="$updates//*[@about='this:IP2' and @property='person:additionalContactName']/text() != '' or 
-      $updates//*[@about='this:IP2' and @property='gaz:telephone']/text() != '' or 
-      $updates//*[@about='this:IP2' and @property='gaz:fax']/text() != '' or 
-      $updates//*[@about='this:IP2' and @property='gaz:email']/text() != ''">
-      
-      <p>
-       <xsl:text> Additional contact details: </xsl:text>
-       <xsl:if  test="$updates//*[@about='this:IP2' and @property='person:additionalContactName']/text() != ''">
-       <span about="this:IP2" property="person:additionalContactName">
-          <xsl:value-of
-            select="$updates//*[@about='this:IP2' and @property='person:additionalContactName']/text()"
-          />
-        </span>
-        <xsl:text>, </xsl:text>
-       </xsl:if>
-       <xsl:if test="$updates//*[@about='this:IP2' and @property='gaz:telephone']/text() != ''">
-        <xsl:text>Telephone number: </xsl:text>
-        <span about="this:IP2" property="gaz:telephone" datatype="xsd:string">
-          <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text()"
-          />
-        </span>
-        <xsl:text>, </xsl:text>
-      </xsl:if>
-      <xsl:if test="$updates//*[@about='this:IP2' and @property='gaz:fax']/text() != ''">
-        <xsl:text> Fax: </xsl:text>
-        <span about="this:IP2" property="gaz:fax" datatype="xsd:string">
-          <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:fax']/text()"/>
-        </span>
-        <xsl:text>, </xsl:text>
-      </xsl:if>
-      <xsl:if test="$updates//*[@about='this:IP2' and @property='gaz:email']/text() != ''">
-        <xsl:text> Email: </xsl:text>
-        <span about="this:IP2" property="gaz:email" datatype="xsd:string">
-          <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:email']/text()"/>
-        </span>
-      </xsl:if>
-      </p>
-      </xsl:if>
-    
     <xsl:if test="$updates//*[@about='this:signatory-1' and @property='foaf:name']/text() != ''">
       <p>
-      <xsl:text>Signed by: </xsl:text>
         <span about="this:signatory-1" property="foaf:name" typeof="person:Person"
           datatype="xsd:string">
           <xsl:value-of
@@ -4266,11 +4212,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:if
       test="$updates//*[@about='this:authoriser-1' and @property='gaz:dateAuthorisationSigned']/text() != ''">
       <p>
-      <xsl:text>Signature Date: </xsl:text>
         <span about="this:authoriser-1" property="gaz:dateAuthorisationSigned" datatype="xsd:date"
           content="{$dateAuthorisationSigned}">
           <xsl:value-of
-            select="format-date(xs:date($dateAuthorisationSigned), '[D01] [MNn] [Y0001]')"/>
+            select="format-date(xs:date($dateAuthorisationSigned), '[FNn] [D01] [MNn] [Y0001]')"/>
         </span>
       </p>
     </xsl:if>
