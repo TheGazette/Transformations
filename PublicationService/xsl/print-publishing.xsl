@@ -986,12 +986,23 @@ Change history
 						<xsl:when
 							test=".//*:span[@property='personal-legal:startDateOfDeath']/. and .//*:span[@property='personal-legal:endDateOfDeath']">
 							<xsl:text>Between </xsl:text>
-							<xsl:value-of
-								select="gfn:safe-date(.//*:dd[@property='personal-legal:startDateOfDeath']/@content)"/>
+							<xsl:if test=".//*:span[@property='personal-legal:startDateOfDeath' and @content]">
+								<xsl:value-of
+								select="gfn:safe-date(.//*:span[@property='personal-legal:startDateOfDeath']/@content)"/>
+							</xsl:if>
+							<xsl:if test=".//*:span[@property='personal-legal:startDateOfDeath' and not(@content)]">
+								<xsl:value-of
+									select="gfn:safe-date(.//*:span[@property='personal-legal:startDateOfDeath']/text())"/>
+							</xsl:if>
 							<xsl:text> and </xsl:text>
-							<xsl:value-of
-								select="gfn:safe-date(.//*:dd[@property='personal-legal:endDateOfDeath']/@content)"
-							/>
+							<xsl:if test=".//*:span[@property='personal-legal:endDateOfDeath' and @content]">
+								<xsl:value-of
+									select="gfn:safe-date(.//*:span[@property='personal-legal:endDateOfDeath']/@content)"/>
+							</xsl:if>
+							<xsl:if test=".//*:span[@property='personal-legal:endDateOfDeath' and not(@content)]">
+								<xsl:value-of
+									select="gfn:safe-date(.//*:span[@property='personal-legal:endDateOfDeath']/text())"/>
+							</xsl:if>
 						</xsl:when>
 						<!-- Exact Date -->
 						<xsl:when test=".//*:dd[@property='personal-legal:dateOfDeath']/@content">
