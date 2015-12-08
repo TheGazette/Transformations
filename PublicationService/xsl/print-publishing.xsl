@@ -406,6 +406,7 @@ Change history
 						select="$feed//atom:entry[*//*:notice-category-code[not(@secondary)]/text() = $code][1]"/>
 					<xsl:choose>
 						<xsl:when test="$first//*:notice-code = 2903">
+							<section id="nt-{@code}" class="{$class}">
 							<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code]) &gt; 0 and $feed//atom:entry[*//*:edition/text() = 'London']">
 								<section id="ntl-{@code}" class="{$class}">
 									<xsl:variable name="edition">
@@ -621,6 +622,7 @@ Change history
 								</section>
 							</xsl:if>
 							-->
+							</section>
 						</xsl:when>
 						<xsl:when test="$first//*:notice-code = 2904">
 							<xsl:if
@@ -946,7 +948,8 @@ Change history
 					<xsl:variable name="addressCell">
 						<xsl:choose>
 							<xsl:when test="count(.//*:dd[@about=$addressSections[1]/@resource]) &gt; 0">
-								<xsl:for-each select=".//*:dd[@about=$addressSections[1]/@resource]">
+								
+								<xsl:for-each select=".//*:dd[@about=$addressSections[1]/@resource and node()]">
 									<xsl:if test="position() != 1">
 										<xsl:text>, </xsl:text>
 									</xsl:if>
@@ -965,6 +968,10 @@ Change history
 										</xsl:if>
 									</xsl:for-each>
 								</xsl:if>
+							</xsl:when>
+							<xsl:when test=".//*:dd[@about='this:addressOfDeceased-address-1']">
+								<xsl:value-of
+									select=".//*:dd[@about='this:addressOfDeceased-address-1']"/>
 							</xsl:when>
 							<xsl:when test="count($addressSections/@resource) = 0">
 								<xsl:value-of
@@ -1021,13 +1028,13 @@ Change history
 					<xsl:if test=".//*:notice-code='2903'">
 					<xsl:choose>
 						<xsl:when test="count(.//*:dd[@about='this:estateExecutor']) &gt; 1">
-							<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor-1']">
+							<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor-1' and node()]">
 								<xsl:if test="position() != 1">
 									<xsl:text>, </xsl:text>
 								</xsl:if>
 								<xsl:value-of select="."/>
 							</xsl:for-each>
-							<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor']">
+							<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor' and node()]">
 								<xsl:if test="position() != 1">
 									<xsl:text>, </xsl:text>
 								</xsl:if>
