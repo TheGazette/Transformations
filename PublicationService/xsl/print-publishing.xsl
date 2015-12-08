@@ -407,7 +407,7 @@ Change history
 					<xsl:choose>
 						<xsl:when test="$first//*:notice-code = 2903">
 							<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code]) &gt; 0 and $feed//atom:entry[*//*:edition/text() = 'London']">
-								<section id="nt-{@code}" class="{$class}">
+								<section id="ntl-{@code}" class="{$class}">
 									<xsl:variable name="edition">
 										<xsl:value-of select="$first/*//*:edition/text()"/>
 									</xsl:variable>
@@ -425,7 +425,7 @@ Change history
 											</p>
 										</xsl:for-each>
 									</div>
-									<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'London']//*:div[@resource='this:deceasedPerson' and *:dl]">
+									<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'London']//*:div[@about='this:notifiableThing' and *:dl]">
 										<table class="wills-and-probate-2903-table">
 											<thead>
 												<tr>
@@ -470,7 +470,7 @@ Change history
 								</xsl:if> -->
 							</xsl:if>
 							<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code]) &gt; 0 and $feed//atom:entry[*//*:edition/text() = 'Belfast']">
-								<section id="nt-{@code}" class="{$class}">
+								<section id="ntb1-{@code}" class="{$class}">
 									<xsl:variable name="edition">
 										<xsl:value-of select="$first/*//*:edition/text()"/>
 									</xsl:variable>
@@ -489,7 +489,7 @@ Change history
 											</p>
 										</xsl:for-each>
 									</div>
-									<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Belfast']//*:div[@resource='this:deceasedPerson' and *:dl]">
+									<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Belfast']//*:div[@about='this:notifiableThing' and *:dl]">
 										<table class="wills-and-probate-2903-table">
 											<thead>
 												<tr>
@@ -508,7 +508,7 @@ Change history
 											</thead>
 											<tbody>
 												<xsl:for-each
-													select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:p[@class='substitution']) and *//*:edition/text() = 'Belfast' and *//*:div[@resource='this:deceasedPerson' and *:dl]]">
+													select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:p[@class='substitution']) and *//*:edition/text() = 'Belfast' and *//*:div[@about='this:notifiableThing' and *:dl]]">
 													<xsl:sort
 														select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson' and position()=1]"/>
 													<xsl:call-template name="table_2903"/>
@@ -523,10 +523,10 @@ Change history
 										</table>
 									</xsl:if>
 								</section>
-								<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Belfast' and not(*//*:div[@resource='this:deceasedPerson' and *:dl])]">
-									<section id="nt-{@code}" class="two-columns">
+								<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Belfast' and not(*//*:div[@about='this:notifiableThing' and *:dl])]">
+									<section id="ntb2-{@code}" class="two-columns">
 										<br/>
-										<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:div[@resource='this:deceasedPerson' and *:dl]) and *//*:edition/text() = 'Belfast']">
+										<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:div[@about='this:notifiableThing' and *:dl]) and *//*:edition/text() = 'Belfast']">
 											<xsl:sort select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
 											<xsl:apply-templates/>
 										</xsl:for-each>		
@@ -534,7 +534,7 @@ Change history
 								</xsl:if>
 							</xsl:if>
 							<xsl:if test="count($feed//atom:entry[*//*:notice-category-code/text() = $code]) &gt; 0 and $feed//atom:entry[*//*:edition/text() = 'Edinburgh']">
-								<section id="nt-{@code}" class="{$class}">
+								<section id="nte1-{@code}" class="{$class}">
 									<xsl:variable name="edition">
 										<xsl:value-of select="$first/*//*:edition/text()"/>
 									</xsl:variable>
@@ -553,7 +553,7 @@ Change history
 											</p>
 										</xsl:for-each>
 									</div>
-									<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Edinburgh']//*:div[@resource='this:deceasedPerson' and *:dl]">						
+									<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Edinburgh']//*:div[@about='this:notifiableThing' and *:dl]">						
 										<table class="wills-and-probate-2903-table">
 											<thead>
 												<tr>
@@ -572,7 +572,7 @@ Change history
 											</thead>
 											<tbody>
 												<xsl:for-each
-													select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:p[@class='substitution']) and *//*:edition/text() = 'Edinburgh' and //*:div[@resource='this:deceasedPerson' and *:dl]]">
+													select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:p[@class='substitution']) and *//*:edition/text() = 'Edinburgh' and //*:div[@about='this:notifiableThing' and *:dl]]">
 													<xsl:sort
 														select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson' and position()=1]"/>
 													<xsl:call-template name="table_2903"/>
@@ -587,10 +587,10 @@ Change history
 										</table>
 										</xsl:if>
 								</section>
-								<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Edinburgh' and not(*//*:div[@resource='this:deceasedPerson' and *:dl])]">
-									<section id="nt-{@code}" class="two-columns">
+								<xsl:if test="$feed//atom:entry[*//*:edition/text() = 'Edinburgh' and not(*//*:div[@about='this:notifiableThing' and *:dl])]">
+									<section id="nte2-{@code}" class="two-columns">
 										<br/>
-										<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:div[@resource='this:deceasedPerson' and *:dl]) and *//*:edition/text() = 'Edinburgh']">
+										<xsl:for-each select="$feed//atom:entry[*//*:notice-category-code/text() = $code and not(*//*:div[@about='this:notifiableThing' and *:dl]) and *//*:edition/text() = 'Edinburgh']">
 											<xsl:sort select=".//*:dd[@property = 'foaf:familyName' and @about='this:deceasedPerson']"/>
 											<xsl:apply-templates/>
 										</xsl:for-each>		
