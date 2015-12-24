@@ -3166,6 +3166,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           </span>
         </xsl:when>
         <xsl:otherwise>
+          <!-- Prefixed text no longer authored in XML, temporarily added here until permanent solution found. 2015-11-13_WA -->
+          <xsl:if test="$noticeCode= 2443">
+            <xsl:text>Liquidator's name and address: </xsl:text>
+          </xsl:if>
           <xsl:apply-templates/>
         </xsl:otherwise>
       </xsl:choose>
