@@ -1744,14 +1744,14 @@ Change history
 					<xsl:apply-templates select="$prices//*:body/*:table" mode="notice"/>
 					<xsl:apply-templates
 						select="$prices//*:body/*:footer/*:div[@id='subscriptions']" mode="notice"/>
-					<xsl:if
+					<!--<xsl:if
 						test="$bespoke != 'true' and ($publishingStatement and $publishingStatement != '')">
 						<p>
 							<xsl:text>This printed edition contains </xsl:text>
 							<xsl:value-of select="$publishingStatement"/>
 							<xsl:text>.</xsl:text>
 						</p>
-					</xsl:if>
+					</xsl:if>-->
 					<xsl:apply-templates select="$prices//*:body/*:footer/*:div[@id='moreInfo']"
 						mode="notice"/>
 				</section>
