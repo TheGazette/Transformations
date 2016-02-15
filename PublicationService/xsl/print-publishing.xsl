@@ -1026,37 +1026,48 @@ Change history
 					</xsl:choose>
 				</td>
 				<td>
-					<xsl:if test=".//*:notice-code='2903'">
 					<xsl:choose>
 						<xsl:when test="count(.//*:dd[@about='this:estateExecutor']) &gt; 1 or count(.//*:dd[@about='this:addressOfExecutor-1']) &gt; 1">
+							
 							<xsl:if test=".//*:dd[@about='this:estateExecutor' and @property='foaf:name']">
-								<xsl:value-of select=".//*:dd[@about='this:estateExecutor' and @property='foaf:name']"/>
+								<xsl:value-of select=".//*:dd[@about='this:estateExecutor' and @property='foaf:name']"/>								
+							</xsl:if>
+							
+							<xsl:if test=".//*:dd[@about='this:estateExecutor' and @property='foaf:name'] and .//*:dd[@about='this:estateExecutor' and @property='foaf:firstName']">
 								<xsl:text>, </xsl:text>
 							</xsl:if>
-							<xsl:if test=".//*:dd[@about='this:estateExecutor' and @property='foaf:firstName']">
+							
+							<xsl:if test=".//*:dd[@about='this:estateExecutor' and @property='foaf:firstName']">								
 								<xsl:value-of
 									select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:firstName'],' ')"/>
-							</xsl:if>	
+							</xsl:if>
+							
 							<xsl:if
 								test=".//*:dd[@about='this:estateExecutor' and @property='foaf:givenName']">
 								<xsl:value-of
 									select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:givenName'],' ')"/>
 							</xsl:if>
+							
 							<xsl:value-of
 								select=".//*:dd[@about='this:estateExecutor' and @property='foaf:familyName']"/>	
+							
 							<xsl:if test=".//*:dd[@property='person:postNominal' and @about='this:estateExecutor']">
 								<xsl:text> </xsl:text>
 								<xsl:value-of select=".//*:dd[@property='person:postNominal' and @about='this:estateExecutor']"/>
 							</xsl:if>
+							
 							<xsl:if test=".//*:dd[@property='person:rank' and @about='this:estateExecutor']">
 								<xsl:text> </xsl:text>
 								<xsl:value-of select=".//*:dd[@property='person:rank' and @about='this:estateExecutor']"/>
 							</xsl:if>
+							
 							<xsl:if test=".//*:dd[@property='foaf:title' and @about='this:estateExecutor']">
 								<xsl:text> </xsl:text>		
 								<xsl:value-of select=".//*:dd[@property='foaf:title' and @about='this:estateExecutor']"/>
 							</xsl:if>
-							<xsl:text>, </xsl:text>							
+							
+							<xsl:text>, </xsl:text>		
+							
 							<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor-1' and node()]">
 								<xsl:if test="position() != 1">
 									<xsl:text>, </xsl:text>
@@ -1075,10 +1086,6 @@ Change history
 							<xsl:value-of select=".//*:dd[@about='this:estateExecutor']"/>
 						</xsl:otherwise>
 					</xsl:choose>
-					</xsl:if>
-					<xsl:if test=".//*:notice-code='2904'">
-						<xsl:text>Bona Vacantia Division (BVD), PO Box 70165, London, WC1A 9HG</xsl:text>
-					</xsl:if>
 				</td>
 				<td>
 					<xsl:choose>
@@ -1220,54 +1227,66 @@ Change history
 						</xsl:choose>
 					</td>
 					<td>
-						<xsl:if test=".//*:notice-code='2903'">
-							<xsl:choose>
-								<xsl:when test="count(.//*:dd[@about='this:estateExecutor']) &gt; 1">
-									<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor-1']">
-										<xsl:if test="position() != 1">
-											<xsl:text>, </xsl:text>
-										</xsl:if>
-										<xsl:value-of select="."/>
-									</xsl:for-each>
-									<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor']">
-										<xsl:if test="position() != 1">
-											<xsl:text>, </xsl:text>
-										</xsl:if>
-										<xsl:value-of select="."/>
-									</xsl:for-each>
-									<xsl:text>. (</xsl:text>
-									<xsl:if test=".//*:dd[@property='person:rank' and @about='this:estateExecutor']">
-										<xsl:value-of select=".//*:dd[@property='person:rank' and @about='this:estateExecutor']"/>
-										<xsl:text> </xsl:text>
-									</xsl:if>							
-									<xsl:if test=".//*:dd[@property='foaf:title' and @about='this:estateExecutor']">
-										<xsl:value-of select=".//*:dd[@property='foaf:title' and @about='this:estateExecutor']"/>
-										<xsl:text> </xsl:text>
-									</xsl:if>
+						<xsl:choose>
+							<xsl:when test="count(.//*:dd[@about='this:estateExecutor']) &gt; 1 or count(.//*:dd[@about='this:addressOfExecutor-1']) &gt; 1">
+								
+								<xsl:if test=".//*:dd[@about='this:estateExecutor' and @property='foaf:name']">
+									<xsl:value-of select=".//*:dd[@about='this:estateExecutor' and @property='foaf:name']"/>								
+								</xsl:if>
+								
+								<xsl:if test=".//*:dd[@about='this:estateExecutor' and @property='foaf:name'] and .//*:dd[@about='this:estateExecutor' and @property='foaf:firstName']">
+									<xsl:text>, </xsl:text>
+								</xsl:if>
+								
+								<xsl:if test=".//*:dd[@about='this:estateExecutor' and @property='foaf:firstName']">								
 									<xsl:value-of
 										select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:firstName'],' ')"/>
-									<xsl:if
-										test=".//*:dd[@about='this:estateExecutor' and @property='foaf:givenName']">
-										<xsl:value-of
-											select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:givenName'], ' ')"
-										/>
-									</xsl:if>
+								</xsl:if>
+								
+								<xsl:if
+									test=".//*:dd[@about='this:estateExecutor' and @property='foaf:givenName']">
 									<xsl:value-of
-										select=".//*:dd[@about='this:estateExecutor' and @property='foaf:familyName']"/>
-									<xsl:if test=".//*:dd[@property='person:postNominal' and @about='this:estateExecutor']">
-										<xsl:text> </xsl:text>
-										<xsl:value-of select=".//*:dd[@property='person:postNominal' and @about='this:estateExecutor']"/>
+										select="concat(.//*:dd[@about='this:estateExecutor' and @property='foaf:givenName'],' ')"/>
+								</xsl:if>
+								
+								<xsl:value-of
+									select=".//*:dd[@about='this:estateExecutor' and @property='foaf:familyName']"/>	
+								
+								<xsl:if test=".//*:dd[@property='person:postNominal' and @about='this:estateExecutor']">
+									<xsl:text> </xsl:text>
+									<xsl:value-of select=".//*:dd[@property='person:postNominal' and @about='this:estateExecutor']"/>
+								</xsl:if>
+								
+								<xsl:if test=".//*:dd[@property='person:rank' and @about='this:estateExecutor']">
+									<xsl:text> </xsl:text>
+									<xsl:value-of select=".//*:dd[@property='person:rank' and @about='this:estateExecutor']"/>
+								</xsl:if>
+								
+								<xsl:if test=".//*:dd[@property='foaf:title' and @about='this:estateExecutor']">
+									<xsl:text> </xsl:text>		
+									<xsl:value-of select=".//*:dd[@property='foaf:title' and @about='this:estateExecutor']"/>
+								</xsl:if>
+								
+								<xsl:text>, </xsl:text>		
+								
+								<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor-1' and node()]">
+									<xsl:if test="position() != 1">
+										<xsl:text>, </xsl:text>
 									</xsl:if>
-									<xsl:text>)</xsl:text>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:value-of select=".//*:dd[@about='this:estateExecutor']"/>
-								</xsl:otherwise>
-							</xsl:choose>
-						</xsl:if>
-						<xsl:if test=".//*:notice-code='2904'">
-							<xsl:text>Bona Vacantia Division (BVD), PO Box 70165, London, WC1A 9HG</xsl:text>
-						</xsl:if>
+									<xsl:value-of select="."/>
+								</xsl:for-each>
+								<xsl:for-each select=".//*:dd[@about='this:addressOfExecutor' and node()]">
+									<xsl:if test="position() != 1">
+										<xsl:text>, </xsl:text>
+									</xsl:if>
+									<xsl:value-of select="."/>
+								</xsl:for-each>
+								<xsl:text>. </xsl:text>							
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:value-of select=".//*:dd[@about='this:estateExecutor']"/>
+							</xsl:otherwise>
+						</xsl:choose>
 					</td>
 					<td>
 						<xsl:choose>
