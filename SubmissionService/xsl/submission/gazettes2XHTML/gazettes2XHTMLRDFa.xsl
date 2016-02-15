@@ -2134,7 +2134,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
 	<xsl:template match="gz:Notice/gz:CorporateBody/gz:Company/gz:CompanyName">
 		<xsl:choose>
-			<xsl:when test="$noticeCode = (3301)">
+			<xsl:when test="$noticeCode = (3501)">
 				<p>
 					<xsl:text>Name of Company: </xsl:text>
 					<strong property="{$has-company-name}" datatype="xsd:string"
@@ -2168,7 +2168,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </span>
             </p>
           </xsl:when>
-          <xsl:when test="$noticeCode = (3301)">
+          <xsl:when test="$noticeCode = (3501)">
             <p>
           	<xsl:text>Company Number: </xsl:text>
             <strong property="{$has-company-number}" datatype="xsd:string" data-gazettes="CompanyNumber">
