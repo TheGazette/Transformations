@@ -1133,53 +1133,54 @@ Change history
 				<!-- Address no longer required in 2904 table - Wissam Asfahani 03/12/2015 -->
 				<!-- Address now required again in 2904 table - Wissam Asfahani 23/02/2016 -->
 				<!-- Find all the different @about contents which relate to an address of the deceased. -->
-				<xsl:variable name="addressSections"
-					select=".//*[@property='person:hasAddress' and @about='this:deceasedPerson']"/>
-				<xsl:variable name="addressCell">
-					<xsl:choose>
-						<xsl:when test="count(.//*:dd[@about=$addressSections[1]/@resource]) &gt; 0">
-							
-							<xsl:for-each select=".//*:dd[@about=$addressSections[1]/@resource and node()]">
-								<xsl:if test="position() != 1">
-									<xsl:text>, </xsl:text>
-								</xsl:if>
-								<xsl:value-of select="."/>
-							</xsl:for-each>
-							<xsl:if test="count($addressSections/@resource) &gt; 1">
-								<xsl:for-each select="$addressSections">
-									<xsl:variable name="resource" select="./@resource"/>
-									<xsl:if test="position() != 1">
-										<xsl:for-each select=".//*:dd[@about=$resource]">
-											<xsl:if test="position() != 1">
-												<xsl:text>, </xsl:text>
-											</xsl:if>
-											<xsl:value-of select="."/>
-										</xsl:for-each>
-									</xsl:if>
-								</xsl:for-each>
-							</xsl:if>
-						</xsl:when>
-						<xsl:when test=".//*:dd[@about='this:addressOfDeceased-address-1']">
-							<xsl:value-of
-								select=".//*:dd[@about='this:addressOfDeceased-address-1']"/>
-						</xsl:when>
-						<xsl:when test="count($addressSections/@resource) = 0">
-							<xsl:value-of
-								select=".//*:dd[@about='this:addressOfDeceased-address-1']"/>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:value-of select=".//*:dd[@about=$addressSections[1]/@resource]"/>
-						</xsl:otherwise>
-					</xsl:choose>
-					<xsl:if test=".//*[@property='person:hasAddress' and @about='this:deceasedPerson']">
-						<xsl:text>. </xsl:text>
-					</xsl:if>
-					<xsl:if test=".//*:dd[@property='person:jobTitle']">
-						<xsl:value-of select=".//*:dd[@property='person:jobTitle']"/>
-						<xsl:text>. </xsl:text>
-					</xsl:if>
-				</xsl:variable>
-				<xsl:value-of select="replace($addressCell,'\.\.','.')"/>
+			    <xsl:if test=".//*[@property='person:hasAddress' and @about='this:deceasedPerson']">
+    				<xsl:variable name="addressSections"
+    					select=".//*[@property='person:hasAddress' and @about='this:deceasedPerson']"/>
+    				<xsl:variable name="addressCell">
+    					<xsl:choose>
+    						<xsl:when test="count(.//*:dd[@about=$addressSections[1]/@resource]) &gt; 0">    							
+    							<xsl:for-each select=".//*:dd[@about=$addressSections[1]/@resource and node()]">
+    								<xsl:if test="position() != 1">
+    									<xsl:text>, </xsl:text>
+    								</xsl:if>
+    								<xsl:value-of select="."/>
+    							</xsl:for-each>
+    							<xsl:if test="count($addressSections/@resource) &gt; 1">
+    								<xsl:for-each select="$addressSections">
+    									<xsl:variable name="resource" select="./@resource"/>
+    									<xsl:if test="position() != 1">
+    										<xsl:for-each select=".//*:dd[@about=$resource]">
+    											<xsl:if test="position() != 1">
+    												<xsl:text>, </xsl:text>
+    											</xsl:if>
+    											<xsl:value-of select="."/>
+    										</xsl:for-each>
+    									</xsl:if>
+    								</xsl:for-each>
+    							</xsl:if>
+    						</xsl:when>
+    						<xsl:when test=".//*:dd[@about='this:addressOfDeceased-address-1']">
+    							<xsl:value-of
+    								select=".//*:dd[@about='this:addressOfDeceased-address-1']"/>
+    						</xsl:when>
+    						<xsl:when test="count($addressSections/@resource) = 0">
+    							<xsl:value-of
+    								select=".//*:dd[@about='this:addressOfDeceased-address-1']"/>
+    						</xsl:when>
+    						<xsl:otherwise>
+    							<xsl:value-of select=".//*:dd[@about=$addressSections[1]/@resource]"/>
+    						</xsl:otherwise>
+    					</xsl:choose>
+    					<xsl:if test=".//*[@property='person:hasAddress' and @about='this:deceasedPerson']">
+    						<xsl:text>. </xsl:text>
+    					</xsl:if>					
+    				</xsl:variable>
+    				<xsl:value-of select="replace($addressCell,'\.\.','.')"/>
+			    </xsl:if>
+			    <xsl:if test=".//*:dd[@property='person:jobTitle']">
+			        <xsl:value-of select=".//*:dd[@property='person:jobTitle']"/>
+			        <xsl:text>. </xsl:text>
+			    </xsl:if>
 				<xsl:choose>
 					<!-- Date Range -->
 					<xsl:when
