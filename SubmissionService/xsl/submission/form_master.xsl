@@ -1156,9 +1156,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </span>
             </span>
       </xsl:if>
-        <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtNumber,'BR')">
+        <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
             <span>
-                <xsl:text>Court Number: </xsl:text>
+                <xsl:text> Court Number: </xsl:text>
                 <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                     <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                 </span>
@@ -1840,9 +1840,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </span>
             </span>
         </xsl:if>
-        <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtNumber,'BR')">
+        <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
             <span>
-                <xsl:text>Court Number: </xsl:text>
+                <xsl:text> Court Number: </xsl:text>
                 <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                     <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                 </span>
@@ -4031,9 +4031,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </span>
             </span>
         </xsl:if>
-        <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtNumber,'BR')">
+        <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
             <span>
-                <xsl:text>Court Number: </xsl:text>
+                <xsl:text> Court Number: </xsl:text>
                 <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                     <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                 </span>
