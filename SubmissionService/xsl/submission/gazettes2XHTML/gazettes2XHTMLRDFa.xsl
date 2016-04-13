@@ -3541,7 +3541,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           </xsl:otherwise>
         </xsl:choose>
       </span>
-      <span property="foaf:name" datatype="xsd:string" content="upper-case(wlf:serialize-name(*))"
+      <span property="foaf:name" datatype="xsd:string" content="{upper-case(wlf:serialize-name(.))}"
       > </span>
     </span>
   </xsl:template>
