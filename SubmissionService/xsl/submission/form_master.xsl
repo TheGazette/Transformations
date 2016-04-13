@@ -314,6 +314,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:if test="$updates//*[@property='gzw:requestPDFpurchase']">
         <pdf-copy>true</pdf-copy>
       </xsl:if>
+       <xsl:if test="$updates//*[@property='gzw:publishInNews']">
+        <publish-in-newspaper>true</publish-in-newspaper>
+      </xsl:if>
     </gazette-metadata>
   </xsl:template>
 
