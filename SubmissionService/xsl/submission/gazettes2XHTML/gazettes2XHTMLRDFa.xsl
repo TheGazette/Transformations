@@ -539,6 +539,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <xsl:variable name="has-court-name">court:courtName</xsl:variable>
   <xsl:variable name="has-court-number">court:caseNumber</xsl:variable>
   <xsl:variable name="has-court-year">court:caseYear</xsl:variable>
+  <xsl:variable name="has-court-code">court:caseCode</xsl:variable>
   <xsl:variable name="has-court-previous">gzw:courtPrevious</xsl:variable>
   <xsl:variable name="has-date-of-appointment">insolvency:dateOfAppointment</xsl:variable>
   <xsl:variable name="has-death-details">gzw:hasDeathDetails</xsl:variable>
@@ -2429,7 +2430,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:apply-templates/>
       </span>
       <xsl:text> </xsl:text>
-      <xsl:if test="$fs">
+      <xsl:if test="$fs[@Number]">
         <span data-gazettes="CourtNumber" data-court-number="{$fs/@Number}" data-year="{$fs/@Year}">
           <xsl:text>No </xsl:text>
           <span property="{$has-court-number}" datatype="xsd:string">
@@ -2444,24 +2445,44 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           </span>
         </span>
       </xsl:if>
+      <xsl:if test="$fs[@Code]">
+        <span data-gazettes="CourtNumber" data-court-code="{$fs/@Code}">
+          <xsl:text>Court Number: </xsl:text>
+          <span property="{$has-court-code}" datatype="xsd:string">            
+            <xsl:value-of select="$fs/@Code"/>
+          </span>
+        </span>
+      </xsl:if>
     </p>
   </xsl:template>
 
   <xsl:template match="gz:Notice/gz:Court/gz:CourtNumber">
     <xsl:if test="not(preceding-sibling::gz:CourtDistrict)">
-      <p data-gazettes="CourtNumber" data-court-number="{@Number}" data-year="{@Year}">
-        <xsl:text>No </xsl:text>
-        <span property="{$has-court-number}" datatype="xsd:string">
-          <xsl:if test=". = ''">
-            <xsl:value-of select="@Number"/>
-          </xsl:if>
-          <xsl:apply-templates/>
-        </span>
-        <xsl:text> of </xsl:text>
-        <span property="{$has-court-year}" datatype="xsd:gYear">
-          <xsl:value-of select="@Year"/>
-        </span>
-      </p>
+      <xsl:if test="@Number">
+        <p data-gazettes="CourtNumber" data-court-number="{@Number}" data-year="{@Year}">
+          <xsl:text>No </xsl:text>
+          <span property="{$has-court-number}" datatype="xsd:string">
+            <xsl:if test=". = ''">
+              <xsl:value-of select="@Number"/>
+            </xsl:if>
+            <xsl:apply-templates/>
+          </span>
+          <xsl:text> of </xsl:text>
+          <span property="{$has-court-year}" datatype="xsd:gYear">
+            <xsl:value-of select="@Year"/>
+          </span>
+        </p>
+      </xsl:if>
+      <xsl:if test="@Code">
+        <p data-gazettes="CourtNumber" data-court-code="{@Code}">
+          <span>
+            <xsl:text>Court Number: </xsl:text>
+            <span property="{$has-court-code}" datatype="xsd:string">            
+              <xsl:value-of select="@Code"/>
+            </span>
+          </span>
+        </p>
+      </xsl:if>
     </xsl:if>
   </xsl:template>
 

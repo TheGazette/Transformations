@@ -40,78 +40,82 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
    <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
   <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
   <xsl:param name="updates" as="node()">
-    <form draftTitle="Barbara Chappell" draftURI="/my-gazette/draft/2337" noticeTypeCode="2903" uploadUri="/my-gazette/draft/2337/attachment/BEC+-+Grant+of+Probate.jpg">
-      <entry about="this:uploadDocument" property="gaz:hasUploaded">true</entry>
-      
-      <entry about="system:file-upload" property="system:type">PROBATE</entry>
-      <!-- missing from v2 -->
-      <entry about="this:notifiableThing" property="gaz:claimNumber">12000</entry>
-      
-      <entry about="this:notifiableThing" property="personal-legal:hasClaimDeadline">2015-11-05</entry>
-      
-      <entry about="noticeid:" property="gaz:earliestPublicationDate">2015-09-03</entry>
-      
-      <entry about="issue:" property="gaz:hasEdition">london</entry>
-      <entry about="gzw:purchasePDF" property="gzw:requestPDFpurchase">on</entry>
-      
-      <entry about="this:deceasedPerson" property="personal-legal:dateOfDeath">2014-11-25</entry>
-      <entry about="this:deceasedPerson" property="foaf:title">Mrs</entry>
-      <entry about="this:deceasedPerson" property="foaf:familyName">Chappell</entry>
-      <entry about="this:deceasedPerson" property="foaf:firstName">Barbara</entry>
-      <entry about="this:deceasedPerson" property="foaf:givenName">Elizabeth</entry>
-      <entry about="this:deceasedPerson" property="person:honour">MBE</entry>
-      <entry about="this:deceasedPerson" property="person:hasMaidenName">Kinsey</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:startDateOfDeath">2014-11-25</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:endDateOfDeath">2014-11-25</entry>
-      <entry about="this:deceasedPerson" property="person:alsoKnownAs">knownAs</entry>
-      
-      <entry about="this:occupationOfDeceased" property="person:jobTitle">Carpenter</entry>
-      <entry about="this:deceased-address-1" property="vcard:extended-address"/>
-      <entry about="this:deceased-address-1" property="vcard:street-address">46 Cherry Orchard</entry>
-      <entry about="this:deceased-address-1" property="vcard:postal-code">CM0 7HE</entry>
-      <entry about="this:deceased-address-1" property="vcard:locality">Southminster</entry>
-      <entry about="this:deceased-address-1" property="vcard:country-name"/>
-      <entry about="this:deceased-address-1" property="vcard:region"/>
-      
-      <entry about="this:legislation-1" property="legislation:legislationSection">Section 27 (Deceased Estates)</entry>
-      <entry about="this:legislation-1" property="legislation:legislationTitle">Trustee Act 1925</entry>
-      
-      <!-- executor, same as 2903 -->
-      
-      <entry about="this:estateExecutor" property="gaz:fax"/>
-      <entry about="this:estateExecutor" property="foaf:firstName">Peter</entry>
-      <entry about="this:estateExecutor" property="foaf:givenName">John</entry>
-      <entry about="this:estateExecutor" property="foaf:familyName">Phillips</entry>
-      <entry about="this:estateExecutor" property="gaz:email"/>
-      <entry about="this:estateExecutor" property="gaz:telephone"/>
-      <entry about="this:addressOfExecutor-1" property="vcard:region"/>
-      <entry about="this:addressOfExecutor-1" property="vcard:street-address">22 Ryhill Way</entry>
-      <entry about="this:addressOfExecutor-1" property="vcard:extended-address"/>
-      <entry about="this:addressOfExecutor-1" property="vcard:locality">Reading</entry>
-      <entry about="this:addressOfExecutor-1" property="vcard:postal-code">RG6 4AZ</entry>
-      <entry about="this:addressOfExecutor-1" property="vcard:country-name"/>
-      
-      <!-- 2904 specific -->
-      
-      <entry about="this:deceasedPerson" property="personal-legal:hasMaritalStatus">Married</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:dateOfMarriage">2014-11-25</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:placeOfMarriage">London</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:spouse">Susan</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:nationality">English</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:religion">None</entry>
-      
-      <entry about="this:notifiableThing" property="personal-legal:informant">name</entry>
-      
-      <entry about="this:deceasedPerson" property="personal-legal:placeOfDeath">London</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:dateEnteredUK">2012-11-25</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:dateOfNaturalisation">2013-11-25</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:dateOfAdoption">2013-11-25</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:dateOfDivorce">2013-11-25</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:nextOfKin">None</entry>
-      <entry about="this:deceasedPerson" property="personal-legal:otherInfo">None</entry>
-      
-      
-    </form>
+      <form draftTitle="Petitions to Wind Up (Companies): COUNTRY IMAGES SCOTLAND LIMITED" draftURI="/my-gazette/draft/16652" noticeTypeCode="2450">
+          <entry about="this:court-1" property="court:courtName">court</entry>
+          <entry about="this:court-1" property="court:courtDistrict">dist</entry>
+          <entry about="this:company-1" property="gazorg:companyNumber">SC185088</entry>
+          <entry about="this:IP1-address-1" property="vcard:street-address">ad1</entry>
+          <entry about="this:IP1-address-1" property="vcard:locality">tn</entry>
+          <entry about="this:company-1" property="gazorg:companyType">Registered</entry>
+          <entry about="this:company-registered-office-1" property="vcard:region" />
+          <entry about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing">court</entry>
+          <entry about="this:legislation-1" property="legislation:legislationTitle">Insolvency Act 1986</entry>
+          <entry about="this:IP1-address-1" property="vcard:extended-address" />
+          <entry about="this:IP1" property="person:additionalInformationIP" />
+          <entry about="this:company-previous-registered-office-1" property="vcard:postal-code" />
+          <entry about="this:company-1" property="gazorg:previouslyTradingAs" />
+          <entry about="this:notifiableThing" property="corp-insolvency:presentedBy">Creditor</entry>
+          <entry about="this:IP1" property="gaz:fax" />
+          <entry about="this:IP-company-1" property="gazorg:name" />
+          <entry about="this:notifiableThing" property="corp-insolvency:dateOfHearingWITHtime">00:00</entry>
+          <entry about="this:company-principal-trading-address-1" property="vcard:locality" />
+          <entry about="this:hearingAddress" property="vcard:street-address">ad2</entry>
+          <entry about="this:court-case-1" property="court:caseNumber">123</entry>
+          <entry about="this:company-registered-office-1" property="vcard:postal-code">BS98 1TL</entry>
+          <entry about="this:company-principal-trading-address-1" property="vcard:street-address" />
+          <entry about="this:IP1-address-1" property="vcard:postal-code">BS98 1TL</entry>
+          <entry about="this:company-principal-trading-address-1" property="vcard:country-name" />
+          <entry about="this:hearingAddress" property="vcard:extended-address" />
+          <entry about="this:hearingAddress" property="vcard:region" />
+          <entry about="this:company-registered-office-1" property="vcard:extended-address" />
+          <entry about="this:IP1" property="gaz:telephone" />
+          <entry about="this:hearingAddress" property="vcard:locality">tn2</entry>
+          <entry about="this:company-1" property="gazorg:name">COUNTRY IMAGES SCOTLAND LIMITED</entry>
+          <entry about="this:court-1" property="court:caseCode">No._####_of_YYYY</entry>
+          <entry about="this:hearingAddress" property="vcard:postal-code">BS98 1TL</entry>
+          <entry about="this:IP1" property="gaz:email" />
+          <entry about="this:court-case-1" property="court:caseCode" />
+          <entry about="this:company-1" property="gazorg:natureOfBusiness" />
+          <entry about="this:company-registered-office-1" property="vcard:country-name" />
+          <entry about="this:previous-trading-address-1" property="vcard:country-name" />
+          <entry about="this:petitioner-address-1" property="vcard:postal-code">BS98 1TL</entry>
+          <entry about="this:company-previous-registered-office-1" property="vcard:locality" />
+          <entry about="this:IP1" property="person:noticeDated">2016-04-05</entry>
+          <entry about="this:company-principal-trading-address-1" property="vcard:extended-address" />
+          <entry about="this:hearingAddress" property="vcard:country-name" />
+          <entry about="noticeid:" property="gaz:earliestPublicationDate">2016-04-06</entry>
+          <entry about="this:IP1" property="foaf:name">pet</entry>
+          <entry about="this:IP1" property="person:hasIPReferenceNumber" />
+          <entry about="this:company-registered-office-1" property="vcard:locality">tn</entry>
+          <entry about="this:previous-trading-address-1" property="vcard:street-address" />
+          <entry about="this:petitioner-address-1" property="vcard:locality">tn</entry>
+          <entry about="this:petitioner-address-1" property="vcard:street-address">ad1</entry>
+          <entry about="this:company-principal-trading-address-1" property="vcard:region" />
+          <entry about="this:company-registered-office-1" property="vcard:street-address">ad1</entry>
+          <entry about="this:petitioner-address-1" property="vcard:country-name" />
+          <entry about="issue:" property="gaz:hasEdition">london</entry>
+          <entry about="this:petitioner-address-1" property="vcard:extended-address" />
+          <entry about="this:previous-trading-address-1" property="vcard:locality" />
+          <entry about="this:petitioner-address-1" property="vcard:region" />
+          <entry about="this:notifiableThing" property="corp-insolvency:dateInsolvencyRule">2016-04-18</entry>
+          <entry about="this:previous-trading-address-1" property="vcard:region" />
+          <entry about="this:company-1" property="gazorg:tradingAs" />
+          <entry about="this:notifiableThing" property="corp-insolvency:dateOfHearing">2016-04-27</entry>
+          <entry about="this:company-1" property="gazorg:previousCompanyName" />
+          <entry about="this:IP1-address-1" property="vcard:country-name" />
+          <entry about="this:company-previous-registered-office-1" property="vcard:region" />
+          <entry about="this:company-previous-registered-office-1" property="vcard:country-name" />
+          <entry about="this:court-case-1" property="court:caseYear">2016</entry>
+          <entry about="this:company-previous-registered-office-1" property="vcard:extended-address" />
+          <entry about="this:company-previous-registered-office-1" property="vcard:street-address" />
+          <entry about="this:previous-trading-address-1" property="vcard:extended-address" />
+          <entry about="this:IP1-address-1" property="vcard:region" />
+          <entry about="this:company-principal-trading-address-1" property="vcard:postal-code" />
+          <entry about="this:previous-trading-address-1" property="vcard:postal-code" />
+          <entry about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation">2016-04-03</entry>
+          <entry about="gzw:repDetails" property="gzw:repType">petitioner</entry>
+          <entry about="this:petitioner-1" property="foaf:name">pet</entry>
+      </form>
   </xsl:param>
   <!-- local functions -->
   
@@ -1129,16 +1133,37 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:value-of
           select="$updates//*[@about='this:court-1' and @property='court:courtDistrict']/text()"/>
       </span>
-      <xsl:text> No. </xsl:text>
-      <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
-        <xsl:value-of
-          select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
-      </span>
-      <xsl:text> of </xsl:text>
-      <span about="this:court-case-1" property="court:caseYear" datatype="xsd:gYear">
-        <xsl:value-of
-          select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
-      </span>
+      <xsl:variable name="courtCode">
+          <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:caseCode']/text()"/>
+      </xsl:variable>
+        <xsl:variable name="courtNumber">
+            <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
+        </xsl:variable>
+        <xsl:variable name="courtYear">
+            <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
+        </xsl:variable>
+        <xsl:if test="starts-with($courtCode,'No')">
+            <span>
+                <xsl:text> No. </xsl:text>
+                <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
+                  <xsl:value-of
+                    select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
+                </span>
+                <xsl:text> of </xsl:text>
+                <span about="this:court-case-1" property="court:caseYear" datatype="xsd:gYear">
+                  <xsl:value-of
+                    select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
+                </span>
+            </span>
+      </xsl:if>
+        <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtNumber,'BR')">
+            <span>
+                <xsl:text>Court Number: </xsl:text>
+                <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
+                    <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
+                </span>
+            </span>
+      </xsl:if>
     </p>
     <p>
       <xsl:text>In the matter of</xsl:text>
@@ -1792,16 +1817,37 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:value-of
           select="$updates//*[@about='this:court-1' and @property='court:courtDistrict']/text()"/>
       </span>
-      <xsl:text> No. </xsl:text>
-      <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
-        <xsl:value-of
-          select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
-      </span>
-      <xsl:text> of </xsl:text>
-      <span about="this:court-case-1" property="court:caseYear" datatype="xsd:gYear">
-        <xsl:value-of
-          select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
-      </span>
+        <xsl:variable name="courtCode">
+            <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:caseCode']/text()"/>
+        </xsl:variable>
+        <xsl:variable name="courtNumber">
+            <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
+        </xsl:variable>
+        <xsl:variable name="courtYear">
+            <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
+        </xsl:variable>
+        <xsl:if test="starts-with($courtCode,'No')">
+            <span>
+                <xsl:text> No. </xsl:text>
+                <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
+                    <xsl:value-of
+                        select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
+                </span>
+                <xsl:text> of </xsl:text>
+                <span about="this:court-case-1" property="court:caseYear" datatype="xsd:gYear">
+                    <xsl:value-of
+                        select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
+                </span>
+            </span>
+        </xsl:if>
+        <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtNumber,'BR')">
+            <span>
+                <xsl:text>Court Number: </xsl:text>
+                <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
+                    <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
+                </span>
+            </span>
+        </xsl:if>
     </p>
     <p>
       <xsl:text>In the matter of</xsl:text>
@@ -3962,16 +4008,37 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:value-of
           select="$updates//*[@about='this:court-1' and @property='court:courtDistrict']/text()"/>
       </span>
-      <xsl:text> No. </xsl:text>
-      <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
-        <xsl:value-of
-          select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
-      </span>
-      <xsl:text> of </xsl:text>
-      <span about="this:court-case-1" property="court:caseYear" datatype="xsd:gYear">
-        <xsl:value-of
-          select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
-      </span>
+        <xsl:variable name="courtCode">
+            <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:caseCode']/text()"/>
+        </xsl:variable>
+        <xsl:variable name="courtNumber">
+            <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
+        </xsl:variable>
+        <xsl:variable name="courtYear">
+            <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
+        </xsl:variable>
+        <xsl:if test="starts-with($courtCode,'No')">
+            <span>
+                <xsl:text> No. </xsl:text>
+                <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
+                    <xsl:value-of
+                        select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
+                </span>
+                <xsl:text> of </xsl:text>
+                <span about="this:court-case-1" property="court:caseYear" datatype="xsd:gYear">
+                    <xsl:value-of
+                        select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
+                </span>
+            </span>
+        </xsl:if>
+        <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtNumber,'BR')">
+            <span>
+                <xsl:text>Court Number: </xsl:text>
+                <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
+                    <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
+                </span>
+            </span>
+        </xsl:if>
     </p>
     <p>
       <h3>
