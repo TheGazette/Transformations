@@ -47,7 +47,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             				<span resource="this:notifiableThing" typeof="corp-insolvency:Petition"></span>
             				
             <!-- court related details -->
-            				
+            	<span about="this:notifiableThing" data-hide="true" property="corp-insolvency:hasCourtCase" resource="this:court-case-1"/>		
+            	<span about="this:court-case-1" data-hide="true" property="court:hasCourt" resource="this:court-1"></span>	
             <!-- additional linkages -->
             				<span about="this:company-1" property="gazorg:hasRegisteredOffice" resource="this:company-registered-office-1"></span> 
 			<span about="this:notifiableThing" property="corp-insolvency:hasPetitioner" resource="this:petitioner-1" data-hide="true"></span>
