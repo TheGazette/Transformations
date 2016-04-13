@@ -134,6 +134,7 @@
 		<xsd:complexType>
 			<xsd:attribute name="Number" type="xsd:string"/>
 			<xsd:attribute name="Year" type="xsd:gYear"/>
+			<xsd:attribute name="Code" type="xsd:string"/>
 			<xsd:attributeGroup ref="Type"/>
 		</xsd:complexType>
 	</xsd:element>
