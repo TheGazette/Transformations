@@ -188,6 +188,7 @@
                      <xsd:documentation>Date and Time of meeting</xsd:documentation>
                   </xsd:annotation>
                </xsd:enumeration>
+               <xsd:enumeration value="Issued"/>
             </xsd:restriction>
          </xsd:simpleType>
       </xsd:attribute>

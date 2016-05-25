@@ -57,7 +57,7 @@
 				<xsd:element name="Initials" type="EmphasisBasicStructure"/>
 				<xsd:element name="MiddleNames" type="EmphasisBasicStructure"/>
 				<xsd:element name="Surname" type="EmphasisBasicStructure"/>
-        <xsd:element name="PostNominal" type="EmphasisBasicStructure"/>
+        		<xsd:element name="PostNominal" type="EmphasisBasicStructure"/>
 				<xsd:group ref="EmphasisBasic"/>
 				<xsd:element ref="Span"/>			
 				<xsd:element ref="Character"/>
@@ -76,6 +76,7 @@
 								<xsd:enumeration value="Petitioner"/>
 								<xsd:enumeration value="Director"/>
 								<xsd:enumeration value="Contact"/> <!-- 2010-07-20 CRJC: enumeration added as AdditionalContact/PersonName didn't have an appropriate @Class. Called it 'Contact' so it could potentially be re-used by other areas -->
+								<xsd:enumeration value="Registrar"/>
 							</xsd:restriction>
 						</xsd:simpleType>
 					</xsd:list>

@@ -111,6 +111,7 @@
 							<xsd:element ref="Administration"/>
 							<xsd:element ref="Pblock"/>
 							<xsd:element ref="PsubBlock"/>
+            				<xsd:element ref="CorporateBody"/>
               <xsd:element ref="Citation"/>
 						</xsd:choice>
 					</xsd:sequence>

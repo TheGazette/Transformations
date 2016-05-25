@@ -691,11 +691,20 @@
 		</xsd:complexType>
 	</xsd:element>
 	
-	<!-- ========== Things and values content extracted from gazette ontology ========= -->	
-
+	<!-- ========== Corporate Body information ========== -->
+	<!-- ========== Added for CLS release ========== -->
 	
-
-
+	<xsd:element name="CorporateBody">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="DocumentType" type="xsd:string"/>
+				<xsd:element ref="Company"/>
+				<xsd:element ref="Date"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- ========== Things and values content extracted from gazette ontology ========= -->	
 	
 	<xsd:element name="Thing">
 		<xsd:annotation>
@@ -857,7 +866,8 @@
 								<xsd:enumeration value="Meeting"/>
 								<xsd:enumeration value="Person"/>
 								<xsd:enumeration value="Trading"/>
-                <xsd:enumeration value="Awardee"/>
+                				<xsd:enumeration value="Awardee"/>
+								<xsd:enumeration value="Registrar"/>
 							</xsd:restriction>
 						</xsd:simpleType>
 					</xsd:list>

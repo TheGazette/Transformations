@@ -29,7 +29,11 @@
 			<xsd:documentation>A container for a line of text</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexType mixed="true">
-			<xsd:group ref="InlineFull" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element ref="Authority"/>
+				<xsd:element ref="Administration"/>				
+				<xsd:group ref="InlineFull" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
 			<xsd:attributeGroup ref="CommonAttributes"/>
 			<xsd:attributeGroup ref="CommonFormattingAttributes"/>
 			<xsd:attributeGroup ref="CommonHangingAttributes"/>
