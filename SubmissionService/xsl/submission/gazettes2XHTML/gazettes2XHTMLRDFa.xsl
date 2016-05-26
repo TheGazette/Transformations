@@ -3695,6 +3695,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           </xsl:choose>          
         </span>
       </xsl:when>
+        <xsl:when test="parent::gz:AddressLineGroup[@Class='Petitioner']">
+            <span property="vcard:street-address" about="this:petitioner-1-PetitionerAddress-1" data-gazettes="AddressLine">
+                <xsl:apply-templates/>
+            </span>
+        </xsl:when>
       <xsl:otherwise>
         <span property="vcard:street-address" data-gazettes="AddressLine">
           <xsl:apply-templates/>
@@ -3743,6 +3748,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
               <xsl:apply-templates/>
           </span>
       </xsl:when>
+        <xsl:when test="parent::gz:AddressLineGroup[@Class='Petitioner']">
+            <span property="vcard:extended-address" about="this:petitioner-1-PetitionerAddress-1" data-gazettes="AddressLine">
+                <xsl:apply-templates/>
+            </span>
+        </xsl:when>
       <xsl:otherwise>
         <span property="vcard:extended-address" data-gazettes="AddressLine">
           <xsl:apply-templates/>
@@ -4212,6 +4222,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
   <xsl:template match="gz:Postcode">
     <span property="vcard:postal-code" data-gazettes="Postcode">
+        <xsl:if test="parent::gz:AddressLineGroup[@Class='Petitioner']">
+            <xsl:attribute name="about">
+                <xsl:text>this:petitioner-1-PetitionerAddress-1</xsl:text>
+            </xsl:attribute>
+        </xsl:if>
       <xsl:apply-templates/>
     </span>
   </xsl:template>
