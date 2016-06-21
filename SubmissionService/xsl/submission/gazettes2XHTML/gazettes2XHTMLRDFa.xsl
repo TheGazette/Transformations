@@ -639,9 +639,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         </xsl:if>
         <title>
-          <xsl:value-of
-            select="normalize-space(string-join($paramConfigXml/gzc:Configuration//gzc:Notice[@Code = $noticeCode]/gzc:Name/text(), ' '))"
-          />
+            <xsl:if test="$isCompanyLawNotice">
+                <xsl:value-of select="//gz:CompanyName"/>
+            </xsl:if>
+            <xsl:if test="not($isCompanyLawNotice)">
+                <xsl:value-of
+                  select="normalize-space(string-join($paramConfigXml/gzc:Configuration//gzc:Notice[@Code = $noticeCode]/gzc:Name/text(), ' '))"/>
+            </xsl:if>
         </title>
         <xsl:if test="not($vHTMLcompatible)">
           <xsl:call-template name="gazettes-metadata"/>
