@@ -672,6 +672,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <xsl:call-template name="metadata"/>
       <xsl:call-template name="content"/>
     </article>
+    <xsl:if test="$isCompanyLawNotice">
+        <xsl:call-template name="summary"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="content">
@@ -3272,9 +3275,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           </span>
         </xsl:when>
           <xsl:when test="$isCompanyLawNotice">
-              <span rel="gaz:hasAuthorisingPerson" resource="this:authorising-person" typeof="gaz:Person">
-                  <xsl:apply-templates select="//gz:PersonName"/>
-              </span>
+              <em>
+                <span rel="gaz:hasAuthorisingPerson" resource="this:authorising-person" typeof="gaz:Person">
+                    <xsl:apply-templates select="//gz:PersonName"/>
+                </span>
+              </em>
               <span rel="gaz:hasAuthorisingRole" resource="this:authoriser-1-role" typeof="gaz:Role">
                   <span property="rdfs:label">
                     <xsl:apply-templates select="//gz:Occupation"/>
@@ -3789,11 +3794,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
          </h2>
       </xsl:if>
       <xsl:if test="$isCompanyLawNotice">
-          <span property="gaz:hasAuthorisingOrganisation" resource="this:authorising-organisation" typeof="gazorg:GovernmentDepartment">
+          <h2 property="gaz:hasAuthorisingOrganisation" resource="this:authorising-organisation" typeof="gazorg:GovernmentDepartment">
               <span property="rdfs:label">
                   <xsl:apply-templates/>
               </span>
-          </span>
+          </h2>
       </xsl:if>
  </xsl:template>
   
@@ -4866,6 +4871,25 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
     </gazette-metadata>
   </xsl:template>
+    
+    <xsl:template name="summary">
+        <section class="summary">
+            <dl>
+                <dt>Company Number</dt>
+                <dd>
+                    <xsl:value-of select="//gz:CompanyNumber"/>
+                </dd>
+                <dt>Date of Issue</dt>
+                <dd>
+                    <time>
+                        <xsl:attribute name="datetime">
+                            <xsl:value-of select="//gz:Date[@Class='Issued']/@Date"/>
+                        </xsl:attribute>
+                    </time>
+                </dd>
+            </dl>
+        </section>
+    </xsl:template>
 
   <xsl:template match="processing-instruction('BR')">
     <br/>
