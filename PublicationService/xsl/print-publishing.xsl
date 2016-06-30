@@ -348,7 +348,15 @@ Change history
 					</xsl:choose>
 				</xsl:attribute>
 				<xsl:call-template name="front-cover"/>
-				<section class="two-columns">
+				<section>
+				    <xsl:attribute name="class">
+				        <xsl:if test="$feed//atom:entry//*:notice-category-code[text() = 'G206010000'] or $feed//atom:entry//*:notice-category-code[text() = 'G206020000'] or $feed//atom:entry//*:notice-category-code[text() = 'G206030000']">
+				            <xsl:text>two-columns</xsl:text>
+				        </xsl:if>
+				        <xsl:if test="$feed//atom:entry//*:notice-category-code[text() = 'G206040000'] and not($feed//atom:entry//*:notice-category-code[text() = 'G206010000']) and not($feed//atom:entry//*:notice-category-code[text() = 'G206020000']) and not($feed//atom:entry//*:notice-category-code[text() = 'G206030000'])">
+				            <xsl:text>one-column</xsl:text>
+				        </xsl:if>
+				    </xsl:attribute>
 					<xsl:variable name="notices">
 						<xsl:for-each
 							select="$taxonomy-notice-type/tax:notice-taxonomy/tax:notice-type">
