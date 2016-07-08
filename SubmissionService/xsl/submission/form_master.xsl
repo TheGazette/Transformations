@@ -4008,6 +4008,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:value-of
           select="$updates//*[@about='this:court-1' and @property='court:courtDistrict']/text()"/>
       </span>
+       </p>
         <xsl:variable name="courtCode">
             <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:caseCode']/text()"/>
         </xsl:variable>
@@ -4017,7 +4018,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:variable name="courtYear">
             <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
         </xsl:variable>
+         <xsl:variable name="courtRefNo">
+            <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:refNumber']/text()"/>
+        </xsl:variable>
         <xsl:if test="starts-with($courtCode,'No')">
+        <p>
+         <xsl:text> Court Number: </xsl:text>
             <span>
                 <xsl:text> No. </xsl:text>
                 <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
@@ -4030,16 +4036,28 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                         select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
                 </span>
             </span>
+            </p>
         </xsl:if>
         <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
+        <p>
             <span>
                 <xsl:text> Court Number: </xsl:text>
                 <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                     <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                 </span>
             </span>
+            </p>
         </xsl:if>
-    </p>
+        <xsl:if test="$courtRefNo !=''">
+        <p>
+            <span>
+                <xsl:text> Reference Number: </xsl:text>
+                <span about="this:court-case-1" property="court:refNumber" datatype="xsd:string">
+                    <xsl:value-of select="$courtRefNo"/>
+                </span>
+            </span>
+            </p>
+    </xsl:if>
     <p>
       <h3>
         <span about="this:person-1" property="foaf:firstName">

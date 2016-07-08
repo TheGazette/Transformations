@@ -4879,13 +4879,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <dd>
                     <xsl:value-of select="//gz:CompanyNumber"/>
                 </dd>
+                <dt>Document Type</dt>
+                <dd>
+                    <xsl:value-of select="//gz:DocumentType"/>
+                </dd>
                 <dt>Date of Issue</dt>
                 <dd>
-                    <time>
-                        <xsl:attribute name="datetime">
-                            <xsl:value-of select="//gz:Date[@Class='Issued']/@Date"/>
-                        </xsl:attribute>
-                    </time>
+                    <xsl:value-of select="format-date(//gz:Date[@Class='Issued']/@Date,'[D] [MNn] [Y0001]')"/>
                 </dd>
             </dl>
         </section>
