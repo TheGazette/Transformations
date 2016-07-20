@@ -729,6 +729,11 @@ Change history
 						<xsl:if test="$showHeading">
 						<section id="nt-{@code}" class="{$class}">
 							<header>
+							    <xsl:if test="@name = 'People'">
+							        <xsl:attribute name="class">
+							            <xsl:text>header-full-width</xsl:text>
+							        </xsl:attribute>
+							    </xsl:if>
 								<xsl:element name="{$heading}">
 									<xsl:value-of select="@name"/>
 								</xsl:element>
