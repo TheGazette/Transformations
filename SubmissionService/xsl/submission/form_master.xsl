@@ -19,6 +19,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   xmlns:wlf="http://www.williamslea.com/xslt/functions" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:x="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml"
   exclude-result-prefixes="u wlf xsl xs x">
+    
+    <xsl:output method="xhtml" indent="no" encoding="UTF-8"/>
 
   <xsl:param name="form">false</xsl:param>
   <!-- Hard coding for the time being, to be London, but it needs to be considered on the form submission -->
@@ -40,81 +42,44 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
    <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
   <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
   <xsl:param name="updates" as="node()">
-      <form draftTitle="Petitions to Wind Up (Companies): COUNTRY IMAGES SCOTLAND LIMITED" draftURI="/my-gazette/draft/16652" noticeTypeCode="2450">
-          <entry about="this:court-1" property="court:courtName">court</entry>
-          <entry about="this:court-1" property="court:courtDistrict">dist</entry>
-          <entry about="this:company-1" property="gazorg:companyNumber">SC185088</entry>
-          <entry about="this:IP1-address-1" property="vcard:street-address">ad1</entry>
-          <entry about="this:IP1-address-1" property="vcard:locality">tn</entry>
-          <entry about="this:company-1" property="gazorg:companyType">Registered</entry>
-          <entry about="this:company-registered-office-1" property="vcard:region" />
-          <entry about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing">court</entry>
-          <entry about="this:legislation-1" property="legislation:legislationTitle">Insolvency Act 1986</entry>
-          <entry about="this:IP1-address-1" property="vcard:extended-address" />
-          <entry about="this:IP1" property="person:additionalInformationIP" />
-          <entry about="this:company-previous-registered-office-1" property="vcard:postal-code" />
-          <entry about="this:company-1" property="gazorg:previouslyTradingAs" />
-          <entry about="this:notifiableThing" property="corp-insolvency:presentedBy">Creditor</entry>
-          <entry about="this:IP1" property="gaz:fax" />
-          <entry about="this:IP-company-1" property="gazorg:name" />
-          <entry about="this:notifiableThing" property="corp-insolvency:dateOfHearingWITHtime">00:00</entry>
-          <entry about="this:company-principal-trading-address-1" property="vcard:locality" />
-          <entry about="this:hearingAddress" property="vcard:street-address">ad2</entry>
-          <entry about="this:court-case-1" property="court:caseNumber">123</entry>
-          <entry about="this:company-registered-office-1" property="vcard:postal-code">BS98 1TL</entry>
-          <entry about="this:company-principal-trading-address-1" property="vcard:street-address" />
-          <entry about="this:IP1-address-1" property="vcard:postal-code">BS98 1TL</entry>
-          <entry about="this:company-principal-trading-address-1" property="vcard:country-name" />
-          <entry about="this:hearingAddress" property="vcard:extended-address" />
-          <entry about="this:hearingAddress" property="vcard:region" />
-          <entry about="this:company-registered-office-1" property="vcard:extended-address" />
-          <entry about="this:IP1" property="gaz:telephone" />
-          <entry about="this:hearingAddress" property="vcard:locality">tn2</entry>
-          <entry about="this:company-1" property="gazorg:name">COUNTRY IMAGES SCOTLAND LIMITED</entry>
-          <entry about="this:court-1" property="court:caseCode">No._####_of_YYYY</entry>
-          <entry about="this:hearingAddress" property="vcard:postal-code">BS98 1TL</entry>
-          <entry about="this:IP1" property="gaz:email" />
-          <entry about="this:court-case-1" property="court:caseCode" />
-          <entry about="this:company-1" property="gazorg:natureOfBusiness" />
-          <entry about="this:company-registered-office-1" property="vcard:country-name" />
-          <entry about="this:previous-trading-address-1" property="vcard:country-name" />
-          <entry about="this:petitioner-address-1" property="vcard:postal-code">BS98 1TL</entry>
-          <entry about="this:company-previous-registered-office-1" property="vcard:locality" />
-          <entry about="this:IP1" property="person:noticeDated">2016-04-05</entry>
-          <entry about="this:company-principal-trading-address-1" property="vcard:extended-address" />
-          <entry about="this:hearingAddress" property="vcard:country-name" />
-          <entry about="noticeid:" property="gaz:earliestPublicationDate">2016-04-06</entry>
-          <entry about="this:IP1" property="foaf:name">pet</entry>
-          <entry about="this:IP1" property="person:hasIPReferenceNumber" />
-          <entry about="this:company-registered-office-1" property="vcard:locality">tn</entry>
-          <entry about="this:previous-trading-address-1" property="vcard:street-address" />
-          <entry about="this:petitioner-address-1" property="vcard:locality">tn</entry>
-          <entry about="this:petitioner-address-1" property="vcard:street-address">ad1</entry>
-          <entry about="this:company-principal-trading-address-1" property="vcard:region" />
-          <entry about="this:company-registered-office-1" property="vcard:street-address">ad1</entry>
-          <entry about="this:petitioner-address-1" property="vcard:country-name" />
-          <entry about="issue:" property="gaz:hasEdition">london</entry>
-          <entry about="this:petitioner-address-1" property="vcard:extended-address" />
-          <entry about="this:previous-trading-address-1" property="vcard:locality" />
-          <entry about="this:petitioner-address-1" property="vcard:region" />
-          <entry about="this:notifiableThing" property="corp-insolvency:dateInsolvencyRule">2016-04-18</entry>
-          <entry about="this:previous-trading-address-1" property="vcard:region" />
-          <entry about="this:company-1" property="gazorg:tradingAs" />
-          <entry about="this:notifiableThing" property="corp-insolvency:dateOfHearing">2016-04-27</entry>
-          <entry about="this:company-1" property="gazorg:previousCompanyName" />
-          <entry about="this:IP1-address-1" property="vcard:country-name" />
-          <entry about="this:company-previous-registered-office-1" property="vcard:region" />
-          <entry about="this:company-previous-registered-office-1" property="vcard:country-name" />
-          <entry about="this:court-case-1" property="court:caseYear">2016</entry>
-          <entry about="this:company-previous-registered-office-1" property="vcard:extended-address" />
-          <entry about="this:company-previous-registered-office-1" property="vcard:street-address" />
-          <entry about="this:previous-trading-address-1" property="vcard:extended-address" />
-          <entry about="this:IP1-address-1" property="vcard:region" />
-          <entry about="this:company-principal-trading-address-1" property="vcard:postal-code" />
-          <entry about="this:previous-trading-address-1" property="vcard:postal-code" />
-          <entry about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation">2016-04-03</entry>
-          <entry about="gzw:repDetails" property="gzw:repType">petitioner</entry>
-          <entry about="this:petitioner-1" property="foaf:name">pet</entry>
+      <form draftTitle="submitted (6).xls" draftURI="/my-gazette/draft/3159" noticeTypeCode="2904">
+          <entry about="this:supplierNoticeId" property="gaz:hasSupplierId">BV21515717/1</entry>
+          <entry about="issue:" property="gaz:hasEdition">London</entry>
+          <entry about="noticeid:" property="gaz:earliestPublicationDate">2015-10-30</entry>
+          <entry about="this:notifiableThing" property="personal-legal:hasClaimDeadline">2015-12-31</entry>
+          <entry about="gzw:service" property="gzw:poBoxService">on</entry>
+          <entry about="gzw:purchasePDF" property="gzw:requestPDFpurchase">on</entry>
+          <entry about="gzw:purchasePaper" property="gzw:requestPaperPurchase">on</entry>
+          <entry about="this:deceasedPerson" property="foaf:familyName">Darcy</entry>
+          <entry about="this:deceasedPerson" property="foaf:firstName">Elizabeth</entry>
+          <entry about="this:deceasedPerson" property="person:honour">MBE</entry>
+          <entry about="this:deceasedPerson" property="personal-legal:hasMaritalStatus">Divorced</entry>
+          <entry about="this:deceasedPerson" property="person:hasMaidenName">Bennett</entry>
+          <entry about="this:deceasedPerson" property="personal-legal:placeOfMarriage">Pemberly</entry>
+          <entry about="this:deceasedPerson" property="personal-legal:dateOfMarriage">1901-08-15</entry>
+          <entry about="this:deceasedPerson" property="personal-legal:spouse">William Darcy</entry>
+          <entry about="this:deceasedPerson" property="personal-legal:nationality">British</entry>
+          <entry about="this:deceasedPerson" property="person:alsoKnownAs">Elizabeth Amber Bisset</entry>
+          <entry about="this:deceasedPerson" property="personal-legal:dateOfDeath">2015-04-26</entry>
+          <entry about="this:deceasedPerson" property="personal-legal:placeOfDeath">Barnet, Hertfordshire</entry>
+          <entry about="this:occupationOfDeceased" property="person:jobTitle">Housewide</entry>
+          <entry about="this:deceasedPerson" property="personal-legal:dateOfAdoption">1945-08-05</entry>
+          <entry about="this:deceasedPerson" property="personal-legal:otherInfo">What more information could you want?</entry>
+          <entry about="this:deceased-address-1" property="vcard:street-address">Test</entry>
+          <entry about="this:deceased-address-1" property="vcard:locality">Test</entry>
+          <entry about="this:deceased-address-1" property="vcard:postal-code">NR3 1PD</entry>
+          <entry about="this:notifiableThing" property="personal-legal:informant">Ryedale District Council</entry>
+          <entry about="this:estateExecutor" property="foaf:name">Government Legal Department (BV)</entry>
+          <entry about="this:estateExecutor" property="foaf:familyName">Jones</entry>
+          <entry about="this:estateExecutor" property="foaf:firstName">Kimberli</entry>
+          <entry about="this:addressOfExecutor-1" property="vcard:street-address">The London Gazette (138)</entry>
+          <entry about="this:addressOfExecutor-1" property="vcard:locality">Norwich</entry>
+          <entry about="this:addressOfExecutor-1" property="vcard:postal-code">NR7 7WD</entry>
+          <entry about="this:estateExecutor" property="gaz:telephone" />
+          <entry about="this:estateExecutor" property="gaz:email" />
+          <entry about="this:notifiableThing" property="gaz:claimNumber">BV21515717/1</entry>
+          <entry about="this:addressOfExecutor-1" property="vcard:extended-address">PO Box 3584</entry>
+          <entry about="gzw:service" property="gzw:forwardAddressId">138</entry>
       </form>
   </xsl:param>
   <!-- local functions -->

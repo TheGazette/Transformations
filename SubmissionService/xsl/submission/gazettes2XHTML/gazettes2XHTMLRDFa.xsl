@@ -3657,7 +3657,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <!-- ###################################### -->
   <xsl:template match="gz:AddressLineGroup">   
     <xsl:choose>
-      <xsl:when test="not(count(child::*[.!='']))"/>
+      <xsl:when test="not(count(child::*[.!=''])) and not(text())"/>
       <xsl:otherwise>
         <xsl:choose>
           <xsl:when test="$noticeCode ='1122' or $noticeCode ='1129' or $noticeCode ='1130' or $noticeCode ='1132' or $noticeCode ='1133' or $noticeCode ='1134' or $noticeCode ='1136'">
