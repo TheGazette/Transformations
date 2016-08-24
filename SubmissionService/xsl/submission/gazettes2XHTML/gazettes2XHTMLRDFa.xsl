@@ -700,6 +700,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:otherwise>
       </xsl:choose>
     </div>
+    <!-- Legislation now added in v1-2 transform, so text is available within ML -->
+    <!-- Previously, for XML submission, this was added only at time of viewing in webview -->
+    <xsl:if test="$noticeCode = '2903'">
+        <xsl:call-template name="Legislation"/>
+    </xsl:if>
   </xsl:template>
   <!-- Make <ul><li/></ul><ul><li/></ul> into <ul><li/><li/></ul> mode=finesse & mode=finesse2-->
   <xsl:template match="@*|node()" mode="finesse">
@@ -866,7 +871,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           <xsl:variable name="personFullName" select="replace($fullName,'\s+',' ')"/>
           <span about="this:notifiableThing" property="personal-legal:hasPersonalRepresentative"
             resource="this:estateExecutor"/>
-          <span resource="this:addressOfDeceased-address-1" typeof="vcard:Address"/>
+          <span resource="this:deceased-address-1" typeof="vcard:Address"/>
           <span resource="this:addressOfExecutor" typeof="vcard:Address"/>
           <span resource="this:estateExecutor" typeof="foaf:Agent"/>
           <span about="this:estateExecutor" property="vcard:adr" resource="this:addressOfExecutor"/>
@@ -1277,7 +1282,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:when>
         <xsl:otherwise>
           <dt>Person Address Details</dt>
-          <dd about="this:addressOfDeceased-address-1" typeof="vcard:Address" property="vcard:adr">
+          <dd about="this:deceased-address-1" typeof="vcard:Address" property="vcard:adr">
             <xsl:value-of select="gz:Person/gz:PersonDetails"/>
           </dd>
         </xsl:otherwise>
@@ -4889,6 +4894,27 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </dd>
             </dl>
         </section>
+    </xsl:template>
+    
+    <xsl:template name="Legislation">
+        <xsl:if test="$edition = 'London'">
+            <section>
+                <p>Notice is hereby given pursuant to section 27 (Deceased Estates) of the Trustee Act 1925, that any person having a claim against or an interest in the estate of any of the deceased persons whose names and addresses are set out above is hereby 
+                    required to send particulars in writing of his claim or interest to the person or persons whose names and addresses are set out above, and to send such particulars before the date specified in relation to that deceased person displayed above, 
+                    after which date the personal representatives will distribute the estate among the persons entitled thereto having regard only to the claims and interests of which they have had notice and will not, as respects the property so distributed, 
+                    be liable to any person of whose claim they shall not then have had notice.</p>
+            </section>                  
+        </xsl:if>
+        <xsl:if test="$edition = 'Belfast'">
+            <section>
+                <p>
+                    Notice is hereby given pursuant to section 28 (Deceased Estates) of the Trustee Act (Northern Ireland) 1958, that any person having a claim against or an interest in the estate of any of the deceased persons whose names and addresses are
+                    set out above is hereby required to send particulars in writing of his claim or interest to the person or persons whose names and addresses are set out above, and to send such particulars before the date specified in relation to that deceased
+                    person displayed above, after which date the personal representatives will distribute the estate among the persons entitled thereto having regard only to the claims and interests of which they have had notice and will not, as respects the
+                    property so distributed, be liable to any person of whose claim they shall not then have had notice.
+                </p>
+            </section>                  
+        </xsl:if>        
     </xsl:template>
 
   <xsl:template match="processing-instruction('BR')">
