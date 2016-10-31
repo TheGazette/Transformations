@@ -870,12 +870,12 @@ Change history
 				<span class="familyName">
 					<xsl:value-of select=".//*:dd[@property='foaf:familyName' and @about='this:deceasedPerson']"/>
 				</span>
-				<xsl:text> </xsl:text>
 				<xsl:if test=".//*:dd[@property='person:postNominal' and @about='this:deceasedPerson']">
+				    <xsl:text> </xsl:text>
 					<xsl:value-of select=".//*:dd[@property='person:postNominal' and @about='this:deceasedPerson']"/>
 				</xsl:if>
-				<xsl:text> </xsl:text>
 				<xsl:if test=".//*:dd[@property='person:honour' and @about='this:deceasedPerson']">
+				    <xsl:text> </xsl:text>
 					<xsl:value-of select=".//*:dd[@property='person:honour' and @about='this:deceasedPerson']"/>
 				</xsl:if>
 				<xsl:text>, </xsl:text>
@@ -950,6 +950,15 @@ Change history
 						</xsl:otherwise>
 					</xsl:choose>
 					<xsl:text>. </xsl:text>
+				    <xsl:if test=".//*:div[@property='person:hasPreviousAddress']">
+    				    <xsl:for-each select=".//*:dd[@about='this:previous-deceased-address-1' and node()]">
+    				        <xsl:if test="position() != 1">
+    				            <xsl:text>, </xsl:text>
+    				        </xsl:if>
+    				        <xsl:value-of select="."/>
+    				    </xsl:for-each>
+				        <xsl:text>. </xsl:text>
+				    </xsl:if>
 					<xsl:if test=".//*:dd[@property='person:jobTitle']">
 						<xsl:value-of select=".//*:dd[@property='person:jobTitle']"/>
 						<xsl:text>. </xsl:text>
