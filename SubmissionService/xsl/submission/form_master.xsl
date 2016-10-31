@@ -284,7 +284,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <pdf-copy>true</pdf-copy>
       </xsl:if>
        <xsl:if test="$updates//*[@property='gzw:publishInNews']">
-        <publish-in-newspaper>true</publish-in-newspaper>
+			<publish-in-newspaper>
+				<xsl:value-of select="count($updates//*[@property='gzw:regionName'])" />
+			</publish-in-newspaper>
       </xsl:if>
     </gazette-metadata>
   </xsl:template>
