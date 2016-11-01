@@ -1276,13 +1276,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:value-of select="normalize-space($chunk)"/>
           </dd>
           <dt>Person Address Details</dt>
-          <dd about="this:addressOfDeceased-address-1" typeof="vcard:Address" property="vcard:adr">
+      	    <dd about="this:deceased-address-1" typeof="vcard:Address" property="vcard:adr">
             <xsl:value-of select="wlf:before-last-delimeter(gz:Person/gz:PersonDetails,'.')"/>
           </dd>
         </xsl:when>
         <xsl:otherwise>
           <dt>Person Address Details</dt>
-          <dd about="this:deceased-address-1" typeof="vcard:Address" property="vcard:adr">
+            <dd about="this:deceased-address-1" typeof="vcard:Address" property="vcard:adr">
             <xsl:value-of select="gz:Person/gz:PersonDetails"/>
           </dd>
         </xsl:otherwise>
