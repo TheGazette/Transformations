@@ -3872,7 +3872,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 	    </xsl:if>
 	    <xsl:if test="$isCompanyLawNotice">
 	        <p>
-	            <xsl:text>Date documents were received by Registrar: </xsl:text>
+	            <xsl:text>Date: </xsl:text>
 	            <strong property="{$has-date-of-document-receipt}" datatype="xsd:date"
 	                content="{@Date}" data-gazettes="Date" data-gazettes-class="{@Class}"
 	                data-date="{@Date}">
