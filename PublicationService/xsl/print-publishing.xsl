@@ -950,14 +950,18 @@ Change history
 						</xsl:otherwise>
 					</xsl:choose>
 					<xsl:text>. </xsl:text>
-				    <xsl:if test=".//*:div[@property='person:hasPreviousAddress']">
-    				    <xsl:for-each select=".//*:dd[@about='this:previous-deceased-address-1' and node()]">
-    				        <xsl:if test="position() != 1">
-    				            <xsl:text>, </xsl:text>
-    				        </xsl:if>
-    				        <xsl:value-of select="."/>
+				    <xsl:if test=".//*:div[@property='person:hasPreviousAddress']">				        
+				        <xsl:for-each select=".//*:div[@property='person:hasPreviousAddress']">
+				            <xsl:for-each select="*:dl/*:dd[node()]">
+        				        <xsl:if test="position() != 1">
+        				            <xsl:text>, </xsl:text>
+        				        </xsl:if>
+        				        <xsl:value-of select="."/>
+				                <xsl:if test="position() = last()">
+				                    <xsl:text>. </xsl:text>
+				                </xsl:if>
+				            </xsl:for-each>
     				    </xsl:for-each>
-				        <xsl:text>. </xsl:text>
 				    </xsl:if>
 					<xsl:if test=".//*:dd[@property='person:jobTitle']">
 						<xsl:value-of select=".//*:dd[@property='person:jobTitle']"/>
