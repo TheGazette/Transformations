@@ -42,44 +42,81 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
    <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
   <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
   <xsl:param name="updates" as="node()">
-      <form draftTitle="submitted (6).xls" draftURI="/my-gazette/draft/3159" noticeTypeCode="2904">
-          <entry about="this:supplierNoticeId" property="gaz:hasSupplierId">BV21515717/1</entry>
-          <entry about="issue:" property="gaz:hasEdition">London</entry>
-          <entry about="noticeid:" property="gaz:earliestPublicationDate">2015-10-30</entry>
-          <entry about="this:notifiableThing" property="personal-legal:hasClaimDeadline">2015-12-31</entry>
-          <entry about="gzw:service" property="gzw:poBoxService">on</entry>
-          <entry about="gzw:purchasePDF" property="gzw:requestPDFpurchase">on</entry>
-          <entry about="gzw:purchasePaper" property="gzw:requestPaperPurchase">on</entry>
-          <entry about="this:deceasedPerson" property="foaf:familyName">Darcy</entry>
-          <entry about="this:deceasedPerson" property="foaf:firstName">Elizabeth</entry>
-          <entry about="this:deceasedPerson" property="person:honour">MBE</entry>
-          <entry about="this:deceasedPerson" property="personal-legal:hasMaritalStatus">Divorced</entry>
-          <entry about="this:deceasedPerson" property="person:hasMaidenName">Bennett</entry>
-          <entry about="this:deceasedPerson" property="personal-legal:placeOfMarriage">Pemberly</entry>
-          <entry about="this:deceasedPerson" property="personal-legal:dateOfMarriage">1901-08-15</entry>
-          <entry about="this:deceasedPerson" property="personal-legal:spouse">William Darcy</entry>
-          <entry about="this:deceasedPerson" property="personal-legal:nationality">British</entry>
-          <entry about="this:deceasedPerson" property="person:alsoKnownAs">Elizabeth Amber Bisset</entry>
-          <entry about="this:deceasedPerson" property="personal-legal:dateOfDeath">2015-04-26</entry>
-          <entry about="this:deceasedPerson" property="personal-legal:placeOfDeath">Barnet, Hertfordshire</entry>
-          <entry about="this:occupationOfDeceased" property="person:jobTitle">Housewide</entry>
-          <entry about="this:deceasedPerson" property="personal-legal:dateOfAdoption">1945-08-05</entry>
-          <entry about="this:deceasedPerson" property="personal-legal:otherInfo">What more information could you want?</entry>
-          <entry about="this:deceased-address-1" property="vcard:street-address">Test</entry>
-          <entry about="this:deceased-address-1" property="vcard:locality">Test</entry>
-          <entry about="this:deceased-address-1" property="vcard:postal-code">NR3 1PD</entry>
-          <entry about="this:notifiableThing" property="personal-legal:informant">Ryedale District Council</entry>
-          <entry about="this:estateExecutor" property="foaf:name">Government Legal Department (BV)</entry>
-          <entry about="this:estateExecutor" property="foaf:familyName">Jones</entry>
-          <entry about="this:estateExecutor" property="foaf:firstName">Kimberli</entry>
-          <entry about="this:addressOfExecutor-1" property="vcard:street-address">The London Gazette (138)</entry>
-          <entry about="this:addressOfExecutor-1" property="vcard:locality">Norwich</entry>
-          <entry about="this:addressOfExecutor-1" property="vcard:postal-code">NR7 7WD</entry>
-          <entry about="this:estateExecutor" property="gaz:telephone" />
-          <entry about="this:estateExecutor" property="gaz:email" />
-          <entry about="this:notifiableThing" property="gaz:claimNumber">BV21515717/1</entry>
-          <entry about="this:addressOfExecutor-1" property="vcard:extended-address">PO Box 3584</entry>
-          <entry about="gzw:service" property="gzw:forwardAddressId">138</entry>
+      <form draftTitle="Petitions to Wind Up (Companies): Wissam Holdings" draftURI="/my-gazette/draft/19245" noticeTypeCode="2450">
+          <entry about="this:court-1" property="court:courtName">The Court</entry>
+          <entry about="this:court-1" property="court:courtDistrict">St Maggies</entry>
+          <entry about="this:company-1" property="gazorg:companyNumber">09284253</entry>
+          <entry about="this:IP1-address-1" property="vcard:street-address">TOWER ROOM</entry>
+          <entry about="this:IP1-address-1" property="vcard:locality">LONDON</entry>
+          <entry about="this:company-1" property="gazorg:companyType">Registered</entry>
+          <entry about="this:company-registered-office-1" property="vcard:region">Middlesex</entry>
+          <entry about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing">The Other Court</entry>
+          <entry about="system:file-upload" property="system:type">COURTORDER</entry>
+          <entry about="this:legislation-1" property="legislation:legislationTitle">Insolvency Act 1986</entry>
+          <entry about="this:IP1-address-1" property="vcard:extended-address">UNIT C</entry>
+          <entry about="this:IP1" property="person:additionalInformationIP">This is some additional information</entry>
+          <entry about="this:company-previous-registered-office-1" property="vcard:postal-code">SE1 5SS</entry>
+          <entry about="this:company-1" property="gazorg:previouslyTradingAs">WL</entry>
+          <entry about="this:notifiableThing" property="corp-insolvency:presentedBy">Creditor</entry>
+          <entry about="this:IP1" property="gaz:fax">01345 256 690</entry>
+          <entry about="this:IP-company-1" property="gazorg:name"/>
+          <entry about="this:notifiableThing" property="corp-insolvency:dateOfHearingWITHtime">12:30</entry>
+          <entry about="this:company-principal-trading-address-1" property="vcard:locality">TWICKENHAM</entry>
+          <entry about="this:hearingAddress" property="vcard:street-address">Flat 2</entry>
+          <entry about="this:court-case-1" property="court:caseNumber">123546</entry>
+          <entry about="this:company-registered-office-1" property="vcard:postal-code">TW1 1NP</entry>
+          <entry about="this:company-principal-trading-address-1" property="vcard:street-address">210 ST. MARGARETS ROAD</entry>
+          <entry about="this:IP1-address-1" property="vcard:postal-code">SE1 5SS</entry>
+          <entry about="this:company-principal-trading-address-1" property="vcard:country-name"/>
+          <entry about="this:hearingAddress" property="vcard:extended-address">23 Werter Road</entry>
+          <entry about="this:hearingAddress" property="vcard:region"/>
+          <entry about="this:company-registered-office-1" property="vcard:extended-address"/>
+          <entry about="this:IP1" property="gaz:telephone">01345 256 689</entry>
+          <entry about="this:hearingAddress" property="vcard:locality">Putney</entry>
+          <entry about="this:company-1" property="gazorg:name">HOLDINGS DIRECT LIMITED</entry>
+          <entry about="this:court-1" property="court:caseCode">CR-YYYY-####</entry>
+          <entry about="this:hearingAddress" property="vcard:postal-code">SW15 1EE</entry>
+          <entry about="this:IP1" property="gaz:email">mr.petitioner@email.com</entry>
+          <entry about="this:company-1" property="gazorg:natureOfBusiness">Property</entry>
+          <entry about="this:company-registered-office-1" property="vcard:country-name"/>
+          <entry about="this:previous-trading-address-1" property="vcard:country-name"/>
+          <entry about="this:company-previous-registered-office-1" property="vcard:locality">LONDON</entry>
+          <entry about="this:petitioner-address-1" property="vcard:postal-code">SE1 5SS</entry>
+          <entry about="this:IP1" property="person:noticeDated">2016-11-30</entry>
+          <entry about="this:company-principal-trading-address-1" property="vcard:extended-address"/>
+          <entry about="this:hearingAddress" property="vcard:country-name"/>
+          <entry about="noticeid:" property="gaz:earliestPublicationDate">2016-11-30</entry>
+          <entry about="this:IP1" property="foaf:name">Mr. Petitioner</entry>
+          <entry about="this:IP1" property="person:hasIPReferenceNumber">987654</entry>
+          <entry about="this:company-registered-office-1" property="vcard:locality">TWICKENHAM</entry>
+          <entry about="this:previous-trading-address-1" property="vcard:street-address">FLAT 3</entry>
+          <entry about="this:petitioner-address-1" property="vcard:locality">LONDON</entry>
+          <entry about="this:petitioner-address-1" property="vcard:street-address">TOWER ROOM</entry>
+          <entry about="this:company-principal-trading-address-1" property="vcard:region"/>
+          <entry about="this:company-registered-office-1" property="vcard:street-address">214 ST. MARGARETS ROAD</entry>
+          <entry about="this:petitioner-address-1" property="vcard:country-name"/>
+          <entry about="issue:" property="gaz:hasEdition">london</entry>
+          <entry about="this:petitioner-address-1" property="vcard:extended-address">UNIT C</entry>
+          <entry about="this:previous-trading-address-1" property="vcard:locality">TWICKENHAM</entry>
+          <entry about="this:petitioner-address-1" property="vcard:region"/>
+          <entry about="this:notifiableThing" property="corp-insolvency:dateInsolvencyRule">2016-12-13</entry>
+          <entry about="this:previous-trading-address-1" property="vcard:region"/>
+          <entry about="this:company-1" property="gazorg:tradingAs">WH</entry>
+          <entry about="this:notifiableThing" property="corp-insolvency:dateOfHearing">2016-12-14</entry>
+          <entry about="this:company-1" property="gazorg:previousCompanyName">HOLDINGS ECCLESIASTICAL LIMITED</entry>
+          <entry about="this:IP1-address-1" property="vcard:country-name"/>
+          <entry about="this:company-previous-registered-office-1" property="vcard:region"/>
+          <entry about="this:company-previous-registered-office-1" property="vcard:country-name"/>
+          <entry about="this:court-case-1" property="court:caseYear">2016</entry>
+          <entry about="this:company-previous-registered-office-1" property="vcard:extended-address">5 MANDELA WAY</entry>
+          <entry about="this:company-previous-registered-office-1" property="vcard:street-address">PROGRESS HOUSE</entry>
+          <entry about="this:previous-trading-address-1" property="vcard:extended-address">204 ST. MARGARETS ROAD</entry>
+          <entry about="this:IP1-address-1" property="vcard:region"/>
+          <entry about="this:company-principal-trading-address-1" property="vcard:postal-code">TW1 1NP</entry>
+          <entry about="this:previous-trading-address-1" property="vcard:postal-code">TW1 1NP</entry>
+          <entry about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation">2016-11-02</entry>
+          <entry about="gzw:repDetails" property="gzw:repType">petitioner</entry>
+          <entry about="this:petitioner-1" property="foaf:name">Mr. Petitioner</entry>
       </form>
   </xsl:param>
   <!-- local functions -->
@@ -1133,17 +1170,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </xsl:if>
     </p>
     <p>
-      <xsl:text>In the matter of</xsl:text>
+      <xsl:text>In the matter of </xsl:text>
+        <strong about="this:company-1" property="gazorg:name" typeof= " " datatype="xsd:string">
+            <xsl:attribute name="typeof">
+                <xsl:value-of select="wlf:getCompanyType($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text())"/>
+            </xsl:attribute>
+            <xsl:value-of select="upper-case($updates//*[@about='this:company-1' and @property='gazorg:name']/text())"/>
+        </strong>
     </p>
-    <h3 about="this:company-1" property="gazorg:name" typeof= " " datatype="xsd:string">
-    <xsl:attribute name="typeof">
-     <xsl:value-of
-                select="wlf:getCompanyType($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text())"/>
-    </xsl:attribute>
-      <xsl:value-of
-        select="upper-case($updates//*[@about='this:company-1' and @property='gazorg:name']/text())"
-      />
-    </h3>
     <xsl:if test="lower-case($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text()) = 'registered'">
     <p>
       <xsl:text>(Company Number </xsl:text>
@@ -1188,6 +1222,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
           />
         </span>
         <xsl:text>)</xsl:text>
+      </p>
+    </xsl:if>
+    <xsl:if
+      test="$updates//*[@about='this:company-registered-office-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:company-registered-office-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:company-registered-office-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:company-registered-office-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:company-registered-office-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:company-registered-office-1' and @property='vcard:country']/text() != ''">
+      <p>
+          <xsl:text>(Registered Office: </xsl:text>
+          <xsl:call-template name="address">
+              <xsl:with-param name="updates" select="$updates"/>
+              <xsl:with-param name="about" select="'this:company-registered-office-1'"/>
+          </xsl:call-template>
+          <xsl:text>)</xsl:text>
       </p>
     </xsl:if>
     <xsl:if
