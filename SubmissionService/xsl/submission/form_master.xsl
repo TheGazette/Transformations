@@ -40,7 +40,82 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
     <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
     <xsl:param name="updates" as="node()">
-        <form />
+        <form draftTitle="Petitions to Wind Up (Companies): TSO" draftURI="/my-gazette/draft/7754" noticeTypeCode="2450">
+            <entry about="this:company-1" property="gazorg:companyNumber">CN9999</entry>
+            <entry about="this:IP1-address-1" property="vcard:street-address">TOWER ROOM</entry>
+            <entry about="this:IP1-address-1" property="vcard:locality">LONDON</entry>
+            <entry about="this:company-1" property="gazorg:companyType">Registered</entry>
+            <entry about="this:company-registered-office-1" property="vcard:region"> </entry>
+            <entry about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing">Aylesbury</entry>
+            <entry about="this:legislation-1" property="legislation:legislationTitle">Insolvency Act 1986</entry>
+            <entry about="this:IP1-address-1" property="vcard:extended-address">UNIT C</entry>
+            <entry about="this:IP1" property="person:additionalInformationIP"> </entry>
+            <entry about="this:company-1" property="gazorg:previouslyTradingAs"> </entry>
+            <entry about="this:IP1" property="gaz:fax"> </entry>
+            <entry about="this:IP-company-1" property="gazorg:name">test</entry>
+            <entry about="this:notifiableThing" property="corp-insolvency:dateOfHearingWITHtime">15:18</entry>
+            <entry about="this:hearingAddress" property="vcard:street-address">MANDELA WAY</entry>
+            <entry about="this:company-principal-trading-address-1" property="vcard:locality">LONDON</entry>
+            <entry about="this:court-1" property="court:countyCourtName">Aylesbury</entry>
+            <entry about="this:petitionerRole" property="person:Petitioner">Creditor</entry>
+            <entry about="this:company-registered-office-1" property="vcard:postal-code">SE1 5SS</entry>
+            <entry about="this:court-case-1" property="court:caseNumber">123</entry>
+            <entry about="this:company-principal-trading-address-1" property="vcard:street-address">MANDELA WAY</entry>
+            <entry about="this:IP1-address-1" property="vcard:postal-code">SE1 5SS</entry>
+            <entry about="this:court-1" property="court:courtName">High Court of Justice</entry>
+            <entry about="this:hearingAddress" property="vcard:extended-address"> </entry>
+            <entry about="this:company-principal-trading-address-1" property="vcard:country-name"> </entry>
+            <entry about="this:hearingAddress" property="vcard:region"> </entry>
+            <entry about="this:company-registered-office-1" property="vcard:extended-address"> </entry>
+            <entry about="this:IP1" property="gaz:telephone"> </entry>
+            <entry about="this:hearingAddress" property="vcard:locality">LONDON</entry>
+            <entry about="this:company-1" property="gazorg:name">TSO</entry>
+            <entry about="this:court-1" property="court:caseCode">No._####_of_YYYY</entry>
+            <entry about="this:hearingAddress" property="vcard:postal-code">SE1 5SS</entry>
+            <entry about="this:IP1" property="gaz:email"> </entry>
+            <entry about="this:company-registered-office-1" property="vcard:country-name"> </entry>
+            <entry about="this:company-1" property="gazorg:natureOfBusiness">Software</entry>
+            <entry about="this:company-1" property="gazorg:natureOfBusiness"> </entry>
+            <entry about="this:company-1" property="gazorg:natureOfBusiness">Software</entry>
+            <entry about="this:company-1" property="gazorg:natureOfBusiness"> </entry>
+            <entry about="this:previous-trading-address-1" property="vcard:country-name"> </entry>
+            <entry about="this:petitioner-address-1" property="vcard:postal-code">SE1 5SS</entry>
+            <entry about="gzw:publishNewspaper-1" property="gzw:regionName">local</entry>
+            <entry about="this:IP1" property="person:noticeDated">2017-02-15</entry>
+            <entry about="this:company-principal-trading-address-1" property="vcard:extended-address"> </entry>
+            <entry about="this:hearingAddress" property="vcard:country-name"> </entry>
+            <entry about="noticeid:" property="gaz:earliestPublicationDate">2017-02-20</entry>
+            <entry about="this:IP1" property="foaf:name">Test name</entry>
+            <entry about="this:IP1" property="foaf:name">test</entry>
+            <entry about="this:IP1" property="foaf:name">Test name</entry>
+            <entry about="this:IP1" property="foaf:name">test</entry>
+            <entry about="this:IP1" property="person:hasIPReferenceNumber"> </entry>
+            <entry about="this:company-registered-office-1" property="vcard:locality">LONDON</entry>
+            <entry about="this:previous-trading-address-1" property="vcard:street-address">MANDELA WAY</entry>
+            <entry about="this:petitioner-address-1" property="vcard:locality">LONDON</entry>
+            <entry about="this:petitioner-address-1" property="vcard:street-address">TOWER ROOM</entry>
+            <entry about="this:company-principal-trading-address-1" property="vcard:region"> </entry>
+            <entry about="this:company-registered-office-1" property="vcard:street-address">MANDELA WAY</entry>
+            <entry about="this:petitioner-address-1" property="vcard:country-name"> </entry>
+            <entry about="issue:" property="gaz:hasEdition">london</entry>
+            <entry about="this:petitioner-address-1" property="vcard:extended-address">UNIT C</entry>
+            <entry about="this:previous-trading-address-1" property="vcard:locality">LONDON</entry>
+            <entry about="this:petitioner-address-1" property="vcard:region"> </entry>
+            <entry about="this:notifiableThing" property="corp-insolvency:dateInsolvencyRule">2017-02-15</entry>
+            <entry about="this:previous-trading-address-1" property="vcard:region"> </entry>
+            <entry about="this:company-1" property="gazorg:tradingAs"> </entry>
+            <entry about="this:notifiableThing" property="corp-insolvency:dateOfHearing">2017-02-15</entry>
+            <entry about="this:company-1" property="gazorg:previousCompanyName">Williamslea</entry>
+            <entry about="this:IP1-address-1" property="vcard:country-name"> </entry>
+            <entry about="this:court-case-1" property="court:caseYear">2017</entry>
+            <entry about="this:previous-trading-address-1" property="vcard:extended-address"> </entry>
+            <entry about="this:IP1-address-1" property="vcard:region"> </entry>
+            <entry about="this:company-principal-trading-address-1" property="vcard:postal-code">SE1 5SS</entry>
+            <entry about="this:previous-trading-address-1" property="vcard:postal-code">SE1 5SS</entry>
+            <entry about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation">2017-02-01</entry>
+            <entry about="gzw:repDetails" property="gzw:repType">petitioner</entry>
+            <entry about="this:petitioner-1" property="foaf:name">Test name</entry>
+        </form>
     </xsl:param>
     <!-- local functions -->
 
@@ -962,10 +1037,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <p>
             <xsl:text>In the </xsl:text>
             <span about="this:court-1" property="court:courtName" datatype="xsd:string">
-                <xsl:if test="$updates//*[@property='court:countyCourtName' and not(node())]">
+                <xsl:if test="$updates//*[@property='court:countyCourtName' and contains(.,'Please choose from')]">
                     <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:courtName']/text()"/>
                 </xsl:if>
-                <xsl:if test="$updates//*[@property='court:countyCourtName' and node()]">
+                <xsl:if test="$updates//*[@property='court:countyCourtName' and not(contains(.,'Please choose from'))]">
                     <xsl:text>County Court at </xsl:text>
                     <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:countyCourtName']/text()"/>
                 </xsl:if>
