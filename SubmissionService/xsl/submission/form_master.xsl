@@ -40,82 +40,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
     <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
     <xsl:param name="updates" as="node()">
-        <form draftTitle="Petitions to Wind Up (Companies): TSO" draftURI="/my-gazette/draft/7754" noticeTypeCode="2450">
-            <entry about="this:company-1" property="gazorg:companyNumber">CN9999</entry>
-            <entry about="this:IP1-address-1" property="vcard:street-address">TOWER ROOM</entry>
-            <entry about="this:IP1-address-1" property="vcard:locality">LONDON</entry>
-            <entry about="this:company-1" property="gazorg:companyType">Registered</entry>
-            <entry about="this:company-registered-office-1" property="vcard:region"> </entry>
-            <entry about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing">Aylesbury</entry>
-            <entry about="this:legislation-1" property="legislation:legislationTitle">Insolvency Act 1986</entry>
-            <entry about="this:IP1-address-1" property="vcard:extended-address">UNIT C</entry>
-            <entry about="this:IP1" property="person:additionalInformationIP"> </entry>
-            <entry about="this:company-1" property="gazorg:previouslyTradingAs"> </entry>
-            <entry about="this:IP1" property="gaz:fax"> </entry>
-            <entry about="this:IP-company-1" property="gazorg:name">test</entry>
-            <entry about="this:notifiableThing" property="corp-insolvency:dateOfHearingWITHtime">15:18</entry>
-            <entry about="this:hearingAddress" property="vcard:street-address">MANDELA WAY</entry>
-            <entry about="this:company-principal-trading-address-1" property="vcard:locality">LONDON</entry>
-            <entry about="this:court-1" property="court:countyCourtName">Aylesbury</entry>
-            <entry about="this:petitionerRole" property="person:Petitioner">Creditor</entry>
-            <entry about="this:company-registered-office-1" property="vcard:postal-code">SE1 5SS</entry>
-            <entry about="this:court-case-1" property="court:caseNumber">123</entry>
-            <entry about="this:company-principal-trading-address-1" property="vcard:street-address">MANDELA WAY</entry>
-            <entry about="this:IP1-address-1" property="vcard:postal-code">SE1 5SS</entry>
-            <entry about="this:court-1" property="court:courtName">High Court of Justice</entry>
-            <entry about="this:hearingAddress" property="vcard:extended-address"> </entry>
-            <entry about="this:company-principal-trading-address-1" property="vcard:country-name"> </entry>
-            <entry about="this:hearingAddress" property="vcard:region"> </entry>
-            <entry about="this:company-registered-office-1" property="vcard:extended-address"> </entry>
-            <entry about="this:IP1" property="gaz:telephone"> </entry>
-            <entry about="this:hearingAddress" property="vcard:locality">LONDON</entry>
-            <entry about="this:company-1" property="gazorg:name">TSO</entry>
-            <entry about="this:court-1" property="court:caseCode">No._####_of_YYYY</entry>
-            <entry about="this:hearingAddress" property="vcard:postal-code">SE1 5SS</entry>
-            <entry about="this:IP1" property="gaz:email"> </entry>
-            <entry about="this:company-registered-office-1" property="vcard:country-name"> </entry>
-            <entry about="this:company-1" property="gazorg:natureOfBusiness">Software</entry>
-            <entry about="this:company-1" property="gazorg:natureOfBusiness"> </entry>
-            <entry about="this:company-1" property="gazorg:natureOfBusiness">Software</entry>
-            <entry about="this:company-1" property="gazorg:natureOfBusiness"> </entry>
-            <entry about="this:previous-trading-address-1" property="vcard:country-name"> </entry>
-            <entry about="this:petitioner-address-1" property="vcard:postal-code">SE1 5SS</entry>
-            <entry about="gzw:publishNewspaper-1" property="gzw:regionName">local</entry>
-            <entry about="this:IP1" property="person:noticeDated">2017-02-15</entry>
-            <entry about="this:company-principal-trading-address-1" property="vcard:extended-address"> </entry>
-            <entry about="this:hearingAddress" property="vcard:country-name"> </entry>
-            <entry about="noticeid:" property="gaz:earliestPublicationDate">2017-02-20</entry>
-            <entry about="this:IP1" property="foaf:name">Test name</entry>
-            <entry about="this:IP1" property="foaf:name">test</entry>
-            <entry about="this:IP1" property="foaf:name">Test name</entry>
-            <entry about="this:IP1" property="foaf:name">test</entry>
-            <entry about="this:IP1" property="person:hasIPReferenceNumber"> </entry>
-            <entry about="this:company-registered-office-1" property="vcard:locality">LONDON</entry>
-            <entry about="this:previous-trading-address-1" property="vcard:street-address">MANDELA WAY</entry>
-            <entry about="this:petitioner-address-1" property="vcard:locality">LONDON</entry>
-            <entry about="this:petitioner-address-1" property="vcard:street-address">TOWER ROOM</entry>
-            <entry about="this:company-principal-trading-address-1" property="vcard:region"> </entry>
-            <entry about="this:company-registered-office-1" property="vcard:street-address">MANDELA WAY</entry>
-            <entry about="this:petitioner-address-1" property="vcard:country-name"> </entry>
-            <entry about="issue:" property="gaz:hasEdition">london</entry>
-            <entry about="this:petitioner-address-1" property="vcard:extended-address">UNIT C</entry>
-            <entry about="this:previous-trading-address-1" property="vcard:locality">LONDON</entry>
-            <entry about="this:petitioner-address-1" property="vcard:region"> </entry>
-            <entry about="this:notifiableThing" property="corp-insolvency:dateInsolvencyRule">2017-02-15</entry>
-            <entry about="this:previous-trading-address-1" property="vcard:region"> </entry>
-            <entry about="this:company-1" property="gazorg:tradingAs"> </entry>
-            <entry about="this:notifiableThing" property="corp-insolvency:dateOfHearing">2017-02-15</entry>
-            <entry about="this:company-1" property="gazorg:previousCompanyName">Williamslea</entry>
-            <entry about="this:IP1-address-1" property="vcard:country-name"> </entry>
-            <entry about="this:court-case-1" property="court:caseYear">2017</entry>
-            <entry about="this:previous-trading-address-1" property="vcard:extended-address"> </entry>
-            <entry about="this:IP1-address-1" property="vcard:region"> </entry>
-            <entry about="this:company-principal-trading-address-1" property="vcard:postal-code">SE1 5SS</entry>
-            <entry about="this:previous-trading-address-1" property="vcard:postal-code">SE1 5SS</entry>
-            <entry about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation">2017-02-01</entry>
-            <entry about="gzw:repDetails" property="gzw:repType">petitioner</entry>
-            <entry about="this:petitioner-1" property="foaf:name">Test name</entry>
-        </form>
+        <form/>
     </xsl:param>
     <!-- local functions -->
 
@@ -1122,11 +1047,18 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <p>
             <xsl:text>A Petition to wind up the above-named company of </xsl:text>
-            <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
+            <span about="this:company-1" property="gazorg:name" typeof=" " datatype="xsd:string">
+                <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
+            </span>
+            <xsl:text>(</xsl:text>
+            <span about="this:company-1" property="gazorg:companyNumber" datatype="xsd:string">
+                <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"/>
+            </span>
+            <xsl:text>)</xsl:text>
             <xsl:text> of </xsl:text>
             <xsl:call-template name="address">
                 <xsl:with-param name="updates" select="$updates"/>
-                <xsl:with-param name="about" select="'this:company-principal-trading-address-1'"/>
+                <xsl:with-param name="about" select="'this:principal-trading-address-1'"/>
             </xsl:call-template>
             <xsl:if test="$updates//*[@about='this:previous-trading-address-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:country']/text() != ''">
                 <xsl:text>previously of </xsl:text>
@@ -1135,11 +1067,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:with-param name="about" select="'this:previous-trading-address-1'"/>
                 </xsl:call-template>
             </xsl:if>
-            <xsl:if test="$updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:country']/text() != ''">
+            <xsl:if test="$updates//*[@about='this:company-registered-office-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:company-registered-office-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:company-registered-office-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:company-registered-office-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:company-registered-office-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:company-registered-office-1' and @property='vcard:country']/text() != ''">
                 <xsl:text>, </xsl:text>
                 <xsl:call-template name="address">
                     <xsl:with-param name="updates" select="$updates"/>
-                    <xsl:with-param name="about" select="'this:company-principal-trading-address-1'"/>
+                    <xsl:with-param name="about" select="'this:company-registered-office-1'"/>
                 </xsl:call-template>
                 <xsl:text> (where service of the petition was effected), </xsl:text>
             </xsl:if>
@@ -1168,8 +1100,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:with-param name="about" select="'this:petitioner-address-1'"/>
             </xsl:call-template>
             <xsl:text> claiming to be a </xsl:text>
-            <span about="this:petitionerRole" property="person:Petitioner" datatype="xsd:string">
-                <xsl:value-of select="$updates//*[@about='this:petitionerRole' and @property='person:Petitioner']/text()"/>
+            <span about="this:notifiableThing" property="corp-insolvency:presentedBy" datatype="xsd:string">
+                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:presentedBy']/text()"/>
             </span>
             <xsl:text> of the Company, will be heard at the </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing" datatype="xsd:string">
@@ -1637,8 +1569,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:with-param name="about" select="'this:petitioner-address-1'"/>
             </xsl:call-template>
             <xsl:text> claiming to be a </xsl:text>
-            <span about="this:petitionerRole" property="person:Petitioner">
-                <xsl:value-of select="$updates//*[@about='this:petitionerRole' and @property='person:Petitioner']/text()"/>
+            <span about="this:notifiableThing" property="corp-insolvency:presentedBy">
+                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:presentedBy']/text()"/>
             </span>
             <xsl:text> of the Partnership, will be heard at </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing">
@@ -1898,8 +1830,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:with-param name="about" select="'this:petitioner-address-1'"/>
             </xsl:call-template>
             <xsl:text> claiming to be a </xsl:text>
-            <span about="this:petitionerRole" property="person:Petitioner">
-                <xsl:value-of select="$updates//*[@about='this:petitionerRole' and @property='person:Petitioner']/text()"/>
+            <span about="this:notifiableThing" property="corp-insolvency:presentedBy">
+                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:presentedBy']/text()"/>
             </span>
             <xsl:text> of the Partnership, will be heard at </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing">
