@@ -2719,7 +2719,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
     <xsl:template match="gz:Notice/gz:Person/gz:PersonName">
         <xsl:choose>
-            <xsl:when test="$noticeCode = (2447, 2414, 2520, 2465, 2424, 2409, 2528)">
+            <xsl:when test="$noticeCode = (2447, 2414, 2465, 2424, 2409)">
                 <p data-gazettes="PersonName">
                     <span property="foaf:name" content="{wlf:serialize-name(if(*) then * else .)}"/>
                     <xsl:apply-templates/>
@@ -2798,8 +2798,31 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:apply-templates/>
     </xsl:template>
 
+   
     <xsl:template match="gz:Notice/gz:Person/gz:PersonStatus">
-        <p about="{wlf:name-sibling(..)}" property="person:hasStatus" datatype="xsd:string" data-gazettes="PersonStatus">
+        <xsl:if test="$noticeCode = (2520, 2528) and text() = 'Deceased'"/>
+        <xsl:if test="not($noticeCode = (2520, 2528) and text() = 'Deceased')">
+            <p about="{wlf:name-sibling(..)}" property="person:hasStatus" datatype="xsd:string" data-gazettes="PersonStatus">
+                <xsl:if test="text() = 'Discharged'">
+                    <xsl:text>NOTE: the above-named was discharged from the proceedings and may no longer have a connection with the addresses listed.</xsl:text>
+                </xsl:if>
+                <xsl:if test="not(text() = 'Discharged')">
+                    <xsl:apply-templates/>
+                </xsl:if>
+            </p>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="gz:TypeOfProcedure">
+        <p about="this:notifiableThing" property="insolvency:typeOfQualifyingDecisionProcedure">
+            <xsl:text>Type of Qualifying Decision Procedure: </xsl:text>
+            <xsl:apply-templates/>
+        </p>
+    </xsl:template>
+    
+    <xsl:template match="gz:TypeOfProcess">
+        <p about="this:notifiableThing" property="insolvency:typeOfProcess">
+            <xsl:text>Type of Process: </xsl:text>
             <xsl:apply-templates/>
         </p>
     </xsl:template>
@@ -3185,7 +3208,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:template match="gz:Notice/gz:Person/gz:BirthDetails">
         <xsl:variable name="birth-date" select="gz:Date/@Date"/>
         <p about="{wlf:name-sibling(..)}" property="person:dateOfBirth" datatype="xsd:date" content="{gz:Date/@Date}" data-gazettes="BirthDetails">
-            <xsl:text>Birth details: </xsl:text>
+            <xsl:if test="not($noticeCode = (2520, 2528))">
+                <xsl:text>Birth details: </xsl:text>
+            </xsl:if>
             <xsl:apply-templates mode="serialize"/>
         </p>
     </xsl:template>
@@ -3488,7 +3513,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:apply-templates/>
             </span>
         </xsl:if>
-        <xsl:if test="$noticeCode != (2447, 2414, 2520, 2465, 2424, 2409, 2528)">
+        <xsl:if test="not($noticeCode = (2447, 2414, 2520, 2465, 2424, 2409, 2528))">
             <xsl:apply-templates/>
         </xsl:if>
     </xsl:template>
@@ -3850,7 +3875,23 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </p>
         </xsl:if>
     </xsl:template>
-
+    
+    <xsl:template match="gz:PreviousPersonAddress">
+        <p>
+            <xsl:text>Formerly of: </xsl:text>
+            <xsl:apply-templates/>
+        </p>
+    </xsl:template>
+    
+    <xsl:template match="gz:PersonStatus/gz:Date">
+        <p>
+            <xsl:text>Date of bankruptcy order: </xsl:text>
+            <span property="gaz:relatedDate" content="{@Date}" datatype="xsd:date" data-gazettes="Date" data-gazettes-class="{@Class}" data-date="{@Date}">
+                <xsl:apply-templates/>
+            </span>
+        </p>
+    </xsl:template>
+    
     <xsl:template match="gz:Date">
         <span property="gaz:relatedDate" content="{@Date}" datatype="xsd:date" data-gazettes="Date" data-gazettes-class="{@Class}" data-date="{@Date}">
             <xsl:apply-templates/>
@@ -4255,9 +4296,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <span property="foaf:familyName" data-gazettes="Surname">
             <xsl:apply-templates/>
         </span>
-        <xsl:if test="not($noticeCode = (2447, 2414, 2520, 2465, 2424, 2409, 2528))">
+        <xsl:if test="not($noticeCode = (2447, 2414, 2465, 2424, 2409))">
             <xsl:text> </xsl:text>
             <!-- &#160; -->
+        </xsl:if>
+        <xsl:if test="parent::gz:PersonName[following-sibling::gz:PersonStatus[text()='Deceased']]">
+            <xsl:text>(Deceased)</xsl:text>
         </xsl:if>
     </xsl:template>
 
@@ -4312,12 +4356,22 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:template>
 
     <xsl:template match="gz:TradingAs">
-        <xsl:if test="not($noticeCode = (2447, 2414, 2520, 2465, 2424, 2409, 2528))">
+        <xsl:if test="not($noticeCode = (2447, 2414, 2465, 2424, 2409, 2520, 2528))">
             <xsl:text>Trading as: </xsl:text>
+        </xsl:if>  
+        <xsl:if test="not($noticeCode = (2520, 2528))">
+            <span property="gazorg:isTradingAs" data-gazettes="TradingAs" datatype="xsd:string">
+                <xsl:apply-templates/>
+            </span>
         </xsl:if>
-        <span property="gazorg:isTradingAs" data-gazettes="TradingAs" datatype="xsd:string">
-            <xsl:apply-templates/>
-        </span>
+        <xsl:if test="$noticeCode = (2520, 2528)">
+            <p>
+                <xsl:text>who at the date of the bankruptcy order was trading as: </xsl:text>
+                <span property="gazorg:isTradingAs" data-gazettes="TradingAs" datatype="xsd:string">
+                    <xsl:apply-templates/>
+                </span>
+            </p>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="gz:TradingDetails">
