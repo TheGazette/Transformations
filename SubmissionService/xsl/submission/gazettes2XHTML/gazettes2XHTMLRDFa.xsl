@@ -2752,10 +2752,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                             </span>
                         </xsl:when>
                         <xsl:otherwise>
-                            <span property="foaf:name" content="{wlf:serialize-name(if(*) then * else .)}"/>
+                            <span property="foaf:name" content="{wlf:serialize-name(if(*) then * else .)}"/>                            
                         </xsl:otherwise>
                     </xsl:choose>
                     <xsl:apply-templates/>
+                    <xsl:if test="following-sibling::gz:PersonStatus[text()='Deceased']">
+                        <xsl:text> (Deceased)</xsl:text>
+                    </xsl:if>
                     <!--<xsl:if test="$noticeCode=('1123','1124','1129','1127')">
         <xsl:apply-templates select="following-sibling::gz:MilitaryServiceNumber" mode="persondiv"/>
       </xsl:if>-->
@@ -4299,10 +4302,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:if test="not($noticeCode = (2447, 2414, 2465, 2424, 2409))">
             <xsl:text> </xsl:text>
             <!-- &#160; -->
-        </xsl:if>
-        <xsl:if test="parent::gz:PersonName[following-sibling::gz:PersonStatus[text()='Deceased']]">
-            <xsl:text>(Deceased)</xsl:text>
-        </xsl:if>
+        </xsl:if>        
     </xsl:template>
 
     <xsl:template match="gz:Telephone">
