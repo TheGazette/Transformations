@@ -40,7 +40,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
     <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
     <xsl:param name="updates" as="node()">
-        <form/>
+        <form />
     </xsl:param>
     <!-- local functions -->
 
@@ -1047,9 +1047,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <p>
             <xsl:text>A Petition to wind up the above-named company of </xsl:text>
-            <span about="this:company-1" property="gazorg:name" typeof=" " datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
-            </span>
             <xsl:text>(</xsl:text>
             <span about="this:company-1" property="gazorg:companyNumber" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"/>
@@ -1085,11 +1083,20 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:text>, presented on </xsl:text>
             <xsl:variable name="dateOfPetitionPresentation">
+                <xsl:value-of select="format-date(xs:date($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentation']/text()),'[FNn] [D01] [MNn] [Y0001]')"/>
+            </xsl:variable>
+            <xsl:variable name="timeOfPetitionPresentation">
+                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentationWITHtime']/text()"/>
+            </xsl:variable>
+            <xsl:variable name="dateOfPetitionPresentationValue">
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentation']/text()"/>
             </xsl:variable>
-            <span about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation" datatype="xsd:date" content="{$dateOfPetitionPresentation}">
-                <xsl:value-of select="format-date(xs:date($dateOfPetitionPresentation), '[FNn] [D01] [MNn] [Y0001]')"/>
-            </span>
+            <xsl:variable name="PetitionPresentation">
+                <xsl:value-of select="concat($dateOfPetitionPresentationValue,'T',$timeOfPetitionPresentation,':00')"/>
+            </xsl:variable>
+            <span about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation" datatype="xsd:date" content="{$dateOfPetitionPresentationValue}">
+                <xsl:value-of select="concat($dateOfPetitionPresentation,', at ',$timeOfPetitionPresentation)"/>
+            </span>            
             <xsl:text> by </xsl:text>
             <span about="this:petitioner-1" property="foaf:name" datatype="xsd:string">
                 <xsl:value-of select="upper-case($updates//*[@about='this:petitioner-1' and @property='foaf:name']/text())"/>
@@ -1131,13 +1138,21 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:text> (or as soon thereafter as the Petition can be heard).</xsl:text>
         </p>
         <xsl:variable name="dateInsolvencyRule">
-            <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateInsolvencyRule']/text()"/>
+            <xsl:value-of select="format-date(xs:date($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateToRequestAppearance']/text()),'[FNn] [D01] [MNn] [Y0001]')"/>
+        </xsl:variable>
+        <xsl:variable name="timeInsolvencyRule">
+            <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateToRequestAppearanceWITHtime']/text()"/>
+        </xsl:variable>
+        <xsl:variable name="dateInsolvencyRuleValue">
+            <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateToRequestAppearance']/text()"/>
+        </xsl:variable>
+        <xsl:variable name="InsolvencyRule">
+            <xsl:value-of select="concat($dateInsolvencyRuleValue,'T',$timeInsolvencyRule,':00')"/>
         </xsl:variable>
         <p>
-            <xsl:text>Any person intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioner or its Solicitor in accordance with Rule 4.16 by 16.00 hours on </xsl:text>
-            <span about="this:notifiableThing" property="corp-insolvency:dateInsolvencyRule" datatype="xsd:date" content="{$dateInsolvencyRule}">
-                <xsl:value-of select="format-date(xs:date($dateInsolvencyRule), '[FNn] [D01] [MNn] [Y0001]')"/>
-                <xsl:text>.</xsl:text>
+            <xsl:text>Any person intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioner or its Solicitor in accordance with Rule 4.16 by </xsl:text>
+            <span about="this:notifiableThing" property="corp-insolvency:dateToRequestAppearance" datatype="xsd:dateTime" content="{$InsolvencyRule}">
+                <xsl:value-of select="concat($timeInsolvencyRule,' hours on ',$dateInsolvencyRule)"/>
             </span>
         </p>
         <xsl:if test="$updates//*[@about='this:IP1' and @property='foaf:name']/text() != ''
@@ -1490,7 +1505,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
             </span>
             <xsl:text>, a </xsl:text>
-            <span about="this:company-1" property="gazorg:name" datatype="xsd:string">
+            <span about="this:company-1" property="gazorg:partnershipType" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text()"/>
             </span>
             <xsl:text>,</xsl:text>
@@ -1524,15 +1539,20 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <p>
             <xsl:text>and in the Matter of the </xsl:text>
+            <xsl:variable name="legValue">
+                <xsl:choose>
+                    <xsl:when test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() = 'Limited Liability Partnership'">Insolvency Act 1986 as applied by The Limited Liability Partnerships Regulations 2001</xsl:when>
+                    <xsl:when test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() != 'Limited Liability Partnership'">Insolvency Act 1986 as modified by Insolvent Partnerships Order 1994</xsl:when>
+                </xsl:choose>
+            </xsl:variable>
             <span about="this:legislation-1" property="legislation:legislationTitle" datatype="xsd:string">
-                <xsl:value-of select="$updates//*[@about='this:legislation-1' and @property='legislation:legislationTitle']/text()"/>
+                <xsl:value-of select="$legValue"/>
             </span>
         </p>        
         <p>
             <xsl:text>A Petition to wind up the above-named Partnership of </xsl:text>
-            <span about="this:court-1" property="court:courtName" datatype="xsd:string">
-                <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:courtName']/text()"/>
-            </span>
+            <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
+            <xsl:text> of </xsl:text>
             <xsl:call-template name="address">
                 <xsl:with-param name="updates" select="$updates"/>
                 <xsl:with-param name="about" select="'this:company-registered-office-1'"/>
@@ -1554,11 +1574,20 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </span>
             <xsl:text>, presented on </xsl:text>
             <xsl:variable name="dateOfPetitionPresentation">
+                <xsl:value-of select="format-date(xs:date($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentation']/text()),'[FNn] [D01] [MNn] [Y0001]')"/>
+            </xsl:variable>
+            <xsl:variable name="timeOfPetitionPresentation">
+                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentationWITHtime']/text()"/>
+            </xsl:variable>
+            <xsl:variable name="dateOfPetitionPresentationValue">
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentation']/text()"/>
             </xsl:variable>
-            <span about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation" datatype="xsd:date" content="{$dateOfPetitionPresentation}">
-                <xsl:value-of select="format-date(xs:date($dateOfPetitionPresentation), '[D01] [MNn] [Y0001]')"/>
-            </span>
+            <xsl:variable name="PetitionPresentation">
+                <xsl:value-of select="concat($dateOfPetitionPresentationValue,'T',$timeOfPetitionPresentation,':00')"/>
+            </xsl:variable>
+            <span about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation" datatype="xsd:date" content="{$dateOfPetitionPresentationValue}">
+                <xsl:value-of select="concat($dateOfPetitionPresentation,', at ',$timeOfPetitionPresentation)"/>
+            </span>     
             <xsl:text> by </xsl:text>
             <span about="this:petitioner-1" property="foaf:name" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:petitioner-1' and @property='foaf:name']/text()"/>
@@ -1572,11 +1601,19 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span about="this:notifiableThing" property="corp-insolvency:presentedBy">
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:presentedBy']/text()"/>
             </span>
-            <xsl:text> of the Partnership, will be heard at </xsl:text>
+            <xsl:text> of the Partnership, will be heard at </xsl:text>            
+            
             <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing']/text()"/>
+                
+                <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing' and contains(.,'Please choose from')]">
+                    <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing']/text()"/>
+                </xsl:if>
+                <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing' and not(contains(.,'Please choose from'))]">                    
+                    <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing']/text()"/>
+                    <xsl:text> County Court</xsl:text>
+                </xsl:if>
             </span>
-            <xsl:text>, </xsl:text>
+            <xsl:text> at, </xsl:text>
             <xsl:call-template name="address">
                 <xsl:with-param name="updates" select="$updates"/>
                 <xsl:with-param name="about" select="'this:hearingAddress'"/>
@@ -1599,13 +1636,22 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </span>
             <xsl:text> (or as soon thereafter as the Petition can be heard).</xsl:text>
         </p>
+        <xsl:variable name="dateInsolvencyRule">
+            <xsl:value-of select="format-date(xs:date($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateToRequestAppearance']/text()),'[FNn] [D01] [MNn] [Y0001]')"/>
+        </xsl:variable>
+        <xsl:variable name="timeInsolvencyRule">
+            <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateToRequestAppearanceWITHtime']/text()"/>
+        </xsl:variable>
+        <xsl:variable name="dateInsolvencyRuleValue">
+            <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateToRequestAppearance']/text()"/>
+        </xsl:variable>
+        <xsl:variable name="InsolvencyRule">
+            <xsl:value-of select="concat($dateInsolvencyRuleValue,'T',$timeInsolvencyRule,':00')"/>
+        </xsl:variable>
         <p>
-            <xsl:variable name="dateInsolvencyRule">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateInsolvencyRule'][1]/text()"/>
-            </xsl:variable>
-            <xsl:text>Any persons intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioner or its Solicitor in accordance with Rule 4.016 by 16.00 hours on </xsl:text>
-            <span about="this:notifiableThing" property="corp-insolvency:dateInsolvencyRule" datatype="xsd:date" content="{$dateInsolvencyRule}">
-                <xsl:value-of select="format-date(xs:date($dateInsolvencyRule), '[D01] [MNn] [Y0001]')"/>
+            <xsl:text>Any persons intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioner or its Solicitor in accordance with Rule 4.16 by </xsl:text>
+            <span about="this:notifiableThing" property="corp-insolvency:dateToRequestAppearance" datatype="xsd:dateTime" content="{$InsolvencyRule}">
+                <xsl:value-of select="concat($timeInsolvencyRule,' hours on ',$dateInsolvencyRule)"/>
             </span>
             <xsl:text>.</xsl:text>
         </p>
@@ -1623,8 +1669,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 	or $updates//*[@about='this:IP1-address-1' and @property='vcard:country']/text() != ''">
             <p>
                 <xsl:text>The </xsl:text>
-                <span about="this:IP1" property="gzw:repType" datatype="xsd:string">
-                    <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gzw:repType']/text()"/>
+                <span about="this:IP1" property="corp-insolvency:practitionerType" datatype="xsd:string">
+                    <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text()"/>
                 </span>
                 <xsl:text> is </xsl:text>
                 <xsl:if test="$updates//*[@about='this:IP1' and @property='foaf:name']/text() != ''">
@@ -1862,10 +1908,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <p>
             <xsl:variable name="dateInsolvencyRule">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateInsolvencyRule'][1]/text()"/>
+                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateToRequestAppearance'][1]/text()"/>
             </xsl:variable>
             <xsl:text>Any persons intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioner or its Solicitor in accordance with Rule 4.016 by 16.00 hours on </xsl:text>
-            <span about="this:notifiableThing" property="corp-insolvency:dateInsolvencyRule" datatype="xsd:date" content="{$dateInsolvencyRule}">
+            <span about="this:notifiableThing" property="corp-insolvency:dateToRequestAppearance" datatype="xsd:date" content="{$dateInsolvencyRule}">
                 <xsl:value-of select="format-date(xs:date($dateInsolvencyRule), '[D01] [MNn] [Y0001]')"/>
             </span>
             <xsl:text>.</xsl:text>
