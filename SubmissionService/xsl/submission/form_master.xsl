@@ -40,7 +40,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
     <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
     <xsl:param name="updates" as="node()">
-        <form />
+        <form/>
     </xsl:param>
     <!-- local functions -->
 
@@ -289,12 +289,21 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
     </xsl:template>
 
-    <xsl:template match="x:span[@about='noticeid:' and @property='gaz:earliestPublicationDate' and @datatype='xsd:dateTime']">
+    <xsl:template match="x:dd[@about='noticeid:' and @property='gaz:earliestPublicationDate' and @datatype='xsd:dateTime']">
         <xsl:element name="{name()}">
             <xsl:copy-of select="@*"/>
-            <xsl:value-of select="$publicationDate"/>
+            <xsl:attribute name="content">
+                <xsl:value-of select="$publicationDate"/>
+            </xsl:attribute>
+            <xsl:element name="time">
+                <xsl:attribute name="datetime">
+                    <xsl:value-of select="$publicationDate"/>
+                </xsl:attribute>
+                <xsl:value-of select="$publicationDate"/>
+            </xsl:element>
         </xsl:element>
     </xsl:template>
+    
     <xsl:template match="x:div[@data-container = 'boilerplate']">
         <div>
             <!--   <xsl:apply-templates mode="boilerplate"/>   -->
@@ -962,10 +971,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <p>
             <xsl:text>In the </xsl:text>
             <span about="this:court-1" property="court:courtName" datatype="xsd:string">
-                <xsl:if test="$updates//*[@property='court:countyCourtName' and contains(.,'Please choose from')]">
+                <xsl:if test="$updates//*[@property='court:courtName' and contains(.,'High Court')]">
                     <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:courtName']/text()"/>
                 </xsl:if>
-                <xsl:if test="$updates//*[@property='court:countyCourtName' and not(contains(.,'Please choose from'))]">
+                <xsl:if test="$updates//*[@property='court:courtName' and not(contains(.,'High Court'))]">
                     <xsl:text>County Court at </xsl:text>
                     <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:countyCourtName']/text()"/>
                 </xsl:if>
@@ -1048,7 +1057,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <p>
             <xsl:text>A Petition to wind up the above-named company of </xsl:text>
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
-            <xsl:text>(</xsl:text>
+            <xsl:text> (</xsl:text>
+            <xsl:if test="$updates//*[@about='this:principal-trading-address-1' and @property='vcard:outside-uk-address']/text()='on'">
+                <span about="this:principal-trading-address-1" property="vcard:outside-uk-address"/>
+            </xsl:if>
             <span about="this:company-1" property="gazorg:companyNumber" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"/>
             </span>
@@ -1059,7 +1071,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:with-param name="about" select="'this:principal-trading-address-1'"/>
             </xsl:call-template>
             <xsl:if test="$updates//*[@about='this:previous-trading-address-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:country']/text() != ''">
-                <xsl:text>previously of </xsl:text>
+                <xsl:text>, previously of </xsl:text>
                 <xsl:call-template name="address">
                     <xsl:with-param name="updates" select="$updates"/>
                     <xsl:with-param name="about" select="'this:previous-trading-address-1'"/>
@@ -1111,9 +1123,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:presentedBy']/text()"/>
             </span>
             <xsl:text> of the Company, will be heard at the </xsl:text>
-            <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing" datatype="xsd:string">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing']/text()"/>
-            </span>
+            <xsl:if test="$updates//*[@property='court:courtName' and contains(.,'High Court')]">
+                <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing" datatype="xsd:string">
+                    <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing']/text()"/>
+                </span>
+            </xsl:if>
+            <xsl:if test="$updates//*[@property='court:courtName' and not(contains(.,'High Court'))]">
+                <xsl:text>County Court at </xsl:text>
+                <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing" datatype="xsd:string">
+                    <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing']/text()"/>
+                </span>
+            </xsl:if>
             <xsl:text>, </xsl:text>
             <xsl:call-template name="address">
                 <xsl:with-param name="updates" select="$updates"/>
@@ -1150,7 +1170,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:value-of select="concat($dateInsolvencyRuleValue,'T',$timeInsolvencyRule,':00')"/>
         </xsl:variable>
         <p>
-            <xsl:text>Any person intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioner or its Solicitor in accordance with Rule 4.16 by </xsl:text>
+            <xsl:text>Any person intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioners or to their Solicitor in accordance with Rule 4.16 by </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:dateToRequestAppearance" datatype="xsd:dateTime" content="{$InsolvencyRule}">
                 <xsl:value-of select="concat($timeInsolvencyRule,' hours on ',$dateInsolvencyRule)"/>
             </span>
@@ -1168,19 +1188,33 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 	or $updates//*[@about='this:IP1-address-1' and @property='vcard:postal-code']/text() != ''
 	or $updates//*[@about='this:IP1-address-1' and @property='vcard:country']/text() != ''">
             <p>
+                <xsl:variable name="pc1">
+                    <xsl:value-of select="$updates//*[@about='this:IP1-address-1' and @property='vcard:postal-code']"/>
+                </xsl:variable>
+                <xsl:variable name="pc2">
+                    <xsl:value-of select="$updates//*[@about='this:IP2-address-1' and @property='vcard:postal-code']"/>
+                </xsl:variable>
                 <xsl:choose>
-                    <xsl:when test="$updates//*[@about='gzw:repDetails' and @property='gzw:repType']/text() = 'solicitor'">
+                    <xsl:when test="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text() = 'Solicitor'">
                         <xsl:text>The Petitioner's Solicitor is </xsl:text>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:text>The Petitioner is </xsl:text>
+                        <xsl:text>The </xsl:text>
+                        <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']"/>
+                        <xsl:text>(s) is/are </xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
                 <xsl:if test="$updates//*[@about='this:IP1' and @property='foaf:name']/text() != ''">
                     <span about="this:IP1" property="foaf:name" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/>
                     </span>
-                    <xsl:text> of </xsl:text>
+                    <xsl:if test="$updates//*[@about='this:IP2' and @property='foaf:name']/text() != '' and ($pc1=$pc2)">
+                        <xsl:text> and </xsl:text>
+                        <span about="this:IP2" property="foaf:name" datatype="xsd:string">
+                            <xsl:value-of select="$updates//*[@about='this:IP2' and @property='foaf:name']/text()"/>
+                        </span>
+                    </xsl:if>
+                    <xsl:text>, </xsl:text>
                 </xsl:if>
                 <xsl:if test="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text() != ''">
                     <span about="this:IP-company-1" property="gazorg:name" datatype="xsd:string">
@@ -1192,10 +1226,29 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:with-param name="updates" select="$updates"/>
                     <xsl:with-param name="about" select="'this:IP1-address-1'"/>
                 </xsl:call-template>
-                <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
-                    <xsl:if test="$updates//*[@about='this:IP1-address-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:IP1-address-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:IP1-address-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:IP1-address-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:IP1-address-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:IP1-address-1' and @property='vcard:country']/text() != ''">
-                        <xsl:text>, </xsl:text>
+                <xsl:if test="$pc1!=$pc2">
+                    <xsl:if test="$updates//*[@about='this:IP2' and @property='foaf:name']/text() != ''">
+                        <xsl:text> and </xsl:text>
+                        <span about="this:IP2" property="foaf:name" datatype="xsd:string">
+                            <xsl:value-of select="$updates//*[@about='this:IP2' and @property='foaf:name']/text()"/>
+                        </span>
                     </xsl:if>
+                    <xsl:if test="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text() != ''">
+                        <xsl:text>, </xsl:text>
+                        <span about="this:IP-company-2" property="gazorg:name" datatype="xsd:string">
+                            <xsl:value-of select="upper-case($updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text())"/>
+                        </span>
+                    </xsl:if>
+                    <xsl:if test="$updates//*[@about='this:IP2-address-1']">
+                        <xsl:text>, </xsl:text>
+                        <xsl:call-template name="address">
+                            <xsl:with-param name="updates" select="$updates"/>
+                            <xsl:with-param name="about" select="'this:IP2-address-1'"/>
+                        </xsl:call-template>
+                    </xsl:if>
+                </xsl:if>
+                <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
+                    <xsl:text>, </xsl:text>
                     <xsl:text>Telephone: </xsl:text>
                     <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text()"/>
@@ -1456,10 +1509,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <p>
             <xsl:text>In the </xsl:text>
             <span about="this:court-1" property="court:courtName" datatype="xsd:string">
-                <xsl:if test="$updates//*[@property='court:countyCourtName' and not(node())]">
+                <xsl:if test="$updates//*[@property='court:courtName' and contains(.,'High Court')]">
                     <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:courtName']/text()"/>
                 </xsl:if>
-                <xsl:if test="$updates//*[@property='court:countyCourtName' and node()]">
+                <xsl:if test="$updates//*[@property='court:courtName' and not(contains(.,'High Court'))]">
                     <xsl:text>County Court at </xsl:text>
                     <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:countyCourtName']/text()"/>
                 </xsl:if>
@@ -1553,25 +1606,45 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:text>A Petition to wind up the above-named Partnership of </xsl:text>
             <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
             <xsl:text> of </xsl:text>
-            <xsl:call-template name="address">
-                <xsl:with-param name="updates" select="$updates"/>
-                <xsl:with-param name="about" select="'this:company-registered-office-1'"/>
-            </xsl:call-template>
+            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() = 'Limited Liability Partnership'">
+                <xsl:call-template name="address">
+                    <xsl:with-param name="updates" select="$updates"/>
+                    <xsl:with-param name="about" select="'this:company-principal-trading-address-1'"/>
+                </xsl:call-template>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() != 'Limited Liability Partnership'">
+                <xsl:call-template name="address">
+                    <xsl:with-param name="updates" select="$updates"/>
+                    <xsl:with-param name="about" select="'this:company-registered-office-1'"/>
+                </xsl:call-template>
+            </xsl:if>
             <xsl:text>, </xsl:text>
-            <xsl:if test="$updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:country']/text() != ''">
+            <xsl:if test="$updates//*[@about='this:previous-trading-address-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:country']/text() != ''">
                 <span>
                     <xsl:text>previously of </xsl:text>
                     <xsl:call-template name="address">
                         <xsl:with-param name="updates" select="$updates"/>
-                        <xsl:with-param name="about" select="'this:company-principal-trading-address-1'"/>
+                        <xsl:with-param name="about" select="'this:previous-trading-address-1'"/>
                     </xsl:call-template>
                     <xsl:text>, </xsl:text>
                 </span>
-            </xsl:if>               
-            <xsl:text>whose nature of business is </xsl:text>
-            <span about="this:company-1" property="gazorg:natureOfBusiness" datatype="xsd:string" data-recommended="true">
-                <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:natureOfBusiness']/text()"/>
-            </span>
+            </xsl:if>   
+            <xsl:if test="$updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:country']/text() != ''">
+                <span>
+                    <xsl:text>previously of </xsl:text>
+                    <xsl:call-template name="address">
+                        <xsl:with-param name="updates" select="$updates"/>
+                        <xsl:with-param name="about" select="'this:company-previous-registered-office-1'"/>
+                    </xsl:call-template>
+                    <xsl:text>, </xsl:text>
+                </span>
+            </xsl:if>             
+            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:natureOfBusiness']/text() != ''">
+                <xsl:text>whose nature of business is </xsl:text>
+                <span about="this:company-1" property="gazorg:natureOfBusiness" datatype="xsd:string" data-recommended="true">
+                    <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:natureOfBusiness']/text()"/>
+                </span>
+            </xsl:if>
             <xsl:text>, presented on </xsl:text>
             <xsl:variable name="dateOfPetitionPresentation">
                 <xsl:value-of select="format-date(xs:date($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentation']/text()),'[FNn] [D01] [MNn] [Y0001]')"/>
@@ -1601,19 +1674,19 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span about="this:notifiableThing" property="corp-insolvency:presentedBy">
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:presentedBy']/text()"/>
             </span>
-            <xsl:text> of the Partnership, will be heard at </xsl:text>            
-            
-            <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing">
-                
-                <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing' and contains(.,'Please choose from')]">
+            <xsl:text> of the Partnership, will be heard at the </xsl:text>
+            <xsl:if test="$updates//*[@property='court:courtName' and contains(.,'High Court')]">
+                <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing']/text()"/>
-                </xsl:if>
-                <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing' and not(contains(.,'Please choose from'))]">                    
+                </span>
+            </xsl:if>
+            <xsl:if test="$updates//*[@property='court:courtName' and not(contains(.,'High Court'))]">
+                <xsl:text>County Court at </xsl:text>
+                <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:nameOfPlaceOfHearing']/text()"/>
-                    <xsl:text> County Court</xsl:text>
-                </xsl:if>
-            </span>
-            <xsl:text> at, </xsl:text>
+                </span>
+            </xsl:if>
+            <xsl:text>, </xsl:text>
             <xsl:call-template name="address">
                 <xsl:with-param name="updates" select="$updates"/>
                 <xsl:with-param name="about" select="'this:hearingAddress'"/>
@@ -1649,7 +1722,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:value-of select="concat($dateInsolvencyRuleValue,'T',$timeInsolvencyRule,':00')"/>
         </xsl:variable>
         <p>
-            <xsl:text>Any persons intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioner or its Solicitor in accordance with Rule 4.16 by </xsl:text>
+            <xsl:text>Any persons intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioners or their Solicitor in accordance with Rule 4.16 by </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:dateToRequestAppearance" datatype="xsd:dateTime" content="{$InsolvencyRule}">
                 <xsl:value-of select="concat($timeInsolvencyRule,' hours on ',$dateInsolvencyRule)"/>
             </span>
@@ -1668,17 +1741,23 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 	or $updates//*[@about='this:IP1-address-1' and @property='vcard:postal-code']/text() != ''
 	or $updates//*[@about='this:IP1-address-1' and @property='vcard:country']/text() != ''">
             <p>
-                <xsl:text>The </xsl:text>
-                <span about="this:IP1" property="corp-insolvency:practitionerType" datatype="xsd:string">
-                    <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text()"/>
-                </span>
-                <xsl:text> is </xsl:text>
+                <xsl:choose>
+                    <xsl:when test="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text() = 'Solicitor'">
+                        <xsl:text>The Petitioner's Solicitor is </xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>The </xsl:text>
+                        <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']"/>
+                        <xsl:text> is </xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
                 <xsl:if test="$updates//*[@about='this:IP1' and @property='foaf:name']/text() != ''">
                     <span about="this:IP1" property="foaf:name" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/>
                     </span>
                 </xsl:if>
                 <xsl:if test="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text() != ''">
+                    <xsl:text>, </xsl:text>
                     <span about="this:IP-company-1" property="gazorg:name" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text()"/>
                     </span>
