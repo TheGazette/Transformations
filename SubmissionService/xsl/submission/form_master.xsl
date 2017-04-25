@@ -40,7 +40,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
     <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
     <xsl:param name="updates" as="node()">
-        <form/>
+        <form />
     </xsl:param>
     <!-- local functions -->
 
@@ -1083,15 +1083,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:with-param name="updates" select="$updates"/>
                     <xsl:with-param name="about" select="'this:company-registered-office-1'"/>
                 </xsl:call-template>
-                <xsl:text> (where service of the petition was effected), </xsl:text>
+                <xsl:text> (where service of the petition was effected)</xsl:text>
             </xsl:if>
             <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:natureOfBusiness']/text() != ''">
-
-                <xsl:text>whose nature of business is </xsl:text>
+                <xsl:text>, whose nature of business is </xsl:text>
                 <span about="this:company-1" property="gazorg:natureOfBusiness" datatype="xsd:string" data-recommended="true">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:natureOfBusiness']/text()"/>
                 </span>
-
             </xsl:if>
             <xsl:text>, presented on </xsl:text>
             <xsl:variable name="dateOfPetitionPresentation">
@@ -1606,13 +1604,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:text>A Petition to wind up the above-named Partnership of </xsl:text>
             <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
             <xsl:text> of </xsl:text>
-            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() = 'Limited Liability Partnership'">
+            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() != 'Limited Liability Partnership'">
                 <xsl:call-template name="address">
                     <xsl:with-param name="updates" select="$updates"/>
                     <xsl:with-param name="about" select="'this:company-principal-trading-address-1'"/>
                 </xsl:call-template>
             </xsl:if>
-            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() != 'Limited Liability Partnership'">
+            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() = 'Limited Liability Partnership'">
                 <xsl:call-template name="address">
                     <xsl:with-param name="updates" select="$updates"/>
                     <xsl:with-param name="about" select="'this:company-registered-office-1'"/>
