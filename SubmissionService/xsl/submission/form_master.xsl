@@ -1550,11 +1550,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </span>
             </xsl:if>
         </p>
-        <p>
+        <p data-gazettes="Company" property="insolvency:hasCompany" resource="this:company-1" typeof="gazorg:Partnership">
             <xsl:text>In the matter of </xsl:text>        
-            <span about="this:company-1" property="gazorg:name" datatype="xsd:string">
+            <strong about="this:company-1" property="gazorg:name" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
-            </span>
+            </strong>
             <xsl:text>, a </xsl:text>
             <span about="this:company-1" property="gazorg:partnershipType" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text()"/>
@@ -1641,9 +1641,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:text>whose nature of business is </xsl:text>
                 <span about="this:company-1" property="gazorg:natureOfBusiness" datatype="xsd:string" data-recommended="true">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:natureOfBusiness']/text()"/>
+                    <xsl:text>, </xsl:text>
                 </span>
             </xsl:if>
-            <xsl:text>, presented on </xsl:text>
+            <xsl:text>presented on </xsl:text>
             <xsl:variable name="dateOfPetitionPresentation">
                 <xsl:value-of select="format-date(xs:date($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentation']/text()),'[FNn] [D01] [MNn] [Y0001]')"/>
             </xsl:variable>
