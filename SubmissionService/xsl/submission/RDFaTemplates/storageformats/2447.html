@@ -5,48 +5,49 @@
 You may use and re-use this code free of charge under the terms of the Open Government Licence
  
 http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
-<html xmlns="http://www.w3.org/1999/xhtml" IdURI="gaz: https://www.thegazette.co.uk/id/notice/undefined" prefix="gaz: https://www.thegazette.co.uk/def/publication#   dc11: http://purl.org/dc/elements/1.1/   person: https://www.thegazette.co.uk/def/person#          personal-legal: https://www.thegazette.co.uk/def/personal-legal#          court: https://www.thegazette.co.uk/def/court#          corp-insolvency: https://www.thegazette.co.uk/def/insolvency#          org: http://www.w3.org/ns/org#          gazorg: https://www.thegazette.co.uk/def/organisation#   legislation: https://www.thegazette.co.uk/def/legislation#           loc: https://www.thegazette.co.uk/def/location#          vcard: http://www.w3.org/2006/vcard/ns#   prov: http://www.w3.org/ns/prov#     this: https://www.thegazette.co.uk/id/notice/undefined#    noticeid: https://www.thegazette.co.uk/id/notice/undefined   issue: https://www.thegazette.co.uk/id/edition/undefined/issue/undefined   edition: https://www.thegazette.co.uk/id/edition/undefined   provenance: https://www.thegazette.co.uk/id/notice/undefined/provenance">
+<html xmlns="http://www.w3.org/1999/xhtml" IdURI="gaz: https://www.thegazette.co.uk/id/notice/undefined" prefix="gaz: https://www.thegazette.co.uk/def/publication#   dc11: http://purl.org/dc/elements/1.1/   person: https://www.thegazette.co.uk/def/person#          personal-legal: https://www.thegazette.co.uk/def/personal-legal#          court: https://www.thegazette.co.uk/def/court#          corp-insolvency: https://www.thegazette.co.uk/def/insolvency#           org: http://www.w3.org/ns/org#          gazorg: https://www.thegazette.co.uk/def/organisation#   legislation: https://www.thegazette.co.uk/def/legislation#           loc: https://www.thegazette.co.uk/def/location#          vcard: http://www.w3.org/2006/vcard/ns#   prov: http://www.w3.org/ns/prov#     this: https://www.thegazette.co.uk/id/notice/undefined#    noticeid: https://www.thegazette.co.uk/id/notice/undefined   issue: https://www.thegazette.co.uk/id/edition/undefined/issue/undefined   edition: https://www.thegazette.co.uk/id/edition/undefined   provenance: https://www.thegazette.co.uk/id/notice/undefined/provenance">
    
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       
-      <title>Appointments: Liquidators (Creditor's Voluntary)</title>
+      <title>Deemed Consent</title>
       
    </head>
    
    <body>
       
-      <article class="full-notice full-notice-2443">
+      <article>
+         
          
          <div class="rdfa-data">
             <span about="noticeid:" property="dc11:publisher" content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk"></span>
             <span about="noticeid:" property="gaz:isAbout" resource="this:notifiableThing"></span>
             <span about="noticeid:" property="prov:has_provenance" resource="provenance:"></span>
+            		<span about="noticeid:" property="prov:hasAnchor" resource="noticeid:"></span>
             <span about="noticeid:" property="gaz:isInIssue" resource="issue:"></span>
-            <span about="noticeid:" property="gaz:hasNoticeCode" datatype="xsd:integer" content="2443"></span>
-            <span resource="noticeid:" typeof="gaz:Notice gaz:InsolvencyNotice corp-insolvency:CreditorsAppointmentOfLiquidatorsNotice"></span>
+            <span about="noticeid:" property="gaz:hasNoticeCode" datatype="xsd:integer" content="2447"></span>
+            <span resource="noticeid:" typeof="gaz:Notice gaz:InsolvencyNotice corp-insolvency:CreditorsNoticeToCreditors"></span>
             <span resource="issue:" typeof="gaz:Issue"></span>
-            		<span about="issue:" property="gaz:hasIssueNumber" datatype="xsd:string" content="0"></span>
             <span about="issue:" property="gaz:hasEdition" resource="edition:"></span>
-			<span about="noticeid:" property="gaz:isInEdition" resource="edition:"/>
             <span resource="edition:" typeof="gaz:Edition"></span>
+            		<span about="issue:" property="gaz:hasIssueNumber" datatype="xsd:string" content="0"></span>
             <span about="noticeid:" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="0"></span>
+            
+            <!-- span about="noticeid:" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="undefined"></span -->
             
             <!-- span about="noticeid:" property="owl:sameAs" resource="https://www.thegazette.co.uk/id/edition/99999/issue/99999/notice/1556160" typeof="gaz:Notice"></span -->
             
             <!--Notice Classes-->
-            <span resource="noticeid:" typeof="https://www.thegazette.co.uk/def/publication#Notice"></span>
+            <span resource="noticeid:" typeof="gaz:Notice gaz:InsolvencyNotice corp-insolvency:CreditorsNoticeToCreditors "></span>
             
             <!--Notifiable Thing-->
-            <span resource="this:notifiableThing" typeof="gaz:NotifiableThing corp-insolvency:CompanyIssuedLiquidatorAppointment"></span>
+            <span resource="this:notifiableThing" typeof="gaz:NotifiableThing corp-insolvency:CompanyIssuedNotice"></span>
             
             <!-- court related details -->
-            <span about="this:notifiableThing" property="corp-insolvency:hasCompany" resource="this:company-1"/>
+            <span about="this:notifiableThing" property="gaz:hasAuthoriser" resource="this:authoriser-1"  data-hide="true"/>
+			<span about="this:notifiableThing" property="corp-insolvency:hasCompany" resource="this:company-1"/>
 			<span about="this:notifiableThing" property="corp-insolvency:hasLiquidator" resource="this:IP1"/>
-			<span about="this:notifiableThing" property="court:hasCourtCase" resource="this:court-case-1" /> 
-			<span about="this:court-case-1" property="court:hasCourt" resource="this:court-1" /> 
-			<span resource="this:court-case-1" typeof="court:CourtCase"/>
-			<span resource="this:court-1" typeof="court:Court"/>
+			<span about="this:notifiableThing" property="corp-insolvency:hasLiquidator" resource="this:IP2"/>
 			
 			<!-- legislation information -->
 			<span about="this:notifiableThing" property="gaz:isEnabledByLegislation" resource="this:legislation-1"/>
@@ -61,7 +62,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             
             <dt>Notice type:</dt>
             
-            <dd data-ui-class="notice-type">Appointment of Liquidators</dd>
+            <dd data-ui-class="notice-type">Deemed Consent</dd>
             
             <dt data-gazettes="earliestpublicationdate">Earliest publication date:</dt>
             
@@ -77,15 +78,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             
             <dt>Notice code:</dt>
             
-            <dd about="noticeid:" datatype="xsd:integer" property="gaz:hasNoticeCode">2443</dd>
+            <dd about="noticeid:" datatype="xsd:integer" property="gaz:hasNoticeCode">2447</dd>
             
          </dl>
          
-         <div class="content" about="this:notifiableThing" data-gazettes="Notice" data-gazettes-type="2443">
-            <div data-container="boilerplate"></div>		
-           
-                   
+         <div class="content" about="this:notifiableThing" data-gazettes="Notice" data-gazettes-type="2447">
             
+			<div data-container="boilerplate"></div>  
+			
          </div>
          
       </article>

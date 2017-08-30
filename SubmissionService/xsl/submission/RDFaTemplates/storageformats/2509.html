@@ -29,7 +29,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span about="noticeid:" property="prov:hasAnchor" resource="noticeid:"></span>
             <span about="noticeid:" property="gaz:isInIssue" resource="issue:"></span>
             <span about="noticeid:" property="gaz:hasNoticeCode" datatype="xsd:integer" content="2509"></span>
-            <span resource="noticeid:" typeof="gaz:Notice gaz:InsolvencyNotice"></span>
+            <span resource="noticeid:" typeof="gaz:Notice gaz:InsolvencyNotice corp-insolvency:NoticeOfIntendedDividendNotice"></span>
             <span resource="issue:" typeof="gaz:Issue"></span>
 			<span about="issue:" property="gaz:hasEdition" resource="edition:"></span>
             <span about="issue:" property="gaz:hasIssueNumber" datatype="xsd:string" content="0"></span>
@@ -42,7 +42,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span resource="issue:" typeof="gaz:Issue"></span>
             
             <!--Notifiable Thing-->
-            <span resource="this:notifiableThing" typeof="corp-insolvency:NoticeOfIntendedDividend"></span>
+
+            <span resource="this:notifiableThing" typeof="gaz:NotifiableThing corp-insolvency:NoticeOfIntendedDividend"/>
             
             <!-- court related details -->
 			<span about="this:notifiableThing" property="gaz:hasAuthoriser" resource="this:authoriser-1" data-hide="true"></span>
@@ -58,6 +59,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span about="this:person-1" property="person:hasAddress" resource="this:person-address-1" data-hide="true"></span>
 			<span about="this:notifiableThing" property="corp-insolvency:hasOfficialReceiver" resource="this:IP1"/>
 			<span about="this:notifiableThing" property="corp-insolvency:hasBankruptPerson" resource="this:person-1"/>
+			<span about="this:notifiableThing" property="corp-insolvency:hasDividend" resource="this:dividend-1"/>
+
+
 			
 			<!-- legislation information -->
 			<span about="this:notifiableThing" property="gaz:isEnabledByLegislation" resource="this:legislation-1"/>
