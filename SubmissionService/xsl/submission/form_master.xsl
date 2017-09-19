@@ -1452,9 +1452,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:personToLodgeAnswersTo']/text()"/>
             </span>
             <xsl:text> at </xsl:text>
-            <span about="this:court-1" property="court:courtName" datatype="xsd:string">
                 <xsl:if test="$updates//*[@property='court:countyCourtName' and node()]">
-                    <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:countyCourtName']/text()"/>
+                    <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing" datatype="xsd:string">
+                        <xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:countyCourtName']/text()"/>
+                    </span>
                     <xsl:text> Sheriff Court at </xsl:text>
                     <xsl:call-template name="address">
                         <xsl:with-param name="updates" select="$updates"/>
@@ -1462,9 +1463,15 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     </xsl:call-template>                    
                 </xsl:if>
                 <xsl:if test="$updates//*[@property='court:countyCourtName' and not(node())]">
-                    <xsl:text> to the Court of Session, Parliament House, Parliament Square, Edinburgh, EH1 1RQ</xsl:text>
+                    <xsl:text> to the </xsl:text>
+                    <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing" datatype="xsd:string">
+                        <xsl:text>Court of Session</xsl:text>, 
+                    </span>
+                    <span about="this:hearingAddress" property="vcard:street-address" typeof="vcard:Address">Parliament House</span>, 
+                    <span about="this:hearingAddress" property="vcard:extended-address">Parliament Square</span>, 
+                    <span about="this:hearingAddress" property="vcard:locality">Edinburgh</span>, 
+                    <span about="this:hearingAddress" property="vcard:postal-code">EH1 1RQ</span>
                 </xsl:if>
-            </span>
             <xsl:text> within eight days after such intimation, service or advertisement, under certification; all of which notice is hereby given.</xsl:text>
         </p>
         <xsl:if test="$updates//*[@about='this:IP1-provisional' and @property='foaf:name']/text() != ''">
@@ -1670,7 +1677,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span about="this:notifiableThing" property="corp-insolvency:presentedBy" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:presentedBy']/text()"/>
             </span>
-            <xsl:text> of the Company, will be heard at the Royal Courts of Justice, Chichester Street, Belfast, BT1 3JE, on</xsl:text>
+            <xsl:text> of the Company, will be heard at the </xsl:text>
+            <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing" datatype="xsd:string">
+                <xsl:text>Royal Courts of Justice</xsl:text>, 
+            </span>
+            <span about="this:hearingAddress" property="vcard:street-address" typeof="vcard:Address">Chichester Street</span>,
+            <span about="this:hearingAddress" property="vcard:locality">Belfast</span>, 
+            <span about="this:hearingAddress" property="vcard:postal-code">BT1 3JE</span>
+            <xsl:text>, on </xsl:text>
             <xsl:variable name="dateOfHearing">
                 <xsl:value-of select="format-date(xs:date($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfHearing'][1]/text()),'[FNn] [D01] [MNn] [Y0001]')"/>
             </xsl:variable>
@@ -1886,7 +1900,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </strong>
             <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() = 'Limited Liability Partnership'">
                 <xsl:text> (</xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:partnershipNumber']"/>
+                <span about="this:company-1" property="gazorg:partnershipNumber">
+                    <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:partnershipNumber']"/>
+                </span>
                 <xsl:text>)</xsl:text>
             </xsl:if>
             <xsl:text>, a </xsl:text>
@@ -2204,7 +2220,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </span>
             <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() = 'Limited Liability Partnership'">
                 <xsl:text> (</xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:partnershipNumber']"/>
+                <span about="this:company-1" property="gazorg:partnershipNumber">
+                    <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:partnershipNumber']"/>
+                </span>
                 <xsl:text>)</xsl:text>
             </xsl:if>
             <xsl:text>, a </xsl:text>
