@@ -1209,11 +1209,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </xsl:variable>
                 <xsl:choose>
                     <xsl:when test="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text() = 'Solicitor'">
-                        <xsl:text>The Petitioner's Solicitor is </xsl:text>
+                        <xsl:text>The Petitioner's </xsl:text>
+                        <span about="this:IP1" property="corp-insolvency:practitionerType">
+                            <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text()"/>
+                        </span>
+                        <xsl:text> is </xsl:text>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:text>The </xsl:text>
-                        <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']"/>
+                        <span about="this:IP1" property="corp-insolvency:practitionerType">
+                            <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text()"/>
+                        </span>
                         <xsl:text>(s) is/are </xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -1261,7 +1267,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     </xsl:if>
                 </xsl:if>
                 <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
-                    <xsl:text>, </xsl:text>
                     <xsl:text>Telephone: </xsl:text>
                     <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text()"/>
@@ -1491,7 +1496,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:with-param name="about" select="'this:IP1-provisional-address-1'"/>
                 </xsl:call-template>
                 <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
-                    <xsl:text>, </xsl:text>
                     <xsl:text>Telephone: </xsl:text>
                     <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text()"/>
@@ -1773,11 +1777,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </xsl:variable>
                 <xsl:choose>
                     <xsl:when test="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text() = 'Solicitor'">
-                        <xsl:text>The Petitioner's Solicitor is </xsl:text>
+                        <xsl:text>The Petitioner's </xsl:text>
+                        <span about="this:IP1" property="corp-insolvency:practitionerType">
+                            <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text()"/>
+                        </span>
+                        <xsl:text> is </xsl:text>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:text>The </xsl:text>
-                        <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']"/>
+                        <span about="this:IP1" property="corp-insolvency:practitionerType">
+                            <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text()"/>
+                        </span>
                         <xsl:text>(s) is/are </xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -1825,7 +1835,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     </xsl:if>
                 </xsl:if>
                 <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
-                    <xsl:text>, </xsl:text>
                     <xsl:text>Telephone: </xsl:text>
                     <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text()"/>
@@ -2124,11 +2133,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <p>
                 <xsl:choose>
                     <xsl:when test="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text() = 'Solicitor'">
-                        <xsl:text>The Petitioner's Solicitor is </xsl:text>
+                        <xsl:text>The Petitioner's </xsl:text>
+                        <span about="this:IP1" property="corp-insolvency:practitionerType">
+                            <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text()"/>
+                        </span>
+                        <xsl:text> is </xsl:text>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:text>The </xsl:text>
-                        <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']"/>
+                        <span about="this:IP1" property="corp-insolvency:practitionerType">
+                            <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text()"/>
+                        </span>
                         <xsl:text> is </xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -2607,7 +2622,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </span>
             <xsl:text> within eight days after such intimation, service or advertisement, under certification; all of which notice is hereby given.</xsl:text>
         </p>
-        <p>         
+        <p> 
+            <span about="this:IP1" property="corp-insolvency:practitionerType">
+                <xsl:attribute name="content">
+                    <xsl:value-of select="$updates//*[@about='this:IP1' and @property='corp-insolvency:practitionerType']/text()"/>
+                </xsl:attribute>
+            </span>
             <span about="this:IP1" property="foaf:name" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/>
             </span>
