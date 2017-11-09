@@ -2732,6 +2732,15 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:with-param name="about" select="'this:company-principal-trading-address-1'"/>
         </xsl:call-template>
         </p>
+        <xsl:if test="$updates//*[@about='this:previous-trading-address-1' and @property='vcard:street-address']/text() != ''">
+            <p>
+                <xsl:text>Previous Principal Trading Address: </xsl:text>
+                <xsl:call-template name="address">
+                    <xsl:with-param name="updates" select="$updates"/>
+                    <xsl:with-param name="about" select="'this:previous-trading-address-1'"/>
+                </xsl:call-template>
+            </p>
+        </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:natureOfBusiness']/text() != ''">
             <p>Nature of Business: <span about="this:company-1" property="gazorg:natureOfBusiness" datatype="xsd:string" data-recommended="true"><xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:natureOfBusiness']/text()"/></span></p>
         </xsl:if>
@@ -2765,7 +2774,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span about="this:notifiableThing" property="corp-insolvency:dateOfResolution" datatype="xsd:date" content="{$corpInsolvencyMeetingDate}">
                 <xsl:value-of select="format-date(xs:date($corpInsolvencyMeetingDate), '[FNn] [D01] [MNn] [Y0001]')"/>
             </span>
-            <xsl:text>, the following Resolution/s is/was duly passed:</xsl:text>
+            <xsl:text>, the following Resolution/s was/were duly passed:</xsl:text>
         </p>
         <p>
             <span about="this:notifiableThing" property="corp-insolvency:hasResolution" resource="this:resolution-1" typeof="corp-insolvency:MeetingResolution"/>
@@ -2849,29 +2858,62 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span about="this:IP1" property="foaf:name">
                 <xsl:value-of select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/>
             </span>
-            <xsl:if test="$updates//*[@about='this:IP1' and @property='gazorg:name']/text() != ''">
+            <xsl:text>, (</xsl:text>
+            <span about="this:IP1" property="person:hasIPnum">
+                <xsl:value-of select="$updates//*[@about='this:IP1' and @property='person:hasIPnum']"/>
+            </span>
+            <xsl:text>)</xsl:text>
+            <xsl:if test="$updates//*[@about='this:IP2']/text() != ''">
+                <xsl:text>, and </xsl:text>
+                <xsl:if test="$updates//*[@about='this:IP2' and @property='foaf:name']/text() != ''">
+                    <span about="this:IP2" typeof="person:InsolvencyPractitioner" property="foaf:name">
+                        <xsl:value-of select="$updates//*[@about='this:IP2' and @property='foaf:name']"/>
+                    </span>
+                </xsl:if>
+                <xsl:if test="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text() != ''">
+                    <xsl:text>, (</xsl:text>
+                    <span about="this:IP2" property="person:hasIPnum">
+                        <xsl:value-of select="$updates//*[@about='this:IP2' and @property='person:hasIPnum']"/>
+                    </span>
+                    <xsl:text>)</xsl:text>
+                </xsl:if>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text() != ''">
                 <xsl:text>, </xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gazorg:name']/text()"/>
+                <xsl:value-of select="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text()"/>
             </xsl:if>
             <xsl:text>, </xsl:text>
             <xsl:call-template name="address">
                 <xsl:with-param name="updates" select="$updates"/>
                 <xsl:with-param name="about" select="'this:IP1-address-1'"/>
             </xsl:call-template>
-            <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
+            <xsl:if test="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text() != ''">
+                <xsl:text>, or </xsl:text>
+                <span about="this:IP-company-2" property="gazorg:name">
+                    <xsl:value-of select="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']"/>
+                </span>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:IP2-address-1' and @property='vcard:postal-code']/text() != ''">
                 <xsl:text>, </xsl:text>
+                <xsl:call-template name="address">
+                    <xsl:with-param name="updates" select="$updates"/>
+                    <xsl:with-param name="about" select="'this:IP2-address-1'"/>
+                </xsl:call-template>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
+                <xsl:text>, Telephone: </xsl:text>
                 <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text()"/>
                 </span>
             </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:email']/text() != ''">
-                <xsl:text>, </xsl:text>
+                <xsl:text>, Email address: </xsl:text>
                 <span about="this:IP1" property="gaz:email" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:email']/text()"/>
                 </span>
             </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:fax']/text() != ''">
-                <xsl:text>, </xsl:text>
+                <xsl:text>, Fax: </xsl:text>
                 <span about="this:IP1" property="gaz:fax" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:fax']/text()"/>
                 </span>
@@ -2901,6 +2943,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </xsl:variable>
                 <span about="this:IP1" property="person:noticeDated" datatype="xsd:date" content="{$noticeDated}">
                     <xsl:value-of select="format-date(xs:date($noticeDated), '[FNn] [D01] [MNn] [Y0001]')"/>
+                </span>
+            </p>
+        </xsl:if>
+        <xsl:if test="$updates//*[@about='this:IP1' and @property='person:additionalInformationIP']/text() != ''">
+            <p>
+                <span about="this:IP1" property="person:additionalInformationIP" datatype="xsd:string">
+                    <xsl:value-of select="$updates//*[@about='this:IP1' and @property='person:additionalInformationIP']/text()"/>
                 </span>
             </p>
         </xsl:if>
@@ -5661,7 +5710,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     </xsl:call-template>
                 </span>
             </xsl:if>
-            <xsl:if test="$updates//*[@about=$about and @property='vcard:region']/text() != ''"> ,<span about="{$about}" property="vcard:region">
+            <xsl:if test="$updates//*[@about=$about and @property='vcard:region']/text() != ''"> , <span about="{$about}" property="vcard:region">
                     <xsl:call-template name="titlecase">
                         <xsl:with-param name="text">
                             <xsl:value-of select="$updates//*[@about=$about and @property='vcard:region']/text()"/>
@@ -5681,6 +5730,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="$updates//*[@about=$about and @property='vcard:country-name']/text() != ''">
                 <span about="{$about}" property="vcard:country-name">
+                    <xsl:text> </xsl:text>
                     <!--<xsl:if
             test="$about='this:company-principal-trading-address-1' or $about='this:previous-trading-address-1' or $about='this:company-previous-registered-office-1'">
             <xsl:attribute name="style">margin-right:-4px;margin-left:4px</xsl:attribute>
