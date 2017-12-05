@@ -2547,9 +2547,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:call-template>
             </span>
             <xsl:text> craving the Court inter alia that </xsl:text>
-            <span about="this:company-1" property="gazorg:name" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
-            </span>
             <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() = 'Limited Liability Partnership'">
                 <xsl:text>, a limited liability partnership with LLP Number </xsl:text>
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:partnershipNumber']/text()"/>/> 
@@ -3372,7 +3370,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
             <p>
-                <xsl:text>Previously </xsl:text>
+                <xsl:text>Previously: </xsl:text>
                 <xsl:for-each select="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']">
                     <span about="this:company-1" property="gazorg:previousCompanyName" datatype="xsd:string">
                         <xsl:value-of select="text()"/>
@@ -3385,7 +3383,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text() != $updates//*[@about='this:company-1' and @property='gazorg:name']/text()">
             <p>
-                <xsl:text>Trading as </xsl:text>
+                <xsl:text>Trading as: </xsl:text>
                 <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text()"/>
                 </span>
@@ -3393,7 +3391,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text() != ''">
             <p>
-                <xsl:text>Previously trading as </xsl:text>
+                <xsl:text>Previously trading as: </xsl:text>
                 <span about="this:company-1" property="gazorg:previouslyTradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text()"/>
                 </span>
