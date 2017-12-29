@@ -2112,7 +2112,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:value-of select="concat($dateInsolvencyRuleValue,'T',$timeInsolvencyRule,':00')"/>
         </xsl:variable>
         <p>
-            <xsl:text>Any persons intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioners or their Solicitor in accordance with Rule 7.14 by </xsl:text>
+            <xsl:text>Any persons intending to appear on the hearing of the Petition (whether to support or oppose it) must give notice of intention to do so to the Petitioners or to their Solicitor in accordance with Rule 7.14 by </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:dateToRequestAppearance" datatype="xsd:dateTime" content="{$InsolvencyRule}">
                 <xsl:value-of select="concat($timeInsolvencyRule,' hours on ',$dateInsolvencyRule)"/>
             </span>
