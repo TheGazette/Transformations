@@ -1380,11 +1380,20 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <p>
             <xsl:text>Notice is hereby given that on </xsl:text>
             <xsl:variable name="dateOfPetitionPresentation">
+                <xsl:value-of select="format-date(xs:date($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentation']/text()),'[FNn] [D01] [MNn] [Y0001]')"/>
+            </xsl:variable>
+            <xsl:variable name="timeOfPetitionPresentation">
+                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentationWITHtime']/text()"/>
+            </xsl:variable>
+            <xsl:variable name="dateOfPetitionPresentationValue">
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfPetitionPresentation']/text()"/>
             </xsl:variable>
-            <span about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation" datatype="xsd:date" content="{$dateOfPetitionPresentation}">
-                <xsl:value-of select="format-date(xs:date($dateOfPetitionPresentation), '[FNn] [D01] [MNn] [Y0001]')"/>
-            </span>
+            <xsl:variable name="PetitionPresentation">
+                <xsl:value-of select="concat($dateOfPetitionPresentationValue,'T',$timeOfPetitionPresentation,':00')"/>
+            </xsl:variable>
+            <span about="this:notifiableThing" property="corp-insolvency:dateOfPetitionPresentation" datatype="xsd:date" content="{$dateOfPetitionPresentationValue}">
+                <xsl:value-of select="concat($dateOfPetitionPresentation,', at ',$timeOfPetitionPresentation)"/>
+            </span>   
             <xsl:text> a Petition was presented to </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:sheriffName" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:sheriffName']/text()"/>
