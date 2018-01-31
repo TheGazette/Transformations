@@ -3997,7 +3997,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:with-param name="updates" select="$updates"/>
                 <xsl:with-param name="about" select="'this:IP1-address-1'"/>
             </xsl:call-template>
-            <xsl:if test="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']">
+            <xsl:if test="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text() != ''">
                 <xsl:text>, or </xsl:text>
                 <xsl:value-of select="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text()"/>
             </xsl:if>
@@ -4008,8 +4008,15 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:with-param name="about" select="'this:IP2-address-1'"/>
                 </xsl:call-template>
             </xsl:if>
+            <xsl:text>. Date of appointment: </xsl:text>
+            <xsl:variable name="dateOfAppointment">
+                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfAppointment']/text()"/>
+            </xsl:variable>
+            <span about="this:notifiableThing" property="corp-insolvency:dateOfAppointment" datatype="xsd:date" content="{$dateOfAppointment}">
+                <xsl:value-of select="format-date(xs:date($dateOfAppointment), '[D01] [MNn] [Y0001]')"/>
+            </span>
+            <xsl:text>.</xsl:text>
             <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
-                <xsl:text>, </xsl:text>
                 <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text()"/>
                 </span>
