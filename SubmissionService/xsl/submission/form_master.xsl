@@ -5864,15 +5864,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:if test="$updates//*[@about=$about and @property='vcard:country-name']/text() != ''">
                 <span about="{$about}" property="vcard:country-name">
                     <xsl:text> </xsl:text>
-                    <!--<xsl:if
-            test="$about='this:company-principal-trading-address-1' or $about='this:previous-trading-address-1' or $about='this:company-previous-registered-office-1'">
-            <xsl:attribute name="style">margin-right:-4px;margin-left:4px</xsl:attribute>
-          </xsl:if>-->
-                    <xsl:call-template name="titlecase">
-                        <xsl:with-param name="text">
-                            <xsl:value-of select="$updates//*[@about=$about and @property='vcard:country-name']/text()"/>
-                        </xsl:with-param>
-                    </xsl:call-template>
+                    <!-- Removed titlecase function to allow for UK, U.K, etc.. Should enhance the function in future -->
+                    <xsl:value-of select="$updates//*[@about=$about and @property='vcard:country-name']/text()"/>
                 </span>
             </xsl:if>
             <xsl:if test="$about = 'this:authority-2-address-1'">
