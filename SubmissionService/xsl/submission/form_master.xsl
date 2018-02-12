@@ -4483,9 +4483,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:variable name="dateOfBankruptcyOrder">
             <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text()"/>
         </xsl:variable>
+        <xsl:variable name="dateOfBankruptcyOrderWITHTime">
+            <xsl:value-of select="concat($dateOfBankruptcyOrder,'T00:01:00')"/>
+        </xsl:variable>
         <p>
             <xsl:text>Date of bankruptcy order: </xsl:text>
-            <span about="this:notifiableThing" property="corp-insolvency:dateOfBankruptcyOrder" datatype="xsd:date" content="{$dateOfBankruptcyOrder}">
+            <span about="this:notifiableThing" property="corp-insolvency:dateOfBankruptcyOrder" datatype="xsd:dateTime" content="{$dateOfBankruptcyOrderWITHTime}">
                 <xsl:value-of select="format-date(xs:date($dateOfBankruptcyOrder), '[D01] [MNn] [Y0001]')"/>
             </span>
         </p>
@@ -4765,9 +4768,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:variable name="dateOfBankruptcyOrder">
             <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text()"/>
         </xsl:variable>
+        <xsl:variable name="dateOfBankruptcyOrderWITHTime">
+            <xsl:value-of select="concat($dateOfBankruptcyOrder,'T00:01:00')"/>
+        </xsl:variable>
         <p>
             <xsl:text>Date of bankruptcy order: </xsl:text>
-            <span about="this:notifiableThing" property="corp-insolvency:dateOfBankruptcyOrder" datatype="xsd:date" content="{$dateOfBankruptcyOrder}">
+            <span about="this:notifiableThing" property="corp-insolvency:dateOfBankruptcyOrder" datatype="xsd:dateTime" content="{$dateOfBankruptcyOrderWITHTime}">
                 <xsl:value-of select="format-date(xs:date($dateOfBankruptcyOrder), '[D01] [MNn] [Y0001]')"/>
             </span>
         </p>
