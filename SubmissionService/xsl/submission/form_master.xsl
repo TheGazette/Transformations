@@ -4133,7 +4133,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </span>
             <xsl:text> that the convener/s is/are making the following proposal/s to the </xsl:text>            
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
+                <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
             </span>
             <xsl:text> of </xsl:text>
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
@@ -4207,7 +4207,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <p>
             <xsl:text>In order to object to the proposed decision, </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
+                <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
             </span>
             <xsl:text> must deliver their notices of objection to the convener either by post to </xsl:text>
             <xsl:call-template name="address">
@@ -4239,7 +4239,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
             </span>
-            <xsl:text> who are owed small debts (&#163;1,000 or less) are still required to submit their claim in order for their objection to be valid.</xsl:text>
+            <xsl:text> who are owed small debts (&#163;1,000 or less) are still required to submit their claim in order for their objection to be valid. </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
                 <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
             </span>
