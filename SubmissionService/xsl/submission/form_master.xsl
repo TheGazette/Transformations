@@ -3368,7 +3368,23 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <p>
             <xsl:text>Company Type: </xsl:text>
             <span about="this:company-1" property="gazorg:companyType" datatype="xsd:string">
-                <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:companyType']/text()"/>
+                <xsl:choose>
+                    <xsl:when test="$updates//*[@about='this:company-1' and @property='gazorg:companyType']/text() = 'Registered'">
+                        <xsl:text>Registered Company</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$updates//*[@about='this:company-1' and @property='gazorg:companyType']/text() = 'Unregistered'">
+                        <xsl:text>Unregistered Company</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$updates//*[@about='this:company-1' and @property='gazorg:companyType']/text() = 'SocietyClub'">
+                        <xsl:text>Society/Social Club</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$updates//*[@about='this:company-1' and @property='gazorg:companyType']/text() = 'OverseasCompany'">
+                        <xsl:text>Overseas Company</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$updates//*[@about='this:company-1' and @property='gazorg:companyType']/text() = 'Partnership'">
+                        <xsl:text>Partnership</xsl:text>
+                    </xsl:when>
+                </xsl:choose>
             </span>
         </p>
         <p>
