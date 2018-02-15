@@ -4189,7 +4189,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <p>
             <xsl:text>If any </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
+                <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
             </span>
             <xsl:text> object to these proposals, then they must send the convenor/s a notice of objection by 23:59 on </xsl:text>
             <xsl:variable name="decisionDate">
@@ -4200,7 +4200,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </span>
             <xsl:text>, otherwise the </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
+                <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
             </span>
             <xsl:text> shall be deemed as having consented to the proposed decision and it will be approved. </xsl:text>
         </p>
@@ -4233,15 +4233,15 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </span>
             <xsl:text> together with any proofs in respect of the </xsl:text>   
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
+                <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
             </span>
             <xsl:text> claim in accordance with these Rules, failing which the objection will be disregarded. </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
+                <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
             </span>
             <xsl:text> who are owed small debts (&#163;1,000 or less) are still required to submit their claim in order for their objection to be valid. </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
+                <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
             </span>
             <xsl:text> have the right to appeal the decision made by applying to Court under Rule 15.35 within 21 days of </xsl:text>
             <xsl:variable name="decisionDate">
@@ -4271,7 +4271,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             vote at an qualifying decision procedure) is met, then the deemed consent procedure will terminate without a decision being made, and 
             if a decision is sought again on the same matter it will be sought by a physical meeting of </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
+                <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
             </span>
             <xsl:text>.</xsl:text>
         </p>
@@ -4279,11 +4279,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <p>
                 <xsl:text>The </xsl:text>
                 <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                    <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
+                    <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
                 </span>
                 <xsl:text> are also invited to determine whether a committee should be established. The committee may be formed if sufficient </xsl:text>
                 <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                    <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()"/>
+                    <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
                 </span>
                 <xsl:text> (being a minimum of 3 and a maximum of 5) are willing to be members. Nominations for membership of the committee can only be 
                     accepted from creditors who have lodged a proof of debt, and whose votes have not been disallowed for voting purposes. The nominations must be received by the </xsl:text>
