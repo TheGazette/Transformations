@@ -3361,9 +3361,18 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <p>
             <xsl:text>Company Number: </xsl:text>
-            <span about="this:company-1" property="gazorg:companyNumber" datatype="xsd:string">
-                <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"/>
-            </span>
+            <xsl:choose>
+                <xsl:when test="$updates//*[@about='this:company-1' and @property='gazorg:companyType']/text() = 'Partnership'">
+                    <span about="this:company-1" property="gazorg:partnershipNumber" datatype="xsd:string">
+                        <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"/>
+                    </span>
+                </xsl:when>
+                <xsl:otherwise>
+                    <span about="this:company-1" property="gazorg:companyNumber" datatype="xsd:string">
+                        <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:companyNumber']/text()"/>
+                    </span>
+                </xsl:otherwise>
+            </xsl:choose>
         </p>
         <p>
             <xsl:text>Company Type: </xsl:text>
