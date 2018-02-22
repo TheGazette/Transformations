@@ -40,7 +40,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
     <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
     <xsl:param name="updates" as="node()">
-        <form/>
+        <form />
     </xsl:param>
     <!-- local functions -->
 
@@ -4246,11 +4246,15 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </span>
             <xsl:text> claim in accordance with these Rules, failing which the objection will be disregarded. </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
+                <xsl:value-of select="concat(upper-case(substring($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text(),1,1)),
+                    substring(lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()), 2),
+                    ' '[not(last())])"/>
             </span>
             <xsl:text> who are owed small debts (&#163;1,000 or less) are still required to submit their claim in order for their objection to be valid. </xsl:text>
             <span about="this:notifiableThing" property="corp-insolvency:typeOfAttendees">
-                <xsl:value-of select="lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text())"/>
+                <xsl:value-of select="concat(upper-case(substring($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text(),1,1)),
+                    substring(lower-case($updates//*[@about='this:notifiableThing' and @property='corp-insolvency:typeOfAttendees']/text()), 2),
+                    ' '[not(last())])"/>
             </span>
             <xsl:text> have the right to appeal the decision made by applying to Court under Rule 15.35 within 21 days of </xsl:text>
             <xsl:variable name="decisionDate">
