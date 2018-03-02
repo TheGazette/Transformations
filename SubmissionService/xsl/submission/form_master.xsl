@@ -2698,6 +2698,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
     <xsl:template name="boilerPlateText2441">
         <xsl:param name="updates"/>
+        <xsl:choose>
+            <xsl:when test="$edition = 'belfast'">
+                <span about="http://www.legislation.gov.uk/nisi/1989/2405/article/70" datatype="xsd:string" property="rdfs:label" content="The Insolvency (Northern Ireland) Order 1989 (Art. 70 (1A))"/> 
+            </xsl:when>
+            <xsl:otherwise>
+                <span about="http://www.legislation.gov.uk/ukpga/1986/45/section/84" datatype="xsd:string" property="rdfs:label" content="Insolvency Act 1986 (S.84)"/>                
+            </xsl:otherwise>
+        </xsl:choose>
         <h3 about="this:company-1" property="gazorg:name" typeof=" " datatype="xsd:string">
             <xsl:attribute name="typeof">
                 <xsl:value-of select="wlf:getCompanyType($updates//*[@about='this:company-1' and @property='gazorg:companyType']/text())"/>
