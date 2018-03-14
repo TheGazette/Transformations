@@ -42,7 +42,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             
             <!--Notifiable Thing-->
             <span resource="this:notifiableThing" typeof="gaz:NotifiableThing corp-insolvency:CompanyIssuedNotice"></span>
-            
+			
+            <!-- Company related details-->
+			<span about="this:company-1" property="gazorg:hasRegisteredOffice" resource="this:company-registered-office-1"/>
+			<span about="this:company-1" property="gazorg:hasPrincipalTradingAddress" resource="this:company-principal-trading-address-1" />
+
+			<!-- IP details -->
+			<span about="this:IP1" property="person:hasAddress" resource="this:IP1-address-1"/>
             <!-- court related details -->
             <span about="this:notifiableThing" property="gaz:hasAuthoriser" resource="this:authoriser-1"  data-hide="true"/>
 			<span about="this:notifiableThing" property="corp-insolvency:hasCompany" resource="this:company-1"/>

@@ -32,6 +32,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span resource="edition:" typeof="gaz:Edition"></span>
             		<span about="issue:" property="gaz:hasIssueNumber" datatype="xsd:string" content="0"></span>
             <span about="noticeid:" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="0"></span>
+			
+			<!-- Company related details-->
+			<span about="this:company-1" property="gazorg:hasRegisteredOffice" resource="this:company-registered-office-1"/>
+			<span about="this:company-1" property="gazorg:hasPrincipalTradingAddress" resource="this:company-principal-trading-address-1" />
+
+			<!-- IP details -->
+			<span about="this:IP1" property="person:hasAddress" resource="this:IP1-address-1"/>
+
             
             <!-- span about="noticeid:" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="undefined"></span -->
             
