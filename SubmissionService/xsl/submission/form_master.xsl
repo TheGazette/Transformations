@@ -3979,6 +3979,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:text>,</xsl:text>
             </p>
         </xsl:if>
+        <xsl:if test="$updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:outside-uk-address']/text()='on'">
+            <span about="this:company-principal-trading-address-1" property="vcard:outside-uk-address" content="true" data-type="xsd:boolean"/>
+        </xsl:if>
+        <xsl:if test="$updates//*[@about='this:company-registered-office-1' and @property='vcard:outside-uk-address']/text()='on'">
+            <span about="this:company-registered-office-1" property="vcard:outside-uk-address" content="true" data-type="xsd:boolean"/>
+        </xsl:if>
         <p>
             <xsl:text>Registered Office: </xsl:text>
             <xsl:call-template name="address">
