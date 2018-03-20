@@ -581,7 +581,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-4']]]"/>
                     <xsl:apply-templates select="x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-4']"/>
                 </xsl:if>
-                <xsl:if test="$updates//*:entry[@property = 'foaf:givenName' and @about = 'this:estateExecutor-42'] != ''">
+                <xsl:if test="$updates//*:entry[@property = 'foaf:givenName' and @about = 'this:estateExecutor-4'] != ''">
                     <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-4']]]"/>
                     <xsl:apply-templates select="x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-4']"/>
                 </xsl:if>
@@ -2760,6 +2760,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
     <xsl:template name="boilerPlateText2441">
         <xsl:param name="updates"/>
+        <xsl:variable name="edition">
+            <xsl:value-of select="$updates//*[@property='gaz:hasEdition']/text()"/>
+        </xsl:variable>
         <xsl:choose>
             <xsl:when test="$edition = 'belfast'">
                 <span about="http://www.legislation.gov.uk/nisi/1989/2405/article/70" datatype="xsd:string" property="rdfs:label" content="The Insolvency (Northern Ireland) Order 1989 (Art. 70 (1A))"/> 
