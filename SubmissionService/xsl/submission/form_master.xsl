@@ -40,7 +40,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
     <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
     <xsl:param name="updates" as="node()">
-        <form/>
+        <form />
     </xsl:param>
     <!-- local functions -->
 
@@ -523,85 +523,23 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <!-- 2903 -->
     <xsl:template match="x:dl[@data-gazettes = 'Executors Name']">
         <dl>
-            <xsl:if test="$updates//*:entry[@property = 'foaf:name' and @about = 'this:estateExecutor-1'] !=''">
-                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:name' and @about = 'this:estateExecutor-1']]]"/>
-                <xsl:apply-templates select="x:dd [@property = 'foaf:name' and @about = 'this:estateExecutor-1']"/>
+            <xsl:if test="$updates//*:entry[@property = 'foaf:name' and @about = 'this:estateExecutor'] !=''">
+                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:name']]]"/>
+                <xsl:apply-templates select="x:dd [@property = 'foaf:name']"/>
             </xsl:if>
-            <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor-1'] != ''">
-                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-1']]]"/>
-                <xsl:apply-templates select="x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-1']"/>
+            <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor'] != ''">
+                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName']]]"/>
+                <xsl:apply-templates select="x:dd [@property = 'foaf:familyName']"/>
             </xsl:if>
-            <xsl:if test="$updates//*:entry[@property = 'foaf:firstName' and @about = 'this:estateExecutor-1'] != ''">
-                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-1']]]"/>
-                <xsl:apply-templates select="x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-1']"/>
+            <xsl:if test="$updates//*:entry[@property = 'foaf:firstName' and @about = 'this:estateExecutor'] != ''">
+                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:firstName']]]"/>
+                <xsl:apply-templates select="x:dd [@property = 'foaf:firstName']"/>
             </xsl:if>
-            <xsl:if test="$updates//*:entry[@property = 'foaf:givenName' and @about = 'this:estateExecutor-1'] != ''">
-                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-1']]]"/>
-                <xsl:apply-templates select="x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-1']"/>
+            <xsl:if test="$updates//*:entry[@property = 'foaf:givenName' and @about = 'this:estateExecutor'] != ''">
+                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:givenName']]]"/>
+                <xsl:apply-templates select="x:dd [@property = 'foaf:givenName']"/>
             </xsl:if>
-            
         </dl>
-    </xsl:template>
-    
-    <xsl:template match="x:dl[@data-gazettes = 'Additional Executors Name']">
-        <xsl:if test="$updates//*:entry[contains(@about,'this:estateExecutor') and @about != 'this:estateExecutor-1'] != ''">
-            <dl>
-                
-                <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor-2'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-2']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-2']"/>
-                </xsl:if>
-                <xsl:if test="$updates//*:entry[@property = 'foaf:firstName' and @about = 'this:estateExecutor-2'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-2']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-2']"/>
-                </xsl:if>
-                <xsl:if test="$updates//*:entry[@property = 'foaf:givenName' and @about = 'this:estateExecutor-2'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-2']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-2']"/>
-                </xsl:if>
-                
-                <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor-3'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-3']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-3']"/>
-                </xsl:if>
-                <xsl:if test="$updates//*:entry[@property = 'foaf:firstName' and @about = 'this:estateExecutor-3'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-3']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-3']"/>
-                </xsl:if>
-                <xsl:if test="$updates//*:entry[@property = 'foaf:givenName' and @about = 'this:estateExecutor-3'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-3']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-3']"/>
-                </xsl:if>
-                
-                <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor-4'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-4']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-4']"/>
-                </xsl:if>
-                <xsl:if test="$updates//*:entry[@property = 'foaf:firstName' and @about = 'this:estateExecutor-4'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-4']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-4']"/>
-                </xsl:if>
-                <xsl:if test="$updates//*:entry[@property = 'foaf:givenName' and @about = 'this:estateExecutor-4'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-4']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-4']"/>
-                </xsl:if>
-                
-                <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor-5'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-5']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-5']"/>
-                </xsl:if>
-                <xsl:if test="$updates//*:entry[@property = 'foaf:firstName' and @about = 'this:estateExecutor-5'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-5']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:firstName' and @about = 'this:estateExecutor-5']"/>
-                </xsl:if>
-                <xsl:if test="$updates//*:entry[@property = 'foaf:givenName' and @about = 'this:estateExecutor-5'] != ''">
-                    <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-5']]]"/>
-                    <xsl:apply-templates select="x:dd [@property = 'foaf:givenName' and @about = 'this:estateExecutor-5']"/>
-                </xsl:if>
-                
-            </dl>
-        </xsl:if>
-        
     </xsl:template>
     <!-- 2903 -->
     <xsl:template match="x:dl[@data-gazettes = 'Executors Contact']">
