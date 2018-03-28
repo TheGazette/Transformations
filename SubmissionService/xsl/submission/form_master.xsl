@@ -4013,26 +4013,28 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <p>
             <xsl:text>Office holder details: </xsl:text>
-            <span about="this:IP1" property="foaf:name">
-                <xsl:value-of select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/>
-            </span>
+            <xsl:value-of select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/>
             <xsl:text>, (</xsl:text>
-            <span about="this:IP1" property="person:hasIPnum">
-                <xsl:value-of select="$updates//*[@about='this:IP1' and @property='person:hasIPnum']/text()"/>
-            </span>
+            <xsl:value-of select="$updates//*[@about='this:IP1' and @property='person:hasIPnum']/text()"/>
             <xsl:text>)</xsl:text>
             <xsl:if test="$updates//*[@about='this:IP2' and @property='foaf:name']/text() != ''">
                 <xsl:text> and </xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:IP2' and @property='foaf:name']"/>
+                <span about="this:IP2" property="foaf:name">
+                    <xsl:value-of select="$updates//*[@about='this:IP2' and @property='foaf:name']"/>
+                </span>
             </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text() != ''">
                 <xsl:text>, (</xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text()"/>
+                <span about="this:IP2" property="person:hasIPnum">
+                    <xsl:value-of select="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text()"/>
+                </span>
                 <xsl:text>)</xsl:text>
             </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text() != ''">
                 <xsl:text>, </xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text()"/>
+                <span about="this:IP-company-1" property="gazorg:name">
+                    <xsl:value-of select="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text()"/>
+                </span>
             </xsl:if>
             <xsl:text>, </xsl:text>
             <xsl:call-template name="address">
@@ -4041,7 +4043,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:call-template>
             <xsl:if test="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text() != ''">
                 <xsl:text>, or </xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text()"/>
+                <span about="this:IP-company-2" property="gazorg:name">
+                    <xsl:value-of select="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text()"/>
+                </span>
             </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP2-address-1' and @property='vcard:postal-code']/text() != ''">
                 <xsl:text>, </xsl:text>
