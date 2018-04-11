@@ -4032,7 +4032,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text() != ''">
                 <xsl:text>, </xsl:text>
-                <span about="this:IP1" property="gazorg:isMemberOfOrganisation" resource="this:IP-company-1"/>
+                <span about="this:IP1" property="gazorg:hasOrganisationMember" resource="this:IP-company-1"/>
                 <span about="this:IP-company-1" property="gazorg:name">
                     <xsl:value-of select="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text()"/>
                 </span>
@@ -4044,7 +4044,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:call-template>
             <xsl:if test="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text() != ''">
                 <xsl:text>, or </xsl:text>
-                <span about="this:IP2" property="gazorg:isMemberOfOrganisation" resource="this:IP-company-2"/>
+                <span about="this:IP2" property="gazorg:hasOrganisationMember" resource="this:IP-company-2"/>
                 <span about="this:IP-company-2" property="gazorg:name">
                     <xsl:value-of select="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text()"/>
                 </span>
@@ -4180,6 +4180,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:hasProposal-2']/text() != ''">
             <p>
+                <span about="this:notifiableThing" property="corp-insolvency:hasProposal" resource="this:proposal-2"/>
                 <span about="this:proposal-2" property="corp-insolvency:hasProposalNumber" content="2" datatype="xsd:integer" >2. </span>
                 <span about="this:proposal-2" property="rdfs:label" datatype="xsd:string" >
                     <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:hasProposal-2']"/>
@@ -4188,6 +4189,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:hasProposal-3']/text() != ''">
             <p>
+                <span about="this:notifiableThing" property="corp-insolvency:hasProposal" resource="this:proposal-3"/>
                 <span about="this:proposal-3" property="corp-insolvency:hasProposalNumber" content="3" datatype="xsd:integer" >3. </span>
                 <span about="this:proposal-3" property="rdfs:label" datatype="xsd:string" >
                     <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:hasProposal-3']"/>
@@ -4196,6 +4198,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:hasProposal-4']/text() != ''">
             <p>
+                <span about="this:notifiableThing" property="corp-insolvency:hasProposal" resource="this:proposal-4"/>
                 <span about="this:proposal-4" property="corp-insolvency:hasProposalNumber" content="4" datatype="xsd:integer" >4. </span>
                 <span about="this:proposal-4" property="rdfs:label" datatype="xsd:string" >
                     <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:hasProposal-4']"/>
@@ -4204,6 +4207,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:hasProposal-5']/text() != ''">
             <p>
+                <span about="this:notifiableThing" property="corp-insolvency:hasProposal" resource="this:proposal-5"/>
                 <span about="this:proposal-5" property="corp-insolvency:hasProposalNumber" content="5" datatype="xsd:integer" >5. </span>
                 <span about="this:proposal-5" property="rdfs:label" datatype="xsd:string" >
                     <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:hasProposal-5']"/>
@@ -4212,6 +4216,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:hasProposal-6']/text() != ''">
             <p>
+                <span about="this:notifiableThing" property="corp-insolvency:hasProposal" resource="this:proposal-6"/>
                 <span about="this:proposal-6" property="corp-insolvency:hasProposalNumber" content="6" datatype="xsd:integer" >6. </span>
                 <span about="this:proposal-6" property="rdfs:label" datatype="xsd:string" >
                     <xsl:value-of select="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:hasProposal-6']"/>
@@ -4373,6 +4378,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP2-address-1' and @property='vcard:postal-code']/text() != ''">
                 <xsl:text>, </xsl:text>
+                <span about="this:IP2" property="person:hasAddress" resource="this:IP2-address-1"/>
                 <xsl:call-template name="address">
                     <xsl:with-param name="updates" select="$updates"/>
                     <xsl:with-param name="about" select="'this:IP2-address-1'"/>
