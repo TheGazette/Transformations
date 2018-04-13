@@ -49,8 +49,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
 			<!-- IP details -->
 			<span about="this:IP1" property="person:hasAddress" resource="this:IP1-address-1"/>
+			
+			<span about="this:notifiableThing" property="corp-insolvency:addressForLodgingProofs" resource="this:address-for-lodging-proofs-1"/>
+			
             <!-- court related details -->
-            <span about="this:notifiableThing" property="gaz:hasAuthoriser" resource="this:authoriser-1"  data-hide="true"/>
 			<span about="this:notifiableThing" property="corp-insolvency:hasCompany" resource="this:company-1"/>
 			<span about="this:notifiableThing" property="corp-insolvency:hasLiquidator" resource="this:IP1"/>
 			<span about="this:notifiableThing" property="corp-insolvency:hasLiquidator" resource="this:IP2"/>
@@ -58,6 +60,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 			<!-- legislation information -->
 			<span about="this:notifiableThing" property="gaz:isEnabledByLegislation" resource="this:legislation-1"/>
 			<span resource="this:legislation-1" typeof="legislation:Legislation"></span>
+			
+			<!-- Authoriser details -->
+			<span about="this:notifiableThing" property="gaz:hasAuthoriser" resource="this:authoriser-1"  data-hide="true"/>
+			
+			<span resource="this:authoriser-1" typeof="gaz:Authoriser" data-hide="true"/>
+			<span about="this:authoriser-1" property="gaz:hasAuthorisingPerson" resource="this:signatory-1" data-hide="true"/>
+			<span about="this:signatory-1" property="person:hasRole" resource="this:role-signatory-1"/>
+			
          </div>
          
          <dl class="metadata">
