@@ -12,7 +12,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
   <xsl:param name="date"/>
   
-  <xsl:output exclude-result-prefixes="#all"/>
+  <xsl:output method="xml" omit-xml-declaration="no" indent="no" exclude-result-prefixes="#all" encoding="utf-8"/>
 
   <xsl:template match="*:dt[following-sibling::*:dd[1]/*:span[@property = 'gaz:earliestPublicationDate']]">
     <dt>Publication date:</dt>
