@@ -1007,7 +1007,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:variable>
             <xsl:if test="starts-with($courtCode,'No')">
                 <span>
-                    <xsl:text> No. </xsl:text>
+                    <xsl:text>No. </xsl:text>
                     <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
                     </span>
@@ -1019,7 +1019,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
                 <span>
-                    <xsl:text> Court Number: </xsl:text>
                     <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                         <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                     </span>
@@ -1267,7 +1266,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     </xsl:if>
                 </xsl:if>
                 <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
-                    <xsl:text>Telephone: </xsl:text>
+                    <xsl:text>, Telephone: </xsl:text>
                     <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text()"/>
                     </span>
@@ -1358,7 +1357,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:variable>
             <xsl:if test="starts-with($courtCode,'No')">
                 <span>
-                    <xsl:text> No. </xsl:text>
+                    <xsl:text>No. </xsl:text>
                     <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
                     </span>
@@ -1370,7 +1369,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
                 <span>
-                    <xsl:text> Court Number: </xsl:text>
                     <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                         <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                     </span>
@@ -1505,7 +1503,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:with-param name="about" select="'this:IP1-provisional-address-1'"/>
                 </xsl:call-template>
                 <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
-                    <xsl:text>Telephone: </xsl:text>
+                    <xsl:text>, Telephone: </xsl:text>
                     <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text()"/>
                     </span>
@@ -1594,7 +1592,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:variable>
             <xsl:if test="starts-with($courtCode,'No')">
                 <span>
-                    <xsl:text> No. </xsl:text>
+                    <xsl:text>No. </xsl:text>
                     <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
                     </span>
@@ -1606,7 +1604,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
                 <span>
-                    <xsl:text> Court Number: </xsl:text>
                     <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                         <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                     </span>
@@ -1844,7 +1841,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     </xsl:if>
                 </xsl:if>
                 <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
-                    <xsl:text>Telephone: </xsl:text>
+                    <xsl:text>, Telephone: </xsl:text>
                     <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text()"/>
                     </span>
@@ -1924,7 +1921,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:variable>
             <xsl:if test="starts-with($courtCode,'No')">
                 <span>
-                    <xsl:text> No. </xsl:text>
+                    <xsl:text>No. </xsl:text>
                     <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
                     </span>
@@ -1936,7 +1933,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
                 <span>
-                    <xsl:text> Court Number: </xsl:text>
                     <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                         <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                     </span>
@@ -2250,7 +2246,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:variable>
             <xsl:if test="starts-with($courtCode,'No')">
                 <span>
-                    <xsl:text> No. </xsl:text>
+                    <xsl:text>No. </xsl:text>
                     <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
                     </span>
@@ -2262,7 +2258,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
                 <span>
-                    <xsl:text> Court Number: </xsl:text>
                     <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                         <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                     </span>
@@ -2503,7 +2498,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:variable>
             <xsl:if test="starts-with($courtCode,'No')">
                 <span>
-                    <xsl:text> No. </xsl:text>
+                    <xsl:text>No. </xsl:text>
                     <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
                         <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
                     </span>
@@ -2515,7 +2510,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
                 <span>
-                    <xsl:text> Court Number: </xsl:text>
                     <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                         <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                     </span>
@@ -3339,9 +3333,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:variable name="courtYear">
                     <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseYear']/text()"/>
                 </xsl:variable>
+                <xsl:text>Chancery Division Court Number: </xsl:text>
                 <xsl:if test="starts-with($courtCode,'No')">
                     <span>
-                        <xsl:text> No. </xsl:text>
+                        <xsl:text>No. </xsl:text>
                         <span about="this:court-case-1" property="court:caseNumber" datatype="xsd:string">
                             <xsl:value-of select="$updates//*[@about='this:court-case-1' and @property='court:caseNumber']/text()"/>
                         </span>
@@ -3353,7 +3348,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </xsl:if>
                 <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
                     <span>
-                        <xsl:text> Court Number: </xsl:text>
                         <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                             <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                         </span>
@@ -4479,38 +4473,35 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
                 <span>
-                    <xsl:text> Court Number: </xsl:text>
                     <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                         <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                     </span>
                 </span>
             </xsl:if>
         </p>
-        <p>
-            <h3>
-                <span about="this:person-1" property="foaf:firstName">
-                    <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:firstName']/text()"/>
-                </span>
-                <xsl:if test="normalize-space($updates//*[@about='this:person-1' and @property='foaf:givenName']/text()) != ''">
-                    <xsl:text> </xsl:text>
-                    <span about="this:person-1" property="foaf:givenName">
-                        <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:givenName']/text()"/>
-                    </span>
-                </xsl:if>
+        <h3>
+            <span about="this:person-1" property="foaf:firstName">
+                <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:firstName']/text()"/>
+            </span>
+            <xsl:if test="normalize-space($updates//*[@about='this:person-1' and @property='foaf:givenName']/text()) != ''">
                 <xsl:text> </xsl:text>
-                <span about="this:person-1" property="foaf:familyName">
-                    <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:familyName']/text()"/>
+                <span about="this:person-1" property="foaf:givenName">
+                    <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:givenName']/text()"/>
                 </span>
-                <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDeceased']/text() = 'Yes'">
-                    <span about="this:person-1" property="person:isDeceased">
-                        <xsl:text>(Deceased)</xsl:text>
-                    </span>
-                </xsl:if>
-                <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDeceased']/text() = 'No'">
-                    <span about="this:person-1" property="person:isDeceased" content="false"/>
-                </xsl:if>
-            </h3>
-        </p>
+            </xsl:if>
+            <xsl:text> </xsl:text>
+            <span about="this:person-1" property="foaf:familyName">
+                <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:familyName']/text()"/>
+            </span>
+            <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDeceased']/text() = 'Yes'">
+                <span about="this:person-1" property="person:isDeceased" content="true" data-type="xsd:boolean">
+                    <xsl:text> (Deceased)</xsl:text>
+                </span>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDeceased']/text() = 'No'">
+                <span about="this:person-1" property="person:isDeceased" content="false" data-type="xsd:boolean"/>
+            </xsl:if>
+        </h3>        
         <xsl:if test="$updates//*[@about='this:person-1' and @property='person:alsoKnownAs']/text() != ''">
             <xsl:for-each select="$updates//*[@about='this:person-1' and @property='person:alsoKnownAs']">
                 <p>
@@ -4578,12 +4569,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDischarged']/text() = 'Yes'">
             <p>
-                <span about="this:person-1" property="person:isDischarged" content="true"/>
+                <span about="this:person-1" property="person:isDischarged" content="true" data-type="xsd:boolean"/>
                 <xsl:text>NOTE: the above-named was discharged from the proceedings and may no longer have a connection with the addresses listed.</xsl:text>
             </p>
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDischarged']/text() = 'No'">
-            <span about="this:person-1" property="person:isDischarged" content="false"/>
+            <span about="this:person-1" property="person:isDischarged" content="false" data-type="xsd:boolean"/>
         </xsl:if>
         <p>
             <xsl:variable name="dateOfBirth">
@@ -4600,14 +4591,19 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <p>
             <xsl:text>Notice is hereby given, pursuant to </xsl:text>
-            <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &lt; '20170604'">
+            <xsl:if test="$updates//*[$edition != 'belfast' and @about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &lt; '20170604'">
                 <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
                     <xsl:text>Rule 11.2 of the Insolvency Rules 1986</xsl:text>
                 </span>
             </xsl:if>
-            <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &gt;= '20170604'">
+            <xsl:if test="$updates//*[$edition != 'belfast' and @about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &gt;= '20170604'">
                 <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
                     <xsl:text>Rule 14.28 of the Insolvency (England and Wales) Rules 2016</xsl:text>
+                </span>
+            </xsl:if>
+            <xsl:if test="$edition = 'belfast'">
+                <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
+                    <xsl:text>Rule 11.02 of the Insolvency Rules (Northern Ireland) 1991 (as amended)</xsl:text>
                 </span>
             </xsl:if>
             <xsl:text> that the </xsl:text>
@@ -4678,15 +4674,41 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span about="this:IP1" property="foaf:name">
                 <xsl:value-of select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/>
             </span>
+            <xsl:if test="$updates//*[@about='this:IP2' and @property='foaf:name']/text() != ''">
+                <xsl:text>, </xsl:text>
+                <span about="this:IP2" property="foaf:name">
+                    <xsl:value-of select="$updates//*[@about='this:IP2' and @property='foaf:name']/text()"/>
+                </span>
+            </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP1' and @property='gazorg:name']/text() != ''">
                 <xsl:text>, </xsl:text>
                 <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gazorg:name']/text()"/>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:IP2' and @property='gazorg:name']/text() != ''">
+                <xsl:text>, </xsl:text>
+                <xsl:value-of select="$updates//*[@about='this:IP2' and @property='gazorg:name']/text()"/>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:IP1' and @ property='person:hasIPnum']/text() != ''">
+                <xsl:text>, (</xsl:text>
+                <xsl:value-of select="$updates//*[@about='this:IP1' and @property='person:hasIPnum']/text()"/>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:IP2' and @ property='person:hasIPnum']/text() != ''">
+                <xsl:text>, </xsl:text>
+                <xsl:value-of select="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text()"/>
+                <xsl:text>)</xsl:text>
             </xsl:if>
             <xsl:text>, </xsl:text>
             <xsl:call-template name="address">
                 <xsl:with-param name="updates" select="$updates"/>
                 <xsl:with-param name="about" select="'this:IP1-address-1'"/>
             </xsl:call-template>
+            <xsl:if test="$updates//*[@about='this:IP2-address-1' and @property='vcard:postal-code']/text() != ''">
+                <xsl:text>, </xsl:text>
+                <xsl:call-template name="address">
+                    <xsl:with-param name="updates" select="$updates"/>
+                    <xsl:with-param name="about" select="'this:IP2-address-1'"/>
+                </xsl:call-template>
+            </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
                 <xsl:text>, </xsl:text>
                 <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
@@ -4764,38 +4786,35 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:if>
             <xsl:if test="starts-with($courtCode,'CR') or starts-with($courtCode,'BR')">
                 <span>
-                    <xsl:text> Court Number: </xsl:text>
                     <span about="this:court-case-1" property="court:caseCode" datatype="xsd:string">
                         <xsl:value-of select="replace(replace($courtCode,'YYYY',$courtYear),'####',$courtNumber)"/>
                     </span>
                 </span>
             </xsl:if>
         </p>
-        <p>
-            <h3>
-                <span about="this:person-1" property="foaf:firstName">
-                    <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:firstName']/text()"/>
-                </span>
-                <xsl:if test="normalize-space($updates//*[@about='this:person-1' and @property='foaf:givenName']/text()) != ''">
-                    <xsl:text> </xsl:text>
-                    <span about="this:person-1" property="foaf:givenName">
-                        <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:givenName']/text()"/>
-                    </span>
-                </xsl:if>
+        <h3>
+            <span about="this:person-1" property="foaf:firstName">
+                <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:firstName']/text()"/>
+            </span>
+            <xsl:if test="normalize-space($updates//*[@about='this:person-1' and @property='foaf:givenName']/text()) != ''">
                 <xsl:text> </xsl:text>
-                <span about="this:person-1" property="foaf:familyName">
-                    <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:familyName']/text()"/>
+                <span about="this:person-1" property="foaf:givenName">
+                    <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:givenName']/text()"/>
                 </span>
-                <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDeceased']/text() = 'Yes'">
-                    <span about="this:person-1" property="person:isDeceased" content="true">
-                        <xsl:text>(Deceased)</xsl:text>
-                    </span>
-                </xsl:if>
-                <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDeceased']/text() = 'No'">
-                    <span about="this:person-1" property="person:isDeceased" content="false"/>
-                </xsl:if>
-            </h3>
-        </p>
+            </xsl:if>
+            <xsl:text> </xsl:text>
+            <span about="this:person-1" property="foaf:familyName">
+                <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:familyName']/text()"/>
+            </span>
+            <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDeceased']/text() = 'Yes'">
+                <span about="this:person-1" property="person:isDeceased" content="true" data-type="xsd:boolean">
+                    <xsl:text> (Deceased)</xsl:text>
+                </span>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDeceased']/text() = 'No'">
+                <span about="this:person-1" property="person:isDeceased" content="false" data-type="xsd:boolean"/>
+            </xsl:if>
+        </h3>
         <xsl:if test="$updates//*[@about='this:person-1' and @property='person:alsoKnownAs']/text() != ''">
             <xsl:for-each select="$updates//*[@about='this:person-1' and @property='person:alsoKnownAs']">
                 <p>
@@ -4867,7 +4886,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </p>
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:person-1' and @property='person:isDischarged']/text() = 'No'">
-            <span about="this:person-1" property="person:isDischarged" content="false"/>
+            <span about="this:person-1" property="person:isDischarged" content="false" data-type="xsd:boolean"/>
         </xsl:if>
         <p>
             <xsl:variable name="dateOfBirth">
@@ -4884,14 +4903,19 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <p>
             <xsl:text>Notice is hereby given, pursuant to </xsl:text>
-            <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &lt; '20170604'">
+            <xsl:if test="$updates//*[$edition != 'belfast' and @about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &lt; '20170604'">
                 <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
                     <xsl:text>Rule 11.6 of the Insolvency Rules 1986</xsl:text>
                 </span>
             </xsl:if>
-            <xsl:if test="$updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &gt;= '20170604'">
+            <xsl:if test="$updates//*[$edition != 'belfast' and @about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &gt;= '20170604'">
                 <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
                     <xsl:text>Rule 14.35 of the Insolvency (England and Wales) Rules 2016</xsl:text>
+                </span>
+            </xsl:if>
+            <xsl:if test="$edition = 'belfast'">
+                <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
+                    <xsl:text>Rule 11.06 of the Insolvency Rules (Northern Ireland) 1991 (as amended)</xsl:text>
                 </span>
             </xsl:if>
             <xsl:text> that the </xsl:text>
@@ -4988,6 +5012,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:if test="$updates//*[@about='this:IP1' and @property='gazorg:name']/text() != ''">
                 <xsl:text>, </xsl:text>
                 <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gazorg:name']/text()"/>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:IP1' and @ property='person:hasIPnum']/text() != ''">
+                <xsl:text>, </xsl:text>
+                <xsl:value-of select="$updates//*[@about='this:IP1' and @ property='person:hasIPnum']/text()"/>
             </xsl:if>
             <xsl:text>, </xsl:text>
             <xsl:call-template name="address">
