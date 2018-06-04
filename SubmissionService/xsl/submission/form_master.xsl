@@ -40,73 +40,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:param name="notice-capture-method" as="xs:string" required="no">webform</xsl:param>
     <!--<xsl:variable name="mapping"><test/></xsl:variable>-->
     <xsl:param name="updates" as="node()">
-        <form draftTitle="SWIFTS PERFORMANCE LIMITED" draftURI="/my-gazette/draft/22991" noticeTypeCode="2443">
-            <entry about="this:company-1" property="gazorg:companyNumber">08925842</entry>
-            <entry about="this:company-1" property="gazorg:companyType">Registered</entry>
-            <entry about="this:legislation-1" property="legislation:legislationTitle">The Insolvency Act 1986 ( S.100 &amp; S.109)</entry>
-            <entry about="this:IP1" property="person:additionalInformationIP" />
-            <entry about="this:company-1" property="gazorg:previouslyTradingAs" />
-            <entry about="this:IP2" property="foaf:name" />
-            <entry about="this:IP1" property="gaz:fax" />
-            <entry about="this:IP-company-1" property="gazorg:name" />
-            <entry about="this:company-1" property="gazorg:same-as-companyName">on</entry>
-            <entry about="this:IP2" property="person:hasIPnum" />
-            <entry about="this:court-case-1" property="court:caseNumber">375465436</entry>
-            <entry about="this:notifiableThing" property="corp-insolvency:dateOfAppointment">2017-08-07</entry>
-            <entry about="this:court-1" property="court:courtName">High Court of Justice</entry>
-            <entry about="this:IP-company-2" property="gazorg:name" />
-            <entry about="this:IP1" property="gaz:telephone">01234 568 9856</entry>
-            <entry about="this:company-1" property="gazorg:name">SWIFTS PERFORMANCE LIMITED</entry>
-            <entry about="this:court-1" property="court:caseCode">CR-YYYY-####</entry>
-            <entry about="this:IP1" property="gaz:email">email@email.com</entry>
-            <entry about="this:company-1" property="gazorg:natureOfBusiness">65473</entry>
-            <entry about="this:IP1" property="person:noticeDated" />
-            <entry about="this:IP1" property="foaf:name">Mr Officia</entry>
-            <entry about="this:notifiableThing" property="corp-insolvency:hasAppointer">Members</entry>
-            <entry about="noticeid:" property="gaz:earliestPublicationDate">2017-08-07</entry>
-            <entry about="this:IP1" property="person:hasIPReferenceNumber" />
-            <entry about="issue:" property="gaz:hasEdition">london</entry>
-            <entry about="this:company-1" property="gazorg:tradingAs">SWIFTS PERFORMANCE LIMITED</entry>
-            <entry about="this:company-1" property="gazorg:previousCompanyName" />
-            <entry about="this:court-case-1" property="court:caseYear">2017</entry>
-            <entry about="this:IP1" property="person:hasIPnum">43653654</entry>
-            <entry about="this:company-principal-trading-address-1" property="vcard:locality">LONDON</entry>
-            <entry about="this:company-principal-trading-address-1" property="vcard:street-address">PROGRESS HOUSE</entry>
-            <entry about="this:company-principal-trading-address-1" property="vcard:country-name" />
-            <entry about="this:company-principal-trading-address-1" property="vcard:extended-address">5 MANDELA WAY</entry>
-            <entry about="this:company-principal-trading-address-1" property="vcard:region" />
-            <entry about="this:company-principal-trading-address-1" property="vcard:postal-code">SE1 5SS</entry>
-            <entry about="this:IP2-address-1" property="vcard:postal-code" />
-            <entry about="this:IP2-address-1" property="vcard:locality" />
-            <entry about="this:IP2-address-1" property="vcard:extended-address" />
-            <entry about="this:IP2-address-1" property="vcard:street-address" />
-            <entry about="this:IP2-address-1" property="vcard:region" />
-            <entry about="this:IP2-address-1" property="vcard:country-name" />
-            <entry about="this:company-previous-registered-office-1" property="vcard:postal-code" />
-            <entry about="this:company-previous-registered-office-1" property="vcard:locality" />
-            <entry about="this:company-previous-registered-office-1" property="vcard:region" />
-            <entry about="this:company-previous-registered-office-1" property="vcard:country-name" />
-            <entry about="this:company-previous-registered-office-1" property="vcard:extended-address" />
-            <entry about="this:company-previous-registered-office-1" property="vcard:street-address" />
-            <entry about="this:previous-trading-address-1" property="vcard:country-name" />
-            <entry about="this:previous-trading-address-1" property="vcard:street-address" />
-            <entry about="this:previous-trading-address-1" property="vcard:locality" />
-            <entry about="this:previous-trading-address-1" property="vcard:region" />
-            <entry about="this:previous-trading-address-1" property="vcard:extended-address" />
-            <entry about="this:previous-trading-address-1" property="vcard:postal-code" />
-            <entry about="this:company-registered-office-1" property="vcard:region" />
-            <entry about="this:company-registered-office-1" property="vcard:postal-code">SE1 5SS</entry>
-            <entry about="this:company-registered-office-1" property="vcard:extended-address">5 MANDELA WAY</entry>
-            <entry about="this:company-registered-office-1" property="vcard:country-name" />
-            <entry about="this:company-registered-office-1" property="vcard:locality">LONDON</entry>
-            <entry about="this:company-registered-office-1" property="vcard:street-address">PROGRESS HOUSE</entry>
-            <entry about="this:IP1-address-1" property="vcard:locality">LONDON</entry>
-            <entry about="this:IP1-address-1" property="vcard:street-address">PROGRESS HOUSE</entry>
-            <entry about="this:IP1-address-1" property="vcard:extended-address">5 MANDELA WAY</entry>
-            <entry about="this:IP1-address-1" property="vcard:postal-code">SE1 5SS</entry>
-            <entry about="this:IP1-address-1" property="vcard:country-name" />
-            <entry about="this:IP1-address-1" property="vcard:region" />
-        </form>
+        <form/>
     </xsl:param>
     <!-- local functions -->
 
@@ -4522,6 +4456,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
     <xsl:template name="boilerPlateText2509">
         <xsl:param name="updates"/>
+        <xsl:variable name="edition">
+            <xsl:value-of select="$updates//*[@property='gaz:hasEdition']/text()"/>
+        </xsl:variable>
         <p>
             <xsl:text>In the </xsl:text>
             <span about="this:court-1" property="court:courtName" datatype="xsd:string">
@@ -4676,17 +4613,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <p>
             <xsl:text>Notice is hereby given, pursuant to </xsl:text>
-            <xsl:if test="$updates//*[$edition != 'belfast' and @about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &lt; '20170604'">
+            <xsl:if test="lower-case($edition) != 'belfast' and $updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &lt; '20170604'">
                 <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
                     <xsl:text>Rule 11.2 of the Insolvency Rules 1986</xsl:text>
                 </span>
             </xsl:if>
-            <xsl:if test="$updates//*[$edition != 'belfast' and @about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &gt;= '20170604'">
+            <xsl:if test="lower-case($edition) != 'belfast' and $updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &gt;= '20170604'">
                 <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
                     <xsl:text>Rule 14.28 of the Insolvency (England and Wales) Rules 2016</xsl:text>
                 </span>
             </xsl:if>
-            <xsl:if test="$edition = 'belfast'">
+            <xsl:if test="lower-case($edition) = 'belfast'">
                 <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
                     <xsl:text>Rule 11.02 of the Insolvency Rules (Northern Ireland) 1991 (as amended)</xsl:text>
                 </span>
@@ -4765,13 +4702,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:value-of select="$updates//*[@about='this:IP2' and @property='foaf:name']/text()"/>
                 </span>
             </xsl:if>
-            <xsl:if test="$updates//*[@about='this:IP1' and @property='gazorg:name']/text() != ''">
+            <xsl:if test="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text() != ''">
                 <xsl:text>, </xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gazorg:name']/text()"/>
+                <xsl:value-of select="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text()"/>
             </xsl:if>
-            <xsl:if test="$updates//*[@about='this:IP2' and @property='gazorg:name']/text() != ''">
+            <xsl:if test="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text() != ''">
                 <xsl:text>, </xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:IP2' and @property='gazorg:name']/text()"/>
+                <xsl:value-of select="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text()"/>
             </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP1' and @ property='person:hasIPnum']/text() != ''">
                 <xsl:text>, (</xsl:text>
@@ -4835,6 +4772,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
     <xsl:template name="boilerPlateText2510">
         <xsl:param name="updates"/>
+        <xsl:variable name="edition">
+            <xsl:value-of select="$updates//*[@property='gaz:hasEdition']/text()"/>
+        </xsl:variable>
         <p>
             <xsl:text>In the </xsl:text>
             <span about="this:court-1" property="court:courtName" datatype="xsd:string">
@@ -4988,17 +4928,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <p>
             <xsl:text>Notice is hereby given, pursuant to </xsl:text>
-            <xsl:if test="$updates//*[$edition != 'belfast' and @about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &lt; '20170604'">
+            <xsl:if test="lower-case($edition) != 'belfast' and $updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &lt; '20170604'">
                 <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
                     <xsl:text>Rule 11.6 of the Insolvency Rules 1986</xsl:text>
                 </span>
             </xsl:if>
-            <xsl:if test="$updates//*[$edition != 'belfast' and @about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &gt;= '20170604'">
+            <xsl:if test="lower-case($edition) != 'belfast' and $updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &gt;= '20170604'">
                 <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
                     <xsl:text>Rule 14.35 of the Insolvency (England and Wales) Rules 2016</xsl:text>
                 </span>
             </xsl:if>
-            <xsl:if test="$edition = 'belfast'">
+            <xsl:if test="lower-case($edition) = 'belfast'">
                 <span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
                     <xsl:text>Rule 11.06 of the Insolvency Rules (Northern Ireland) 1991 (as amended)</xsl:text>
                 </span>
@@ -5096,19 +5036,41 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <span about="this:IP1" property="foaf:name">
                 <xsl:value-of select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/>
             </span>
-            <xsl:if test="$updates//*[@about='this:IP1' and @property='gazorg:name']/text() != ''">
+            <xsl:if test="$updates//*[@about='this:IP2' and @property='foaf:name']/text() != ''">
                 <xsl:text>, </xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:IP1' and @property='gazorg:name']/text()"/>
+                <span about="this:IP2" property="foaf:name">
+                    <xsl:value-of select="$updates//*[@about='this:IP2' and @property='foaf:name']/text()"/>
+                </span>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text() != ''">
+                <xsl:text>, </xsl:text>
+                <xsl:value-of select="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text()"/>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text() != ''">
+                <xsl:text>, </xsl:text>
+                <xsl:value-of select="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text()"/>
             </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP1' and @ property='person:hasIPnum']/text() != ''">
+                <xsl:text>, (</xsl:text>
+                <xsl:value-of select="$updates//*[@about='this:IP1' and @property='person:hasIPnum']/text()"/>
+            </xsl:if>
+            <xsl:if test="$updates//*[@about='this:IP2' and @ property='person:hasIPnum']/text() != ''">
                 <xsl:text>, </xsl:text>
-                <xsl:value-of select="$updates//*[@about='this:IP1' and @ property='person:hasIPnum']/text()"/>
+                <xsl:value-of select="$updates//*[@about='this:IP2' and @property='person:hasIPnum']/text()"/>
+                <xsl:text>)</xsl:text>
             </xsl:if>
             <xsl:text>, </xsl:text>
             <xsl:call-template name="address">
                 <xsl:with-param name="updates" select="$updates"/>
                 <xsl:with-param name="about" select="'this:IP1-address-1'"/>
             </xsl:call-template>
+            <xsl:if test="$updates//*[@about='this:IP2-address-1' and @property='vcard:postal-code']/text() != ''">
+                <xsl:text>, </xsl:text>
+                <xsl:call-template name="address">
+                    <xsl:with-param name="updates" select="$updates"/>
+                    <xsl:with-param name="about" select="'this:IP2-address-1'"/>
+                </xsl:call-template>
+            </xsl:if>
             <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
                 <xsl:text>, </xsl:text>
                 <span about="this:IP1" property="gaz:telephone" datatype="xsd:string">
