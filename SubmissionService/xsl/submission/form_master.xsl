@@ -1037,7 +1037,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
             <p>
-                <xsl:text>previously </xsl:text>
+                <xsl:text>Previously </xsl:text>
                 <span about="this:company-1" property="gazorg:previousCompanyName" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text()"/>
                 </span>
@@ -1046,7 +1046,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text() != ''">
             <p>
-                <xsl:text>trading as </xsl:text>
+                <xsl:text>Trading As </xsl:text>
                 <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text()"/>
                 </span>
@@ -1055,7 +1055,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text() != ''">
             <p>
-                <xsl:text>previously trading as </xsl:text>
+                <xsl:text>Previously Trading As </xsl:text>
                 <span about="this:company-1" property="gazorg:previouslyTradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text()"/>
                 </span>
@@ -1643,7 +1643,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
             <p>
-                <xsl:text>previously </xsl:text>
+                <xsl:text>Previously </xsl:text>
                 <span about="this:company-1" property="gazorg:previousCompanyName" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text()"/>
                 </span>
@@ -1652,7 +1652,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text() != ''">
             <p>
-                <xsl:text>trading as </xsl:text>
+                <xsl:text>Trading As </xsl:text>
                 <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text()"/>
                 </span>
@@ -1661,7 +1661,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text() != ''">
             <p>
-                <xsl:text>previously trading as </xsl:text>
+                <xsl:text>Previously Trading As </xsl:text>
                 <span about="this:company-1" property="gazorg:previouslyTradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text()"/>
                 </span>
@@ -1981,7 +1981,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
             <p>
-                <xsl:text>previously </xsl:text>
+                <xsl:text>Previously </xsl:text>
                 <span about="this:company-1" property="gazorg:previousCompanyName" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text()"/>
                 </span>
@@ -1990,7 +1990,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text() != ''">
             <p>
-                <xsl:text>trading as </xsl:text>
+                <xsl:text>Trading as </xsl:text>
                 <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text()"/>
                 </span>
@@ -1999,7 +1999,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text() != ''">
             <p>
-                <xsl:text>previously trading as </xsl:text>
+                <xsl:text>Previously Trading As </xsl:text>
                 <span about="this:company-1" property="gazorg:previouslyTradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text()"/>
                 </span>
@@ -2299,7 +2299,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </p>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
             <p>
-                <xsl:text>previously </xsl:text>
+                <xsl:text>Previously </xsl:text>
                 <span about="this:company-1" property="gazorg:previousCompanyName" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text()"/>
                 </span>
@@ -2308,7 +2308,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text() != ''">
             <p>
-                <xsl:text>trading as </xsl:text>
+                <xsl:text>Trading As </xsl:text>
                 <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text()"/>
                 </span>
@@ -2317,7 +2317,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text() != ''">
             <p>
-                <xsl:text>previously trading as </xsl:text>
+                <xsl:text>Previously Trading As </xsl:text>
                 <span about="this:company-1" property="gazorg:previouslyTradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text()"/>
                 </span>
@@ -2612,17 +2612,25 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 <xsl:value-of select="$legValue"/>
             </span>
             <xsl:text> and that </xsl:text>
-            <span about="this:petitioner-1" property="foaf:name" datatype="xsd:string">
-                <xsl:value-of select="$updates//*[@about='this:petitioner-1' and @property='foaf:name']/text()"/>
+            <span about="this:notifiableThing" property="corp-insolvency:provisionalLiquidator" resource="this:pro-liquidator-1"/>
+            <span about="this:pro-liquidator-1" property="foaf:name" datatype="xsd:string">
+                <xsl:value-of select="$updates//*[@about='this:pro-liquidator-1' and @property='foaf:name']/text()"/>
             </span>
             <xsl:text>, </xsl:text>
-            <span about="this:petitionerRole" property="person:Petitioner" datatype="xsd:string">
-                <xsl:value-of select="$updates//*[@about='this:petitioner-1' and @property='foaf:name']/text()"/>
+            <span about="this:pro-liquidator-1" property="person:jobTitle" datatype="xsd:string">
+                <xsl:value-of select="$updates//*[@about='this:pro-liquidator-1' and @property='person:jobTitle']/text()"/>
             </span>
             <xsl:text> of </xsl:text>
+            <xsl:if test="$updates//*[@about='this:pro-liquidator-1-org-1' and @property='gazorg:name']/text() != ''">
+                <span about="this:pro-liquidator-1" property="gazorg:hasOrganisationMember" resource="this:pro-liquidator-1-org-1"/>
+                <span about="this:pro-liquidator-1-org-1" property="gazorg:name">
+                <xsl:value-of select="$updates//*[@about='this:pro-liquidator-1-org-1' and @property='gazorg:name']/text()"/>
+                </span>
+                <xsl:text>, </xsl:text>
+            </xsl:if>
             <xsl:call-template name="address">
                 <xsl:with-param name="updates" select="$updates"/>
-                <xsl:with-param name="about" select="'this:petitioner-address-1'"/>
+                <xsl:with-param name="about" select="'this:pro-liquidator-1-adr-1'"/>
             </xsl:call-template>
             <xsl:text>, be appointed as Interim Liquidator of the Partnership; in which Petition the Sheriff by interlocutor dated </xsl:text>
             <xsl:variable name="dateOfInterlocutor">
