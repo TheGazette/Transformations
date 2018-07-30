@@ -549,6 +549,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <dl>
                 <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor-2'] != ''">
                     <span about="this:notifiableThing" property="personal-legal:hasPersonalRepresentative" resource="this:estateExecutor-2" />
+                    <span data-hide="true" resource="this:estateExecutor-2" typeof="foaf:Agent"/>
+                    <span about="this:estateExecutor-2" property="vcard:adr" resource="this:addressOfExecutor-1"/>
                     <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-2']]]"/>
                     <xsl:apply-templates select="x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-2']"/>
                 </xsl:if>
@@ -563,6 +565,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 
                 <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor-3'] != ''">
                     <span about="this:notifiableThing" property="personal-legal:hasPersonalRepresentative" resource="this:estateExecutor-3" />
+                    <span data-hide="true" resource="this:estateExecutor-3" typeof="foaf:Agent"/>
+                    <span about="this:estateExecutor-3" property="vcard:adr" resource="this:addressOfExecutor-1"/>
                     <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-3']]]"/>
                     <xsl:apply-templates select="x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-3']"/>
                 </xsl:if>
@@ -577,6 +581,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 
                 <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor-4'] != ''">
                     <span about="this:notifiableThing" property="personal-legal:hasPersonalRepresentative" resource="this:estateExecutor-4" />
+                    <span data-hide="true" resource="this:estateExecutor-4" typeof="foaf:Agent"/>
+                    <span about="this:estateExecutor-4" property="vcard:adr" resource="this:addressOfExecutor-1"/>
                     <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-4']]]"/>
                     <xsl:apply-templates select="x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-4']"/>
                 </xsl:if>
@@ -591,6 +597,8 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 
                 <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor-5'] != ''">
                     <span about="this:notifiableThing" property="personal-legal:hasPersonalRepresentative" resource="this:estateExecutor-5" />
+                    <span data-hide="true" resource="this:estateExecutor-5" typeof="foaf:Agent"/>
+                    <span about="this:estateExecutor-5" property="vcard:adr" resource="this:addressOfExecutor-1"/>
                     <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-5']]]"/>
                     <xsl:apply-templates select="x:dd [@property = 'foaf:familyName' and @about = 'this:estateExecutor-5']"/>
                 </xsl:if>
@@ -1555,21 +1563,21 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:text> within eight days after such intimation, service or advertisement, under certification; all of which notice is hereby given.</xsl:text>
         </p>
         <xsl:choose>
-            <xsl:when test="$updates//*[@about='this:IP1-provisional' and @property='foaf:name']/text() != ''">
+            <xsl:when test="$updates//*[@about='this:IP1' and @property='foaf:name']/text() != ''">
                 <p>
-                    <span about="this:IP1-provisional" property="foaf:name" datatype="xsd:string">
-                        <xsl:value-of select="$updates//*[@about='this:IP1-provisional' and @property='foaf:name']/text()"/>
+                    <span about="this:IP1" property="foaf:name" datatype="xsd:string">
+                        <xsl:value-of select="$updates//*[@about='this:IP1' and @property='foaf:name']/text()"/>
                     </span>
                     <xsl:text>, </xsl:text>
-                    <xsl:if test="$updates//*[@about='this:IP-provisional-company-1' and @property='gazorg:name']/text() != ''">
-                        <span about="this:IP-provisional-company-1" property="gazorg:name" datatype="xsd:string">
-                            <xsl:value-of select="$updates//*[@about='this:IP-provisional-company-1' and @property='gazorg:name']/text()"/>
+                    <xsl:if test="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text() != ''">
+                        <span about="this:IP-company-1" property="gazorg:name" datatype="xsd:string">
+                            <xsl:value-of select="$updates//*[@about='this:IP-company-1' and @property='gazorg:name']/text()"/>
                         </span>
                         <xsl:text>, </xsl:text>
                     </xsl:if>
                     <xsl:call-template name="address">
                         <xsl:with-param name="updates" select="$updates"/>
-                        <xsl:with-param name="about" select="'this:IP1-provisional-address-1'"/>
+                        <xsl:with-param name="about" select="'this:IP1-address-1'"/>
                     </xsl:call-template>
                     <xsl:if test="$updates//*[@about='this:IP1' and @property='gaz:telephone']/text() != ''">
                         <xsl:text>, Telephone: </xsl:text>
@@ -1602,21 +1610,21 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                         </span>
                         <xsl:text>)</xsl:text>
                     </xsl:if>
-                    <xsl:if test="$updates//*[@about='this:IP2-provisional' and @property='foaf:name']/text() != ''">
+                    <xsl:if test="$updates//*[@about='this:IP2' and @property='foaf:name']/text() != ''">
                         <xsl:text>, and </xsl:text>
-                        <span about="this:IP2-provisional" property="foaf:name" datatype="xsd:string">
-                            <xsl:value-of select="$updates//*[@about='this:IP2-provisional' and @property='foaf:name']/text()"/>
+                        <span about="this:IP2" property="foaf:name" datatype="xsd:string">
+                            <xsl:value-of select="$updates//*[@about='this:IP2' and @property='foaf:name']/text()"/>
                         </span>
                         <xsl:text>, </xsl:text>
-                        <xsl:if test="$updates//*[@about='this:IP-provisional-company-2' and @property='gazorg:name']/text() != ''">
-                            <span about="this:IP-provisional-company-2" property="gazorg:name" datatype="xsd:string">
-                                <xsl:value-of select="$updates//*[@about='this:IP-provisional-company-2' and @property='gazorg:name']/text()"/>
+                        <xsl:if test="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text() != ''">
+                            <span about="this:IP-company-2" property="gazorg:name" datatype="xsd:string">
+                                <xsl:value-of select="$updates//*[@about='this:IP-company-2' and @property='gazorg:name']/text()"/>
                             </span>
                             <xsl:text>, </xsl:text>
                         </xsl:if>
                         <xsl:call-template name="address">
                             <xsl:with-param name="updates" select="$updates"/>
-                            <xsl:with-param name="about" select="'this:IP2-provisional-address-1'"/>
+                            <xsl:with-param name="about" select="'this:IP2-address-1'"/>
                         </xsl:call-template>                        
                     </xsl:if>    
                 </p>
