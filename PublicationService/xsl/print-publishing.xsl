@@ -1084,8 +1084,10 @@ Change history
 					        <xsl:if test=".//*:dd[@about='this:estateExecutor-2' and @property='foaf:givenName']">
 					            <xsl:value-of select="concat(.//*:dd[@about='this:estateExecutor-2' and @property='foaf:givenName'],' ')"/>
 					        </xsl:if>
-					        <xsl:value-of select=".//*:dd[@about='this:estateExecutor-2' and @property='foaf:familyName']"/>
-					        
+					    	<xsl:if test=".//*:dd[@about='this:estateExecutor-2' and @property='foaf:familyName']">
+					        	<xsl:value-of select=".//*:dd[@about='this:estateExecutor-2' and @property='foaf:familyName']"/>
+					    		<xsl:text>, </xsl:text>
+					    	</xsl:if>
 					        <xsl:if test=".//*:dd[@about='this:estateExecutor-3' and @property='foaf:name']">
 					            <xsl:value-of select=".//*:dd[@about='this:estateExecutor-3' and @property='foaf:name']"/>								
 					        </xsl:if>
@@ -1098,8 +1100,10 @@ Change history
 					        <xsl:if test=".//*:dd[@about='this:estateExecutor-3' and @property='foaf:givenName']">
 					            <xsl:value-of select="concat(.//*:dd[@about='this:estateExecutor-3' and @property='foaf:givenName'],' ')"/>
 					        </xsl:if>
-					        <xsl:value-of select=".//*:dd[@about='this:estateExecutor-3' and @property='foaf:familyName']"/>
-					        
+					    	<xsl:if test=".//*:dd[@about='this:estateExecutor-3' and @property='foaf:familyName']">
+					    		<xsl:value-of select=".//*:dd[@about='this:estateExecutor-3' and @property='foaf:familyName']"/>
+					    		<xsl:text>, </xsl:text>
+					    	</xsl:if>
 					        <xsl:if test=".//*:dd[@about='this:estateExecutor-4' and @property='foaf:name']">
 					            <xsl:value-of select=".//*:dd[@about='this:estateExecutor-4' and @property='foaf:name']"/>								
 					        </xsl:if>
@@ -1112,8 +1116,10 @@ Change history
 					        <xsl:if test=".//*:dd[@about='this:estateExecutor-4' and @property='foaf:givenName']">
 					            <xsl:value-of select="concat(.//*:dd[@about='this:estateExecutor-4' and @property='foaf:givenName'],' ')"/>
 					        </xsl:if>
-					        <xsl:value-of select=".//*:dd[@about='this:estateExecutor-4' and @property='foaf:familyName']"/>
-					        
+					    	<xsl:if test=".//*:dd[@about='this:estateExecutor-4' and @property='foaf:familyName']">
+					    		<xsl:value-of select=".//*:dd[@about='this:estateExecutor-4' and @property='foaf:familyName']"/>
+					    		<xsl:text>, </xsl:text>
+					    	</xsl:if>
 					        <xsl:if test=".//*:dd[@about='this:estateExecutor-5' and @property='foaf:name']">
 					            <xsl:value-of select=".//*:dd[@about='this:estateExecutor-5' and @property='foaf:name']"/>								
 					        </xsl:if>
@@ -1126,8 +1132,10 @@ Change history
 					        <xsl:if test=".//*:dd[@about='this:estateExecutor-5' and @property='foaf:givenName']">
 					            <xsl:value-of select="concat(.//*:dd[@about='this:estateExecutor-5' and @property='foaf:givenName'],' ')"/>
 					        </xsl:if>
-					        <xsl:value-of select=".//*:dd[@about='this:estateExecutor-5' and @property='foaf:familyName']"/>
-					        <xsl:text>)</xsl:text>
+					    	<xsl:if test=".//*:dd[@about='this:estateExecutor-5' and @property='foaf:familyName']">
+					    		<xsl:value-of select=".//*:dd[@about='this:estateExecutor-5' and @property='foaf:familyName']"/>
+					    		<xsl:text>, </xsl:text>
+					    	</xsl:if><xsl:text>)</xsl:text>
 					    </xsl:if>
 					    
 					    
