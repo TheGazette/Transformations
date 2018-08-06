@@ -524,6 +524,26 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <!-- 2903 -->
     <xsl:template match="x:dl[@data-gazettes = 'Executors Name']">
         <dl>
+            <!-- *********** -->
+            <!-- Old executor handling still required for 2904. If multi-executors support is added in future, this block can be removed -->
+            <xsl:if test="$updates//*:entry[@property = 'foaf:name' and @about = 'this:estateExecutor'] !=''">
+                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:name']]]"/>
+                <xsl:apply-templates select="x:dd [@property = 'foaf:name']"/>
+            </xsl:if>
+            <xsl:if test="$updates//*:entry[@property = 'foaf:familyName' and @about = 'this:estateExecutor'] != ''">
+                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:familyName']]]"/>
+                <xsl:apply-templates select="x:dd [@property = 'foaf:familyName']"/>
+            </xsl:if>
+            <xsl:if test="$updates//*:entry[@property = 'foaf:firstName' and @about = 'this:estateExecutor'] != ''">
+                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:firstName']]]"/>
+                <xsl:apply-templates select="x:dd [@property = 'foaf:firstName']"/>
+            </xsl:if>
+            <xsl:if test="$updates//*:entry[@property = 'foaf:givenName' and @about = 'this:estateExecutor'] != ''">
+                <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:givenName']]]"/>
+                <xsl:apply-templates select="x:dd [@property = 'foaf:givenName']"/>
+            </xsl:if>
+            <!-- *********** -->
+            
             <xsl:if test="$updates//*:entry[@property = 'foaf:name' and @about = 'this:estateExecutor-1'] !=''">
                 <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'foaf:name' and @about = 'this:estateExecutor-1']]]"/>
                 <xsl:apply-templates select="x:dd [@property = 'foaf:name' and @about = 'this:estateExecutor-1']"/>
@@ -1551,9 +1571,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     </xsl:call-template>                    
                 </xsl:if>
             <xsl:if test="$updates//*[@property='court:courtName' and contains(.,'Session')]">
-                    <xsl:text> to the </xsl:text>
+                    <xsl:text> the </xsl:text>
                     <span about="this:notifiableThing" property="corp-insolvency:nameOfPlaceOfHearing" datatype="xsd:string">
-                        <xsl:text>Court of Session</xsl:text>, 
+                        <xsl:text>Court of Session, </xsl:text>
                     </span>
                     <span about="this:hearingAddress" property="vcard:street-address" typeof="vcard:Address">Parliament House</span>, 
                     <span about="this:hearingAddress" property="vcard:extended-address">Parliament Square</span>, 
