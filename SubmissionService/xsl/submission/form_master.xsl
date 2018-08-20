@@ -2115,28 +2115,28 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:text>A Petition to wind up the above-named Partnership of </xsl:text>
             <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
             <xsl:text> of </xsl:text>
-            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() != 'Limited Liability Partnership'">
+            <xsl:if test="$updates//*[@about='this:company-principal-trading-address-1' and @property='vcard:postal-code']/text() != ''">
                 <xsl:call-template name="address">
                     <xsl:with-param name="updates" select="$updates"/>
                     <xsl:with-param name="about" select="'this:company-principal-trading-address-1'"/>
                 </xsl:call-template>
             </xsl:if>
-            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() = 'Limited Liability Partnership'">
-                <xsl:call-template name="address">
-                    <xsl:with-param name="updates" select="$updates"/>
-                    <xsl:with-param name="about" select="'this:company-registered-office-1'"/>
-                </xsl:call-template>
-            </xsl:if>
-            <xsl:text>, </xsl:text>
             <xsl:if test="$updates//*[@about='this:previous-trading-address-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:previous-trading-address-1' and @property='vcard:country']/text() != ''">
                 <span>
-                    <xsl:text>previously of </xsl:text>
+                    <xsl:text> previously of </xsl:text>
                     <xsl:call-template name="address">
                         <xsl:with-param name="updates" select="$updates"/>
                         <xsl:with-param name="about" select="'this:previous-trading-address-1'"/>
                     </xsl:call-template>
                     <xsl:text>, </xsl:text>
                 </span>
+            <xsl:if test="$updates//*[@about='this:company-registered-office-1' and @property='vcard:postal-code']/text() != ''">
+                <xsl:call-template name="address">
+                    <xsl:with-param name="updates" select="$updates"/>
+                    <xsl:with-param name="about" select="'this:company-registered-office-1'"/>
+                </xsl:call-template>
+                <xsl:text> (where service of the petition was effected), </xsl:text>
+            </xsl:if>
             </xsl:if>   
             <xsl:if test="$updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:country']/text() != ''">
                 <span>
@@ -4602,7 +4602,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </span>
             </xsl:if>
         </p>
-        <h3>
+        <h3 data-gazettes="Person" property="gaz:hasPerson" resource="this:person-1">
             <span about="this:person-1" property="foaf:firstName">
                 <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:firstName']/text()"/>
             </span>
@@ -4918,7 +4918,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </span>
             </xsl:if>
         </p>
-        <h3>
+        <h3 data-gazettes="Person" property="gaz:hasPerson" resource="this:person-1">
             <span about="this:person-1" property="foaf:firstName">
                 <xsl:value-of select="$updates//*[@about='this:person-1' and @property='foaf:firstName']/text()"/>
             </span>
