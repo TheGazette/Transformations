@@ -2059,7 +2059,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <strong about="this:company-1" property="gazorg:name" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
             </strong>
-            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() = 'Limited Liability Partnership'">
+            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() != 'General Partnership'">
                 <xsl:text> (</xsl:text>
                 <span about="this:company-1" property="gazorg:partnershipNumber">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:partnershipNumber']"/>
@@ -2379,7 +2379,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </span>
             </xsl:if>
         </p>
-        <p>
+        <p data-gazettes="Company" property="insolvency:hasCompany" resource="this:company-1" typeof="gazorg:Partnership">
             <xsl:text>In the matter of </xsl:text>        
             <span about="this:company-1" property="gazorg:name" datatype="xsd:string">
                 <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
@@ -2432,7 +2432,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <p>
             <xsl:text>A Petition to wind up </xsl:text>
             <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:name']/text()"/>
-            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() = 'Limited Liability Partnership'">
+            <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:partnershipType']/text() != 'General Partnership'">
                 <xsl:text> (</xsl:text>
                 <span about="this:company-1" property="gazorg:partnershipNumber">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:partnershipNumber']/text()"/>
@@ -2579,6 +2579,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:template name="boilerPlateText2451Edinburgh">
         <xsl:param name="updates"/>
         <h3 about="this:company-1" property="gazorg:name" datatype="xsd:string">
+            <span data-gazettes="Company" property="insolvency:hasCompany" resource="this:company-1" typeof="gazorg:Partnership"/>
             <xsl:value-of select="upper-case($updates//*[@about='this:company-1' and @property='gazorg:name']/text())"/>
         </h3>
         <h3 about="this:court-1" property="court:courtName" datatype="xsd:string">
