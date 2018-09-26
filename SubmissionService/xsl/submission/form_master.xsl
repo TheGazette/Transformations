@@ -638,20 +638,20 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <!-- 2903 -->
     <xsl:template match="x:dl[@data-gazettes = 'Executors Contact']">
         <xsl:choose>
-            <xsl:when test="$updates//*:entry[@property = 'gaz:telephone' and @about = 'this:estateExecutor'] != ''
-        or $updates//*:entry[@property = 'gaz:fax' and @about = 'this:estateExecutor'] != ''
-        or $updates//*:entry[@property = 'gaz:email' and @about = 'this:estateExecutor'] != ''
-        or $updates//*:entry[@property = 'gaz:claimNumber' and @about = 'this:notifiableThing'] != ''">
+            <xsl:when test="$updates//*:entry[@property = 'gaz:telephone' and @about = 'this:estateExecutor-1'] != ''
+                or $updates//*:entry[@property = 'gaz:fax' and @about = 'this:estateExecutor-1'] != ''
+                or $updates//*:entry[@property = 'gaz:email' and @about = 'this:estateExecutor-1'] != ''
+                or $updates//*:entry[@property = 'gaz:claimNumber' and @about = 'this:notifiableThing'] != ''">
                 <dl>
-                    <xsl:if test="$updates//*:entry[@property = 'gaz:telephone' and @about = 'this:estateExecutor'] != ''">
+                    <xsl:if test="$updates//*:entry[@property = 'gaz:telephone' and @about = 'this:estateExecutor-1'] != ''">
                         <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'gaz:telephone']]]"/>
                         <xsl:apply-templates select="x:dd [@property = 'gaz:telephone']"/>
                     </xsl:if>
-                    <xsl:if test="$updates//*:entry[@property = 'gaz:fax' and @about = 'this:estateExecutor'] != ''">
+                    <xsl:if test="$updates//*:entry[@property = 'gaz:fax' and @about = 'this:estateExecutor-1'] != ''">
                         <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'gaz:fax']]]"/>
                         <xsl:apply-templates select="x:dd [@property = 'gaz:fax']"/>
                     </xsl:if>
-                    <xsl:if test="$updates//*:entry[@property = 'gaz:email' and @about = 'this:estateExecutor'] != ''">
+                    <xsl:if test="$updates//*:entry[@property = 'gaz:email' and @about = 'this:estateExecutor-1'] != ''">
                         <xsl:apply-templates select="x:dt[following-sibling::*[1][self::x:dd [@property = 'gaz:email']]]"/>
                         <xsl:apply-templates select="x:dd [@property = 'gaz:email']"/>
                     </xsl:if>
