@@ -3103,19 +3103,19 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             <xsl:text>)</xsl:text>
         </p>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text() != ''">
-            <p>previously <span about="this:company-1" property="gazorg:previousCompanyName" datatype="xsd:string">
+            <p>Previously <span about="this:company-1" property="gazorg:previousCompanyName" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previousCompanyName']/text()"/>
                 </span>
             </p>
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text() != ''">
-            <p>trading as <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string">
+            <p>Trading As <span about="this:company-1" property="gazorg:tradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:tradingAs']/text()"/>
                 </span>
             </p>
         </xsl:if>
         <xsl:if test="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text() != ''">
-            <p>previously trading as <span about="this:company-1" property="gazorg:previouslyTradingAs" datatype="xsd:string">
+            <p>Previously Trading As <span about="this:company-1" property="gazorg:previouslyTradingAs" datatype="xsd:string">
                     <xsl:value-of select="$updates//*[@about='this:company-1' and @property='gazorg:previouslyTradingAs']/text()"/>
                 </span>
             </p>
