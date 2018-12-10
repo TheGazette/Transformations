@@ -2289,13 +2289,26 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 
 
     <xsl:template match="gz:TradeClassification">
-        <p data-gazettes="TradeClassification">
-            <xsl:text>Trade classification: </xsl:text>
-            <span property="{$has-trade-classification}" datatype="xsd:string">
-                <xsl:value-of select="./@Class"/>
-                <xsl:apply-templates/>
-            </span>
-        </p>
+        <xsl:choose>
+            <xsl:when test="parent::gz:CompanyGroup">
+                <span data-gazettes="TradeClassification">
+                    <xsl:text>Trade classification: </xsl:text>
+                    <span property="{$has-trade-classification}" datatype="xsd:string">
+                        <xsl:value-of select="./@Class"/>
+                        <xsl:apply-templates/>
+                    </span>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <p data-gazettes="TradeClassification">
+                    <xsl:text>Trade classification: </xsl:text>
+                    <span property="{$has-trade-classification}" datatype="xsd:string">
+                        <xsl:value-of select="./@Class"/>
+                        <xsl:apply-templates/>
+                    </span>
+                </p>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="gz:Notice/gz:Company/gz:TypeOfLiquidation">

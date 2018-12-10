@@ -2130,14 +2130,14 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     </xsl:call-template>
                     <xsl:text>, </xsl:text>
                 </span>
+            </xsl:if>
             <xsl:if test="$updates//*[@about='this:company-registered-office-1' and @property='vcard:postal-code']/text() != ''">
                 <xsl:call-template name="address">
                     <xsl:with-param name="updates" select="$updates"/>
                     <xsl:with-param name="about" select="'this:company-registered-office-1'"/>
                 </xsl:call-template>
                 <xsl:text> (where service of the petition was effected), </xsl:text>
-            </xsl:if>
-            </xsl:if>   
+            </xsl:if> 
             <xsl:if test="$updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:street-address']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:extended-address']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:locality']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:region']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:postal-code']/text() != '' or $updates//*[@about='this:company-previous-registered-office-1' and @property='vcard:country']/text() != ''">
                 <span>
                     <xsl:text>previously of </xsl:text>
