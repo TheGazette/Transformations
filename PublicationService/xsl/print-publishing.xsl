@@ -97,6 +97,9 @@ Change history
 	<!-- prints out extra information for debugging -->
 	<xsl:param name="DEBUG">false</xsl:param>
 	<xsl:variable name="feed" select="/"/>
+    <xsl:variable name="initial-counter">
+        <xsl:value-of select="xs:integer($initial-page) - 1" />
+    </xsl:variable>
 	<xsl:variable name="classreadyedition1">
 		<xsl:value-of
 			select="lower-case(replace(normalize-space(replace(replace(replace($edition-name,' &amp; ',' and '),'The',''),'Gazette','')),' ','-'))"
@@ -309,7 +312,7 @@ Change history
 		<!-- Force the HTML5 doctype. -->
 		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;
     </xsl:text>
-		<html data-initial-page="{$initial-page}">
+		<html data-initial-page="{$initial-page}" data-initial-counter="{$initial-counter}">
 			<xsl:if test="$mourningBorder = 'true'">
 				<xsl:attribute name="class" select="'mourning'"/>
 			</xsl:if>
