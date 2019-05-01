@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:functx="http://www.functx.com" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:dfn="http://www.dfn.org/dfn" prefix="gaz: https://www.thegazette.co.uk/def/publication#             person: https://www.thegazette.co.uk/def/person#               personal-legal: https://www.thegazette.co.uk/def/personal-legal#  org: http://www.w3.org/ns/org# this: https://www.thegazette.co.uk/id/notice/9898# prov: http://www.w3.org/ns/prov#" DocumentURI="https://www.thegazette.co.uk/notice/9898" IdURI="https://www.thegazette.co.uk/id/notice/9898" version="XHTML+RDFa 1.1">
+	<head>
+		<title>Deceased Estates</title>
+		<gazette-metadata xmlns="http://www.gazettes.co.uk/metadata">
+			<bundle-id>98798</bundle-id>
+			<notice-id>9898</notice-id>
+			<status>test</status>
+			<version-count>2</version-count>
+			<notice-code>2903</notice-code>
+			<edition>London</edition>
+			<issue>9999</issue>
+			<legacy-notice-number>007</legacy-notice-number>
+			<user-submitted>test</user-submitted>
+		</gazette-metadata>
+	</head>
+	<body>
+		<article>
+			<h1>9898</h1>
+			<div class="rdfa-data">
+				<span about="https://www.thegazette.co.uk/id/notice/9898" property="dc11:publisher" content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk"/>
+				<span about="https://www.thegazette.co.uk/id/notice/9898" property="gaz:isAbout" resource="this:notifiableThing"/>
+				<span about="https://www.thegazette.co.uk/id/notice/9898" property="owl:sameAs" resource="https://www.thegazette.co.uk/id/notice/9898"/>
+				<span about="https://www.thegazette.co.uk/id/notice/9898" property="prov:has_provenance" resource="https://www.thegazette.co.uk/id/notice/9898/provenance"/>
+				<span resource="https://www.thegazette.co.uk/id/edition/London/issue/9999" typeof="gaz:Issue"/>
+				<span about="https://www.thegazette.co.uk/id/edition/London/issue/9999" property="gaz:hasEdition" resource="https://www.thegazette.co.uk/id/edition/London"/>
+				<span about="https://www.thegazette.co.uk/id/edition/London/issue/9999" content="9999" datatype="xsd:string" property="gaz:hasIssueNumber"/>
+				<span resource="https://www.thegazette.co.uk/id/edition/London" typeof="gaz:Edition"/>
+				<span about="https://www.thegazette.co.uk/id/notice/9898" property="owl:sameAs" resource="https://www.thegazette.co.uk/id/edition/London/issue/9999/notice/007" typeof="gaz:Notice"/>
+				<span about="https://www.thegazette.co.uk/id/notice/9898" property="prov:alternateOf" resource="http://www.london-gazette.co.uk/id/issues/9999/notices/007" typeof="gaz:Notice"/>
+				<span about="https://www.thegazette.co.uk/id/notice/9898" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="007"/>
+				<span about="https://www.thegazette.co.uk/id/notice/9898" property="gaz:isRequiredByLegislation" resource="http://www.legislation.gov.uk/ukpga/Geo5/15-16/19/section/27"/>
+				<span resource="this:notifiableThing" typeof="personal-legal:NoticeForClaimsAgainstEstate/"/>
+				<span about="this:notifiableThing" property="personal-legal:hasPersonalRepresentative" resource="this:estateExecutor"/>
+				<span resource="this:addressOfDeceased" typeof="vcard:Address"/>
+				<span resource="this:addressOfExecutor" typeof="vcard:Address"/>
+				<span resource="this:estateExecutor" typeof="foaf:Agent"/>
+				<span about="this:estateExecutor" property="vcard:adr" resource="this:addressOfExecutor"/>
+				<span resource="https://www.thegazette.co.uk/id/notice/9898" typeof="gaz:DeceasedEstatesNotice gaz:WillsAndProbateNotice gaz:Notice"/>
+				<span about="this:notifiableThing" property="personal-legal:hasEstateOf" resource="this:deceasedPerson"/>
+				<span about="this:deceasedPerson" typeof="gaz:Person"/>
+				<span about="this:deceasedPerson" property="person:hasAddress" resource="this:addressOfDeceased-address-1"/>
+				<span xmlns:foaf="http://xmlns.com/foaf/0.1/" about="this:deceasedPerson" content="Olive Mildred BAILEY" foaf:name="Olive Mildred BAILEY" property="foaf:name"/>
+			</div>
+			<dl>
+				<dt>Notice type:</dt>
+				<dd property="gaz:hasNoticeCode" datatype="xsd:integer" about="https://www.thegazette.co.uk/id/notice/9898">2903</dd>
+				<dt>Claim expires:</dt>
+				<dd about="this:notifiableThing" property="personal-legal:hasClaimDeadline" datatype="xsd:date" content="2001-03-19">
+					<time datetime="2001-03-19">19th March 2001</time>
+				</dd>
+				<dt>Publication date:</dt>
+				<dd about="https://www.thegazette.co.uk/id/notice/9898" property="gaz:hasPublicationDate dc:issued" content="2001-01-18">
+					<time datetime="2001-01-18">18 January 2001</time>
+				</dd>
+				<dt>Edition:</dt>
+				<dd>London</dd>
+				<dt>issue Number:</dt>
+				<dd>9999</dd>
+				<dt>Notice ID:</dt>
+				<dd about="https://www.thegazette.co.uk/id/notice/9898" property="gaz:hasNoticeID">9898</dd>
+				<dt>Executor:</dt>
+				<dd about="this:estateExecutor" property="foaf:name" typeof="foaf:Agent">Churchers, 60 &amp; 62 Northern Road, Cosham, Portsmouth, Hampshire PO6 3DX. Solicitors. (Mr. M. J. Bailey and Mr. D. Bailey.)</dd>
+				<dt>Surname:</dt>
+				<dd xmlns:foaf="http://xmlns.com/foaf/0.1/" property="foaf:familyName" typeof="gaz:Person" about="this:deceasedPerson" foaf:familyName="BAILEY">BAILEY</dd>
+				<dt>First name:</dt>
+				<dd xmlns:foaf="http://xmlns.com/foaf/0.1/" property="foaf:firstName" typeof="gaz:Person" about="this:deceasedPerson" foaf:firstName="Olive">Olive</dd>
+				<dt>Middle name(s):</dt>
+				<dd xmlns:foaf="http://xmlns.com/foaf/0.1/" property="foaf:givenName" typeof="gaz:Person" about="this:deceasedPerson" foaf:givenName="Mildred">Mildred</dd>
+				<dt>Fullname:</dt>
+				<dd>BAILEY, Olive Mildred</dd>
+				<dt>Date of death:</dt>
+				<dd property="personal-legal:dateOfDeath" typeof="gaz:Person" datatype="xsd:date" about="this:deceasedPerson" content="2000-12-11">
+					<time datetime="2000-12-11">11th December 2000</time>
+				</dd>
+				<dt>Person address details:</dt>
+				<dd about="this:addressOfDeceased-address-1" typeof="vcard:Address" property="vcard:address">35 Merrivale Road, North End, Portsmouth, Hampshire.</dd>
+				<section>
+					<h2>Legal information</h2>
+					<p/>
+				</section>
+			</dl>
+		</article>
+	</body>
+</html>
