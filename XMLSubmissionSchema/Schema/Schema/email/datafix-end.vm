@@ -1,0 +1,7 @@
+Datafix for Version 2 Uris has ended.
+Filename: ${filename}
+
+Total count: ${total}
+Failed count: ${failedCount}
+Failed notice Uris:
+${failed}
