@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.Product">
+	  	<map-to xml="Product" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+		<field name="briefDescription" type="string" >
+	      	<bind-xml name="BriefDescription" node="element"/>
+	    </field>
+	    <field name="fullDescription" type="string" >
+	      	<bind-xml name="FullDescription" node="element"/>
+	    </field>
+	    <field name="lastModifiedDate" type="date" >
+	      	<bind-xml name="LastModifiedDate" node="element"/>
+	    </field>
+	    <field name="maxOrderQuantity" type="int" >
+	      	<bind-xml name="MaxOrderQuantity" node="element"/>
+	    </field>
+	    <field name="minOrderQuantity" type="int" >
+	      	<bind-xml name="MinOrderQuantity" node="element"/>
+	    </field>
+	    <field name="productId" type="string" >
+	      	<bind-xml name="ProductId" node="element"/>
+	    </field>
+	    <field name="productName" type="string" >
+	      	<bind-xml name="ProductName" node="element"/>
+	    </field>
+	    <field name="productType" type="string" >
+	      	<bind-xml name="ProductType" node="element"/>
+	    </field>
+	    <field name="properCaseProductId" type="string" >
+	      	<bind-xml name="ProperCaseProductId" node="element"/>
+	    </field>
+	    <field name="unitPrices" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.UnitPrices" >
+	      	<bind-xml name="UnitPrices" node="element"/>
+	    </field>
+	     <field name="vatCodeId" type="string" >
+	      	<bind-xml name="VatCodeId" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.UnitPrices">
+	  	<map-to xml="UnitPrices" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+ 		<field name="unitPricesList" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.UnitPrice" collection="arraylist">
+	      	<bind-xml name="UnitPrice" node="element"/>
+	    </field>
+	</class>
+
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.UnitPrice">
+	  	<map-to xml="UnitPrice" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+ 		<field name="breakQuantity" type="int" >
+	      	<bind-xml name="BreakQuantity" node="element"/>
+	    </field>
+	    <field name="currencyCode" type="string" >
+	      	<bind-xml name="CurrencyCode" node="element"/>
+	    </field>
+	     <field name="netPrice" type="string" >
+	      	<bind-xml name="NetPrice" node="element"/>
+	    </field>
+	    <field name="validFromDate" type="date" >
+	      	<bind-xml name="ValidFromDate" node="element"/>
+	    </field>
+	    <field name="validToDate" type="date" >
+	      	<bind-xml name="ValidToDate" node="element"/>
+	    </field>
+	</class>
+	
+</mapping>
