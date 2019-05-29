@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.OperationResult">	  
+		<map-to xml="OperationResult" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsoshop" />	      
+		<field name="basketId" type="string" >
+	      	<bind-xml name="BasketId" node="element"/>
+	    </field>
+	    <field name="basketItemsList"  type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.BasketItem" collection="arraylist" >
+	      	<bind-xml name="BasketItem" node="element"/>
+	    </field>
+		<field name="basketItems" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.BasketItems" >
+	      	<bind-xml name="BasketItems" node="element"/>
+	    </field>
+	    
+	    <field name="basketExtrinsicsList"  type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.BasketExtrinsics" collection="arraylist" >
+	      	<bind-xml name="BasketExtrinsics" node="element"/>
+	    </field>
+		<field name="extrinsics" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.Extrinsics" >
+	      	<bind-xml name="Extrinsics" node="element"/>
+	    </field>
+	    
+		<field name="createDate" type="date" >
+	      	<bind-xml name="CreateDate" node="element"/>
+	    </field>
+	    <field name="customerId" type="string" >
+	      	<bind-xml name="CustomerId" node="element"/>
+	    </field>
+	    <field name="lineItemId" type="string" >
+	      	<bind-xml name="LineItemId" node="element"/>
+	    </field>
+		<field name="lineVATValue" type="string" >
+	      	<bind-xml name="LineVATValue" node="element"/>
+	    </field>
+	    <field name="lineValue" type="string" >
+	      	<bind-xml name="LineValue" node="element"/>
+	    </field>
+	    <field name="orderedQuantity" type="int" >
+	      	<bind-xml name="OrderedQuantity" node="element"/>
+	    </field>
+	    <field name="orderedQuantityIsValid" type="boolean" >
+	      	<bind-xml name="OrderedQuantityIsValid" node="element"/>
+	    </field>
+	    <field name="unitNetPrice" type="string" >
+	      	<bind-xml name="UnitNetPrice" node="element"/>
+	    </field>
+	    <field name="lastModifiedDate" type="date" >
+	      	<bind-xml name="LastModifiedDate" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.Extrinsics">
+	  	<map-to xml="Extrinsics" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsoshop" />	      
+		<field name="basketExtrinsics"  type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.BasketExtrinsics" collection="arraylist" >
+	      	<bind-xml name="BasketExtrinsic" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.BasketExtrinsics">
+	  	<map-to xml="BasketExtrinsic" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsoshop" />	    
+	  	<field name="basketId" type="string" >
+	      	<bind-xml name="BasketId" node="element"/>
+	    </field>  
+		<field name="extrinsicKey" type="string" >
+	      	<bind-xml name="ExtrinsicKey" node="element"/>
+	    </field> 
+		<field name="lineItemId" type="string" >
+	      	<bind-xml name="LineItemId" node="element"/>
+	    </field> 
+		<field name="value" type="string" >
+	      	<bind-xml name="Value" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.BasketItems">
+	  	<map-to xml="BasketItems" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsoshop" />	      
+		<field name="basketItems"  type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.BasketItem" collection="arraylist" >
+	      	<bind-xml name="BasketItem" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.BasketItem">
+	  	<map-to xml="BasketItem" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsoshop" />	    
+	  	<field name="basketId" type="string" >
+	      	<bind-xml name="BasketId" node="element"/>
+	    </field>  
+		<field name="lineItemId" type="string" >
+	      	<bind-xml name="LineItemId" node="element"/>
+	    </field>
+	    <field name="lineVATValue" type="string" >
+	      	<bind-xml name="LineVATValue" node="element"/>
+	    </field>
+	    <field name="lineValue" type="string" >
+	      	<bind-xml name="LineValue" node="element"/>
+	    </field>
+	    <field name="notes" type="string" >
+	      	<bind-xml name="Notes" node="element"/>
+	    </field>
+	    <field name="orderedQuantity" type="int" >
+	      	<bind-xml name="OrderedQuantity" node="element"/>
+	    </field>
+	    <field name="orderedQuantityValid" type="boolean" >
+	      	<bind-xml name="OrderedQuantityIsValid" node="element"/>
+	    </field>
+	    <field name="product" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.Product" >
+	      	<bind-xml name="Product" node="element"/>
+	    </field>
+	    <field name="productId" type="string" >
+	      	<bind-xml name="ProductId" node="element"/>
+	    </field>
+	    <field name="unitNetPrice" type="string" >
+	      	<bind-xml name="UnitNetPrice" node="element"/>
+	    </field>
+	</class>
+	
+</mapping>
