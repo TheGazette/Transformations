@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	 <class name="uk.co.gazettes.services.taxonomy.castor.entities.NoticeTaxonomy">	  
+	    <map-to xml="notice-taxonomy" ns-uri="http://www.gazettes.co.uk/assets/taxonomy"/>	      
+	    <field name="noticeTypes" type="uk.co.gazettes.services.taxonomy.castor.entities.NoticeType" collection="arraylist">
+	      <bind-xml name="notice-type" node="element"/>
+	    </field> 	    	            
+	</class>   
+	<class name="uk.co.gazettes.services.taxonomy.castor.entities.NoticeType">	  
+	    <map-to xml="notice-type"/>	    	
+	    <field name="serviceName" type="string">
+	      <bind-xml name="name" node="attribute"/>
+	    </field>
+	    
+	    <field name="serviceCode" type="string">
+	      <bind-xml name="code" node="attribute"/>
+	    </field>
+	    
+	    <field name="serviceKey" type="string">
+	      <bind-xml name="service-key" node="attribute"/>
+	    </field>
+	    
+	    <field name="noticeSubTypes" type="uk.co.gazettes.services.taxonomy.castor.entities.NoticeType" collection="arraylist">
+	      <bind-xml name="notice-type" node="element"/>
+	    </field> 	    	            
+	</class>  
+</mapping>

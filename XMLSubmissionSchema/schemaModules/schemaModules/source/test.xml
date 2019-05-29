@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gazette Title="London" SchemaVersion="1.0" xsi:schemaLocation="http://www.tso.co.uk/assets/namespace/gazette c:\Gazettes\Schema\schemaGazette-v1-0.xsd" xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.tso.co.uk/assets/namespace/gazette" xmlns:lga="http://www.tso.co.uk/assets/namespace/gazette" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:local="#local-functions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <Metadata>
+                        <ukm:PublishDate>2011-11-10</ukm:PublishDate>
+                        <ukm:PublishDateText/>
+                        <ukm:InitialPageNumber/>
+                        <ukm:IssueNumber>101010</ukm:IssueNumber>
+                        <ukm:ISBN/>
+            </Metadata>
+            <Body>
+                        <Category Type="29" xmlns="http://www.tso.co.uk/assets/namespace/gazette">
+                                    <Notice Type="2903" Reference="998">
+                                                <ukm:Metadata xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata">
+                                                            <ukm:PublishDate>2011-11-10</ukm:PublishDate>
+                                                            <ukm:SupplierNoticeID>039</ukm:SupplierNoticeID>
+                                                            <ukm:KeyedBy>Mark</ukm:KeyedBy>
+                                                            <ukm:SortKey/>
+                                                            <ukm:Language>English</ukm:Language>
+                                                            <ukm:NoticeClass>Standard</ukm:NoticeClass>
+                                                            <ukm:TimeStamp>11:0:41.428</ukm:TimeStamp>
+                                                </ukm:Metadata>
+                                                <Person>
+                                                            <PersonName>
+                                                                        <Surname>Anderson</Surname>, <Forename>Ena</Forename>
+                                                                        <MiddleNames>Ruth</MiddleNames>
+                                                            </PersonName>
+                                                            <PersonDetails>5 Hawthorn Avenue, Bexhill On Sea, East Sussex TN39 3UZ. Civil Servant (Retired)</PersonDetails>
+                                                            <DeathDetails>
+                                                                        <Date Date="2011-02-10" Class="General">10 February 2011</Date>
+                                                                        <NoticeOfClaims>London Gazette, PO Box 7923, London SE1 5ZH. (Ref AAYF.) (F Anderson.)</NoticeOfClaims>
+                                                                        <NoticeOfClaimsDate Date="2012-01-11">11 January 2012</NoticeOfClaimsDate>
+                                                            </DeathDetails>
+                                                </Person>
+                                    </Notice>
+                                    <Notice Type="2903" Reference="999">
+                                                <ukm:Metadata xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata">
+                                                            <ukm:PublishDate>2011-11-10</ukm:PublishDate>
+                                                            <ukm:SupplierNoticeID>026</ukm:SupplierNoticeID>
+                                                            <ukm:KeyedBy>Mark</ukm:KeyedBy>
+                                                            <ukm:SortKey/>
+                                                            <ukm:Language>English</ukm:Language>
+                                                            <ukm:NoticeClass>Standard</ukm:NoticeClass>
+                                                            <ukm:TimeStamp>11:57:46.284</ukm:TimeStamp>
+                                                </ukm:Metadata>
+                                                <Person>
+                                                            <PersonName>
+                                                                        <Surname>Andrews</Surname>, <Forename>Malcolm</Forename>
+                                                                        <MiddleNames>Edwin</MiddleNames>
+                                                            </PersonName>
+                                                            <PersonDetails>32 Livingstone Road, Parkstone, Poole, Dorset BH12 3DU. Metal Polisher (Retired)</PersonDetails>
+                                                            <DeathDetails>
+                                                                        <Date Date="2011-06-04" Class="General">4 June 2011</Date>
+                                                                        <NoticeOfClaims>Lester Aldridge LLP, Russell House, Oxford Road, Bournemouth BH8 8EX. (David Lewis Parkhouse and Geoffrey David Thomas.)</NoticeOfClaims>
+                                                                        <NoticeOfClaimsDate Date="2012-01-11">11 January 2012</NoticeOfClaimsDate>
+                                                            </DeathDetails>
+                                                </Person>
+                                    </Notice>
+                        </Category>
+            </Body>
+</Gazette>
