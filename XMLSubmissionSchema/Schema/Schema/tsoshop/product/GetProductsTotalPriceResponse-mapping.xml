@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.productservice.GetProductsTotalPriceResponse">
+	    <map-to xml="GetProductsTotalPriceResponse" ns-uri="http://www.tsoshop.co.uk/"/>
+		<field name="result" type="uk.co.gazettes.services.tsoshop.castor.entities.productservice.GetProductTotalResponseModel" >
+			<bind-xml name="GetProductsTotalPriceResult" node="element" />
+		</field> 
+	</class> 
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.productservice.GetProductTotalResponseModel">
+	    <map-to xml="GetProductResult" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="b"/>
+		<field name="netPrice" type="string" >
+			<bind-xml name="NetPrice" node="element" />
+		</field>
+		<field name="totalPrice" type="string" >
+			<bind-xml name="TotalPrice" node="element" />
+		</field>
+		<field name="vatPrice" type="string" >
+			<bind-xml name="VatPrice" node="element" />
+		</field>
+	</class> 
+
+</mapping>
