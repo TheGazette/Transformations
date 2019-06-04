@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html DocumentURI="https://www.thegazette.co.uk/id/notice/L-59308-1019636" IdURI="https://www.thegazette.co.uk/id/notice/L-59308-1019636" prefix="gaz: https://www.thegazette.co.uk/def/publication# person: https://www.thegazette.co.uk/def/person# vcard: http://www.w3.org/2006/vcard/ns# personal-legal: https://www.thegazette.co.uk/def/personal-legal# prov: http://www.w3.org/ns/prov# this: https://www.thegazette.co.uk/id/notice/L-59308-1019636#" version="XHTML+RDFa 1.1" xmlns="http://www.w3.org/1999/xhtml" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:gz="http://www.tso.co.uk/assets/namespace/gazette" xmlns:gzc="http://www.tso.co.uk/assets/namespace/gazette/LGconfiguration" xmlns:wgs84="http://www.w3.org/2003/01/geo/wgs84_pos" xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+  <head>
+    <title>Deceased Estates</title>
+    <gazette-metadata xmlns="http://www.gazettes.co.uk/metadata">
+      <bundle-id>345</bundle-id>
+      <notice-id>L-59308-1019636</notice-id>
+      <status>unpublished</status>
+      <version-count>2</version-count>
+      <notice-code>2903</notice-code>
+      <edition>London</edition>
+      <issue>59308</issue>
+      <legacy-notice-number>1019636</legacy-notice-number>
+      <user-submitted>ContentAdministratorUser</user-submitted>
+    </gazette-metadata>
+  </head>
+  <article>
+    <header>
+      <h1>Deceased Estates</h1>
+    </header>
+    <div class="rdfa-data">
+			<!-- Needed for all notices -->
+			<span about="https://www.thegazette.co.uk/id/notice/L-59308-1019636" property="dc11:publisher" content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk"></span>			
+    	<span about="https://www.thegazette.co.uk/id/notice/L-59308-1019636" property="gaz:isAbout" resource="this:notifiableThing"></span>
+    	<span resource="https://www.thegazette.co.uk/id/notice/L-59308-1019636" typeof="gaz:Notice"></span>
+      <span about="https://www.thegazette.co.uk/id/notice/L-59308-1019636" property="prov:has_provenance" resource="https://www.thegazette.co.uk/id/notice/L-59753-1340165/provenance"> 
+      <span about="https://www.thegazette.co.uk/id/notice/L-59308-1019636" property="prov:has_anchor" resource="https://www.thegazette.co.uk/id/notice/L-59308-1019636"></span>
+			<!-- Needed for legacy London Gazette notices -->
+    	<span resource="https://www.thegazette.co.uk/id/edition/london/issue/59308" typeof="gaz:Issue"></span>
+    	<span about="https://www.thegazette.co.uk/id/edition/london/issue/59308" property="gaz:hasEdition" resource="https://www.thegazette.co.uk/id/edition/london"></span>
+    	<span about="https://www.thegazette.co.uk/id/edition/london/issue/59308" content="59308" datatype="xsd:string" property="gaz:hasIssueNumber"></span>
+    	<span resource="https://www.thegazette.co.uk/id/edition/london" typeof="gaz:Edition"></span>
+    	<span about="https://www.thegazette.co.uk/id/notice/L-59308-1019636" property="owl:sameAs" resource="https://www.thegazette.co.uk/id/edition/london/issue/59308/notice/1019636" typeof="gaz:Notice"></span>
+    	<span about="https://www.thegazette.co.uk/id/notice/L-59308-1019636" property="prov:alternateOf" resource="http://www.london-gazette.co.uk/id/issues/59308/notices/1019636" typeof="gaz:Notice"></span>
+			<!-- Common to all 2903 notices -->
+    	<span resource="https://www.thegazette.co.uk/id/notice/L-59308-1019636" typeof="gaz:DeceasedEstatesNotice gaz:WillsAndProbateNotice"></span>
+	  	<span resource="this:notifiableThing" typeof="personal-legal:NoticeForClaimsAgainstEstate"></span>
+    	<span about="this:notifiableThing" property="gaz:isRequiredByLegislation" resource="http://www.legislation.gov.uk/id/ukpga/Geo5/15-16/19/section/27"></span>
+    	<span about="this:notifiableThing" property="personal-legal:hasPersonalRepresentative" resource="this:estateExecutor"></span>
+    	<span resource="this:addressOfDeceased" typeof="vcard:Address"></span>
+    	<span resource="this:addressOfExecutor" typeof="vcard:Address"></span>
+    	<span resource="this:estateExecutor" typeof="foaf:Agent"></span>
+    	<span about="this:estateExecutor" property="vcard:adr" resource="this:addressOfExecutor"></span>
+			<!-- Needed for all 2903 notices -->
+    	<span about="this:notifiableThing" property="personal-legal:hasEstateOf" resource="this:NorahBadham"></span>
+    	<span about="this:NorahBadham" typeof="gaz:Person"></span>
+    	<span about="this:NorahBadham" property="person:hasAddress" resource="this:addressOfDeceased"></span>
+    	<span about="this:NorahBadham" content="Norah Badham" foaf:name="Norah Badham" property="foaf:name"></span>
+			<!-- 2903 optional extras -->
+    	<span about="this:NorahBadham" property="person:hasPreviousAddress" resource="this:addressOfDeceased2"></span>
+    	<span resource="this:addressOfDeceased2" typeof="vcard:Address"></span>
+    	<span about="this:NorahBadham" property="person:hasEmployment" resource="this:occupationOfDeceased"></span>
+    </div>
+    <section id="noticeDetails">
+      <header>
+	<h2>Notice details</h2>
+      </header>
+      <dl>
+			<dt>Notice type:</dt>
+			<!-- For all notice types -->
+			<dd id="noticeType" about="https://www.thegazette.co.uk/id/notice/L-59308-1019636" property="gaz:hasNoticeCode" datatype="xsd:integer">2903</dd>
+			<dt>Claim expires:</dt>
+			<!-- For 2903 notices -->
+			<dd id="dateOfClaimExpire"><time about="this:notifiableThing" content="2010-03-19" datatype="xsd:date" datetime="2010-03-19" property="gaz:hasClaimDeadline">19 March 2010</time></dd>
+			<dt>Notice number:</dt>
+			<!-- For all notice types -->
+			<dd id="noticeNumber" about="https://www.thegazette.co.uk/id/notice/L-59308-1019636" property="gaz:hasNoticeNumber" datatype="xsd:integer">1019636</dd>
+			<dt>Publication date:</dt>
+			<!-- For all notice types -->
+			<dd id="publishDate" about="https://www.thegazette.co.uk/id/notice/L-59308-1019636" content="2010-01-18" datatype="xsd:date" property="gaz:hasPublicationDate dc:issued"><time datetime="2010-01-18">18 January 2010</time></dd>
+			<!---
+			<dt>Keyed by:</dt>
+			<dd id="keyedBy">John B</dd>
+			<dt>Supplier notice ID:</dt>
+			<dd id="supplierNoticeId">003</dd>
+			-->
+		</dl>
+    </section>
+    <section id="legalInformation">
+      <header>
+	<h2>Legal information</h2>
+      </header>
+      <dl><dt>Legal information:</dt><dd id="legalInfo">Notice is hereby given pursuant to s. 27 of the Trustee Act 1925, that any person having a claim against or an interest in the estate of any of the deceased persons whose names and addresses are set out in the first and second columns of the following Table is hereby required to send particulars in writing of his claim or interest to the person or persons whose names and addresses are set out opposite the name of the deceased person in the third column of the Table, and to send such particulars before the date specified in relation to that deceased person in the fourth column of the said Table, after which date the personal representatives will distribute the estate among the persons entitled thereto having regard only to the claims and interests of which they have had notice and will not, as respects the property so distributed, be liable to any person of whose claim they shall not then have had notice.</dd></dl>
+    </section>
+    <section id="detailsofDeceased">
+      <header>
+	<h2>Details of the deceased</h2>
+      </header>
+      <dl><dt>Surname:</dt><dd about="this:NorahBadham" foaf:familyName="Badham" id="surName" property="foaf:familyName" typeof="gaz:Person">Badham</dd>
+			    <dt>First name:</dt>
+					<dd about="this:NorahBadham" foaf:firstName="Norah" id="foreName" property="foaf:firstName" typeof="gaz:Person">Norah</dd>
+			    <dt>Middle name:</dt>
+					<dd about="this:NorahBadham" foaf:givenName="Caroline" id="middleName" property="foaf:givenName" typeof="gaz:Person">Caroline</dd>
+			    <dt>Maiden name:</dt>
+					<!-- Optional extra -->
+					<dd about="this:NorahBadham" foaf:firstName="Norah" id="foreName" property="foaf:hasMaidenName" typeof="gaz:Person">Smith</dd>
+			    <dt>Alternative name:</dt>
+					<!-- Optional extra -->
+					<dd about="this:NorahBadham" property="person:alsoKnownAs" typeof="gaz:Person">Nancy McGill</dd>
+					<dt>Date of death:</dt>
+					<!-- Range instead of single date -->
+					<dd id="startDateOfDeath"><time about="this:NorahBadham" content="2008-11-06" datatype="xsd:date" datetime="2008-11-06" property="personal-legal:startDateOfDeath" typeof="gaz:Person">6 November 2008</time></dd>
+					<dd id="endDateOfDeath"><time about="this:NorahBadham" content="2008-11-08" datatype="xsd:date" datetime="2008-11-08" property="personal-legal:endDateOfDeath" typeof="gaz:Person">8 November 2008</time></dd>
+					<dt>Former occupation</dt>
+					<!-- Optional extra -->
+					<dd about="this:occupationOfDeceased" property="person:jobTitle" typeof="person:Employment">Hotel Manager</dd>
+					</dl>
+    </section>
+    <section id="personAddressDetails">
+      <header>
+	<h2>Former home address of the deceased</h2>
+      </header>
+      <dl>
+			<dt>Person address details:</dt>
+			<!-- Properly separated when derived from web form -->
+			<dd about="this:addressOfDeceased" property="person:houseInformation">The Grove</dd>
+			<dd about="this:addressOfDeceased" property="vcard:street-address">Lode Lane</dd>
+			<dd about="this:addressOfDeceased" property="vcard:locality">Solihull</dd>
+			<dd about="this:addressOfDeceased" property="vcard:region">West Midlands</dd>
+			<dd about="this:addressOfDeceased" property="vcard:postalCode">B91 3RX</dd>
+			<dt>Person former address details:</dt>
+			<!-- Optional extra -->
+			<dd about="this:addressOfDeceased2" property="vcard:street-address">27 Festive Road</dd>
+			<dd about="this:addressOfDeceased2" property="vcard:locality">Solihull</dd>
+			<dd about="this:addressOfDeceased2" property="vcard:region">West Midlands</dd>
+			<dd about="this:addressOfDeceased2" property="vcard:postalCode">B91 3PQ</dd>
+			</dl>
+    </section>
+    <section id="detailsOfExecutor">
+      <header>
+	<h2>Details of the executor</h2>
+      </header>
+      <dl><dt>Executor:</dt><dd about="this:estateExecutor" id="executor" property="personal-legal:executorDetails" typeof="foaf:Agent">Allsopp &amp; Co, 42a Poplar Road, Solihull, West Midlands B91 3AB. Solicitors.</dd></dl>
+    </section>
+  </article>
+</html>
