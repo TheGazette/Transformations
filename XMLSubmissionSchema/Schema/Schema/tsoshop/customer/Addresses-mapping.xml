@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.customerservice.Addresses">	  
+	    <map-to xml="Addresses" ns-uri="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" ns-prefix="tso" />	      
+		<field name="addressList" type="uk.co.gazettes.services.tsoshop.castor.entities.customerservice.Address" collection="arraylist" >
+			<bind-xml name="Address" node="element" />
+		</field> 
+	</class>  
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.customerservice.Address">	  
+	    <map-to xml="Address" ns-uri="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" ns-prefix="tso" />	      
+		<field name="addressId" type="string" >
+			<bind-xml name="AddressId" node="element" />
+		</field> 
+		<field name="city" type="string" >
+			<bind-xml name="City" node="element" />
+		</field> 
+		<field name="countryCode" type="string" >
+			<bind-xml name="CountryCode" node="element" />
+		</field>
+		<field name="county" type="string" >
+			<bind-xml name="County" node="element" />
+		</field>
+		<field name="deliverTo" type="string" >
+			<bind-xml name="DeliverTo" node="element" />
+		</field>
+		<field name="postalCode" type="string" >
+			<bind-xml name="PostalCode" node="element" />
+		</field> 
+		<field name="street1" type="string" >
+			<bind-xml name="Street1" node="element" />
+		</field> 
+		<field name="street2" type="string" >
+			<bind-xml name="Street2" node="element" />
+		</field> 
+		<field name="street3" type="string" >
+			<bind-xml name="Street3" node="element" />
+		</field> 
+		<field name="telephone" type="string" >
+			<bind-xml name="Telephone" node="element" />
+		</field>
+	</class>  
+</mapping>
