@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<mapping>
+ 	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.UpdateDeliveryAddressResponse">	  
+	    <map-to xml="UpdateDeliveryAddressResponse" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+	    <field name="result" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.UpdateDeliveryAddressResult" >
+	      	<bind-xml name="UpdateItemQuantityResult" node="element"/>
+	    </field> 	    	            
+	</class>
+	  
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.UpdateDeliveryAddressResult">	  
+	    <map-to xml="UpdateDeliveryAddressResult" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+		<field name="hasPerformedTheOperation" type="boolean" >
+	      	<bind-xml name="HasPerformedTheOperation" node="element"/>
+	    </field>
+	</class>
+</mapping>
