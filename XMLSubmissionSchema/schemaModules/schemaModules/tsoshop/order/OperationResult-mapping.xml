@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderservice.OperationResult">	  
+	    <map-to xml="OperationResult" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+	    <field name="customerId" type="string" >
+	      	<bind-xml name="CustomerId" node="element"/>
+	    </field>
+		<field name="orderId" type="string" >
+	      	<bind-xml name="OrderId" node="element"/>
+	    </field>
+	    <field name="orderPaymentType" type="string" >
+	      	<bind-xml name="OrderPaymentType" node="element"/>
+	    </field>
+	    <field name="lineItems" type="uk.co.gazettes.services.tsoshop.castor.entities.orderservice.LineItems" >
+	      	<bind-xml name="LineItems" node="element"/>
+	    </field>
+	    <field name="currentStatus" type="string" >
+	      	<bind-xml name="CurrentStatus" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderservice.LineItems">
+	  	<map-to xml="LineItems" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+		<field name="lineItemList"  type="uk.co.gazettes.services.tsoshop.castor.entities.orderservice.LineItem" collection="arraylist" >
+	      	<bind-xml name="LineItem" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderservice.LineItem">
+	  	<map-to xml="LineItem" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+		<field name="lineItemId" type="string" >
+	      	<bind-xml name="LineItemId" node="element"/>
+	    </field>
+	    <field name="notes" type="string" >
+	      	<bind-xml name="Notes" node="element"/>
+	    </field>
+	    <field name="productId" type="string" >
+	      	<bind-xml name="ProductId" node="element"/>
+	    </field>
+	</class>
+</mapping>
