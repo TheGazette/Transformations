@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:si-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:si="http://www.springframework.org/schema/integration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd			
+			http://www.springframework.org/schema/integration/xml
+			http://www.springframework.org/schema/integration/xml/spring-integration-xml-2.2.xsd
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- Notice Transform Context -->
+
+	<si:channel id="noticeTransformerRouterChannel"/>
+	<si:channel id="persistTransformedNoticeRouterChannel"/>
+	<si:channel id="transformeHTML5RDFaNoticeChannel"/>
+
+	<!-- this bean will be called with in the java class gazettesMessageTransformer	-->
+	<bean name="noticeFormPayLoadChanger" class="uk.co.gazettes.services.notice.impl.NoticeFormPayLoadChanger"></bean>
+
+	<si:channel id="persistTransformedNoticeChannel"/>
+
+	<si:service-activator input-channel="noticeTransformerRouterChannel" output-channel="persistTransformedNoticeRouterChannel" ref="gazettesMessageTransformer"
+		method="doTransformation" />
+	<si:service-activator input-channel="transformHTML5RDFaNoticeChannel" output-channel="persistTransformedNoticeChannel" ref="gazettesMessageTransformer"
+		method="doTransformation" />	
+	
+	<si:header-value-router input-channel="persistTransformedNoticeRouterChannel" header-name="isCompanyLawNotice" default-output-channel="persistTransformedNoticeChannel" >
+		<si:mapping value="true" channel="validateNoticeChannel" />
+		<si:mapping value="false" channel="persistTransformedNoticeChannel" />
+	</si:header-value-router>		
+		
+
+	<!-- persist transformed notice -->
+	<si:service-activator input-channel="persistTransformedNoticeChannel" output-channel="enrichNoticeChannel" ref="persistenceService"
+		method="persistTransformedNotice" />
+
+	<bean name="gazettesMessageTransformer" class="uk.co.gazettes.services.transformer.GazettesMessageTransformerImpl"></bean>
+	
+</beans>
