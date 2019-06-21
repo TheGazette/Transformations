@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:si-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:si="http://www.springframework.org/schema/integration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+    xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.1.xsd	
+			http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd		
+			http://www.springframework.org/schema/integration/xml
+			http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util-3.1.xsd
+			http://www.springframework.org/schema/task 
+			http://www.springframework.org/schema/task/spring-task-3.0.xsd
+			http://www.springframework.org/schema/cache 
+			http://www.springframework.org/schema/cache/spring-cache-3.1.xsd">
+
+	<import resource="classpath:gazettes-datalayer.xml" />			
+	<import resource="classpath:gazettes-provenance.xml" />
+	<import resource="classpath:gazette-archive-context.xml" />
+	<import resource="classpath:gazettes-digital-signature-context.xml" />
+	<import resource="classpath:gazettes-metadata-transformer-context.xml"/>
+
+	<import resource="classpath:workflow/gazettes-services-error-handling.xml" />
+	<import resource="classpath:workflow/gazettes-services-ftp.xml" />
+	<import resource="classpath:workflow/gazettes-services-split.xml" />
+	<import resource="classpath:workflow/gazettes-services-transform.xml" />
+	<import resource="classpath:workflow/gazettes-services-validate.xml" />	
+	<import resource="classpath:workflow/gazettes-services-enrich.xml" />
+	<import resource="classpath:workflow/gazettes-services-publish.xml" />
+	<import resource="classpath:jms/gazettes-jms-config.xml" /> 		
+
+	<context:component-scan base-package="uk.co.gazettes.services" />
+	<context:component-scan base-package="uk.co.gazettes.commons.util" />
+
+	<util:set id="publicSectorCustomerGroupEmails">
+	    <value>gov.co.uk</value>
+	</util:set>
+	
+	<bean id="defaultNoticeTypeForUnitPricing" class="java.lang.String">
+  		<constructor-arg value="2903"/>
+	</bean>
+	
+	<bean id="productType" class="uk.co.gazettes.services.mybasket.model.ProductType" />
+	<bean id="subscriptionDetail" class="uk.co.gazettes.services.tsoshop.castor.entities.common.SubscriptionDetail" />
+	<bean id="companyProfileProductType" class="uk.co.gazettes.services.companies.companyprofile.CompanyProfileProductType" />
+	
+	<util:map id="fixedCatalogueProductIds">
+		<entry key="#{productType.extraLogoPrivate}" value="gaz154"/>
+		<entry key="#{productType.extraLogoPublic}" value="gaz154p"/>
+		
+	    <entry key="#{productType.extraPoBoxServicePrivate}" value="gaz171"/>
+	    <entry key="#{productType.extraPoBoxServicePublic}" value="gaz171p"/>
+	    
+	    <entry key="#{productType.extraPublishinNewspaper}" value="gaz153"/>
+	    
+	    <!-- extra printed copy producIds per edition -->
+	    <entry key="#{productType.extraPrintedCopyLondon}" value="lgaz9999"/>
+	    <entry key="#{productType.extraPrintedCopyEdinburgh}" value="egaz9999"/>
+	    <entry key="#{productType.extraPrintedCopyBelfast}" value="bgaz9999"/>
+	    
+	    <!-- extra pdf producIds per edition --> 
+	    <entry key="#{productType.extraPDFCopyLondon}" value="lgaz170"/>
+	    <entry key="#{productType.extraPDFCopyEdinburgh}" value="egaz170"/>
+	    <entry key="#{productType.extraPDFCopyBelfast}" value="bgaz170"/>
+	    
+	     <!-- productids for commemorative editions --> 
+	     <entry key="#{productType.parchmentProduct}" value="ce1"/>
+	     <entry key="#{productType.certificateOfRecord}" value="ce2"/>
+	     <entry key="#{productType.worldWarOneProduct}" value="ce3"/>
+	     <entry key="#{productType.stateOfWarProduct}" value="ww1a"/>
+	     <entry key="#{productType.battleYpres}" value="ww1b"/>
+	     <entry key="#{productType.battleNeuveChappelle}" value="ww1c"/>
+	     <entry key="#{productType.battleLoos}" value="ww1d"/>
+	     <entry key="#{productType.gallipoliDespatch}" value="ww1e"/>
+	     
+	     <!-- productids for subscriptions --> 
+	     <entry key="#{companyProfileProductType.monthlySubscription}" value="gaz176"/>
+	     <entry key="#{companyProfileProductType.annualSubscription}" value="gaz177"/>
+	</util:map>
+	
+	
+	<cache:annotation-driven />	   
+	<bean id="cacheManager" name="servicesCacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" p:cache-manager-ref="ehcache"/>
+	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" p:config-location="classpath:services-ehcache.xml"/>
+	
+	<context:property-placeholder location="classpath:gazettes-services.properties,classpath:envn-configs/${target.envn}.override.properties" ignore-resource-not-found="true" ignore-unresolvable="true"/>
+	
+	<util:properties id="legalInfoConfig" location="classpath:legal-info.properties" />
+	
+	<bean id="noticeService" class="uk.co.gazettes.services.notice.impl.NoticeServiceImpl" />
+	
+	<bean id="contentAggregateService" class="uk.co.gazettes.services.content.ContentAggregateServiceImpl" />
+	
+	<bean id="castorMarshaller" class="org.springframework.oxm.castor.CastorMarshaller">
+		<property name="mappingLocations" >
+		 	<list>
+            	 <value>classpath:bundlemetadatamapping.xml</value>
+            	 <value>classpath:searchrequestmapping.xml</value>
+            	 <value>classpath:searchcollectionsmapping.xml</value>
+            	 <value>classpath:metadataelementsmapping.xml</value>
+				 <value>classpath:mygazettesmapping.xml</value>
+				 <value>classpath:noticetaxonomymapping.xml</value>
+				 <value>classpath:taxonomy/notice-type-metadata-mapping.xml</value>
+         	</list>
+        </property> 
+		<property name="ignoreExtraElements" value="true" />
+		<property name="ignoreExtraAttributes" value="true" />
+	</bean>
+		
+	<bean id="companyDataDAO" class="uk.co.gazettes.services.companydata.impl.CompanyDataDAOImpl">
+		<constructor-arg name="hostAddress" value="${companydata.hostAddress}"/>
+		<constructor-arg name="portNumber" value="${companydata.portNumber}"/>
+		<constructor-arg name="connectionTimeout" value="${companydata.connectionTimeout}"/>
+		<constructor-arg name="readTimeout" value="${companydata.readTimeout}"/>
+		<constructor-arg name="knowledgeBase" value="${companydata.knowledgeBase}"/>
+	</bean>
+	
+	
+	<bean id="fiveStoreDataDAO" class="uk.co.gazettes.services.fivestore.impl.FiveStoreDataDAOImpl">
+	<constructor-arg name="hostAddress" value="${fivestore.hostAddress}"/>
+	<constructor-arg name="portNumber" value="${fivestore.portNumber}"/>
+	<constructor-arg name="connectionTimeout" value="${fivestore.connectionTimeout}"/>
+	<constructor-arg name="readTimeout" value="${fivestore.readTimeout}"/>
+	<constructor-arg name="knowledgeBase" value="${fivestore.knowledgeBase}"/>
+</bean>
+
+	<bean id="fiveStoreDataUnpublishedDAO" class="uk.co.gazettes.services.fivestore.impl.FiveStoreDataDAOImpl">
+		<constructor-arg name="hostAddress" value="${fivestore.unpublished.hostAddress}"/>
+		<constructor-arg name="portNumber" value="${fivestore.unpublished.portNumber}"/>
+		<constructor-arg name="connectionTimeout" value="${fivestore.unpublished.connectionTimeout}"/>
+		<constructor-arg name="readTimeout" value="${fivestore.unpublished.readTimeout}"/>
+		<constructor-arg name="knowledgeBase" value="${fivestore.unpublished.knowledgeBase}"/>
+	</bean>
+	
+
+
+	<bean id="virtStoreDataDAO" class="uk.co.gazettes.services.triplestore.impl.VirtStoreDataDAOImpl">
+		<constructor-arg name="hostAddress" value="${virtstore.hostAddress}"/>
+		<constructor-arg name="portNumber" value="${virtstore.portNumber}"/>
+		<constructor-arg name="apiService" value="${virtstore.apiService}"/>
+		<constructor-arg name="username" value="${virtstore.username}"/>
+		<constructor-arg name="password" value="${virtstore.password}"/>
+		<constructor-arg name="connectionTimeout" value="${virtstore.connectionTimeout}"/>
+		<constructor-arg name="readTimeout" value="${virtstore.readTimeout}"/>
+		<constructor-arg name="knowledgeBase" value="${virtstore.knowledgeBase}"/>
+		<constructor-arg name="proxySettings" ref="proxySettings"/>
+	</bean>
+
+	<bean id="virtStoreDataUnpublishedDAO" class="uk.co.gazettes.services.triplestore.impl.VirtStoreDataDAOImpl">
+		<constructor-arg name="hostAddress" value="${virtstore.unpublished.hostAddress}"/>
+		<constructor-arg name="portNumber" value="${virtstore.unpublished.portNumber}"/>
+		<constructor-arg name="apiService" value="${virtstore.unpublished.apiService}"/>
+		<constructor-arg name="username" value="${virtstore.unpublished.username}"/>
+		<constructor-arg name="password" value="${virtstore.unpublished.password}"/>
+		<constructor-arg name="connectionTimeout" value="${virtstore.unpublished.connectionTimeout}"/>
+		<constructor-arg name="readTimeout" value="${virtstore.unpublished.readTimeout}"/>
+		<constructor-arg name="knowledgeBase" value="${virtstore.unpublished.knowledgeBase}"/>
+		<constructor-arg name="proxySettings" ref="proxySettings"/>
+	</bean>
+
+
+	
+	<bean id="httpClient" class="org.apache.http.impl.client.DefaultHttpClient"/>
+
+	<bean id="jacksonObjectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+	
+	<bean name="persistenceService" class="uk.co.gazettes.services.notice.impl.PersistenceServiceImpl" />
+	
+	<bean name="initialiseNoticeService" class="uk.co.gazettes.services.notice.impl.InitialiseNoticeProcessServiceImpl" />
+	
+	<bean name="validatorService" class="uk.co.gazettes.services.notice.impl.ValidatorServiceImpl" />
+	
+	<bean name="enrichmentService" class="uk.co.gazettes.services.notice.impl.EnrichmentServiceImpl" />
+		
+	<bean name="submissionService" class="uk.co.gazettes.services.notice.impl.SubmissionServiceImpl" />
+	
+	<bean name="headerEnrichmentService" class="uk.co.gazettes.services.notice.impl.HeaderEnrichmentServiceImpl" />
+	
+	<bean id="noticeStatusModel" class="uk.co.gazettes.services.notice.NoticeStatusModel"/>	
+
+	<bean id="noticesBundleService" class="uk.co.gazettes.services.notice.bundle.NoticesBundleServiceImpl"/>
+
+	<bean name="ftpBundleValidatorService" class="uk.co.gazettes.services.notice.impl.FTPBundleValidatorServiceImpl" />
+	
+	<bean id="xstreamMarshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
+		<property name="autodetectAnnotations" value="true"/>
+	</bean>
+		
+	
+	<!-- Task Executor for Asynchronous calls (such as email sending mechanism for password reset or place notices) -->
+	
+	<task:annotation-driven executor="threadTaskExecutor" />
+	
+	<bean id="threadTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	  <property name="corePoolSize" value="50" />
+	  <property name="maxPoolSize" value="900" />
+	  <property name="queueCapacity" value="100" />
+	</bean>
+
+	
+	<!-- Web Services Spring-WS clients -->
+	
+	<bean id="shopCastorMarshaller" class="org.springframework.oxm.castor.CastorMarshaller">
+		<property name="mappingLocations" >
+		 	<list>
+            	<!-- registration service castor mapping -->
+				<value>classpath:tsoshop/register/RegisterCustomerRequest-mapping.xml</value>
+				<value>classpath:tsoshop/register/RegisterCustomerResponse-mapping.xml</value>
+				<value>classpath:tsoshop/register/Addresses-mapping.xml</value>
+				<value>classpath:tsoshop/register/BillToAddress-mapping.xml</value>
+			
+			
+				<!-- basket service castor mapping -->
+				<value>classpath:tsoshop/basket/AddMultipleItemsToBasketRequest-mapping.xml</value>
+				<value>classpath:tsoshop/basket/AddMultipleItemsToBasketResponse-mapping.xml</value>
+				<value>classpath:tsoshop/basket/AddToBasketRequest-mapping.xml</value>
+				<value>classpath:tsoshop/basket/AddToBasketResponse-mapping.xml</value>
+				<value>classpath:tsoshop/basket/DeleteBasketRequest-mapping.xml</value>
+				<value>classpath:tsoshop/basket/DeleteBasketResponse-mapping.xml</value>
+				<value>classpath:tsoshop/basket/GetBasketRequest-mapping.xml</value>
+				<value>classpath:tsoshop/basket/GetBasketResponse-mapping.xml</value>
+				<value>classpath:tsoshop/basket/GetPaymentMethodsRequest-mapping.xml</value>
+				<value>classpath:tsoshop/basket/GetPaymentMethodsResponse-mapping.xml</value>
+				<value>classpath:tsoshop/basket/RemoveItemRequest-mapping.xml</value>
+				<value>classpath:tsoshop/basket/RemoveItemResponse-mapping.xml</value>
+				<value>classpath:tsoshop/basket/UpdateItemQuantityRequest-mapping.xml</value>
+				<value>classpath:tsoshop/basket/UpdateItemQuantityResponse-mapping.xml</value>
+				<value>classpath:tsoshop/basket/UpdateDeliveryAddressRequest-mapping.xml</value>
+				<value>classpath:tsoshop/basket/UpdateDeliveryAddressResponse-mapping.xml</value>
+				<value>classpath:tsoshop/basket/OperationResult-mapping.xml</value>
+				<value>classpath:tsoshop/basket/Product-mapping.xml</value>
+				<value>classpath:tsoshop/basket/ValidateAndApplyDiscountCodeRequest-mapping.xml</value>
+				<value>classpath:tsoshop/basket/ValidateAndApplyDiscountCodeResponse-mapping.xml</value>
+			
+			
+				<!-- customer service castor mapping -->
+				<value>classpath:tsoshop/customer/AddShipToAddressRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/AddShipToAddressResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/GetCountriesRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/GetCountriesResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/GetCustomerByIdRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/GetCustomerByIdResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/GetCustomerByUserIdRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/GetCustomerByUserIdResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/MarkDefaultShipToAddressRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/MarkDefaultShipToAddressResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateAddressRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateAddressResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateBillToAddressRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateBillToAddressResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateCustomerEmailRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateCustomerEmailResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateCustomerTelephoneRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateCustomerTelephoneResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateAccountNameRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateAccountNameResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateCustomerGroupsRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateCustomerGroupsResponse-mapping.xml</value>
+				<value>classpath:tsoshop/customer/BillToAddress-mapping.xml</value>
+				<value>classpath:tsoshop/customer/DefaultShipToAddress-mapping.xml</value>
+				<value>classpath:tsoshop/customer/Addresses-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateCustomerReferenceRequest-mapping.xml</value>
+				<value>classpath:tsoshop/customer/UpdateCustomerReferenceResponse-mapping.xml</value>
+			
+				<!-- product service castor mapping -->
+				<value>classpath:tsoshop/product/GetProductRequest-mapping.xml</value>
+				<value>classpath:tsoshop/product/GetProductResponse-mapping.xml</value>
+				<value>classpath:tsoshop/product/GetProductsTotalPriceRequest-mapping.xml</value>
+				<value>classpath:tsoshop/product/GetProductsTotalPriceResponse-mapping.xml</value>
+			
+				<!-- order service castor mapping -->
+				<value>classpath:tsoshop/order/AssignPONumberRequest-mapping.xml</value>
+				<value>classpath:tsoshop/order/AssignPONumberResponse-mapping.xml</value>
+				<value>classpath:tsoshop/order/PaymentAuthRedirectRequest-mapping.xml</value>
+				<value>classpath:tsoshop/order/CancelOrderRequest-mapping.xml</value>
+				<value>classpath:tsoshop/order/CancelOrderResponse-mapping.xml</value>
+				<value>classpath:tsoshop/order/CheckoutRequest-mapping.xml</value>
+				<value>classpath:tsoshop/order/CheckoutResponse-mapping.xml</value>
+				<value>classpath:tsoshop/order/ConfirmOrderRequest-mapping.xml</value>
+				<value>classpath:tsoshop/order/ConfirmOrderResponse-mapping.xml</value>
+				<value>classpath:tsoshop/order/OperationResult-mapping.xml</value>
+			
+			
+				<!-- order history service castor mapping -->
+				<value>classpath:tsoshop/orderhistory/GetOrderDetailsRequest-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/GetOrderDetailsResponse-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/SearchOrdersRequest-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/SearchOrdersResponse-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/GetOrderCurrentStatusRequest-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/GetOrderCurrentStatusResponse-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/GetOrderLineItemCurrentStatusRequest-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/GetOrderLineItemCurrentStatusResponse-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/CancelOrderLineItemRequest-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/CancelOrderLineItemResponse-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/OperationResult-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/BillToAddress-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/ShipToAddress-mapping.xml</value>
+				
+				<value>classpath:tsoshop/orderhistory/GetPaymentDeclinedOrdersRequest-mapping.xml</value>
+				<value>classpath:tsoshop/orderhistory/GetPaymentDeclinedOrdersResponse-mapping.xml</value>
+			
+			
+				<!-- search service castor mapping -->
+				<value>classpath:tsoshop/search/SimpleSearchRequest-mapping.xml</value>
+				<value>classpath:tsoshop/search/SimpleSearchResponse-mapping.xml</value>
+			
+			
+				<!-- common castor mapping -->
+				<value>classpath:tsoshop/common/OperationResult-mapping.xml</value>
+				<value>classpath:tsoshop/common/ShipToAddress-mapping.xml</value>
+				<value>classpath:tsoshop/common/DefaultShipToAddress-mapping.xml</value>
+				<value>classpath:tsoshop/common/Product-mapping.xml</value>
+				<value>classpath:tsoshop/common/ValidationMessages-mapping.xml</value>
+				
+         	</list>
+        </property> 
+		<property name="ignoreExtraElements" value="true" />
+		<property name="ignoreExtraAttributes" value="true" />
+	</bean>
+		
+	
+	<bean id="shopRegistrationServiceClient" class="uk.co.gazettes.services.webservices.client.ShopRegistrationServiceClientImpl" >
+		<property name="serviceOperation" value="registration.svc" />
+		<property name="marshaller" ref="shopCastorMarshaller" />
+		<property name="unmarshaller" ref="shopCastorMarshaller" />
+	</bean>
+	
+	
+	<bean id="shopBasketServiceClient" class="uk.co.gazettes.services.webservices.client.ShopBasketServiceClientImpl" >
+		<property name="serviceOperation" value="BasketService.svc" />
+		<property name="marshaller" ref="shopCastorMarshaller" />
+		<property name="unmarshaller" ref="shopCastorMarshaller" /> 
+	</bean>
+	
+	
+	<bean id="shopCustomerServiceClient" class="uk.co.gazettes.services.webservices.client.ShopCustomerServiceClientImpl" >
+		<property name="serviceOperation" value="CustomerService.svc" />
+		<property name="marshaller" ref="shopCastorMarshaller" />
+		<property name="unmarshaller" ref="shopCastorMarshaller" /> 
+	</bean>
+
+
+	<bean id="shopProductServiceClient" class="uk.co.gazettes.services.webservices.client.ShopProductServiceClientImpl" >
+		<property name="serviceOperation" value="ProductService.svc" />
+		<property name="marshaller" ref="shopCastorMarshaller" />
+		<property name="unmarshaller" ref="shopCastorMarshaller" /> 
+	</bean>
+	
+	
+	<bean id="shopOrderServiceClient" class="uk.co.gazettes.services.webservices.client.ShopOrderServiceClientImpl" >
+		<property name="serviceOperation" value="OrderService.svc" />
+		<property name="marshaller" ref="shopCastorMarshaller" />
+		<property name="unmarshaller" ref="shopCastorMarshaller" />
+	</bean>
+	
+
+	<bean id="shopOrderHistoryServiceClient" class="uk.co.gazettes.services.webservices.client.ShopOrderHistoryServiceClientImpl" >
+		<property name="serviceOperation" value="OrderHistoryService.svc" />
+		<property name="marshaller" ref="shopCastorMarshaller" />
+		<property name="unmarshaller" ref="shopCastorMarshaller" /> 
+	</bean>
+	
+	
+	<bean id="shopSearchServiceClient" class="uk.co.gazettes.services.webservices.client.ShopSearchServiceClientImpl" >
+		<property name="serviceOperation" value="Service.svc" />
+		<property name="marshaller" ref="shopCastorMarshaller" />
+		<property name="unmarshaller" ref="shopCastorMarshaller" />
+		
+		<!-- This service context is different from the other Web Services -->
+		<property name="serviceContext" value="Tso.Shop.Search.Catalogue.PVP" />
+	</bean>
+
+	<bean id="templateResolver"
+		class="org.thymeleaf.templateresolver.ClassLoaderTemplateResolver">
+		<property name="prefix" value="sparql/" />
+		<property name="suffix" value=".sparql" />
+		<property name="templateMode" value="TEXT" />
+	</bean>
+
+	<bean id="templateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver" />
+	</bean>
+	
+	<bean id="templateResolverXML"
+		class="org.thymeleaf.templateresolver.ClassLoaderTemplateResolver">
+		<property name="prefix" value="paypage/" />
+		<property name="suffix" value=".xml" />
+		<property name="templateMode" value="XML" />
+	</bean>
+
+	<bean id="templateEngineXML" class="org.thymeleaf.spring3.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolverXML" />
+	</bean>
+
+	<bean id="dataSourceCompany" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.company.driverClassName}" />
+		<property name="jdbcUrl" value="${jdbc.company.url}" />
+		<property name="user" value="${jdbc.company.username}" />
+		<property name="password" value="${jdbc.company.password}" />
+		<property name="acquireIncrement" value="${company.db.c3p0.acquireIncrement}" />
+		<property name="idleConnectionTestPeriod" value="${company.db.c3p0.idlePeriod}" />
+		<property name="maxPoolSize" value="${company.db.c3p0.maxPoolSize}" />
+		<property name="maxStatements" value="${company.db.c3p0.maxStatements}" />
+		<property name="minPoolSize" value="${company.db.c3p0.minPoolSize}" />
+		<property name="maxIdleTime" value="${company.db.c3p0.maxIdleTime}" />
+ 	</bean>
+
+	<bean id="awsClientFactory" class="uk.co.gazettes.services.aws.util.AwsClientFactory"/>
+
+	<bean id="awsHelper" class="uk.co.gazettes.services.aws.util.AwsHelper"/>
+
+	<bean id="cdnCacheClearanceService" class="uk.co.gazettes.services.aws.cloudfront.CdnCacheClearanceServiceImpl">
+		<property name="awsClientFactory" ref="awsClientFactory"/>
+		<property name="awsHelper" ref="awsHelper"/>
+	</bean>
+</beans>

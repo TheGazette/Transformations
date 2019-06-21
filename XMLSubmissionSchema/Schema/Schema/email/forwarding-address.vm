@@ -1,0 +1,28 @@
+Hello,
+
+The following PO Box forwarding address request has been placed for: 
+notice ${noticeId}
+executor address ID ${executorAddressId}
+ 
+First Name: ${firstname}
+Middle Name: ${middlename} 
+Surname: ${surname} 
+Address:
+${addressLine1}
+${addressLine2}
+${townCity}
+${postcode}
+${county}
+${country}
+
+Email: ${email}
+Telephone Number: ${telephone}
+Fax: ${fax}
+Reference Number: ${refnumber}
+
+Many thanks,
+
+The Gazette Team
+Email: customer.services@thegazette.co.uk
+Telephone: +44 (0)333 200 2434
+Twitter: @TheGazetteUK
