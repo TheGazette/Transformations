@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notice-type-metadata xmlns="http://www.gazettes.co.uk/assets/taxonomy" code="%code%" name="%name%">
+            <place-notice-options>
+                        <web-form enabled="false"/>
+            </place-notice-options>
+            <seo-options>
+                        <disable-crawling enabled="true">
+                                    <unavailable-after-years>4</unavailable-after-years>
+                                    <unavailable-after-months>11</unavailable-after-months>
+                        </disable-crawling>
+            </seo-options>
+</notice-type-metadata>
