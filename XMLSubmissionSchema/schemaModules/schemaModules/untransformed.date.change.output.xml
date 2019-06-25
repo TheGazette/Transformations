@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html IdURI="gaz: https://www.thegazette.co.uk/id/notice/2722798"
+	prefix="gaz: https://www.thegazette.co.uk/def/publication# dc11: http://purl.org/dc/elements/1.1/ person: https://www.thegazette.co.uk/def/person# personal-legal: https://www.thegazette.co.uk/def/personal-legal# court: https://www.thegazette.co.uk/def/court# org: http://www.w3.org/ns/org# gazorg: https://www.thegazette.co.uk/def/organisation# gzw: https://www.thegazette.co.uk/def/working# loc: https://www.thegazette.co.uk/def/location# this: https://www.thegazette.co.uk/id/notice/2722798# noticeid: https://www.thegazette.co.uk/id/notice/2722798 issue: https://www.thegazette.co.uk/id/edition/london/issue/undefined edition: https://www.thegazette.co.uk/id/edition/london vcard: http://www.w3.org/2006/vcard/ns# prov: http://www.w3.org/ns/prov# provenance: https://www.thegazette.co.uk/id/notice/2722798/provenance"
+	xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type"
+			content="text/html; charset=UTF-8" />
+		<title>Ed Banger</title>
+		<gazette-metadata
+			xmlns="http://www.gazettes.co.uk/metadata">
+			<status>published</status>
+			<submitted-date>2017-02-27T13:53:31</submitted-date>
+			<notice-code>2903</notice-code>
+			<publication-date>2017-02-27T00:01:00</publication-date>
+			<publication-year>2017</publication-year>
+			<bundle-id>102532</bundle-id>
+			<edition>London</edition>
+			<claim-deadline-date>2017-07-12</claim-deadline-date>
+			<death-date>2016-02-09</death-date>
+			<draft-uri>/my-gazette/draft/20216</draft-uri>
+			<organisation-id>0</organisation-id>
+			<notice-id>2722798</notice-id>
+			<sort-by-date>2017-07-12</sort-by-date>
+			<title>Ed Banger</title>
+			<user-submitted>84</user-submitted>
+			<version-count>2</version-count>
+			<xhtml-validation>failed</xhtml-validation>
+			<chargeable-events>1</chargeable-events>
+			<notice-logo />
+			<pre-paid-internal-submission>true</pre-paid-internal-submission>
+			<notice-category-codes>
+				<notice-category-code>29</notice-category-code>
+				<notice-category-code>G106000000</notice-category-code>
+				<notice-category-code>G206040000</notice-category-code>
+				<notice-category-code>G406040001</notice-category-code>
+			</notice-category-codes>
+			<locations>
+				<location about="deceasedPersonAddress" searchable="true">
+					<geo-spatial>
+						<latitude>51.481155</latitude>
+						<longitude>-0.062150</longitude>
+					</geo-spatial>
+					<local-authority>The London Borough of Southwark</local-authority>
+					<postcode>SE15 1ND</postcode>
+				</location>
+			</locations>
+			<notice-capture-method>webform</notice-capture-method>
+		</gazette-metadata>
+	</head>
+	<body>
+		<article>
+			<div class="rdfa-data">
+				<span about="this:deceased-address-1"
+					property="https://www.thegazette.co.uk/def/postcode"
+					resource="https://www.thegazette.co.uk/id/postcode/SE151ND"></span>
+				<span about="https://www.thegazette.co.uk/id/postcode/SE151ND"
+					content="-0.062150"
+					datatype="http://www.w3.org/2001/XMLSchema#decimal"
+					property="http://www.w3.org/2003/01/geo/wgs84_pos#long"></span>
+				<span about="https://www.thegazette.co.uk/id/postcode/SE151ND"
+					content="51.481155"
+					datatype="http://www.w3.org/2001/XMLSchema#decimal"
+					property="http://www.w3.org/2003/01/geo/wgs84_pos#lat"></span>
+				<span about="https://www.thegazette.co.uk/id/postcode/SE151ND"
+					content="SE15 1ND"
+					property="http://www.w3.org/2000/01/rdf-schema#label"></span>
+				<span about="https://www.thegazette.co.uk/id/postcode/SE151ND"
+					property="https://www.thegazette.co.uk/def/administrative-area"
+					resource="https://www.thegazette.co.uk/id/administrative-area/gb/7000000000011013"></span>
+				<span
+					about="https://www.thegazette.co.uk/id/administrative-area/gb/7000000000011013"
+					content="The London Borough of Southwark"
+					property="http://www.w3.org/2000/01/rdf-schema#label"></span>
+				<span about="this:addressOfExecutor-1"
+					property="https://www.thegazette.co.uk/def/postcode"
+					resource="https://www.thegazette.co.uk/id/postcode/SE151ND"></span>
+				<span about="this:notifiableThing"
+					property="https://www.thegazette.co.uk/def/publication#relatedLegislation"
+					resource="http://www.legislation.gov.uk/id/ukpga/Geo5/15-16/19/section/27"></span>
+				<span about="this:notifiableThing" content="2016-02-09"
+					datatype="http://www.w3.org/2001/XMLSchema#date"
+					property="https://www.thegazette.co.uk/def/publication#relatedDate"></span>
+				<span about="this:notifiableThing"
+					property="https://www.thegazette.co.uk/def/publication#relatedLegislation"
+					resource="http://www.legislation.gov.uk/id/ukpga/Geo5/15-16/19"></span>
+				<span about="this:notifiableThing" content="2017-07-12"
+					datatype="http://www.w3.org/2001/XMLSchema#date"
+					property="https://www.thegazette.co.uk/def/publication#relatedDate"></span>
+				<span about="this:notifiableThing" content="2017-02-27"
+					datatype="http://www.w3.org/2001/XMLSchema#date"
+					property="https://www.thegazette.co.uk/def/publication#relatedDate"></span>
+				<span
+					about="http://www.legislation.gov.uk/id/ukpga/Geo5/15-16/19/section/27"
+					content="Trustee Act 1925, s. 27"
+					property="http://www.w3.org/2000/01/rdf-schema#label"></span>
+				<span
+					resource="http://www.legislation.gov.uk/id/ukpga/Geo5/15-16/19/section/27"
+					typeof="https://www.thegazette.co.uk/def/legislation#LegislationSection"></span>
+				<span
+					about="http://www.legislation.gov.uk/id/ukpga/Geo5/15-16/19"
+					content="Trustee Act 1925"
+					property="http://www.w3.org/2000/01/rdf-schema#label"></span>
+				<span
+					resource="http://www.legislation.gov.uk/id/ukpga/Geo5/15-16/19"
+					typeof="https://www.thegazette.co.uk/def/legislation#Legislation"></span>
+				<span about="noticeid:"
+					content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk"
+					property="dc11:publisher"></span>
+				<span about="noticeid:" property="gaz:isAbout"
+					resource="this:notifiableThing"></span>
+				<span about="noticeid:" property="prov:has_provenance"
+					resource="provenance:"></span>
+				<span about="noticeid:" property="prov:hasAnchor"
+					resource="noticeid:"></span>
+				<span about="noticeid:" property="gaz:isInIssue"
+					resource="issue:"></span>
+				<span about="noticeid:" content="2903" datatype="xsd:integer"
+					property="gaz:hasNoticeCode"></span>
+				<span resource="noticeid:"
+					typeof="gaz:Notice gaz:WillsAndProbateNotice"></span>
+				<span resource="issue:" typeof="gaz:Issue"></span>
+				<span about="issue:" property="gaz:hasEdition"
+					resource="edition:"></span>
+				<span about="issue:" content="0" datatype="xsd:string"
+					property="gaz:hasIssueNumber"></span>
+				<span resource="edition:" typeof="gaz:Edition"></span>
+				<span about="noticeid:" content="2722798"
+					datatype="xsd:integer" property="gaz:hasNoticeNumber"></span>
+				<span resource="issue:" typeof="gaz:Issue"></span>
+				<span resource="this:notifiableThing"
+					typeof="personal-legal:NoticeForClaimsAgainstEstate"></span>
+				<span data-hide="true" resource="this:deceasedPerson"
+					typeof="gaz:Person"></span>
+				<span about="this:deceasedPerson" data-hide="true"
+					property="person:hasEmployment"
+					resource="this:occupationOfDeceased"></span>
+				<span data-hide="true" resource="this:occupationOfDeceased"
+					typeof="person:Employment"></span>
+				<span data-hide="true" resource="this:estateExecutor"
+					typeof="foaf:Agent"></span>
+			</div>
+			<dl class="metadata">
+				<dt>Notice category:</dt>
+				<dd data-ui-class="category">Personal Legal</dd>
+				<dt>Notice type:</dt>
+				<dd data-ui-class="notice-type">Deceased Estates</dd>
+				<dt data-gazettes="earliestpublicationdate">Earliest publication date:</dt>
+				<dd>
+					<span about="noticeid:" data-required="true"
+						datatype="xsd:dateTime" property="gaz:earliestPublicationDate">2017-02-27T00:01:00</span>
+				</dd>
+				<dt>Claim expires:</dt>
+				<dd about="this:notifiableThing" datatype="xsd:date"
+					property="personal-legal:hasClaimDeadline">2017-08-12</dd>
+				<dt>Edition:</dt>
+				<dd>
+					The
+					<span about="edition:" datatype="xsd:string"
+						property="gaz:editionName">London</span>
+					Gazette
+				</dd>
+				<dt>Notice ID:</dt>
+				<dd about="noticeid:" property="gaz:hasNoticeID">2722798</dd>
+				<dt>Notice code:</dt>
+				<dd about="noticeid:" datatype="xsd:integer"
+					property="gaz:hasNoticeCode">2903</dd>
+			</dl>
+			<div about="this:notifiableThing" class="content"
+				data-gazettes="Notice" data-gazettes-type="2903">
+				<div class="full-form">
+					<div class="error-list"></div>
+					<dl data-gazettes="Notice Details">
+					</dl>
+					<dl about="this:notifiableThing" data-gazettes="Legislation"
+						property="legislation:isEnabledByLegislation"
+						resource="this:legislation-1">
+						<dt>Legislation:</dt>
+						<dd about="this:legislation-1" datatype="xsd:string"
+							property="legislation:legislationTitle" typeof="legislation:Act">Trustee Act 1925</dd>
+						<dt>Legislation Section:</dt>
+						<dd about="this:legislation-1" datatype="xsd:string"
+							property="legislation:legislationSection">Section 27 (Deceased Estates)</dd>
+					</dl>
+					<div about="this:notifiableThing"
+						data-gazettes="Deceased details"
+						property="personal-legal:hasEstateOf"
+						resource="this:deceasedPerson">
+						<dl>
+							<dt>Deceased Surname:</dt>
+							<dd about="this:deceasedPerson" data-required="true"
+								datatype="xsd:string" property="foaf:familyName">Banger</dd>
+							<dt>Deceased First name:</dt>
+							<dd about="this:deceasedPerson" data-required="true"
+								datatype="xsd:string" property="foaf:firstName">Ed</dd>
+							<dt>Date of Death:</dt>
+							<dd about="this:deceasedPerson" datatype="xsd:date"
+								property="personal-legal:dateOfDeath">2016-02-09</dd>
+						</dl>
+					</div>
+					<div about="this:deceasedPerson" property="person:hasAddress"
+						resource="this:deceased-address-1">
+						<dl>
+							<dt>Address Line 1:</dt>
+							<dd about="this:deceased-address-1" data-required="true"
+								data-ui-class="addressLine1" property="vcard:street-address"
+								typeof="vcard:Address">FLAT 18</dd>
+							<dt>Address Line 2:</dt>
+							<dd about="this:deceased-address-1"
+								data-ui-class="addressLine2" property="vcard:extended-address">SARNESFIELD HOUSE</dd>
+							<dt>Town:</dt>
+							<dd about="this:deceased-address-1" data-ui-class="locality"
+								property="vcard:locality">LONDON</dd>
+							<dt>Postcode:</dt>
+							<dd about="this:deceased-address-1" data-required="true"
+								data-ui-class="postcode" property="vcard:postal-code">SE15 1ND</dd>
+						</dl>
+					</div>
+					<div about="this:notifiableThing"
+						data-gazettes="Executors Details"
+						property="personal-legal:hasPersonalRepresentative"
+						resource="this:estateExecutor">
+						<dl>
+							<dt>Executor/Administrator Company Name: </dt>
+							<dd about="this:estateExecutor" data-required="true"
+								datatype="xsd:string" property="foaf:name">Executors Ltd</dd>
+							<dt>Executor/Administrator Surname: </dt>
+							<dd about="this:estateExecutor" data-required="true"
+								datatype="xsd:string" property="foaf:familyName">Banger</dd>
+							<dt>Executor/Administrator First name: </dt>
+							<dd about="this:estateExecutor" data-required="true"
+								datatype="xsd:string" property="foaf:firstName">Sue</dd>
+						</dl>
+						<div about="this:estateExecutor" property="vcard:adr"
+							resource="this:addressOfExecutor-1">
+							<dl>
+								<dt>Address 1:</dt>
+								<dd about="this:addressOfExecutor-1"
+									property="vcard:street-address" typeof="vcard:Address">FLAT 3</dd>
+								<dt>Address 2:</dt>
+								<dd about="this:addressOfExecutor-1"
+									property="vcard:extended-address">SARNESFIELD HOUSE</dd>
+								<dt>Town:</dt>
+								<dd about="this:addressOfExecutor-1"
+									property="vcard:locality">LONDON</dd>
+								<dt>Postcode:</dt>
+								<dd about="this:addressOfExecutor-1"
+									property="vcard:postal-code">SE15 1ND</dd>
+							</dl>
+						</div>
+					</div>
+					<dl>
+						<dt>Claims Date:</dt>
+						<dd about="this:notifiableThing" datatype="xsd:date"
+							property="personal-legal:hasClaimDeadline">2017-08-12</dd>
+					</dl>
+				</div>
+			</div>
+			<section>
+				<p>
+					Notice is hereby given pursuant to section 27 (Deceased Estates) of
+					the Trustee Act 1925, that any person having a claim against or an
+					interest in the estate of any of the deceased persons whose names
+					and addresses are set out above is hereby required to send
+					particulars in writing of his claim or interest to the person or
+					persons whose names and addresses are set out above, and to send
+					such particulars before the date specified in relation to that
+					deceased person displayed above, after which date the personal
+					representatives will distribute the estate among the persons
+					entitled thereto having regard only to the claims and interests of
+					which they have had notice and will not, as respects the property
+					so distributed, be liable to any person of whose claim they shall
+					not then have had notice.
+					<span about="" datatype="" property="" resource="" typeof=""></span>
+				</p>
+			</section>
+		</article>
+		<section class="summary">
+			<dl>
+				<dt>Address of Deceased</dt>
+				<dd>FLAT 18, LONDON, SE15 1ND</dd>
+				<dt>Date of Claim Deadline</dt>
+				<dd>
+					<time datetime="2017-08-12"></time>
+				</dd>
+			</dl>
+		</section>
+	</body>
+</html>
