@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.CancelOrderLineItemResponse">	  
+	    <map-to xml="CancelOrderLineItemResponse" ns-uri="http://tempuri.org/" ns-prefix="temp"/>	      
+		<field name="result" type="string" >
+			<bind-xml name="CancelOrderLineItemResult" node="element" />
+		</field> 
+	</class> 
+</mapping>
