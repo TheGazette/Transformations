@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--©  Crown copyright
+ 
+You may use and re-use this code free of charge under the terms of the Open Government Licence
+ 
+http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:gz="http://www.tso.co.uk/assets/namespace/gazette" xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" xmlns:wgs84="http://www.w3.org/2003/01/geo/wgs84_pos" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:personal-legal="http://www.thegazette.co.uk/def/personal-legal" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gzc="http://www.tso.co.uk/assets/namespace/gazette/LGconfiguration" xmlns:math="http://www.w3.org/1998/Math/MathML" prefix="gaz: https://www.thegazette.co.uk/def/publication#       person: https://www.thegazette.co.uk/def/person#         personal-legal: https://www.thegazette.co.uk/def/personal-legal#        org: http://www.w3.org/ns/org# this: https://www.thegazette.co.uk/id/notice/3333# prov: http://www.w3.org/ns/prov#" DocumentURI="https://www.thegazette.co.uk/notice/3333" IdURI="https://www.thegazette.co.uk/id/notice/3333" version="XHTML+RDFa 1.1">
+   	
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      		
+      <title>Deceased Estates</title>
+      		
+      <gazette-metadata xmlns="http://www.gazettes.co.uk/metadata">
+         			
+         <bundle-id>1111</bundle-id>
+         			
+         <notice-id>3333</notice-id>
+         			
+         <status>test</status>
+         			
+         <version-count>1</version-count>
+         			
+         <notice-code>2903</notice-code>
+         			
+         <edition>London</edition>
+         			
+         <issue>2222</issue>
+         			
+         <legacy-notice-number>1744426</legacy-notice-number>
+         			
+         <user-submitted>test</user-submitted>
+         		
+      </gazette-metadata>
+      	
+   </head>
+   	
+   <body>
+      		
+      <article>
+         			
+         <h1>Deceased Estates</h1>
+         			
+         <div class="rdfa-data">
+            				<span about="https://www.thegazette.co.uk/id/notice/3333" property="dc11:publisher" content="TSO (The Stationery Office), customer.services@thegazette.co.uk"></span>
+            				<span about="https://www.thegazette.co.uk/id/notice/3333" property="gaz:isAbout" resource="this:notifiableThing"></span>
+            				<span about="https://www.thegazette.co.uk/id/notice/3333" property="prov:has_provenance" resource="https://www.thegazette.co.uk/id/notice/3333/provenance"></span>
+            				<span resource="https://www.thegazette.co.uk/id/edition/London/issue/2222" typeof="gaz:Issue"></span>
+            				<span about="https://www.thegazette.co.uk/id/edition/London/issue/2222" property="gaz:hasEdition" resource="https://www.thegazette.co.uk/id/edition/London"></span>
+            				<span about="https://www.thegazette.co.uk/id/edition/London/issue/2222" content="2222" datatype="xsd:string" property="gaz:hasIssueNumber"></span>
+            				<span resource="https://www.thegazette.co.uk/id/edition/London" typeof="gaz:Edition"></span>
+            				<span about="https://www.thegazette.co.uk/id/notice/3333" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="1744426"></span>
+            				<span about="https://www.thegazette.co.uk/id/notice/3333" property="owl:sameAs" resource="https://www.thegazette.co.uk/id/edition/London/issue/2222/notice/1744426" typeof="gaz:Notice"></span>
+            				<span about="https://www.thegazette.co.uk/id/notice/3333" property="prov:alternateOf" resource="http://www.london-gazette.co.uk/id/issues/2222/notices/1744426" typeof="gaz:Notice"></span>
+            				<span about="https://www.thegazette.co.uk/id/notice/3333" property="gaz:isRequiredByLegislation" resource="http://www.legislation.gov.uk/ukpga/Geo5/15-16/19/section/27"></span>
+            				<span resource="this:notifiableThing" typeof="personal-legal:NoticeForClaimsAgainstEstate/"></span>
+            				<span about="this:notifiableThing" property="personal-legal:hasPersonalRepresentative" resource="this:estateExecutor"></span>
+            				<span resource="this:addressOfDeceased-address-1" typeof="vcard:Address"></span>
+            				<span resource="this:addressOfExecutor" typeof="vcard:Address"></span>
+            				<span resource="this:estateExecutor" typeof="foaf:Agent"></span>
+            				<span about="this:estateExecutor" property="vcard:adr" resource="this:addressOfExecutor"></span>
+            				<span resource="https://www.thegazette.co.uk/id/notice/3333" typeof="gaz:DeceasedEstatesNotice gaz:WillsAndProbateNotice gaz:Notice"></span>
+            				<span about="this:notifiableThing" property="personal-legal:hasEstateOf" resource="this:deceasedPerson"></span>
+            				<span about="this:deceasedPerson" typeof="gaz:Person"></span>
+            				<span about="this:deceasedPerson" property="person:hasAddress" resource="this:addressOfDeceased-address-1"></span>
+            				<span about="this:deceasedPerson" content="Eric Albone" foaf:name="Eric Albone" property="foaf:name"></span>
+            			
+         </div>
+         			
+         <dl>
+            				
+            <dt>Notice type:</dt>
+            				
+            <dd property="gaz:hasNoticeCode" datatype="xsd:integer" about="https://www.thegazette.co.uk/id/notice/3333">2903</dd>
+            				
+            <dt>Claim expires:</dt>
+            				
+            <dd about="this:notifiableThing" property="personal-legal:hasClaimDeadline" datatype="xsd:date" content="2013-03-21">
+               					
+               <time datetime="2013-03-21">21 March 2013</time>
+               				
+            </dd>
+            				
+            <dt>Edition:</dt>
+            				
+            <dd>London</dd>
+            				
+            <dt>issue Number:</dt>
+            				
+            <dd>2222</dd>
+            				
+            <dt>Notice ID:</dt>
+            				
+            <dd about="https://www.thegazette.co.uk/id/notice/3333" property="gaz:hasNoticeID">3333</dd>
+            				
+            <dt>Publication date:</dt>
+            				
+            <dd about="https://www.thegazette.co.uk/id/notice/3333" property="gaz:hasPublicationDate dc:issued" content="2013-01-16">
+               					
+               <time datetime="2013-01-16">16 January 2013</time>
+               				
+            </dd>
+            				
+            <dt>Surname:</dt>
+            				
+            <dd property="foaf:familyName" typeof="gaz:Person" about="this:deceasedPerson" foaf:familyName="Albone">Albone</dd>
+            				
+            <dt>First name:</dt>
+            				
+            <dd property="foaf:firstName" typeof="gaz:Person" about="this:deceasedPerson" foaf:firstName="Eric">Eric</dd>
+            				
+            <dt>Date of death:</dt>
+            				
+            <dd property="personal-legal:dateOfDeath" typeof="gaz:Person" datatype="xsd:date" about="this:deceasedPerson" content="2012-09-24">
+               					
+               <time datetime="2012-09-24">24 September 2012</time>
+               				
+            </dd>
+            				
+            <dt>Person address details:</dt>
+            				
+            <dd about="this:addressOfDeceased-address-1" typeof="vcard:Address" property="vcard:address">158 Hillcroft Crescent, Oxhey, Watford, Hertfordshire WD19 4NZ. Widow</dd>
+            				
+            <dt>Executor:</dt>
+            				
+            <dd about="this:estateExecutor" property="foaf:name" typeof="foaf:Agent">Sandra Mary Baker and Kenneth Alan Baker, c/o Maffey &amp; Brentnall, 149 The Parade,
+               High Street, Watford, Hertfordshire WD17 1NB.
+            </dd>
+            			
+         </dl>
+         			
+         <section>
+            				
+            <h2>Legal information</h2>
+            				
+            <p>test</p>
+            			
+         </section>
+         		
+      </article>
+      	
+   </body>
+   
+</html>
