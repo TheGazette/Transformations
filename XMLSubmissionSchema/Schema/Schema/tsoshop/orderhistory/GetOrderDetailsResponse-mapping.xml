@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.GetOrderDetailsResponse">	  
+	    <map-to xml="GetOrderDetailsResponse" ns-uri="http://tempuri.org/" ns-prefix="temp"/>	      
+		<field name="result" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.GetOrderDetailsResult" >
+			<bind-xml name="GetOrderDetailsResult" node="element" />
+		</field> 
+	</class> 
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.GetOrderDetailsResult">	  
+	    <map-to xml="GetOrderDetailsResult" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+		<field name="hasPerformedTheOperation" type="boolean" >
+	      	<bind-xml name="HasPerformedTheOperation" node="element"/>
+	    </field>
+		<field name="operationResult" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.OperationResult" >
+	      	<bind-xml name="OperationResult" node="element"/>
+	    </field>
+	    <field name="validationMessages" type="uk.co.gazettes.services.tsoshop.castor.entities.common.ValidationMessages" >
+	      	<bind-xml name="ValidationMessages" node="element"/>
+	    </field>
+	</class> 
+</mapping>
