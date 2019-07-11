@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:si-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:si="http://www.springframework.org/schema/integration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd			
+			http://www.springframework.org/schema/integration/xml
+			http://www.springframework.org/schema/integration/xml/spring-integration-xml-2.2.xsd
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util.xsd">
+				  
+	<si:channel id="enrichNoticeChannel"/>
+	
+	<si:channel id="persistEnrichedNoticeChannel" />
+	
+	<si:channel id="validationRequiredCheckChannel" />
+	
+	<!-- invoke DES  -->	
+	<si:service-activator input-channel="enrichNoticeChannel" output-channel="validationRequiredCheckChannel" ref="enrichmentService" method="enrichNotice" />
+
+	<!-- persist enriched notice -->
+	<!-- si:service-activator input-channel="persistEnrichedNoticeChannel" output-channel="validationRequiredCheckChannel" ref="persistenceService" method="persistEnrichedNotice" /-->
+	
+	<si:header-value-router input-channel="validationRequiredCheckChannel"	header-name="is_legacy_notice">
+		<si:mapping value="true" channel="persistEnrichedNoticeChannel" /><!-- save enriched one before calling publish -->
+		<si:mapping value="false" channel="validateNoticeChannel" />
+	</si:header-value-router>	
+	
+	<!-- enriched legacy notices will be  persisted without semantic validation while in other cases valid ones will be persisted-->
+	<si:service-activator input-channel="persistEnrichedNoticeChannel" output-channel="publishChannelRouter"  ref="persistenceService" method="persistEnrichedNotice" />
+	
+</beans>
+
+
+
