@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+		<eftrequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<javascriptenabled>Y</javascriptenabled>
+			<merchant>
+				<!-- VeriFone account details -->
+				<merchantid th:text="|${payPage2MerchantId}|"></merchantid>
+				<systemguid th:text="|${payPage2SystemGUID}|"></systemguid>
+			</merchant>
+			<!-- order number returned from catalogue back end -->
+			<merchantreference th:text="|${userOrder.number}|"></merchantreference>
+			<!-- VeriFone account details -->
+		    <accountid th:text="|${payPage2AccountId}|"></accountid> 
+			
+			<capturemethod>12</capturemethod>
+			<processingidentifier>2</processingidentifier>
+			<!-- Leave as 1.00, for auth only -->
+			<transactionvalue th:text="|${defaultPrePayValue}|"></transactionvalue>
+			<!-- ISBN(s) from order, alphanumeric only - no commas etc. -->
+			<description th:text="|The Gazette Order ${userOrder.number}|"></description>
+			<showorderconfirmation>false</showorderconfirmation>
+			<showpaymentresult>true</showpaymentresult>
+			<authcode/>
+			<customer>
+				<!-- actual customer name, only alphanumeric characters -->
+				<firstname th:text="|${userOrder.customer.firstName}|"></firstname>
+				<lastname th:text="|${userOrder.customer.surname}|"></lastname>
+				<!-- leave as dummy address -->
+				<address>
+					<address1>Address line 1</address1>
+					<address2/>
+					<town>Town</town>
+					<county/>
+					<postcode>PC1 1PC</postcode>
+					<country>Country</country>
+				</address>
+				<!-- leave as dummy address -->
+				<deliveryaddress>
+					<address1>Address line 1</address1>
+					<address2/>
+					<town>Town</town>
+					<county/>
+					<postcode>PC1 1PC</postcode>
+					<country>Country</country>
+					<countrycode>826</countrycode>
+				</deliveryaddress>
+				<!-- leave email address as is -->
+				<email>creditcardorders@tso.co.uk</email>
+				<deliveryedit>false</deliveryedit>
+			</customer>
+			<tokenid >0</tokenid>
+			<!-- current date plus a year, must be in this format -->
+			<tokenexpirationdate th:text="|${tokenexpirationdate}|"></tokenexpirationdate>
+			<registertoken>true</registertoken>
+			<processCPC>false</processCPC>
+			<hideBillingDetails>true</hideBillingDetails>
+			<hideDeliveryDetails>true</hideDeliveryDetails>
+			<hidepaymentresultsuccess>true</hidepaymentresultsuccess>
+			<enableUpdateToken>false</enableUpdateToken>
+		</eftrequest>
