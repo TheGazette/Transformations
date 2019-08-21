@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderservice.AssignPONumberResponse">	  
+	    <map-to xml="AssignPONumberResponse" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+		<field name="assignPONumber" type="boolean" >
+			<bind-xml name="AssignPONumber" node="element" />
+		</field>
+	</class>  
+</mapping>
