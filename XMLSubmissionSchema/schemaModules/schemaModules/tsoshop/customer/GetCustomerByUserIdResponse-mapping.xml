@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<mapping>
+ 	<class name="uk.co.gazettes.services.tsoshop.castor.entities.customerservice.GetCustomerByUserIdResponse">	  
+	    <map-to xml="GetCustomerByUserIdResponse" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+	    <field name="result" type="uk.co.gazettes.services.tsoshop.castor.entities.customerservice.CustomerByUserIdResult" >
+	      	<bind-xml name="GetCustomerByUserIdResult" node="element"/>
+	    </field> 	    	            
+	</class>
+	  
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.customerservice.CustomerByUserIdResult">	  
+	    <map-to xml="GetCustomerByUserIdResult" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+		<field name="customerId" type="string">
+			<bind-xml name="CustomerId" node="element" />
+		</field>
+		<field name="onlineUserId" type="string">
+			<bind-xml name="OnlineUserId" node="element" />
+		</field>
+		<field name="customerReference" type="string">
+			<bind-xml name="CustomerReference" node="element" />
+		</field>
+		<field name="firstName" type="string">
+			<bind-xml name="FirstName" node="element" />
+		</field>
+	    <field name="surname" type="string">
+			<bind-xml name="Surname" node="element" />
+		</field>
+	    <field name="companyName" type="string">
+			<bind-xml name="CompanyName" node="element" />
+		</field>
+	    <field name="isApproved" type="string">
+			<bind-xml name="IsApproved" node="element" />
+		</field> 
+		<field name="addresses"	type="uk.co.gazettes.services.tsoshop.castor.entities.customerservice.Addresses" >
+			<bind-xml name="Addresses" node="element" />
+		</field> 
+	</class>  
+
+</mapping>
