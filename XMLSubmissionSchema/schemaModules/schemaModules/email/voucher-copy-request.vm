@@ -1,0 +1,32 @@
+Hello,
+
+The following voucher copy request has been placed for notice ${noticeId} published online on ${pubdate}.
+
+PDF - please email the customer the relevant pdf edition.
+Print - please arrange for PPL to supply the relevant print edition to the customer.
+
+First Name: ${firstname}
+Surname: ${surname} 
+Organization name: ${organization} 
+Voucher copy type -  
+Print - ${printvoucher}
+PDF - ${pdfvoucher}
+
+Address:
+${addressLine1}
+${addressLine2}
+${addressLine3}
+${townCity}
+${postcode}
+${county}
+${country}
+
+Email: ${email}
+Telephone: ${telephone}
+
+Many thanks,
+
+The Gazette Team
+Email: customer.services@thegazette.co.uk
+Telephone: +44 (0)333 200 2434
+Twitter: @TheGazetteUK
