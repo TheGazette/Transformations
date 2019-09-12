@@ -1,0 +1,1271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration Name="London Gazette" xmlns="http://www.tso.co.uk/assets/namespace/gazette/LGconfiguration">
+	<Category Code="11" Name="State" SortOrder="1">
+		<Notice Code="1101" SortOrder="1">
+			<Name>Proclamations</Name>
+			<Description>Proclamations</Description>
+				</Notice>
+		<Notice Code="1102" SortOrder="2">
+			<Name> Royal Family</Name>
+			<Description>Notices concerning or involving members of the Royal Family</Description>
+			
+		</Notice>
+		<Notice Code="1103" SortOrder="3">
+			<Name>Appointments to the Royal Household</Name>
+			<Description>Appointments to the Royal household</Description>
+		
+		</Notice>
+		<Notice Code="1105" SortOrder="5">
+			<Name>Honours and Awards</Name>
+			<Description>Honours and awards</Description>
+			
+		</Notice>
+		<Notice Code="1106" SortOrder="6">
+			<Name>Privy Council Office</Name>
+			<Description>Privy Council Office (including Burial Act)</Description>
+			
+		</Notice>
+		<Notice Code="1107" SortOrder="7">
+			<Name>Change of Name and/or Arms</Name>
+			<Description>Change of Name and/or Arms — Royal Licence or Warrant of Precedence, College of Heralds</Description>
+		
+		</Notice>
+		<Notice Code="1108" SortOrder="8">
+			<Name>Crown Office</Name>
+			<Description>Crown Office</Description>
+		
+		</Notice>
+		<Notice Code="1109" SortOrder="9">
+			<Name>Duchy of Cornwall or Duchy of Lancaster</Name>
+			<Description>Duchy of Cornwall Duchy of Lancaster</Description>
+		
+		</Notice>
+		<Notice Code="1110" SortOrder="10">
+			<Name>Appointment of Sheriffs</Name>
+			<Description>Sheriffs Act 1887</Description>
+		
+		
+		</Notice>
+		<Notice Code="1111" SortOrder="11">
+			<Name>Deputy Lieutenant Commissions</Name>
+			<Description>Deputy Lieutenant Commissions</Description>
+		
+		</Notice>
+		<Notice Code="1112" SortOrder="12">
+			<Name>Appointment of Royal Commissions</Name>
+			<Description>Appointment of Royal Commissions</Description>
+		
+		</Notice>
+		<Notice Code="1113" SortOrder="13">
+			<Name>Lord Chancellor’s Office</Name>
+			<Description>Lord Chancellor’s Office (Appointment of Judges)</Description>
+		
+		</Notice>
+		<Notice Code="1114" SortOrder="14">
+			<Name>Prime Minister’s Office or the Office of The First Lord</Name>
+			<Description>Prime Minister’s Office or the Office of The First Lord of the Treasury or as headed by Prime Minister’s Office</Description>
+		
+		</Notice>
+		<Notice Code="1115" SortOrder="15">
+			<Name>Lord Lieutenants</Name>
+			<Description>Appointment of Lord Lieutenants</Description>
+			
+		</Notice>
+		<Notice Code="1116" SortOrder="16">
+			<Name>Home Office</Name>
+			<Description>Royal Warrants and Charters</Description>
+			
+		</Notice>
+		<Notice Code="1117" SortOrder="17">
+			<Name>The Scottish Government</Name>
+			<Description>Royal Warrants and Charters</Description>
+			
+		</Notice>
+		<Notice Code="1118" SortOrder="18">
+			<Name>Chancellor of the Exchequer</Name>
+		
+		</Notice>
+		<Notice Code="1119" SortOrder="19">
+			<Name>Warrants Under the Royal Sign Manual</Name>
+		
+		</Notice>
+		<Notice Code="1120" SortOrder="20">
+			<Name>Order of St John</Name>
+			
+		</Notice>
+		<Notice Code="1121" SortOrder="21">
+			<Name>Immigration and Asylum</Name>
+			<Description>Sale of detained transporter</Description>
+			
+		</Notice>
+		
+		 <Notice Code="1122" SortOrder="22">
+         <Name>Knights Bachelor</Name>
+         <Description>Knights Bachelor</Description>
+      </Notice>
+      <Notice Code="1123" SortOrder="23">
+         <Name>Order of the Bath</Name>
+         <Description>Order of the Bath</Description>
+      </Notice>
+      <Notice Code="1124" SortOrder="24">
+         <Name>Order of Saint Michael and Saint George</Name>
+         <Description>Order if Saint Michael and Saint George</Description>
+      </Notice>
+      <Notice Code="1125" SortOrder="25">
+         <Name>The Royal Victorian Order</Name>
+         <Description>The Royal Victorian Order</Description>
+      </Notice>
+      <Notice Code="1126" SortOrder="26">
+         <Name>Bar to the Royal Victorian Medal</Name>
+         <Description>Bar to the Royal Victorian Medal</Description>
+      </Notice>
+      <Notice Code="1127" SortOrder="27">
+         <Name>Royal Victorian Medal</Name>
+         <Description>Royal Victorian Medal</Description>
+      </Notice>
+      <Notice Code="1128" SortOrder="28">
+         <Name>Order of the Companions of Honour</Name>
+         <Description>Order of the Companions of Honour</Description>
+      </Notice>
+      <Notice Code="1129" SortOrder="29">
+         <Name>Order of the British Empire</Name>
+         <Description>Order of the British Empire</Description>
+      </Notice>
+      <Notice Code="1130" SortOrder="30">
+         <Name>British Empire Medal</Name>
+         <Description>British Empire Medal</Description>
+      </Notice>
+      <Notice Code="1131" SortOrder="31">
+         <Name>Royal Red Cross</Name>
+         <Description>Royal Red Cross</Description>
+      </Notice>
+      <Notice Code="1132" SortOrder="32">
+         <Name>Queen's Police Medal</Name>
+         <Description>Queen's Police Medal</Description>
+      </Notice>
+      <Notice Code="1133" SortOrder="33">
+         <Name>Queen's Fire Service Medal</Name>
+         <Description>Queen's Fire Service Medal</Description>
+      </Notice>
+      <Notice Code="1134" SortOrder="34">
+         <Name>Queen's Ambulance Service Medal</Name>
+         <Description>Queen's Ambulance Service Medal</Description>
+      </Notice>
+      <Notice Code="1135" SortOrder="35">
+         <Name>Queen's Volunteer Reserves Medal</Name>
+         <Description>Queen's Volunteer Reserves Medal</Description>
+      </Notice>
+      <Notice Code="1136" SortOrder="36">
+         <Name>Overseas Territories Police and Fire Service Medal</Name>
+         <Description>Overseas Territories Police and Fire Service Medal</Description>
+      </Notice>
+	</Category>
+	<Category Code="12" Name="Parliament" SortOrder="2">
+		<Notice Code="1201" SortOrder="1">
+			<Name>UK Parliament</Name>
+			<Description>Bills Receiving Royal Assent. In Parliament Bills</Description>
+		
+		</Notice>
+		<Notice Code="1203" SortOrder="3">
+			<Name>House of Lords</Name>
+			<Description>House of Lords</Description>
+			
+		</Notice>
+		<Notice Code="1204" SortOrder="4">
+			<Name>Speaker’s Notice</Name>
+			<Description>Speaker’s Notice - election of a member to serve in Parliament</Description>
+		
+		</Notice>
+		<Notice Code="1205" SortOrder="5">
+			<Name>Lord Chancellor’s Office</Name>
+			<Description>Lord Chancellor’s Office (Speaker of the House of Lords)</Description>
+		
+		</Notice>
+		<Notice Code="1207" SortOrder="7">
+			<Name>House of Commons</Name>
+			<Description>House of Commons</Description>
+		
+		</Notice>
+		<Notice Code="1208" SortOrder="8">
+			<Name>Scottish Parliament</Name>
+			<Description>The Scottish Parliament (Letters patent and Proclamations) Order 1999, SI 1999 No 737  (para 4.1 &amp; 4.2)</Description>
+			
+		</Notice>
+		
+		<Notice Code="1209" SortOrder="8">
+			<Name>Northern Ireland Assembly</Name>
+			<Description>Northern Ireland Assembly</Description>
+			
+		</Notice>
+			<Notice Code="1210" SortOrder="8">
+			<Name>National Assembly for Wales</Name>
+			<Description>National Assembly for Wales</Description>
+			
+		</Notice>
+		
+		<Notice Code="1211" SortOrder="11">
+         <Name>Statutory Rules (NI)</Name>
+         <Description>Statutory Rules (NI)</Description>
+      </Notice>
+	</Category>
+	<Category Code="13" Name="Ecclesiastical" SortOrder="3">
+		<Notice Code="1302" SortOrder="2">
+			<Name>Marriage Acts</Name>
+			<Description>Notices of Places Registered for Solemnising Marriages and Cancellation of Places Registered for Solemnising Marriages</Description>
+			
+		</Notice>
+		<Notice Code="1303" SortOrder="3">
+			<Name>Church of Scotland</Name>
+			<Description>Notices</Description>
+		
+		</Notice>
+		<Notice Code="1304" SortOrder="4">
+			<Name>Church Use and Fabric</Name>
+			<Description>Care of Churches and Ecclesiastical Jurisdiction Measure 1991. Faculty Jurisdicion Rules 1992</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="14" Name="Public Finance" SortOrder="4">
+		<Notice Code="1401" SortOrder="1">
+			<Name>Treasury</Name>
+			<Description>Treasury</Description>
+			
+		</Notice>
+		<Notice Code="1402" SortOrder="2">
+			<Name>National Savings</Name>
+			<Description>National Savings Bank Act 1971</Description>
+		
+		</Notice>
+		<Notice Code="1403" SortOrder="3">
+			<Name>Bank of England</Name>
+			<Description>Bank Charter Act 1844, Currency and Bank Notes Act 1928/1954 and Coinage Act 1971. Banking Act 1987</Description>
+		
+		</Notice>
+		<Notice Code="1404" SortOrder="4">
+			<Name>Banks of Issue in Scotland</Name>
+			<Description>Bank Notes (Scotland) Act 1845, Currency and Bank Notes Act 1928 and Coinage Act 1971. Currency and Bank Notes Act 1954</Description>
+		
+		</Notice>
+		<Notice Code="1405" SortOrder="5">
+			<Name>Customs &amp; Excise</Name>
+			<Description>VAT Notices. Treasury Taxing Directions. Customs and Excise Management Act 1979</Description>
+		
+		</Notice>
+	</Category>
+	<Category Code="15" Name="Transport" SortOrder="5">
+		<Notice Code="1501" SortOrder="1">
+			<Name>Road Traffic Acts</Name>
+			<Description>Road Traffic Regulation Act 1984. Road Traffic Act 1991</Description>
+		
+		</Notice>
+		<Notice Code="1502" SortOrder="2">
+			<Name>New Roads and Street Works</Name>
+			<Description>New Roads and Street Works Act 1991</Description>
+		
+		</Notice>
+		<Notice Code="1503" SortOrder="3">
+			<Name>Highways</Name>
+			<Description>Highways Act 1980</Description>
+			
+		</Notice>
+		<Notice Code="1504" SortOrder="4">
+			<Name>London Hackney Carriages</Name>
+			<Description>London Hackney Carriages Act 1850</Description>
+			
+		</Notice>
+		<Notice Code="1505" SortOrder="5">
+			<Name>Railways</Name>
+			<Description>Railways Act 1993. The Railways Regulations 1998 (Regulation 16(9))</Description>
+		
+		</Notice>
+		<Notice Code="1506" SortOrder="6">
+			<Name>Transport Acts</Name>
+			<Description>Transport Act 1962. Transport and Works Act 1992 &amp; Transport Act 1968. Transport and Works (Applications and Objections Procedure) (England and Wales Rules 2000</Description>
+			
+		</Notice>
+		<Notice Code="1507" SortOrder="7">
+			<Name>Ports</Name>
+			<Description>Ports Act 1991</Description>
+			
+		</Notice>
+		<Notice Code="1508" SortOrder="8">
+			<Name>Civil Aviation</Name>
+			<Description>Civil Aviation (Airport Charges) (Sale of Detained Aircraft) Regulations 1971. Civil Aviation Act 1982. Transport Act 2000. Air Navigation Order 2000</Description>
+		
+		</Notice>
+		<Notice Code="1509" SortOrder="9">
+			<Name>Cycle Tracks</Name>
+			<Description>Cycle Tracks Act 1984</Description>
+		
+		</Notice>
+	</Category>
+	<Category Code="16" Name="Planning" SortOrder="6">
+		<Notice Code="1601" SortOrder="1">
+			<Name>Town and Country Planning</Name>
+			<Description>Town &amp; Country Planning Act 1990. Planning (Listed Buildings &amp; Conservation Areas) Act 1990. Planning and Compulsory Purchase Act 2004. Town &amp; Country Planning (Scotland) Act 1997</Description>
+		
+		</Notice>
+		<Notice Code="1603" SortOrder="3">
+			<Name>Acquisition and Disposal of Land</Name>
+			<Description>Acquisition of Land Act 1981. Crichel Down Rules</Description>
+			
+		</Notice>
+		<Notice Code="1604" SortOrder="4">
+			<Name>Local Government and Housing</Name>
+			<Description>Local Government and Housing Act 1989. Local Government Act 1972</Description>
+		
+		</Notice>
+		<Notice Code="1608" SortOrder="8">
+			<Name>Pipe-Lines</Name>
+			<Description>Petroleum &amp; Submarine Pipe-lines Act 1975. Pipe-lines Act 1962. Petroleum Act 1998. Petroleum Production and Pipelines Regulations 1999</Description>
+		
+		</Notice>
+		<Notice Code="1609" SortOrder="9">
+			<Name>Zoo Licensing</Name>
+			<Description>Zoo Licencing Act 1981</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="17" Name="Health" SortOrder="7">
+		<Notice Code="1701" SortOrder="1">
+			<Name>Medicines</Name>
+			<Description>Department of Health. Medicines Act 1968 (Pharmacopeias)</Description>
+	
+		</Notice>
+		<Notice Code="1702" SortOrder="2">
+			<Name>Other Notices</Name>
+			<Description>Medical Devices Agency  Product Licencing notices. Healthcare and Associated Professions. Other Health related notices</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="18" Name="Environment" SortOrder="8">
+		<Notice Code="1801" SortOrder="1">
+			<Name>Clean Air</Name>
+			<Description>Clean Air Act 1993</Description>
+			
+		</Notice>
+		<Notice Code="1802" SortOrder="2">
+			<Name>Control of Pollution</Name>
+			<Description>Control of Pollution Act 1974. Pollution Prevention and Control (England and Wales) Regulations 2000</Description>
+			
+		</Notice>
+		<Notice Code="1803" SortOrder="3">
+			<Name>Environmental Protection</Name>
+			<Description>Environmental Protection Act 1990. Pollution Prevention and Control (England and Wales) Regulations 2000. Environmental Impact Assessment (Scotland) Regulations 1999</Description>
+			
+		</Notice>
+		<Notice Code="1804" SortOrder="4">
+			<Name>Coast Protection</Name>
+			<Description>Coast Protection Act 1949</Description>
+			
+		</Notice>
+		<Notice Code="1805" SortOrder="5">
+			<Name>National Parks and Access to the Countryside</Name>
+			<Description>National Parks and Access to the Countryside Act 1949</Description>
+			
+		</Notice>
+		<Notice Code="1806" SortOrder="6">
+			<Name>Wildlife and Countryside</Name>
+			<Description>Wildlife and Countryside Act 1981</Description>
+			
+		</Notice>
+		<Notice Code="1807" SortOrder="7">
+			<Name>Harbours</Name>
+			<Description>Harbours Act 1964</Description>
+			
+		</Notice>
+		<Notice Code="1808" SortOrder="8">
+			<Name>Flood Prevention</Name>
+			<Description>Flood Prevention (Scotland) Act 1961. Thames Barrier and Flood Prevention Act 1972</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="19" Name="Water" SortOrder="9">
+		<Notice Code="1901" SortOrder="1">
+			<Name>Water Resources</Name>
+			<Description>Water Resources Act 1991</Description>
+			
+		</Notice>
+		<Notice Code="1902" SortOrder="2">
+			<Name>Water Industry</Name>
+			<Description>Water Industry Act 1991</Description>
+		
+		</Notice>
+		<Notice Code="1903" SortOrder="3">
+			<Name>Land Drainage</Name>
+			<Description>Land Drainage Act 1991</Description>
+			
+		</Notice>
+		<Notice Code="1904" SortOrder="4">
+			<Name>Natural Mineral Waters</Name>
+			<Description>Natural Mineral Waters Regulations 1985</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="20" Name="Agriculture &amp; Fisheries" SortOrder="10">
+		<Notice Code="2001" SortOrder="1">
+			<Name>Fisheries</Name>
+			<Description>Fisheries Act 1981. Salmon and Freshwater Fisheries Act 1975. Byelaw notices under the Water Resources Act. Diseases of Fish Act 1937</Description>
+		
+		</Notice>
+		<Notice Code="2002" SortOrder="2">
+			<Name>Veterinary Medicines</Name>
+			<Description>Veterinary Medicinal Regulations 1994 SI 1994/3142</Description>
+			
+		</Notice>
+		<Notice Code="2003" SortOrder="3">
+			<Name>Corn Returns</Name>
+			<Description>Corn Returns Act 1882, As amended. Corn Returns (Delegation of Functions) Order 1981 (No 142)</Description>
+		</Notice>
+		<Notice Code="2004" SortOrder="4">
+			<Name>Animal Health</Name>
+			<Description>Cattle Identification Regulations 1998/7 (reg 35, 36 (s3)). Cattle Passport Order 1996. Animal Health Act 1981</Description>
+		
+		</Notice>
+		<Notice Code="2005" SortOrder="5">
+			<Name>Forestry and Plant Health</Name>
+			<Description>Plant Health Act. Plant Health Order 1993. Forestry Commission</Description>
+			
+		</Notice>
+		<Notice Code="2006" SortOrder="6">
+			<Name>Intervention Board</Name>
+			<Description>Dairy Produce Quotas Regulations 1997. Dairy Produce Quotas Regulations 2000</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="21" Name="Energy" SortOrder="11">
+		<Notice Code="2101" SortOrder="1">
+			<Name>Gas</Name>
+			<Description>Gas Act 1986. Public Gas transporter Pipe-Line Works (Environmental Impact Assessment) Regulations 1999</Description>
+		
+		</Notice>
+		<Notice Code="2102" SortOrder="2">
+			<Name>Coal</Name>
+			<Description>Open-cast Coal Act 1958. Coal Industry Act 1975. Coal Mining Subsidence Act 1991. Coal Industry Act 1994</Description>
+			
+		</Notice>
+		<Notice Code="2103" SortOrder="3">
+			<Name>Electricity</Name>
+			<Description>Electricity Act 1989</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="22" Name="Post &amp; Telecom" SortOrder="12">
+		<Notice Code="2201" SortOrder="1">
+			<Name>Royal Mail</Name>
+			<Description>Post Office Act 1969. Postal Services Act 2000(b). Postal Services Act 2002</Description>
+		
+		</Notice>
+		<Notice Code="2202" SortOrder="2">
+			<Name>Telecommunications</Name>
+			<Description>Telecommunications Act 1984. Wireless Telegraphy Act 1969. Communications Act 2003</Description>
+		
+		</Notice>
+		<Notice Code="2203" SortOrder="3">
+			<Name>Electronic Communications</Name>
+			<Description>Section 107(6)  Communications Act 2003</Description>
+		
+		</Notice>
+	</Category>
+	<Category Code="23" Name="Other Notices" SortOrder="13">
+		<Notice Code="2301" SortOrder="1">
+			<Description>Notices not mentioned elsewhere in this list. Listed alphabetically by originating department or authority</Description>
+		
+		</Notice>
+	</Category>
+	<Category Code="24" Name="Corporate Insolvency" SortOrder="15">
+		<Section Name="General" SortOrder="1">
+			<Notice Code="2401" SortOrder="1">
+				<Name>Moratorium—Coming Into Force</Name>
+				<Description>Insolvency Rules 1986 (S.1A). The Insolvency (Amendment) (No. 2) Rules 2002 Para 1.40(2)</Description>
+				
+			</Notice><Notice Code="2402" SortOrder="2">
+				<Name>Moratorium—Coming to an End</Name>
+				<Description>Insolvency Rules 1986 (S.1A). The Insolvency (Amendment) (No 2) Rules 2002 para 1.40(1)</Description>
+		
+			</Notice>
+			<Notice Code="2403" SortOrder="3">
+				<Name>Re-use of a Prohibited Name</Name>
+				<Description>Rule 4.228 The Insolvency Rules 1989. Section 216(3) Insolvency Act 1986. Form 4.73</Description>
+			
+			</Notice>
+			<Notice Code="2404" SortOrder="4">
+				<Name>Cross-Border Insolvencies</Name>
+				<Description>Cross-Border Insolvency Regulations 2006</Description>
+				
+			</Notice>
+			<Notice Code="2405" SortOrder="5">
+				<Name>Overseas Territories and Dependencies</Name>
+				<Description>Isle of Man Companies Act 1931. Isle of Man Companies Winding Up Rules 1934 (Rule 101). British Virgin Islands Insolvency Act 2003. British Virgin Islands International Business Companies Act (CAP 291). Companies (Jersey) Law 1991. Act of the Royal Court of Guernsey. Etc</Description>
+				
+			</Notice>
+			<Notice Code="2406" SortOrder="6">
+				<Name>Notice of Intended Dividends</Name>
+				<Description>Notice of Intended Dividend (form F200 (12)). Notice of Intended Dividend to Preferential Creditors (form F 200 (12A)). Notice of Intended Dividend (Companies Act 1985) (form C No. 103(4)). Notice of Intended Dividend (Insolvency Rules 1986) (Rule 11.2)</Description>
+				
+			</Notice>
+			<Notice Code="2407" SortOrder="7">
+				<Name>Notice of Dividends</Name>
+				<Description>Notice of Dividend to Preferential Creditors (form F 200 (13A)). Notice of Dividend (Companies Act 1985) (form C No. 103 (5))</Description>
+				
+			</Notice>
+			<Notice Code="2408" SortOrder="8">
+				<Name>Other Corporate Insolvency Notices</Name>
+				<Description>Rule 4.212 Insolvency Rules 1989 (as amended) Public Examinations. General Meetings</Description>
+			
+			</Notice>
+	         <Notice Code="2409" SortOrder="09">
+	            <Name>Qualifying Decision Procedure</Name>
+	            <Description>Qualifying Decision Procedure (Corporate)</Description>
+	         </Notice>
+		</Section>
+
+		<Section Name="Administration" SortOrder="2">
+			<Notice Code="2410" SortOrder="10">
+				<Name>Appointment of Administrators</Name>
+			
+			</Notice>
+			<Notice Code="2411" SortOrder="11">
+				<Name>Administration Orders</Name>
+				<Description>Administration Orders will not be accepted</Description>
+			
+			</Notice>
+			<Notice Code="2412" SortOrder="12">
+				<Name>Meetings of Creditors</Name>
+				<Description>Insolvency Act 1986, Schedule B1, Para 51. Meeting of Creditors (s. 14(2)(b)) Rules 2.19(a). Meeting of Creditors at requisition of creditors or direction of the court (s. 17(3)) Rule 2.19(b). Meeting of Creditors to consider Administrators proposals (s. 23(1)(b)). Meeting of Creditors to consider substantial revisions (s. 25(2)(b))</Description>
+			
+			</Notice>
+			<Notice Code="2413" SortOrder="13">
+				<Name>Notices to Members</Name>
+				<Description>Insolvency Act 1986 Schedule B1 (Para 49 (6)). Notice to members of the administrator’s proposals to creditors (s. 23(2)(b)) Rule 2.17(a). Notice to members of substantial revision of the proposals (s. 25(3)(b) Rule 2.17(b)</Description>
+			
+			</Notice>
+	         <Notice Code="2414" SortOrder="14" >
+	            <Name>Deemed Consent</Name>
+	            <Description>Deemed Consent (Administrator)</Description>
+	         </Notice>
+		</Section>
+		<Section Name="Receivership" SortOrder="3">
+			<Notice Code="2421" SortOrder="21">
+				<Name>Appointment of Administrative Receivers</Name>
+				<Description>Appointment of Administrative Receiver (S. 46(1)(a))</Description>
+				
+			</Notice>
+			<Notice Code="2422" SortOrder="22">
+				<Name>Meetings of Creditors</Name>
+				<Description>Insolvency Act 1986 (S. 48). Meeting of creditors where Administrative receiver presents report to unsecured creditors (S. 48(2)). Notice to unsecured creditors of the Administrative receiver’s report (S. 48(2)(b))</Description>
+			
+			</Notice>
+			<Notice Code="2423" SortOrder="23">
+				<Name>Appointment of Receivers</Name>
+				<Description>Appointment of Receiver(s) by Court (Scotland) (S. 51). Notice to Credtiors (Scotland) (S. 59(2)). Notice to unsecured credtiros of the Receiver’s report (S. 67(2)(b))</Description>				
+			</Notice>
+		      <Notice Code="2424" SortOrder="24">
+		         <Name>Deemed Consent</Name>
+		         <Description>Deemed Consent (Administrative Receivership)</Description>
+		      </Notice>
+		</Section>
+		<Section Name="Members’ Voluntary Winding-up" SortOrder="4">
+			<Notice Code="2431" SortOrder="31">
+				<Name>Resolutions for Winding-up</Name>
+				<Description>Companies Act 1985 (S. 381A). Special Resolution for Voluntary Winding Up (S. 84(1)(b))</Description>
+			
+			</Notice>
+			<Notice Code="2432" SortOrder="32">
+				<Name>Appointment of Liquidators</Name>
+				<Description>Appointment of Liquidators (S. 91(1) &amp; S. 109) (form 600a)</Description>
+			
+			</Notice>
+			<Notice Code="2433" SortOrder="33">
+				<Name>Notices to Creditors</Name>
+				<Description>Notice to creditors to prove debts or claims (Rule 4.182A)</Description>
+			
+			</Notice>
+			<Notice Code="2434" SortOrder="34">
+				<Name>Annual Liquidation Meetings</Name>
+				<Description>Insolvency Act 1986 (S. 93 &amp; S. 94). General company meeting at each year’s end (S. 93)</Description>
+			</Notice>
+			<Notice Code="2435" SortOrder="35">
+				<Name>Final Meetings</Name>
+				<Description>Insolvency Act 1986 (S. 94). Final meeting of members prior to dissolution (S. 94(2)) &amp; (S. 300)</Description>
+			
+			</Notice>
+		</Section>
+		<Section Name="Creditors’ Voluntary Winding-up" SortOrder="5">
+			<Notice Code="2441" SortOrder="41">
+				<Name>Resolutions for Winding-up</Name>
+				<Description>Companies Act 1985 (S. 381A). Extraordinay Resolution for Voluntary Winding Up (S. 84(1)(c))</Description>
+			
+			</Notice>
+			<Notice Code="2442" SortOrder="42">
+				<Name>Meetings of Creditors</Name>
+				<Description>Insolvency Act 1986 Meeting of Creditors (S. 98 (1) (c)). Meeting of Credtors (members’ voluntary windin up where liquidator is of the opinion company unable to pay debts) (s. 95(2)(c))</Description>
+			
+			</Notice>
+			<Notice Code="2443" SortOrder="43">
+				<Name>Appointment of Liquidators</Name>
+				<Description>Insolvency Act 1986 (Sch B1, Para 83 (1)). Appointment of Liquidator (S. 100 &amp; S. 109) (form 600a). Appointment of Liquidator (Rule 4.19(4)(b) - The Insolvency (Scotland) Rules 1986</Description>
+			
+			</Notice>
+			<Notice Code="2444" SortOrder="44">
+				<Name>Annual Liquidation Meetings</Name>
+				<Description>Insolvency Act 1986 (S. 105). Meetings of company and creditors at each year’s end</Description>
+			
+			</Notice>
+			<Notice Code="2445" SortOrder="45">
+				<Name>Final Meetings</Name>
+				<Description>Insolvency Act 1986 (S. 106 (2)). Final meeting of creditors and final general meeting of company prior to dissolution</Description>
+			
+			</Notice>
+			<Notice Code="2446" SortOrder="46">
+				<Name>Notices to Creditors</Name>
+				<Description>Notice of Meeting to consider the administrator’s proposals. Rule 2.30</Description>
+				
+			</Notice>
+	         <Notice Code="2447" SortOrder="47" >
+	            <Name>Deemed Consent</Name>
+	            <Description>Deemed Consent (Creditors Voluntary Liquidation)</Description>
+	         </Notice>
+		</Section>
+		<Section Name="Winding-up By The Court" SortOrder="6">
+			<Notice Code="2450" SortOrder="50">
+				<Name>Petitions to Wind Up (Companies)</Name>
+				<Description>Advertisement of Petition to Wind Up (Rule 4.11(1)) Form 4.6</Description>
+				
+			</Notice>
+			<Notice Code="2451" SortOrder="51">
+				<Name>Petitions to Wind Up (Partnerships)</Name>
+				<Description>Advertisment of Petition to Wind Up Partnership. Insolvent Partnerships Order 1986 Form 5. Insolvent Partnerships Order 1994</Description>
+			
+			</Notice>
+			<Notice Code="2452" SortOrder="52">
+				<Name>Winding-Up Orders</Name>
+				<Description>Winding Up Order (Rule 4.21(4)) (form L72.12). The Companies Consolidation Act 1931 (S. 307)</Description>
+				
+			</Notice>
+			<Notice Code="2453" SortOrder="53">
+				<Name>Winding-Up Orders (Partnerships)</Name>
+				<Description>Winding Up Order Insolvent Partnerships Order 1994. (Partnership case - Partnership) (form L72.24). (Partnership case - Corporate Member) (L72.23) (Sch. 4 pt II (6))</Description>
+			
+			</Notice>
+			<Notice Code="2454" SortOrder="54">
+				<Name>Appointment of Liquidators</Name>
+				<Description>Insolvency Act 1986 (S.141). Insolvency Rules 1986 (Rule 454). Order Appointing Provisional Liquidator (form 600a). Appointment of Liquidator by Secretary of State (S. 137(4))</Description>
+				
+			</Notice>
+			<Notice Code="2455" SortOrder="55">
+				<Name>Meetings of Creditors</Name>
+				<Description>Insolvency Act 1986  (S. 141 (2)). Meeting of creditors and contributors called by liquidator to consider establishment of liquidation committee. Insolvency Act 1986 (Para 50, Sch B1) as applied by section 248 of the Enterprise Act 2002</Description>
+			
+			</Notice>
+			<!-- 2456/2457 NOTICES TEMP RESTORED FOR BACKWARD COMPATIBILITY-->
+			<Notice Code="2456" SortOrder="56"> <!-- 2010-10-04 CRJC: @SortOrder inserted, as output problems have been reported, owing to 2456 and 2457 rendering prior to 2450 -->
+				<Name>Notice of Intended Dividends</Name>
+				<Description>Notice of Intended Dividend (form F200 (12)). Notice of Intended Dividend to Preferential Creditors (form F 200 (12A)). Notice of Intended Dividend (Companies Act 1985) (form C No. 103(4)). Notice of Intended Dividend (Insolvency Rules 1986) (Rule 11.2)</Description>
+				
+			</Notice>
+			<Notice Code="2457" SortOrder="57"> <!-- 2010-10-04 CRJC: @SortOrder inserted, as output problems have been reported, owing to 2456 and 2457 rendering prior to 2450 -->
+				<Name>Notice of Dividends</Name>
+				<Description>Notice of Dividend to Preferential Creditors (form F 200 (13)). Notice of Dividend (Companies Act 1985) (form C No. 103 (5))</Description>
+			
+			</Notice>
+			<!-- END OF BACKWARD COMPATIBILITY BLOCK-->
+			<Notice Code="2458" SortOrder="58">
+				<Name>Final Meetings</Name>
+				<Description>Final Meeting of Creditors to receive Liquidators report and determine whether Liquidator should have his release (S. 146)</Description>
+			
+			</Notice>
+			<Notice Code="2459" SortOrder="59">
+				<Name>Release of Liquidator</Name>
+				<Description>Notice of Release of Liquidator (Companies Act 1985) (form C No. 103(9))</Description>
+				
+			</Notice>
+			<Notice Code="2460" SortOrder="60">
+				<Name>Notices to Creditors</Name>
+				<Description>Notice to creditors to prove debts or claims</Description>
+				
+			</Notice>
+			<Notice Code="2461" SortOrder="65">
+				<Name>Dismissal of Winding Up Petition</Name>
+				<Description>Advertisement of dismissal notice</Description>
+		
+			</Notice>
+			<Notice Code="2462" SortOrder="62">
+				<Name>Service of Petition</Name>
+				<Description>Advertisement of Service of Petition. Insolvency Rules, Rule 4.8</Description>
+				
+			</Notice>
+			<Notice Code="2464" SortOrder="64">
+				<Name>Public Examinations</Name>
+				<Description>Rule 4.212 Insolvency Rules 1986 (as amended) Public Examinations</Description>			
+			</Notice>
+		      <Notice Code="2465" SortOrder="65">
+		         <Name>Deemed Consent</Name>
+		         <Description>Deemed Consent (Winding Up by the Court)</Description>
+		      </Notice>
+		</Section>
+	</Category>
+	<Category Code="25" Name="Personal Insolvency" SortOrder="16">
+		<Notice Code="2501" SortOrder="1">
+			<Name>Statutory Demands</Name>
+			<Description>Notice of Statutory Demand. Insolvency Act 1986 Ch. 45, Section 268(1). Insolvency Rules 1986 No. 1925 Rule 6.3(3)</Description>
+			
+		</Notice>
+		<Notice Code="2502" SortOrder="2">
+			<Name>Substituted Service of Petition</Name>
+			<Description>Substituted Service of Bankruptcy Petition. Insolvency Act 1986 Ch. 45. Insolvency Rules 1986 No. 1925 Rule 6.14(2), Form 6.16</Description>
+			
+		</Notice>
+		<Notice Code="2503" SortOrder="3">
+			<Name>Bankruptcy Orders</Name>
+			<Description>Bankruptcy Order (form B37.17). Insolvency Rules 1986 No. 1925 Rule 6.34(2)(c) (creditors) and Rule 6.46(2)(c) (debtors)</Description>
+		
+		</Notice>
+		<Notice Code="2504" SortOrder="4">
+			<Name>Bankruptcy Orders (Partnerships)</Name>
+			<Description>Bankruptcy Order (partnership case [creditor’s petition] individual member) (form B37.34). Insolvent Partnerships Order 1986 No. 2142. Insolvency Rules 1986 No. 1925 Rule 6.34(2)(c) (creditors). Bankruptcy Order (partnership case [debtor’s petition] individual member) (form B37.35). Insolvent Partnerships Order 1986 No. 2142. Insolvency Rules 1986 no. 1925 Rule 6.46(2)(c) (debtors).Bankruptcy Order (Consolidation of Partners’ Bankruptcies) (form B37.45). Insolvent Partnerships Order 1994 No 2421 (Part VI 14 (2) (2B)</Description>
+		
+		</Notice>
+		<Notice Code="2505" SortOrder="5">
+			<Name>Administration Order</Name>
+			<Description>Administration of Insolvent Estates of Deceased Persons Order 1986 No. 1999. Insolvency Rules 1986 No. 1925 Rule 6.35(2) (creditors) and Rule 6.47(2)(a) (debtors)</Description>
+			
+		</Notice>
+		<Notice Code="2506" SortOrder="6">
+			<Name>Amendment of Title of Proceedings</Name>
+			<Description>Amendment of Title of Proceedings (form B37.18). Insolvency Rules 1986 No. 1925 Rule 6.35(2) (creditors) and Rule 6.47(2)(a) (debtors)</Description>
+			
+		</Notice>
+		<Notice Code="2507" SortOrder="8">
+			<Name>Appointment of Trustees</Name>
+			<Description>Appointment of Trustee (form 200(10)). Bankruptcy Rules 1952 No. 2113 Rule 331. Notice of Appointment of Trustee (by Creditors’ meeting). Insolvency Act 1986 Ch. 45. Insolvency Rules 1986 No. 1925 Rule 6.124(1). Notice of Appointment of Trustee (by Secretary of State). Insolvency Act 1986 ch. 45 Section 296(4). Insolvency Rules 1986 No. 1925 Rule 6.124(1). Notice of Appointment of Trustee (by Court). Insolvency Act 1986 Ch. 45 Section 297(7). Insolvency Rules 1986 No. 1925 Rule 6.124(1)</Description>
+			
+		</Notice>
+		<Notice Code="2508" SortOrder="9">
+			<Name>Notices to Creditors</Name>
+			<Description>Insolvency Rules 1986 (Rule 6.81)  (Creditors of Bankrupt)</Description>
+			
+		</Notice>
+		<Notice Code="2509" SortOrder="10">
+			<!-- We need to decide on the default layout for this notice -->
+			<Name>Notice of Intended Dividends</Name>
+			<Description>Intended Dividend (form 200(12)). Bankruptcy Rules 1952 No. 2113 Rule 267. Notice of Intended Dividend. Insolvency Act 1986 Ch. 45 Section 324(2). Insolvency Rules 1986 No. 1925 Rule 11.2(1)</Description>
+		
+		</Notice>
+		<Notice Code="2510" SortOrder="11">
+			<Name>Notice of Dividends</Name>
+			<Description>Notice of Dividend (form 200(13)). Bankruptcy Rules 1952 No. 2113 Rule 269. Notice of Final Dividend (or that no dividend, or further dividend, will be declared). Insolvency Act 1986 Ch. 45 s. 330(1). Insolvency Rules 1986 No. 1925 Rule 11.2(1)</Description>
+		
+		</Notice>
+		<Notice Code="2512" SortOrder="13">
+			<Name>Annulment of Proceedings</Name>
+			<Description>Annulment of Proceedings (form B37.19). Insolvency Rules 1986 No. 1925 Rule 6.213(3)(a)</Description>
+			
+		</Notice>
+		<Notice Code="2513" SortOrder="14">
+			<Name>Applications for Discharge</Name>
+			<Description>Application for Discharge (form 200(8A)). Bankruptcy Rules 1952 No. 2113 Rule 226</Description>
+		
+		</Notice>
+		<Notice Code="2514" SortOrder="15">
+			<Name>Release of Trustees</Name>
+			<Description>Release of Trustees (form 200(11)). Bankruptcy Rules 1952 No. 2113 Rule 342</Description>
+			
+		</Notice>
+		<Notice Code="2515" SortOrder="16">
+			<Name>Discharge Order</Name>
+			<Description>Discharge Order form B37.20). Insolvency Rules 1986 No. 1925 Rule 6.220(2)(a)</Description>
+			
+		</Notice>
+		<Notice Code="2516" SortOrder="17">
+			<Name>Orders Annulling, Revoking or Rescinding Orders</Name>
+			<Description>Order Annulling, Revoking, or Rescinding Order (form 200(14)). Bankruptcy Rules 1952 No. 2113 Rule 358</Description>
+			
+		</Notice>
+	      <Notice Code="2520" SortOrder="18">
+	         <Name>Deemed Consent</Name>
+	         <Description>Deemed Consent (Bankruptcy)</Description>
+	      </Notice>
+		<Notice Code="2526" SortOrder="19">
+			<Name>Meeting of Creditors</Name>
+			<Description>Insolvency Rules 1986  Rule 6.79 and 6.81</Description>
+		
+		</Notice>
+		<Notice Code="2527" SortOrder="20">
+			<Name>Public Examinations</Name>
+			<Description>Insolvency Rules 1986  Rule 6.172</Description>
+		
+		</Notice>
+	    <Notice Code="2528" SortOrder="21">
+	        <Name>Qualifying Decision Procedure</Name>
+	        <Description>Qualifying Decision Procedure (Personal)</Description>
+	        
+	    </Notice>
+	</Category>
+	<Category Name="Companies &amp; Financial Regulation" Code="26" SortOrder="17">
+		<Notice Code="2600" SortOrder="1">
+			<Name>Companies Restored to the Register</Name>
+			<Description>Section 653 (2) of the Companies Act 1985 (as amended)</Description>
+		
+		</Notice>
+		<Notice Code="2601" SortOrder="2">
+			<Name>Pre-emption Offers to Shareholders</Name>
+			<Description>Share issues under Section 90(5), Companies Act 1985</Description>
+			
+		</Notice>
+		<Notice Code="2602" SortOrder="3">
+			<Name>Redemption or Purchase of Own Shares out of Capital</Name>
+			<Description>Proposed payment out of Capital (Private Companies only). Section 175, Companies Act 1985. Sections 171, 172, 173, Companies Act 1985</Description>
+			
+		</Notice>
+		<Notice Code="2603" SortOrder="4">
+			<Name>Notice of Disclaimer</Name>
+			<Description>Notice of disclaimer by the Treasury Solicitor. Companies Act 1985 Ch. 6, S. 656(5))</Description>
+			
+		</Notice>
+		<Notice Code="2604" SortOrder="5">
+			<Name>Notices under the Trustee Act 1925</Name>
+			<Description>Trustee Act 1925 Section 27 (Pension Schemes)</Description>
+		
+		</Notice>
+		<Notice Code="2605" SortOrder="6">
+			<Name>Insurance Companies</Name>
+			<Description>Insurance Companies Act 1982 notices</Description>
+			
+		</Notice>
+		<Notice Code="2607" SortOrder="7">
+			<Name>Insolvency Practitioner Applications</Name>
+			<Description>Applications for Authorisation to Act as an Insolvency Practitioner Insolvency Act 1986 Ch. 45, s. 392</Description>
+			
+		</Notice>
+		<Notice Code="2608" SortOrder="8">
+			<Name>Company Director Disqualification Order</Name>
+			<Description>The Company Directors Disqualification Act 1986 Section 6(1)</Description>
+		
+		</Notice>
+		
+		<!-- 2609 NOTICES TEMP RESTORED FOR BACKWARD COMPATIBILITY-->
+		<Notice Code="2609"> 
+			<!-- it would appear that this Notice deliberately does not have an @SortOrder so that it appears first in the 26* Category -->
+			<Name>Companies Removed from the Register</Name>
+			<Description>Companies Act 1995, s. 652</Description>
+			
+		</Notice>
+		<!-- END OF BACKWARD COMPATIBILITY BLOCK-->
+		
+		<Notice Code="2610" SortOrder="9">
+			<Name>Reduction of Capital</Name>
+			<Description>Companies Act 1985 (s. 138(3))</Description>
+			
+		</Notice>
+		<Notice Code="2611" SortOrder="10">
+			<Name>Company Documents</Name>
+			<Description>Unregistered Companies, Companies Act 1985 (s. 711). Open Ended Investment Companies Regulations 1996</Description>
+			
+		</Notice>
+		<Notice Code="2612" SortOrder="11">
+			<Name>European Economic Interest Grouping</Name>
+			<Description>European Economic Interest Grouping Regulations 1989</Description>
+			
+		</Notice>
+		<Notice Code="2613" SortOrder="12">
+			<Name>Meeting of Creditors</Name>
+			<Description>Companies Act 1985 (s. 425)</Description>
+			
+		</Notice>
+		<Notice Code="2614" SortOrder="13">
+			<Name>Petitions to Transfer Business</Name>
+			<Description>Financial Services and Markets Act 2000</Description>
+		
+		</Notice>
+		<Notice Code="2615" SortOrder="14">
+			<Name>Takeover Offers</Name>
+			<Description>Section 974 of the Companies Act 2006. Section 978 Companies Act 2006. Section 979 Companies Act 2006. Other Offers to Shareholders</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="27" Name="Partnerships" SortOrder="18">
+		<Notice Code="2701" SortOrder="1">
+			<Name>Change in the Members of a Partnership</Name>
+			<Description>Partnership Act 1890</Description>
+			
+		</Notice>
+		<Notice Code="2702" SortOrder="2">
+			<Name>Dissolution of Partnership</Name>
+			<Description>Partnership Act 1890</Description>
+			
+		</Notice>
+		<Notice Code="2703" SortOrder="3">
+			<Name>Statement by General Partner</Name>
+			<Description>Limited Partnership Act 1907</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="28" Name="Societies Regulation" SortOrder="19">
+		<Notice Code="2801" SortOrder="1">
+			<Name>Friendly Societies</Name>
+			<Description>Notices &amp; Cancellations/removal from Register</Description>
+		
+		</Notice>
+		<Notice Code="2802" SortOrder="2">
+			<Name>Industrial and Provident Societies</Name>
+			<Description>Notices &amp; cancellations</Description>
+			
+		</Notice>
+		<Notice Code="2803" SortOrder="3">
+			<Name>Building Societies</Name>
+			<Description>Notices &amp; cancellations</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="29" Name="Personal Legal" SortOrder="20">
+		<Notice Code="2901" SortOrder="1">
+			<Name>Changes of Name</Name>
+			<Description>Change of Name (Individuals) authorised by Deed Poll (Royal Court of Justice Only)	</Description>
+			
+		</Notice>
+		<Notice Code="2902" SortOrder="2">
+			<Name>Next of Kin</Name>
+			<Description>Next of Kin, Treasury Solicitors Notices</Description>
+		
+		</Notice>
+		<Notice Code="2903" SortOrder="3">
+			<Name>Deceased Estates</Name>
+			<Description>Trustee Act 1925, s. 27 (Deceased Estates)</Description>
+		</Notice>
+
+		<Notice Code="2904" SortOrder="04">
+			<Name>Deceased estates for unclaimed estates</Name>
+			<Description>Deceased estates for unclaimed estates</Description>
+		</Notice>
+
+	</Category>
+	<Category Code="31" Name="Competition" SortOrder="14">
+		<Notice Code="3101" SortOrder="1">
+			<Name>Competition</Name>
+			<Description>Notices from the Competition Commision and Office of Fair Trading</Description>
+			
+		</Notice>
+	</Category>
+	<Category Code="33" Name="Awards and Accreditation" SortOrder="21">
+      <Notice Code="3301" SortOrder="01">
+         <Name>Points of Light</Name>
+         <Description>UK Points of Lights awards, presented by The Prime Minister's Office</Description>
+      </Notice>
+   </Category>
+	
+   <Category Code="35" Name="Companies House Documents - European Registrations and Deletions" SortOrder="24" >
+
+    <Notice Code="3501" SortOrder="01">
+      <Name>Draft Terms For Formation By Merger Of An SE</Name>
+      <Description>(EUA1) Draft Terms For Formation By Merger Of An SE</Description>
+    </Notice>
+
+	<Notice Code="3502" SortOrder="02">
+      <Name>Draft Terms Of Formation Of A Holding SE</Name>
+      <Description>(EUA2) Draft Terms Of Formation Of A Holding SE</Description>
+    </Notice>
+	
+	<Notice Code="3503" SortOrder="03">
+      <Name>Satisfaction Of Conditions For The Formation Of A Holding SE</Name>
+      <Description>(EUA3) Satisfaction Of Conditions For The Formation Of A Holding SE</Description>
+    </Notice>
+	
+	<Notice Code="3504" SortOrder="04">
+      <Name>Draft Terms Of Conversion Of A PLC To An SE</Name>
+      <Description>(EUA4) Draft Terms Of Conversion Of A PLC To An SE</Description>
+    </Notice>
+	
+	<Notice Code="3505" SortOrder="05">
+      <Name>Draft Terms For Formation By Merger Of An SE</Name>
+      <Description>(EUA5) Draft Terms Of Conversion Of An SE To A PLC</Description>
+    </Notice>
+	
+	<Notice Code="3506" SortOrder="06">
+      <Name>Registration Of An SE On Formation</Name>
+      <Description>(EUA6) Registration Of An SE On Formation</Description>
+    </Notice>
+	
+	<Notice Code="3507" SortOrder="07">
+      <Name>Registration Of A Public Limited Company Following Conversion From An SE</Name>
+      <Description>(EUA7) Registration Of A Public Limited Company Following Conversion From An SE</Description>
+    </Notice>
+	
+	<Notice Code="3508" SortOrder="08">
+      <Name>Registration Of An SE On Transformation From A Public Limited Company</Name>
+      <Description>(EUA8) Registration Of An SE On Transformation From A Public Limited Company</Description>
+    </Notice>
+	
+	<Notice Code="3509" SortOrder="09">
+      <Name>Issue Of Certificate On Conversion Of An SE To A PLC</Name>
+      <Description>(EUA9) Issue Of Certificate On Conversion Of An SE To A PLC</Description>
+    </Notice>
+	
+	<Notice Code="3510" SortOrder="10">
+      <Name>Transfer To The UK Of An SE</Name>
+      <Description>(EUA10) Transfer To The UK Of An SE</Description>
+    </Notice>
+
+	<Notice Code="3511" SortOrder="11">
+      <Name>The SE's Statutes</Name>
+      <Description>(EUB1) The SE's Statutes</Description>
+    </Notice>
+
+	<Notice Code="3512" SortOrder="12">
+      <Name>Amendment To The Statutes</Name>
+      <Description>(EUB2) Amendment To The Statutes</Description>
+    </Notice>
+	
+	<Notice Code="3513" SortOrder="13">
+      <Name>Any Notice Of A Change Of SE's Name</Name>
+      <Description>(EUB3) Any Notice Of A Change Of SE's Name</Description>
+    </Notice>
+	
+	<Notice Code="3514" SortOrder="14">
+      <Name>The Statement Of Proposed Officers</Name>
+      <Description>(EUC1) The Statement Of Proposed Officers</Description>
+    </Notice>
+	
+	<Notice Code="3515" SortOrder="15">
+      <Name>Notification Of Any Change Among The SE's Members</Name>
+      <Description>(EUC2) Notification Of Any Change Among The SE's Members</Description>
+    </Notice>
+	
+	<Notice Code="3516" SortOrder="16">
+      <Name>Notification Of Any Change In The Particulars Of Members Required To Be Delivered To The Registrar</Name>
+      <Description>(EUC3) Notification Of Any Change In The Particulars Of Members Required To Be Delivered To The Registrar</Description>
+    </Notice>
+	
+	<Notice Code="3517" SortOrder="17">
+      <Name>Documents Delivered By An SE Under Section 441 Of The Companies Act 2006</Name>
+      <Description>(EUD1) Documents Delivered By An SE Under Section 441 Of The Companies Act 2006</Description>
+    </Notice>
+	
+	<Notice Code="3518" SortOrder="18">
+      <Name>The SE's Annual Return.</Name>
+      <Description>(EUD2) The SE's Annual Return.</Description>
+    </Notice>
+	
+	<Notice Code="3519" SortOrder="19">
+      <Name>All Documents Delivered To The Registrar</Name>
+      <Description>(EUD3) All Documents Delivered To The Registrar</Description>
+    </Notice>
+	
+	<Notice Code="3520" SortOrder="20">
+      <Name>Notification Of Any Change Of The SE's Registered Office</Name>
+      <Description>(EUE1) Notification Of Any Change Of The SE's Registered Office</Description>
+    </Notice>
+	
+	<Notice Code="3521" SortOrder="21">
+      <Name>Copy Of Any Winding-Up Order In Respect Of The SE</Name>
+      <Description>(EUF1) Copy Of Any Winding-Up Order In Respect Of The SE</Description>
+    </Notice>
+
+	<Notice Code="3522" SortOrder="22">
+      <Name>Notice Of The Appointment Of Liquidators</Name>
+      <Description>(EUF2) Notice Of The Appointment Of Liquidators</Description>
+    </Notice>
+	
+	<Notice Code="3523" SortOrder="23">
+      <Name>Order For The Dissolution Of An SE On A Winding Up</Name>
+      <Description>(EUF3) Order For The Dissolution Of An SE On A Winding Up</Description>
+    </Notice>
+	
+	<Notice Code="3524" SortOrder="24">
+      <Name>Return By Liquidator Of The Final Meeting Of An SE On A Winding Up</Name>
+      <Description>(EUF4) Return By Liquidator Of The Final Meeting Of An SE On A Winding Up</Description>
+    </Notice>
+	
+	<Notice Code="3525" SortOrder="25">
+      <Name>Particulars Of An Event Set Out In Article 65 Of Regulation 21572001EC</Name>
+      <Description>(EUF5) Particulars Of An Event Set Out In Article 65 Of Regulation 21572001EC</Description>
+    </Notice>
+	
+	<Notice Code="3526" SortOrder="26">
+      <Name>Any Statement Of Capital On Conversion Of SE To PLC</Name>
+      <Description>(EUG1) Any Statement Of Capital On Conversion Of SE To PLC</Description>
+    </Notice>
+	
+	<Notice Code="3527" SortOrder="27">
+      <Name>Any Return Of Allotment And The Statement Of Capital Accompanying It</Name>
+      <Description>(EUG2) Any Return Of Allotment And The Statement Of Capital Accompanying It</Description>
+    </Notice>
+	
+	<Notice Code="3528" SortOrder="28">
+      <Name>Copy Of Any Resolution Under Section 570 Or 571</Name>
+      <Description>(EUG3) Copy Of Any Resolution Under Section 570 Or 571</Description>
+    </Notice>
+	
+	<Notice Code="3529" SortOrder="29">
+      <Name>Copy Of Any Report Under Section 593 Or 599 As To The Value Of A Non-Cash Asset</Name>
+      <Description>(EUG4) Copy Of Any Report Under Section 593 Or 599 As To The Value Of A Non-Cash Asset</Description>
+    </Notice>
+	
+	<Notice Code="3530" SortOrder="30">
+      <Name>Statement Of Capital Accompanying Notice Given Under Section 625</Name>
+      <Description>(EUG5) Statement Of Capital Accompanying Notice Given Under Section 625</Description>
+    </Notice>
+	
+	<Notice Code="3531" SortOrder="31">
+      <Name>Statement Of Capital Accompanying Notice Given Under Section 627</Name>
+      <Description>(EUG6) Statement Of Capital Accompanying Notice Given Under Section 627</Description>
+    </Notice>
+
+	<Notice Code="3532" SortOrder="32">
+      <Name>Notice Delivered Under Section 636</Name>
+      <Description>(EUG7) Notice Delivered Under Section 636</Description>
+    </Notice>
+	
+	<Notice Code="3533" SortOrder="33">
+      <Name>Statement Of Capital Accompanying Order Delivered Under Section 649</Name>
+      <Description>(EUG8) Statement Of Capital Accompanying Order Delivered Under Section 649</Description>
+    </Notice>
+	
+	<Notice Code="3534" SortOrder="34">
+      <Name>Notification (under section 689) of the Redemption of Shares and the Statement of Capital accompanying it</Name>
+      <Description>(EUG9) Notification (under section 689) of the Redemption of Shares and the Statement of Capital accompanying it</Description>
+    </Notice>
+	
+	<Notice Code="3535" SortOrder="35">
+      <Name>Statement Of Capital Accompanying Return Delivered Under Section 708</Name>
+      <Description>(EUG10) Statement Of Capital Accompanying Return Delivered Under Section 708</Description>
+    </Notice>
+	
+	<Notice Code="3536" SortOrder="36">
+      <Name>Copy Of Any Draft Of The Terms Of A Scheme Required To Be Delivered To The Registrar Under Section 906 Or 921</Name>
+      <Description>(EUH1) Copy Of Any Draft Of The Terms Of A Scheme Required To Be Delivered To The Registrar Under Section 906 Or 921</Description>
+    </Notice>
+	
+	<Notice Code="3537" SortOrder="37">
+      <Name>Copy of Any Order under Section 899 or 900 in Respect of a Compromise or Arrangement to which Part 27 applies</Name>
+      <Description>(EUH2) Copy of Any Order under Section 899 or 900 in Respect of a Compromise or Arrangement to which Part 27 applies</Description>
+    </Notice>
+	
+	<Notice Code="3538" SortOrder="38">
+      <Name>Restorations by Court Order</Name>
+      <Description>(EUL1) Restorations by Court Order</Description>
+    </Notice>
+	
+	<Notice Code="3539" SortOrder="39">
+      <Name>Administrative Restorations</Name>
+      <Description>(EUL2) Administrative Restorations</Description>
+    </Notice>
+	
+	<Notice Code="3540" SortOrder="40">
+      <Name>Proposed Transfer From The UK Of An SE</Name>
+      <Description>(EUM1) Proposed Transfer From The UK Of An SE</Description>
+    </Notice>
+	
+	<Notice Code="3541" SortOrder="41">
+      <Name>Transfer From The UK Of An SE</Name>
+      <Description>(EUM2) Transfer From The UK Of An SE</Description>
+    </Notice>
+
+	<Notice Code="3542" SortOrder="42">
+      <Name>Deletion Of PLC On Transformation To SE</Name>
+      <Description>(EUN1) Deletion Of PLC On Transformation To SE</Description>
+    </Notice>
+	
+	<Notice Code="3543" SortOrder="43">
+      <Name>Deletion Of SE On Conversion To PLC</Name>
+      <Description>(EUN2) Deletion Of SE On Conversion To PLC</Description>
+    </Notice>
+	
+	<Notice Code="3544" SortOrder="44">
+      <Name>Deletion Of SE On Transfer Out Of The UK</Name>
+      <Description>(EUN3) Deletion Of SE On Transfer Out Of The UK</Description>
+    </Notice>
+	
+	<Notice Code="3545" SortOrder="45">
+      <Name>Deletion Of PLC Or SE On Formation Of An SE By Merger</Name>
+      <Description>(EUN4) Deletion Of PLC Or SE On Formation Of An SE By Merger</Description>
+    </Notice>
+	
+	<Notice Code="3546" SortOrder="46">
+      <Name>Deletion Of An SE Following Liquidation</Name>
+      <Description>(EUN5) Deletion Of An SE Following Liquidation</Description>
+    </Notice>
+	
+	<Notice Code="3547" SortOrder="47">
+      <Name>First gazette notices, Struck off register automatically, Compliance Case opened before 1102015</Name>
+      <Description>(EUO1) First gazette notices, Struck off register automatically, Compliance Case opened before 1102015</Description>
+    </Notice>
+	
+	<Notice Code="3548" SortOrder="48">
+      <Name>First gazette notices, Struck off register automatically, Compliance Case opened after 1102015</Name>
+      <Description>(EUO2) First gazette notices, Struck off register automatically, Compliance Case opened after 1102015</Description>
+    </Notice>
+	
+	<Notice Code="3549" SortOrder="49">
+      <Name>First gazette notices, Struck off register own request, DS01 received before 1102015</Name>
+      <Description>(EUP1) First gazette notices, Struck off register own request, DS01 received before 1102015</Description>
+    </Notice>
+	
+	<Notice Code="3550" SortOrder="50">
+      <Name>First gazette notices, Struck off register own request, DS01 received after 1102015</Name>
+      <Description>(EUP2) First gazette notices, Struck off register own request, DS01 received after 1102015</Description>
+    </Notice>
+	
+	<Notice Code="3551" SortOrder="51">
+      <Name>First gazette notices, Struck off register own request, C48 received before 1102015</Name>
+      <Description>(EUQ1) First gazette notices, Struck off register own request, C48 received before 1102015</Description>
+    </Notice>
+
+	<Notice Code="3552" SortOrder="52">
+      <Name>First gazette notices, Struck off register own request, C48 received after 1102015</Name>
+      <Description>(EUQ2) First gazette notices, Struck off register own request, C48 received after 1102015</Description>
+    </Notice>
+	
+	<Notice Code="3553" SortOrder="53">
+      <Name>Final gazette notices, Struck off register automatically, published 98+ days ago</Name>
+      <Description>(EUR1) Final gazette notices, Struck off register automatically, published 98+ days ago</Description>
+    </Notice>
+	
+	<Notice Code="3554" SortOrder="54">
+      <Name>Final gazette notices, Struck off register automatically, published 68+ days ago</Name>
+      <Description>(EUR2) Final gazette notices, Struck off register automatically, published 68+ days ago</Description>
+    </Notice>
+	
+	<Notice Code="3555" SortOrder="55">
+      <Name>Final gazette notices, Struck off register voluntarily (DS01), first gazette published 98+ days ago</Name>
+      <Description>(EUS1) Final gazette notices, Struck off register voluntarily (DS01), first gazette published 98+ days ago</Description>
+    </Notice>
+	
+	<Notice Code="3506" SortOrder="56">
+      <Name>Final gazette notices, Struck off register voluntarily (DS01), first gazette published 68+ days ago</Name>
+      <Description>(EUS2) Final gazette notices, Struck off register voluntarily (DS01), first gazette published 68+ days ago</Description>
+    </Notice>
+	
+	<Notice Code="3557" SortOrder="57">
+      <Name>Final gazette notices, Struck off register voluntarily (C48), first gazette published 98+ days ago</Name>
+      <Description>(EUT1) Final gazette notices, Struck off register voluntarily (C48), first gazette published 98+ days ago</Description>
+    </Notice>
+	
+	<Notice Code="3558" SortOrder="58">
+      <Name>Final gazette notices, Struck off register voluntarily (C48), first gazette published 68+ days ago</Name>
+      <Description>(EUT2) Final gazette notices, Struck off register voluntarily (C48), first gazette published 68+ days ago</Description>
+    </Notice>
+	
+	<Notice Code="3559" SortOrder="59">
+      <Name>The SE's Check and Confirm</Name>
+      <Description>(EUD4) The SE's Check and Confirm</Description>
+    </Notice>
+	
+  </Category>
+  
+  <Category Name="Contributors Information" Code="99" SortOrder="0" HideIfUser="true">
+		<!-- 9900: Christmas and New Year publishing arrangements -->
+		<Notice Code="9900" SortOrder="1">
+			<Name/>
+		
+		</Notice>
+	</Category>
+  <Category Name="Licensing" Code="201" SortOrder="0" HideIfUser="true">
+    <!-- 9900: Christmas and New Year publishing arrangements -->
+    <Notice Code="20101" SortOrder="1">
+      <Name>Licensable Activity</Name>
+      <Description>Notice of Licensable Activity</Description>
+      
+    </Notice>
+  </Category>
+</Configuration>

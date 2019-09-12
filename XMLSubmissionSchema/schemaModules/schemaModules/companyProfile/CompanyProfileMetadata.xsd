@@ -1,0 +1,70 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" xmlns:companyProfile="http://www.gazettes.co.uk/assets/companyProfile">
+    
+	<xs:element name="companyProfileMetadata">
+		<xs:complexType>
+		    <xs:all>
+				<xs:element name="companyNumber" type="xs:string" minOccurs="1"/>
+		        <xs:element name="companyName" type="xs:string"  minOccurs="1"/> 
+		        <xs:element name="companyFullAddress" type="xs:string"  minOccurs="1"/> 
+		        <xs:element name="directorId"  minOccurs="1">
+				  <xs:simpleType>
+				    <xs:restriction base="xs:long">
+				      <xs:minInclusive value="1"/>
+				    </xs:restriction>
+				  </xs:simpleType>
+				</xs:element>
+				<xs:element name="claimed" type="xs:boolean" minOccurs="1"/>
+		        <xs:element name="activationCode" type="xs:string" minOccurs="0"/> 
+		        <xs:element name="activationUri" type="xs:string" minOccurs="0"/> 
+		        <xs:element name="directorUsername" type="xs:string" minOccurs="0"/>
+		        <xs:element name="parentOrderId" type="xs:string" minOccurs="0"/>
+		        <xs:element name="orderId" type="xs:string" minOccurs="0"/>
+		        <xs:element name="status" type="companyProfileStatus" minOccurs="0"/>
+		        <xs:element name="companyHouseStatus" type="companyHouseStatus" minOccurs="0"/>
+		        <xs:element name="paymentType" type="companyProfilePaymentType" minOccurs="0"/>
+		        <xs:element name="paymentExpiry" type="xs:dateTime" minOccurs="0"/>
+		        <xs:element name="created" type="xs:dateTime" minOccurs="0"/>
+		        <xs:element name="lastUpdated" type="xs:dateTime" minOccurs="0"/>
+		        <xs:element name="claimDeclineDate" type="xs:dateTime" minOccurs="0"/>
+		        <xs:element name="claimDeclineVerificationCode" type="xs:string" minOccurs="0"/>
+		        
+		        <!-- minOccurs=1 is needed here to ensure primitive boolean is generate  -->
+		        <xs:element name="flagAsJustUpdateCardDetails" type="xs:boolean" minOccurs="1" />
+		        <xs:element name="firstExpiryNotificationSent" type="xs:boolean" minOccurs="1" />
+		        <xs:element name="secondExpiryNotificationSent" type="xs:boolean" minOccurs="1" />
+		        <xs:element name="detailsClearedAfterCancellation" type="xs:boolean" minOccurs="1" />
+		    </xs:all>
+		</xs:complexType>
+	</xs:element>
+    
+    <xs:simpleType name="companyProfileStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="pending-director-confirmation" />
+            <xs:enumeration value="pending-directorship-approval" />
+            <xs:enumeration value="directorship-declined" />
+            <xs:enumeration value="pending-customisation" />
+            <xs:enumeration value="pending-payment" />
+            <xs:enumeration value="pending-customisation-approval" />
+            <xs:enumeration value="customisation-declined" />
+            <xs:enumeration value="published" />
+            <xs:enumeration value="pending-cancellation" />
+            <xs:enumeration value="cancelled" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="companyProfilePaymentType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="annual" />
+            <xs:enumeration value="monthly" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="companyHouseStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="active" />
+            <xs:enumeration value="dissolved" />
+        </xs:restriction>
+    </xs:simpleType>
+	
+</xs:schema>
