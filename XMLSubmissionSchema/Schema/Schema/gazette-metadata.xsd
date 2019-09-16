@@ -1,0 +1,232 @@
+<!--
+  IMPORTANT:
+
+    Before you change this XSD, you must first talk with Charles.
+
+
+    Pay CLOSE attention to the "version" attribute on <xs:schema />,
+    any update to this XSD should mean that you change the version number,
+    no matter how small. This will be CRITICAL for debugging purposes as
+    putting the XSD inside the Schemas Database in MarkLogic fundamentally
+    changes the way how MarkLogic's XQuery engine works, to the point of code
+    that once worked, no longer working or behaving as expected.
+
+    The version pattern is:
+
+    A.B.C
+
+    A = Major Version Change, only increase if the structure changes beyond all
+        recognition, i.e. you have fundamentally re-thought EVERYTHING.
+
+    B = Minor Version Change, you've added, removed or renamed one or more
+        elements or data structures, this means re-setting C to 0 too!
+
+    C = Patch Change, you've slightly altered something, like modified a
+        string enumeration, or a min/max occurs, or a reg-ex expression,
+        basically something really, really minor to fix a basic issue.
+-->
+<xs:schema xmlns="http://www.gazettes.co.uk/metadata" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dcterms="http://purl.org/dc/terms/" targetNamespace="http://www.gazettes.co.uk/metadata" elementFormDefault="qualified" version="1.5.0">
+	<xs:import namespace="http://purl.org/dc/terms/" schemaLocation="dcterms.xsd"/>
+	<!-- Only 1 element for this XML Schema -->
+	<xs:element name="gazette-metadata" type="GazetteMetadataType"/>
+	<!-- Complex Types -->
+	<xs:complexType name="GazetteMetadataType">
+		<xs:all>
+		  
+			<!-- mandatory elements -->
+			<xs:element name="status" type="NoticeStatusType"/>
+			<xs:element name="submitted-date" type="xs:dateTime" minOccurs="0"/>
+				 
+			<!-- optional elements -->
+			<xs:element name="notice-code" type="xs:string" minOccurs="0"/>
+			<xs:element name="publication-date" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="publication-year" type="xs:positiveInteger" minOccurs="0"/>
+			<xs:element name="bundle-id" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="edition" type="EditionType" minOccurs="0"/>
+			<xs:element name="issue" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="claim-deadline-date" type="xs:date" minOccurs="0"/>
+			<xs:element name="content-type" type="xs:string" minOccurs="0"/>
+			<xs:element name="company-number" type="xs:string" minOccurs="0"/>
+			<xs:element name="company-numbers" type="CompanyNumberSequenceType" minOccurs="0"/>
+			<xs:element name="death-date" type="xs:date" minOccurs="0"/>
+			<xs:element name="draft-id" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="draft-uri" type="xs:string" minOccurs="0"/>
+			<xs:element name="issue-isbn" type="ISBNType" minOccurs="0"/>
+			<xs:element name="legacy-notice-number" type="xs:string" minOccurs="0"/>
+			<xs:element name="organisation-id" type="xs:nonNegativeInteger"  minOccurs="0"/>
+			<xs:element name="notice-id" type="xs:string" minOccurs="0"/>
+			<xs:element name="sort-by-date" type="xs:date" minOccurs="0"/>
+			<xs:element name="title" type="xs:string" minOccurs="0"/>
+			<xs:element name="source" type="xs:string" minOccurs="0"/>
+			<xs:element name="user-submitted" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="version-count" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="approved-by-tso-admin" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="has-supporting-doc" type="xs:boolean" minOccurs="0"/>
+			
+			<!-- binary ingestion layer / custom MarkLogic stuff -->
+			<xs:element name="binary-content-uri" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="display-in-sitemaps" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="searchable" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="represents-binary-content" type="RepresentsBinaryContentType" minOccurs="0"/>
+			
+			<!-- print publication, all optional elements -->
+			<xs:element name="page-number" type="xs:string" minOccurs="0"/>
+			<xs:element name="page-number-end" type="xs:string" minOccurs="0"/>
+			<xs:element name="page-number-start" type="xs:string" minOccurs="0"/>
+		  <xs:element name="print-publication-date" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="type" type="PrintPublicationType" minOccurs="0"/>
+			<xs:element name="first-page" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="pdf-copy" type="xs:boolean" minOccurs="0"/>
+			<!-- editorial content -->
+			<xs:element ref="dcterms:relations" minOccurs="0"/>
+			
+			<!-- order / e-commerce elements -->
+			<xs:element name="order-id" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="order-line-item-id" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="chargeable-events" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="notice-logo" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="po-box-service" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="forwarding-address-id" type="xs:string" minOccurs="0"/>
+			<xs:element name="notice-printed-copy" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="pre-paid-internal-submission" type="xs:boolean" minOccurs="0"/>
+		 	
+			<!-- sequences of elements -->
+			<xs:element name="approver-comments" type="ApproverCommentsSequenceType" minOccurs="0"/>
+			<xs:element name="notice-category-codes" type="NoticeCategoryCodeSequenceType" minOccurs="0"/>
+			<xs:element name="event-dates" type="EventDateSequenceType" minOccurs="0"/>
+			<xs:element name="locations" type="LocationSequenceType" minOccurs="0"/>
+			
+			<!--notice capture method-->
+			<xs:element name="notice-capture-method" type="NoticeCaptureMethod" minOccurs="0"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="GeoSpatialType">
+		<xs:sequence>
+			<xs:element name="latitude" type="xs:float"/>
+			<xs:element name="longitude" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LocationType">
+		<xs:complexContent>
+			<xs:extension base="LocationElementsType">
+				<xs:attribute name="about" type="xs:string" use="required"/>
+				<xs:attribute name="searchable" type="xs:boolean" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RepresentsBinaryContentType">
+		<xs:simpleContent>
+			<xs:extension base="xs:boolean">
+				<xs:attribute name="info" type="PrintPublicationType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--
+  <xs:complexType name="NoticeCodeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="primary" type="xs:boolean" default="false" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+-->
+	<xs:complexType name="EventDateType">
+		<xs:simpleContent>
+			<xs:extension base="xs:date">
+				<xs:attribute name="type" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LocationElementsType">
+		<xs:sequence>
+			<xs:element name="geo-spatial" type="GeoSpatialType"/>
+			<xs:element name="local-authority" type="xs:string" minOccurs="0"/>
+			<xs:element name="postcode" type="PostcodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Sequences of Elements -->
+  <xs:complexType name="ApproverCommentsSequenceType">
+    <xs:sequence>
+      <xs:element name="comment" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="NoticeCategoryCodeSequenceType">
+		<xs:sequence>
+			<xs:element name="notice-category-code" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LocationSequenceType">
+		<xs:sequence>
+			<xs:element name="location" type="LocationType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EventDateSequenceType">
+		<xs:sequence>
+			<xs:element name="event-date" type="xs:date" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>		
+	<xs:complexType name="CompanyNumberSequenceType">
+		<xs:sequence>
+			<xs:element name="company-number" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Simple Types -->
+	<xs:simpleType name="PostcodeType">
+		<xs:restriction base="xs:string"/>
+		<!-- can be a strict reg-ex later -->
+	</xs:simpleType>
+	<xs:simpleType name="PrintPublicationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="page"/>
+			<xs:enumeration value="supplement"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EditionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="London"/>
+			<xs:enumeration value="Edinburgh"/>
+			<xs:enumeration value="Belfast"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISBNType">
+		<xs:restriction base="xs:string"/>
+		<!-- can be a strict reg-ex later -->
+	</xs:simpleType>
+	<xs:simpleType name="NoticeCaptureMethod">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="webform"/>
+			<xs:enumeration value="gazette-schema-xml"/>
+			<xs:enumeration value="pre-2005-dtd-xml"/>
+			<xs:enumeration value="word-template"/>
+			<xs:enumeration value="spreadsheet"/>
+			<xs:enumeration value="plain-text"/>
+			<xs:enumeration value="excel"/>
+			<xs:enumeration value="html-rdfa"/>
+			<xs:enumeration value="json"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="NoticeStatusType">
+    <xs:restriction base="xs:string">
+	
+		<!-- Notice statuses to be deleted -->
+		<xs:enumeration value="unpublished"/>
+		<xs:enumeration value="awaiting-approval"/>	
+		<xs:enumeration value="awaiting-payment"/>
+		<xs:enumeration value="paid"/>
+		<xs:enumeration value="internalerror"/>
+		
+		<xs:enumeration value="valid"/>
+		<xs:enumeration value="invalid"/>
+		<xs:enumeration value="internal-error"/>
+		<xs:enumeration value="unauthorised-error"/>
+		<xs:enumeration value="validation-error"/>
+		<xs:enumeration value="paid-and-awaiting-approval"/>
+		<xs:enumeration value="rejected"/>
+		<xs:enumeration value="withdrawn"/>
+		<xs:enumeration value="awaiting-billing-confirmation"/>
+		<xs:enumeration value="awaiting-publish"/>
+		<xs:enumeration value="published"/>
+		<xs:enumeration value="excluded"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
