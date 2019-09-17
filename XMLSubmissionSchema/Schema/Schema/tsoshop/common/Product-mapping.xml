@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.common.Product">
+	  	<map-to xml="Product" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+		<field name="briefDescription" type="string" >
+	      	<bind-xml name="BriefDescription" node="element"/>
+	    </field>
+	    <field name="fullDescription" type="string" >
+	      	<bind-xml name="FullDescription" node="element"/>
+	    </field>
+	    <field name="lastModifiedDate" type="date" >
+	      	<bind-xml name="LastModifiedDate" node="element"/>
+	    </field>
+	    <field name="maxOrderQuantity" type="int" >
+	      	<bind-xml name="MaxOrderQuantity" node="element"/>
+	    </field>
+	    <field name="minOrderQuantity" type="int" >
+	      	<bind-xml name="MinOrderQuantity" node="element"/>
+	    </field>
+	    <field name="productId" type="string" >
+	      	<bind-xml name="ProductId" node="element"/>
+	    </field>
+	    <field name="productName" type="string" >
+	      	<bind-xml name="ProductName" node="element"/>
+	    </field>
+	    <field name="productType" type="string" >
+	      	<bind-xml name="ProductType" node="element"/>
+	    </field>
+	    <field name="properCaseProductId" type="string" >
+	      	<bind-xml name="ProperCaseProductId" node="element"/>
+	    </field>
+	    <field name="vatCodeId" type="string" >
+	      	<bind-xml name="VatCodeId" node="element"/>
+	    </field>
+	    <field name="subscriptionDetails" type="uk.co.gazettes.services.tsoshop.castor.entities.common.SubscriptionDetail" >
+	      	<bind-xml name="SubscriptionDetails" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.common.SubscriptionDetail">
+	  	<map-to xml="SubscriptionDetails" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+		<field name="productId" type="string" >
+	      	<bind-xml name="ProductId" node="element"/>
+	    </field>
+	    <field name="subscriptionType" type="string" >
+	      	<bind-xml name="SubscriptionType" node="element"/>
+	    </field>
+	    <field name="duration" type="int" >
+	      	<bind-xml name="Duration" node="element"/>
+	    </field>
+	    <field name="maxUserCount" type="int" >
+	      	<bind-xml name="MaxUserCount" node="element"/>
+	    </field>
+	    <field name="durationType" type="string" >
+	      	<bind-xml name="DurationType" node="element"/>
+	    </field>
+	</class>
+	
+	
+</mapping>
