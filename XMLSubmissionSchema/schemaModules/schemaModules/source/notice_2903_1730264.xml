@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:foaf="http://www.gazettes-online.co.uk/ontology/foaf"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:gzc="http://www.tso.co.uk/assets/namespace/gazette/LGconfiguration"
+    xmlns:math="http://www.w3.org/1998/Math/MathML"
+    xmlns:gz="http://www.tso.co.uk/assets/namespace/gazette"
+    xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata"
+    xmlns:wgs84="http://www.w3.org/2003/01/geo/wgs84_pos"
+    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+    xmlns:personal-legal="http://www.gazettes-online.co.uk/ontology/personal-legal"
+    prefix="gaz: http://www.gazettes-online.co.uk/ontology# person: http://www.gazettes-online.co.uk/ontology/person# personal-legal:  http://www.gazettes-online.co.uk/ontology/personal-legal# org: http://www.w3.org/ns/org# this: http://www.gazettes.co.uk/id/notice/1234567#"
+    DocumentURI="http://www.gazettes.co.uk/notice/1234567"
+    IdURI="http://www.gazettes.co.uk/id/notice/1234567">
+    <head>
+        <title>Deceased Estates</title>
+    </head>
+    <article>
+        <header>
+            <h1>Deceased Estates</h1>
+        </header>
+        <span typeof="gaz:Notice" resource="http://www.gazettes.co.uk/id/notice/1234567"></span>
+        <span property="gaz:hasPublicationDate" datatype="xsd:date"
+            about="http://www.gazettes.co.uk/id/notice/1234567" content="2012-12-18"></span>
+        <span property="gaz:isAbout" resource="this:noticeForClaimsAgainstEstate"
+            about="http://www.gazettes.co.uk/id/notice/1234567"></span>
+        <span property="gaz:hasNoticeCode" about="http://www.gazettes.co.uk/id/notice/1234567"
+            content="2903"></span>
+        <span resource="this:noticeForClaimsAgainstEstate"
+            typeof="personal-legal:NoticeForClaimsAgainstEstate"></span>
+        <span about="this:noticeForClaimsAgainstEstate" property="personal-legal:hasEstateOf"
+            resource="this:JoanElsieWhitehair"></span>
+        <span about="this:noticeForClaimsAgainstEstate"
+            property="personal-legal:estateAdministrator" resource="this:estateAdministrator"></span>
+        <span typeof="gaz:Person" about="this:JoanElsieWhitehair"></span>
+        <span property="vcard:adr" resource="this:addressOfDeceased" about="this:JoanElsieWhitehair"></span>
+        <span property="foaf:name" about="this:JoanElsieWhitehair" content="Joan Elsie Whitehair"
+            foaf:name="Joan Elsie Whitehair"></span>
+        <span resource="this:addressOfDeceased" typeof="vcard:Address"></span>
+        <span resource="this:estateAdministrator" typeof="foaf:Agent"></span>
+        <span about="this:estateAdministrator" property="vcard:adr"
+            resource="this:addressOfAdministrator"></span>
+        <span resource="this:addressOfAdministrator" typeof="vcard:Address"></span>
+        <span about="this:addressOfAdministrator" typeof="vcard:Address"></span>
+        <span resource="http://www.gazettes.co.uk/id/edition/London/issue/123/notice/1730264"
+            typeof="gaz:Notice"></span>
+        <span resource="http://www.gazettes.co.uk/id/edition/London/issue/123" typeof="gaz:Issue"></span>
+        <span about="http://www.gazettes.co.uk/id/edition/London/issue/123"
+            property="gaz:hasEdition" resource="http://www.gazettes.co.uk/id/edition/London"
+            content="London"></span>
+        <span about="http://www.gazettes.co.uk/id/edition/London/issue/123"
+            property="gaz:hasIssueNumber" datatype="xsd:string" content="123"></span>
+        <span resource="http://www.gazettes.co.uk/id/edition/London" typeof="gaz:Edition"></span>
+        <section id="noticeDetails">
+            <header>
+                <h2>Notice details</h2>
+            </header>
+            <dl>
+                <dt>Notice type:</dt>
+                <dd id="noticeType" property="gaz:hasNoticeNumber" datatype="xsd:integer"
+                    about="http://www.gazettes.co.uk/id/notice/1234567" content="1730264">2903</dd>
+                <dt>Claim expires:</dt>
+                <dd id="dateOfClaimExpire"><time about="this:noticeForClaimsAgainstEstate"
+                        property="gaz:hasClaimDeadline" datatype="xsd:date" content="2013-06-10"
+                        datetime="2013-06-10">10 June 2013</time></dd>
+                <dt>Notice number:</dt>
+                <dd id="noticeNumber">1730264</dd>
+                <dt>Publication date:</dt>
+                <dd id="publishDate"><time datetime="2012-12-18">18 December 2012</time></dd>
+                <dt>Keyed by:</dt>
+                <dd id="keyedBy">Linda</dd>
+                <dt>Supplier notice ID:</dt>
+                <dd id="supplierNoticeId">405</dd>
+            </dl>
+        </section>
+        <section id="detailsofDeceased">
+            <header>
+                <h2>Details of the deceased</h2>
+            </header>
+            <dl>
+                <dt>Surname:</dt>
+                <dd id="surName" property="foaf:familyName" typeof="gaz:Person"
+                    about="this:JoanElsieWhitehair" foaf:familyName="Whitehair">Whitehair</dd>
+                <dt>First name:</dt>
+                <dd id="foreName" property="foaf:firstName" typeof="gaz:Person"
+                    about="this:JoanElsieWhitehair" foaf:firstName="Joan">Joan</dd>
+                <dt>Middle name(s):</dt>
+                <dd id="middleNames" property="foaf:givenName" typeof="gaz:Person"
+                    about="this:JoanElsieWhitehair" foaf:givenName="Elsie">Elsie</dd>
+                <dt>Date of death:</dt>
+                <dd id="dateOfDeath"><time property="personal-legal:diedOn" typeof="gaz:Person"
+                        datatype="xsd:date" about="this:JoanElsieWhitehair" content="2012-10-02"
+                        datetime="2012-10-02">2 October 2012</time></dd>
+            </dl>
+        </section>
+        <section id="personAddressDetails">
+            <header>
+                <h2>Former home address of the deceased</h2>
+            </header>
+            <dl>
+                <dt>Person address details:</dt>
+                <dd id="personAddressDetails" about="this:addressOfDeceased" typeof="vcard:Address"
+                    property="vcard:address">30 Kenilworth Road, Fleet, Hampshire GU51 3AX, Personal
+                    Assistant (Retired)</dd>
+            </dl>
+        </section>
+        <section id="detailsOfExecutor">
+            <header>
+                <h2>Details of the executor</h2>
+            </header>
+            <dl>
+                <dt>Executor:</dt>
+                <dd id="executor" about="this:estateAdministrator" property="foaf:name"
+                    typeof="foaf:Agent">Countrywide Tax &amp; Trust Corporation Ltd, Abbotsfield
+                    House, 43 High Street, Kenilworth, Warwickshire CV8 1RU.</dd>
+            </dl>
+        </section>
+    </article>
+</html>

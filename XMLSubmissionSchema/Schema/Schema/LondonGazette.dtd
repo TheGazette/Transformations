@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	=======================================================================================
+	Description: Converts notice document type within gazette site from XML to HTML
+	=======================================================================================
+	Creation Date: 23/07/2002
+	Created By: Phil Cornfield
+	Associated xsl file: LondonGazette.xsl
+	=======================================================================================
+	Version History:
+	
+	
+	Name						Date			Reason
+										
+	
+	=======================================================================================
+-->
+<!ELEMENT gazette (control, notice+)>
+<!ATTLIST gazette
+	type (london | edinburgh | belfast) #REQUIRED
+>
+<!ELEMENT control ((issue, date, isbn) | (issue, date, page, isbn))>
+<!ELEMENT issue (#PCDATA)>
+<!ELEMENT date (weekday, day, month, year)>
+<!ELEMENT weekday (#PCDATA)>
+<!ELEMENT day (#PCDATA)>
+<!ELEMENT month (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT isbn (#PCDATA)>
+<!--ELEMENT notice (((head3 | head4 | head5 | text | t | bt | r | c)+, number?) | (legalpre, legalhd, legal+))-->
+<!ELEMENT notice (#PCDATA  | hw1 | hw2 | hw3 | hw4 | head3 | head4 | head5 | text | t | bt | r | c | number | legalpre | legalhd | legal)*>
+<!ATTLIST notice
+	code CDATA #REQUIRED
+>
+<!ELEMENT head3 (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT head4 (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT head5 (#PCDATA | hw1 | hw2 | hw3 | hw4 | COMPANYNA | X2ND_COMP | X3RD_COMP | X4TH_COMP | X5TH_COMP | X6TH_COMP | X7TH_COMP)*>
+<!ELEMENT text (#PCDATA | tradingas | img | IMG | CENTER | REGISTERE | NATUREOFB | TRADECLAS | ADMINISTR | OFFICEHOL | OFFICE_HO | ADMIN_REC | TRADE_CLA | DATE_OF_A | NAME_OF_P | PREVIOUS_ | PLACE_OF_ | LIQUIDATO | MEETINGDA | MEETINGTI | COURTNAME | HEARINGNU | TRADING_N | TRADINGAS | receiver | name | actsection | meetingwhere | meetingdate | meetingtime | practioner | sig | t | hw1 | hw2 | hw3 | hw4 | legal)*>
+<!ELEMENT CENTER (IMG | img)>
+<!ELEMENT img EMPTY>
+<!ATTLIST img
+	src CDATA #IMPLIED
+	filename CDATA #IMPLIED
+	SRC CDATA #IMPLIED
+>
+<!ELEMENT IMG EMPTY>
+<!ATTLIST IMG
+	SRC CDATA #REQUIRED
+>
+<!ELEMENT tradingas (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT receiver (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT name (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT actsection (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT meetingwhere (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT meetingdate (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT meetingtime (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT practioner (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT sig (#PCDATA | signature | img | advertdate | advertnumber | hw1 | hw2 | hw3 | hw4 | SIGNATOR | OFFICEHOL | OFFICE_HO | ADMIN_REC)*>
+<!ELEMENT signature (#PCDATA | hw1 | hw2 | hw3 | hw4)*>
+<!ELEMENT advertdate (#PCDATA)>
+<!ELEMENT advertnumber (#PCDATA)>
+<!ELEMENT t (bt)>
+<!ATTLIST t
+	cols CDATA #REQUIRED
+>
+<!ELEMENT bt (#PCDATA | hw1 | hw2 | hw3 | hw4 | r)*>
+<!ELEMENT r (#PCDATA | hw1 | hw2 | hw3 | hw4 | c)*>
+<!ELEMENT c (#PCDATA | hw1 | hw2 | hw3 | hw4 | text)*>
+<!ATTLIST c
+	hstrad CDATA #IMPLIED
+	vstrad CDATA #IMPLIED
+>
+<!ELEMENT page (#PCDATA)>
+<!ELEMENT hw1 (#PCDATA | r | c)*>
+<!ELEMENT hw2 (#PCDATA | r | c | SIGNATOR | SIGNATOR_)*>
+<!ELEMENT hw3 (#PCDATA | r | c)*>
+<!ELEMENT hw4 (#PCDATA | r | c)*>
+<!ELEMENT COMPANYNA (#PCDATA)>
+<!ELEMENT REGISTERE (#PCDATA)>
+<!ELEMENT NATUREOFB (#PCDATA)>
+<!ELEMENT TRADECLAS (#PCDATA)>
+<!ELEMENT SIGNATOR (#PCDATA)>
+<!ELEMENT SIGNATOR_ (#PCDATA)>
+<!ELEMENT ADMINISTR (#PCDATA)>
+<!ELEMENT OFFICEHOL (#PCDATA)>
+<!ELEMENT OFFICE_HO (#PCDATA)>
+<!ELEMENT ADMIN_REC (#PCDATA)>
+<!ELEMENT TRADE_CLA (#PCDATA)>
+<!ELEMENT DATE_OF_A (#PCDATA)>
+<!ELEMENT NAME_OF_P (#PCDATA)>
+<!ELEMENT PREVIOUS_ (#PCDATA)>
+<!ELEMENT PLACE_OF_ (#PCDATA)>
+<!ELEMENT LIQUIDATO (#PCDATA)>
+<!ELEMENT MEETINGDA (#PCDATA)>
+<!ELEMENT MEETINGTI (#PCDATA)>
+<!ELEMENT X2ND_COMP (#PCDATA)>
+<!ELEMENT X3RD_COMP (#PCDATA)>
+<!ELEMENT X4TH_COMP (#PCDATA)>
+<!ELEMENT X5TH_COMP (#PCDATA)>
+<!ELEMENT X6TH_COMP (#PCDATA)>
+<!ELEMENT X7TH_COMP (#PCDATA)>
+<!ELEMENT COURTNAME (#PCDATA)>
+<!ELEMENT HEARINGNU (#PCDATA)>
+<!ELEMENT TRADING_N (#PCDATA)>
+<!ELEMENT TRADINGAS (#PCDATA)>
+<!ELEMENT legalpre (#PCDATA)>
+<!ELEMENT legalhd (r)>
+<!ELEMENT legal (r+)>
+<!ELEMENT number (#PCDATA)>
+<!ENTITY nbsp "&#160;">
+<!ENTITY ldquo "&#8220;">
+<!ENTITY rdquo "&#8221;">
+<!ENTITY pound "&#163;">
+<!ENTITY mdash "&#8212;">
+<!ENTITY Acirc "&#194;">
+<!ENTITY Auml "&#196;">
+<!ENTITY Ccedil "&#199;">
+<!ENTITY Eacute "&#201;">
+<!ENTITY Egrave "&#200;">
+<!ENTITY Iuml "&#207;">
+<!ENTITY Ntilde "&#209;">
+<!ENTITY Ouml "&#214;">
+<!ENTITY Prime "&#8242;">
+<!ENTITY Uuml "&#220;">
+<!ENTITY Ycirc "&#219;">
+<!ENTITY aacute "&#225;">
+<!ENTITY acirc "&#226;">
+<!ENTITY agr "&#065;">
+<!ENTITY agrave "&#224;">
+<!ENTITY ast "&#042;">
+<!ENTITY atilde "&#227;">
+<!ENTITY auml "&#228;">
+<!ENTITY bgr "&#066;">
+<!ENTITY ccedil "&#199;">
+<!ENTITY commat "&#064;">
+<!ENTITY dagger "&#8224;">
+<!ENTITY deg "&#176;">
+<!ENTITY dollar "&#036;">
+<!ENTITY eacute "&#233;">
+<!ENTITY ecirc "&#234;">
+<!ENTITY egrave "&#232;">
+<!ENTITY equals "&#061;">
+<!ENTITY euml "&#235;">
+<!ENTITY frac12 "&#189;">
+<!ENTITY frac14 "&#188;">
+<!ENTITY frac34 "&#190;">
+<!ENTITY gt "&#62;">
+<!ENTITY abreve "&#300;">
+<!ENTITY iuml "&#239;">
+<!ENTITY ldquo "&#8220;">
+<!ENTITY lowbar "&#095;">
+<!ENTITY lsquo "&#8216;">
+<!ENTITY lsquor "&#130;">
+<!ENTITY mdash "&#8212;">
+<!ENTITY mgr "&#077;">
+<!ENTITY minus "&#045;">
+<!ENTITY ntilde "&#241;">
+<!ENTITY num "&#035;">
+<!ENTITY oacute "&#243;">
+<!ENTITY ocirc "&#244;">
+<!ENTITY oslash "&#248;">
+<!ENTITY ouml "&#246;">
+<!ENTITY percnt "&#037;">
+<!ENTITY plus "&#43;">
+<!ENTITY plusmn "&#177;">
+<!ENTITY pound "&#163;">
+<!ENTITY prime "&#039;">
+<!ENTITY quest "&#191;">
+<!ENTITY rcub "&#125;">
+<!ENTITY rdquo "&#8221;">
+<!ENTITY reg "&#174;">
+<!ENTITY rsquo "&#8217;">
+<!ENTITY scaron "&#353;">
+<!ENTITY sub2 "&#0032;">
+<!ENTITY sub3 "&#0033;">
+<!ENTITY sube "&#205;">
+<!ENTITY sup1 "&#185;">
+<!ENTITY sup2 "&#178;">
+<!ENTITY sup3 "&#179;">
+<!ENTITY sup4 "&#0034;">
+<!ENTITY sup5 "&#0035;">
+<!ENTITY sup6 "&#0036;">
+<!ENTITY sup7 "&#0037;">
+<!ENTITY sup9 "&#0039;">
+<!ENTITY szlig "&#223;">
+<!ENTITY times "&#215;">
+<!ENTITY uacute "&#218;">
+<!ENTITY uuml "&#252;">
+<!ENTITY wcirc "&#214;">
+<!ENTITY ycirc "&#220;">
+<!ENTITY dotfill "&#160;">
+<!ENTITY min "&#45;">
+<!ENTITY obreve "&#335;">
+<!ENTITY sbreve "&#160;">
+<!ENTITY sec "&#160;">
+<!ENTITY subhyp "&#160;">
+<!ENTITY subt "&#160;">
+<!ENTITY sup8 "&#160;">
+<!ENTITY ibreve "&#301;">
+<!ENTITY bull "&#149;">
+<!ENTITY shy "&#173;">
+<!ENTITY ndash "&#8211;">
+<!--<!ENTITY sup0 "&#0030;">-->
+<!ENTITY sup0 "&#160;">
