@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Schema version 0.0.0.1 PRE-ALPHA; Damon Smith; 12th of June, 2013 -->
+<rng:grammar 
+  xmlns:foaf="http://xmlns.com/foaf/0.1/" 
+  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+  xmlns:gzmeta="http://www.gazettes.co.uk/metadata"
+  ns="http://www.w3.org/1999/xhtml">
+  
+  <rng:start>
+    <rng:element name="html">
+      <rng:ref name="attlist.html"/>
+      <rng:ref name="head"/>
+      <rng:ref name="body"/>
+    </rng:element>
+  </rng:start>
+  <rng:define name="attlist.html" combine="interleave">
+    <rng:optional>
+      <rng:attribute name="version"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="IdURI"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="DocumentURI"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="prefix"/>
+    </rng:optional>
+  </rng:define>
+  
+  <rng:define name="head">
+    <rng:element name="head">
+      <rng:ref name="attlist.head"/>
+      <rng:ref name="title"/>
+      <rng:ref name="gazette-metadata"/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.head" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="title">
+    <rng:element name="title">
+      <rng:ref name="attlist.title"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.title" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="gazette-metadata">
+    <rng:element name="gzmeta:gazette-metadata">
+      <rng:ref name="attlist.gazette-metadata"/>
+      <rng:oneOrMore>
+        <rng:choice>
+          <rng:ref name="bundle-id"/>
+          <rng:ref name="notice-id"/>
+          <rng:ref name="status"/>
+          <rng:ref name="version-count"/>
+          <rng:ref name="notice-code"/>
+          <rng:ref name="edition"/>
+          <rng:ref name="issue"/>
+          <rng:ref name="legacy-notice-number"/>
+          <rng:ref name="user-submitted"/>
+        </rng:choice>
+      </rng:oneOrMore>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.gazette-metadata" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="bundle-id">
+    <rng:element name="gzmeta:bundle-id">
+      <rng:ref name="attlist.bundle-id"/>
+      <rng:data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+        <rng:param name="pattern">[0-9]+</rng:param>
+      </rng:data>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.bundle-id" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  <rng:define name="notice-id">
+    <rng:element name="gzmeta:notice-id">
+      <rng:ref name="attlist.notice-id"/>
+      <rng:data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+        <rng:param name="pattern">[0-9]+</rng:param>
+      </rng:data>
+    </rng:element>
+  </rng:define>
+  
+  <rng:define name="attlist.notice-id" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  <rng:define name="status">
+    <rng:element name="gzmeta:status">
+      <rng:ref name="attlist.status"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.status" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="version-count">
+    <rng:element name="gzmeta:version-count">
+      <rng:ref name="attlist.version-count"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.version-count" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="notice-code">
+    <rng:element name="gzmeta:notice-code">
+      <rng:ref name="attlist.notice-code"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.notice-code" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="edition">
+    <rng:element name="gzmeta:edition">
+      <rng:ref name="attlist.edition"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>  
+  <rng:define name="attlist.edition" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="issue">
+    <rng:element name="gzmeta:issue">
+      <ref name="attlist.issue"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.issue" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="legacy-notice-number">
+    <rng:element name="gzmeta:legacy-notice-number">
+      <rng:ref name="attlist.legacy-notice-number"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.legacy-notice-number" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="user-submitted">
+    <rng:element name="gzmeta:user-submitted">
+      <rng:ref name="attlist.user-submitted"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.user-submitted" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="body">
+    <rng:element name="body">
+      <rng:ref name="attlist.body"/>
+      <rng:ref name="article"/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.body" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+  
+  <rng:define name="article">
+    <rng:element name="article">
+      <rng:ref name="attlist.article"/>
+      <rng:ref name="h1"/>
+      <rng:ref name="div"/>
+      <rng:ref name="dl"/>
+      <rng:zeroOrMore>
+        <rng:ref name="section"/>
+      </rng:zeroOrMore>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.article" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+
+  <rng:define name="h1">
+    <rng:element name="h1">
+      <rng:ref name="attlist.h1"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.h1" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+
+  <rng:define name="div">
+    <rng:element name="div">
+      <rng:ref name="attlist.div"/>
+      <rng:oneOrMore>
+        <rng:ref name="span"/>
+      </rng:oneOrMore>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.div" combine="interleave">
+    <rng:optional>
+      <rng:attribute name="class"/>
+    </rng:optional>
+  </rng:define>
+
+  <rng:define name="span">
+    <rng:element name="span">
+      <rng:ref name="attlist.span"/>
+      <rng:empty/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.span" combine="interleave">
+    <rng:optional>
+      <rng:attribute name="about"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="property">
+        <rng:data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>  
+      </rng:attribute>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="resource"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="content"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="datatype"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="typeof"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="foaf:name"/>
+    </rng:optional>
+  </rng:define>
+
+  <rng:define name="dl">
+    <rng:element name="dl">
+      <rng:ref name="attlist.dl"/>
+      <rng:element name="dt"><rng:choice><rng:value>Notice type:</rng:value></rng:choice></rng:element>
+      <rng:element name="dd">
+        <rng:ref name="attlist.dd-notice-type"/>
+        <rng:zeroOrMore>
+          <rng:choice>
+            <rng:text/>
+            <rng:ref name="time"/>
+          </rng:choice>
+        </rng:zeroOrMore>        
+      </rng:element>
+      <rng:oneOrMore>
+        <rng:ref name="dt"/>
+        <rng:ref name="dd"/>
+      </rng:oneOrMore>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.dl" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+
+  <rng:define name="dt">
+    <rng:element name="dt">
+      <rng:ref name="attlist.dt"/>
+      <rng:choice>
+        <rng:value>Notice type:</rng:value>
+        <rng:value>Claim expires:</rng:value>
+        <rng:value>Notice number:</rng:value>
+        <rng:value>Edition:</rng:value>
+        <rng:value>Issue number:</rng:value>
+        <rng:value>Publication date:</rng:value>
+        <rng:value>Surname:</rng:value>
+        <rng:value>First name:</rng:value>
+        <rng:value>Date of death:</rng:value>
+        <rng:value>Person address details:</rng:value>
+        <rng:value>Executor:</rng:value>
+      </rng:choice>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.dt" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+
+  <rng:define name="dd">
+    <rng:element name="dd">
+      <rng:ref name="attlist.dd"/>
+      <rng:zeroOrMore>
+        <rng:choice>
+          <rng:text/>
+          <rng:ref name="time"/>
+        </rng:choice>
+      </rng:zeroOrMore>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.dd-notice-type" combine="interleave">
+    <rng:optional>
+      <rng:attribute name="property">
+        <rng:choice>
+          <rng:value>gaz:hasNoticeCode</rng:value>
+        </rng:choice>
+      </rng:attribute>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="datatype">
+        <rng:data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+          <rng:param name="pattern">xsd:integer|xsd:date</rng:param>
+        </rng:data>     
+      </rng:attribute>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="about"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="content"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="typeof"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="foaf:firstName"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="foaf:familyName"/>
+    </rng:optional>
+  </rng:define>
+  <rng:define name="attlist.dd" combine="interleave">
+    <rng:optional>
+      <rng:attribute name="property">
+        <rng:data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/> 
+      </rng:attribute>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="datatype">
+        <rng:data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+          <rng:param name="pattern">xsd:integer|xsd:date</rng:param>
+        </rng:data>     
+      </rng:attribute>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="about"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="content"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="typeof"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="foaf:firstName"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="foaf:familyName"/>
+    </rng:optional>
+  </rng:define>
+
+  <rng:define name="time">
+    <rng:element name="time">
+      <rng:ref name="attlist.time"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.time" combine="interleave">
+    <rng:attribute name="datetime">
+      <rng:data type="date" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+    </rng:attribute>
+    <rng:optional>
+      <rng:attribute name="content">
+        <rng:data type="date" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </rng:attribute>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="about"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="datatype">
+        <rng:data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+          <rng:param name="pattern">xsd:date</rng:param>
+        </rng:data>  
+      </rng:attribute>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="typeof"/>
+    </rng:optional>
+    <rng:optional>
+      <rng:attribute name="property"/>
+    </rng:optional>
+  </rng:define>
+
+  <rng:define name="section">
+    <rng:element name="section">
+      <rng:ref name="attlist.section"/>
+      <rng:ref name="h2"/>
+      <rng:oneOrMore>
+        <rng:ref name="p"/>
+      </rng:oneOrMore>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.section" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+
+  <rng:define name="h2">
+    <rng:element name="h2">
+      <rng:ref name="attlist.h2"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.h2" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+
+  <rng:define name="p">
+    <rng:element name="p">
+      <rng:ref name="attlist.p"/>
+      <rng:text/>
+    </rng:element>
+  </rng:define>
+  <rng:define name="attlist.p" combine="interleave">
+    <rng:empty/>
+  </rng:define>
+
+</rng:grammar>
