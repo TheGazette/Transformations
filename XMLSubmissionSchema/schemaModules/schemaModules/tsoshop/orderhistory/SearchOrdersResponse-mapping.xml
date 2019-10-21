@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.SearchOrdersResponse">	  
+	    <map-to xml="SearchOrdersResponse" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+		<field name="result" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.SearchOrdersResult" >
+			<bind-xml name="SearchOrdersResult" node="element" />
+		</field> 
+	</class> 
+	
+	
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.SearchOrdersResult">	  
+	    <map-to xml="SearchOrdersResult" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+		<field name="itemsPerPage" type="string" >
+	      	<bind-xml name="ItemsPerPage" node="element"/>
+	    </field>
+		<field name="pageItems" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.PageItems" >
+	      	<bind-xml name="PageItems" node="element"/>
+	    </field>
+	    <field name="pageNumber" type="string" >
+	      	<bind-xml name="PageNumber" node="element"/>
+	    </field>
+	    <field name="totalItems" type="string" >
+	      	<bind-xml name="TotalItems" node="element"/>
+	    </field>  
+	    <field name="totalPages" type="string" >
+	      	<bind-xml name="TotalPages" node="element"/>
+	    </field> 
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.PageItems">	  
+	    <map-to xml="PageItems" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+		<field name="orders" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.Order"  collection="arraylist">
+	      	<bind-xml name="Order" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.Order">	  
+	    <map-to xml="Order" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+		<field name="billToAddressId" type="string" >
+	      	<bind-xml name="BillToAddressId" node="element"/>
+	    </field>
+	    <field name="shipToAddressId" type="string" >
+	      	<bind-xml name="ShipToAddressId" node="element"/>
+	    </field> 
+	    <field name="buyerPONumber" type="string" >
+	      	<bind-xml name="BuyerPONumber" node="element"/>
+	    </field>
+	    <field name="currentStatus" type="string" >
+	      	<bind-xml name="CurrentStatus" node="element"/>
+	    </field>  
+	    <field name="customerId" type="string" >
+	      	<bind-xml name="CustomerId" node="element"/>
+	    </field>
+	    <field name="orderDate" type="date" >
+	      	<bind-xml name="OrderDate" node="element"/>
+	    </field>  
+	    <field name="orderId" type="string" >
+	      	<bind-xml name="OrderId" node="element"/>
+	    </field> 
+	    <field name="orderPaymentType" type="string" >
+	      	<bind-xml name="OrderPaymentType" node="element"/>
+	    </field> 
+	    <field name="orderTotal" type="string" >
+	      	<bind-xml name="OrderTotal" node="element"/>
+	    </field> 
+	    <field name="orderTotalVat" type="string" >
+	      	<bind-xml name="OrderTotalVat" node="element"/>
+	    </field> 
+	    <field name="totalQuantities" type="string" >
+	      	<bind-xml name="TotalQuantities" node="element"/>
+	    </field> 
+	</class>  
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.GetOrderOfActiveSubscriptionResponse">	  
+	    <map-to xml="GetOrderOfActiveSubscriptionResponse" ns-uri="http://tempuri.org/" />	      
+		<field name="result" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.GetOrderOfActiveSubscriptionResult" >
+			<bind-xml name="GetOrderOfActiveSubscriptionResult" node="element" />
+		</field> 
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.GetOrderOfActiveSubscriptionResult">	  
+	    <map-to xml="GetOrderOfActiveSubscriptionResult" ns-uri="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" ns-prefix="b"/>	      
+		<field name="billToAddress" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.BillToAddress">
+			<bind-xml name="BillToAddress" node="element" />
+		</field>
+		<field name="billToAddressId" type="string" >
+	      	<bind-xml name="BillToAddressId" node="element"/>
+	    </field>
+		<field name="billingTypeId" type="string" >
+	      	<bind-xml name="BillingTypeId" node="element"/>
+	    </field>
+	    <field name="buyerPONumber" type="string" >
+	      	<bind-xml name="BuyerPONumber" node="element"/>
+	    </field>
+	    <field name="currentStatus" type="string" >
+	      	<bind-xml name="CurrentStatus" node="element"/>
+	    </field>
+	    <field name="customerId" type="string" >
+	      	<bind-xml name="CustomerId" node="element"/>
+	    </field>
+		<field name="customer" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.Customer" >
+	      	<bind-xml name="Customer" node="element" />
+	    </field>
+		<field name="lineItems" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.LineItems" >
+	      	<bind-xml name="LineItems" node="element"/>
+	    </field>
+		<field name="orderDate" type="date" >
+	      	<bind-xml name="OrderDate" node="element"/>
+	    </field>
+		<field name="orderId" type="string" >
+	      	<bind-xml name="OrderId" node="element"/>
+	    </field>
+	    <field name="orderPaymentType" type="string" >
+	      	<bind-xml name="OrderPaymentType" node="element"/>
+	    </field>
+		<field name="orderTotal" type="string" >
+	      	<bind-xml name="OrderTotal" node="element"/>
+	    </field>
+	    <field name="orderTotalCharges" type="string" >
+	      	<bind-xml name="OrderTotalCharges" node="element"/>
+	    </field>
+	    <field name="orderTotalChargesVAT" type="string" >
+	      	<bind-xml name="OrderTotalChargesVAT" node="element"/>
+	    </field>
+	    <field name="orderTotalVat" type="string" >
+	      	<bind-xml name="OrderTotalVat" node="element"/>
+	    </field>
+	    <field name="serviceLineId" type="string" >
+	      	<bind-xml name="ServiceLineId" node="element"/>
+	    </field>
+	    <field name="shipToAddressId" type="string" >
+	      	<bind-xml name="ShipToAddressId" node="element"/>
+	    </field>
+	    <field name="totalQuantities" type="int" >
+	      	<bind-xml name="TotalQuantities" node="element"/>
+	    </field>
+	</class>
+	
+</mapping>
