@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:si-xml="http://www.springframework.org/schema/integration/xml"
+       xmlns:si="http://www.springframework.org/schema/integration"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:int-ftp="http://www.springframework.org/schema/integration/ftp"
+	   xmlns:int-sftp="http://www.springframework.org/schema/integration/sftp"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd			
+			http://www.springframework.org/schema/integration/xml
+			http://www.springframework.org/schema/integration/xml/spring-integration-xml-2.2.xsd
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util.xsd
+			http://www.springframework.org/schema/integration 
+			http://www.springframework.org/schema/integration/spring-integration-2-2.xsd
+			http://www.springframework.org/schema/integration/ftp 
+			http://www.springframework.org/schema/integration/ftp/spring-integration-ftp-2.2.xsd
+			http://www.springframework.org/schema/integration/sftp 
+			http://www.springframework.org/schema/integration/sftp/spring-integration-sftp-2.2.xsd">
+	
+	<si:channel id="ftpBundleValidatorChannel" />
+	<si:channel id="ftpBundleValidationRouterChannel" />
+	<si:channel id="ftpVundleValidationFailedManagerChannel" />
+
+	<!-- This can be used just for testing with FileZilla -->
+	<!--beans:bean id="ftpSessionFactory" class="org.springframework.integration.ftp.session.DefaultFtpSessionFactory">
+		<beans:property name="host" value="${sftp.host}"/>
+		<beans:property name="port" value="21"/>
+		<beans:property name="username" value="${sftp.user}"/>
+		<beans:property name="password" value="${sftp.password}"/>
+	</beans:bean>
+	<int-ftp:inbound-channel-adapter id="ftpAdapterAutoCreate"
+									  session-factory="ftpSessionFactory"
+									  channel="ftpBundleValidatorChannel"
+									  filename-pattern="*.xml"
+									  remote-directory="${sftp.remote.directory}"
+									  local-directory="${sftp.local.directory}"
+									  auto-startup="${sftp.auto.startup}"
+									  auto-create-local-directory="true"
+									  delete-remote-files="true">
+		<si:poller cron="${sftp.cron.schedule}"/>
+	</int-ftp:inbound-channel-adapter-->
+	
+	<!-- 
+	This can also be used instead of FTP during testing. It scans a directory and sends the file to the ftpBundleValidationRouterChannel channel
+	<int-file:inbound-channel-adapter id="testDirectoryInputChannel"
+	    directory="file:C:\\ftp_area\\Company-Law-Supplement-TEST"
+	    prevent-duplicates="false"
+	    auto-startup="true" 
+	    auto-create-directory="false" 
+	    queue-size="1"
+	    scanner="dirScanner">
+    	<si:poller max-messages-per-poll="1" default="true" fixed-rate="1000" receive-timeout="5000" />
+	</int-file:inbound-channel-adapter>
+	<bean id="dirScanner" 
+    	class="org.springframework.integration.file.RecursiveLeafOnlyDirectoryScanner" />
+    	
+	
+	<si:service-activator input-channel="testDirectoryInputChannel" output-channel="ftpBundleValidationRouterChannel"
+	 ref="ftpBundleValidatorService" method="validateBundle" />
+	 -->
+
+	<beans:bean id="sftpSessionFactory" class="org.springframework.integration.sftp.session.DefaultSftpSessionFactory">
+		<beans:property name="host" value="${sftp.host}"/>
+		<beans:property name="port" value="22"/>
+		<beans:property name="user" value="${sftp.user}"/>
+		<beans:property name="password" value="${sftp.password}"/>
+	</beans:bean>
+	<int-sftp:inbound-channel-adapter id="sftpAdapterAutoCreate"
+									  session-factory="sftpSessionFactory"
+									  channel="ftpBundleValidatorChannel"
+									  filename-pattern="*.xml"
+									  remote-directory="${sftp.remote.directory}"
+									  local-directory="${sftp.local.directory}"
+									  auto-startup="${sftp.auto.startup}"
+									  auto-create-local-directory="true"
+									  delete-remote-files="true">
+		<si:poller cron="${sftp.cron.schedule}"/>
+	</int-sftp:inbound-channel-adapter>
+	
+	
+	
+	<si:service-activator input-channel="ftpBundleValidatorChannel" output-channel="ftpBundleValidationRouterChannel"
+	 ref="ftpBundleValidatorService" method="validateBundle" />
+	
+	
+	<si:header-value-router input-channel="ftpBundleValidationRouterChannel" resolution-required="true"
+		default-output-channel="sftpChannel" header-name="submitted-bundle-state">
+			<si:mapping value="invalid" channel="ftpVundleValidationFailedManagerChannel"/>
+	</si:header-value-router>
+	
+	<si:service-activator input-channel="ftpVundleValidationFailedManagerChannel" output-channel="nullChannel"
+	 ref="ftpBundleValidatorService" method="deleteBundle" />
+		
+	<si:header-enricher input-channel="sftpChannel" output-channel="persistBundleChannel">
+	    <si:header name="submitted-via-ftp" value="true"/>
+		<si:header name="user-submitted" value="${sftp.submitted.user}"/>
+		<si:header name="wordOrXmlFormatUpload" value="xml"/>
+		<si:header name="userNoticeCodes" expression="@userService.getNoticeTypeCodes(${sftp.submitted.user})"/>
+		<si:header name="bundleId" method="getNextBundleId" ref="noticesBundleService"/>
+		<si:header name="is_legacy_notice" expression="T(java.lang.Boolean).valueOf(false)"/>
+		<si:header name="draftId" value="-1"/>
+		<!-- provenance keys -->
+		<si:header name="BUNDLE_RECEIVE_START_TIME" expression="new java.util.Date().getTime()"/>
+		<si:header name="USER_ID" value="${sftp.submitted.user}"/>
+		
+	</si:header-enricher>
+
+
+	<si:channel id="sftpChannel">
+		<si:interceptors>
+			<si:wire-tap channel="sftpLogger"/>
+		</si:interceptors>
+	</si:channel>
+
+
+	<si:logging-channel-adapter id="sftpLogger" level="ERROR" log-full-message="true"/>
+</beans>
