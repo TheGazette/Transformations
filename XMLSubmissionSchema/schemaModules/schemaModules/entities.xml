@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entities>
+	<entity remoteURI="http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd" localURI="xhtml-rdfa-1.dtd"/>
+	<entity remoteURI="http://www.w3.org/MarkUp/DTD/xhtml-datatypes-1.mod" localURI="xhtml-datatypes-1.mod"/>
+	<entity remoteURI="http://www.w3.org/MarkUp/DTD/xhtml-metaAttributes-1.mod" localURI="xhtml-metaAttributes-1.mod"/>
+	<entity remoteURI="http://www.oracle.com/dtds/car.dtd" localURI="car.dtd"/>
+	<entity remoteURI="LondonGazette.dtd" localURI="LondonGazette.dtd"/>	
+</entities>	
+
+	
+	
