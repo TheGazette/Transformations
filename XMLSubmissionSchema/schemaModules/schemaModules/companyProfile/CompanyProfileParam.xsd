@@ -1,0 +1,16 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified" xmlns:companyProfile="http://www.gazettes.co.uk/assets/companyProfile">
+    <xs:element name="companyProfileParam">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="emailAddress" type="xs:string" />
+                <xs:element name="fullname" type="xs:string" />
+                <xs:element name="companyNumber" type="xs:string" /> 
+                <xs:element name="companyName" type="xs:string" />
+                <xs:element name="logoUrl" type="xs:string" />
+                <xs:element name="hasUnapprovedCustomisation" type="xs:boolean" />
+                <xs:element name="approve" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
