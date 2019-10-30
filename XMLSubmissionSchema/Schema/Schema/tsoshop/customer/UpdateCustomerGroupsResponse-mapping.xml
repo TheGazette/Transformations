@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<mapping>
+ 	<class name="uk.co.gazettes.services.tsoshop.castor.entities.customerservice.UpdateCustomerGroupsResponse">	  
+	    <map-to xml="UpdateCustomerGroupsResponse" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+	</class>
+</mapping>
