@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.SearchOrdersRequest">	  
+	    <map-to xml="SearchOrders" ns-uri="http://tempuri.org/" ns-prefix="tem" />	      
+		<field name="searchRequest" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.SearchRequest" >
+			<bind-xml name="searchRequest" node="element" />
+		</field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.SearchRequest">	  
+	    <map-to xml="searchRequest" ns-uri="http://tempuri.org/" ns-prefix="tem" />	      
+		<field name="customerId" type="string" >
+			<bind-xml name="tso:CustomerId" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.WebService" QName-prefix="tso" />
+		</field>
+		<field name="itemsPerPage" type="string" >
+			<bind-xml name="tso:ItemsPerPage" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.WebService" QName-prefix="tso" />
+		</field>
+		<field name="pageNumber" type="string" >
+			<bind-xml name="tso:PageNumber" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.WebService" QName-prefix="tso" />
+		</field>  
+	</class>  
+	
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.GetOrderOfActiveSubscriptionRequest">	  
+	    <map-to xml="GetOrderOfActiveSubscription" ns-uri="http://tempuri.org/"/>	      
+		<field name="customerId" type="int" >
+			<bind-xml name="customerId" node="element" />
+		</field>
+	</class>
+	
+	
+</mapping>
