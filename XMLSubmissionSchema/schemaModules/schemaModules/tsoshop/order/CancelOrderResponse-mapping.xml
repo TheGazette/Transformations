@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderservice.CancelOrderResponse">	  
+	    <map-to xml="CancelOrderResponse" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+		<field name="CancelOrder" type="boolean" >
+			<bind-xml name="CancelOrder" node="element" />
+		</field>
+	</class>  
+</mapping>
