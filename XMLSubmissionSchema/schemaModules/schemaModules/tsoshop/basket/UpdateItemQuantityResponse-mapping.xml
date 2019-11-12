@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<mapping>
+ 	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.UpdateItemQuantityResponse">	  
+	    <map-to xml="UpdateItemQuantityResponse" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+	    <field name="result" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.UpdateItemQuantityResult" >
+	      	<bind-xml name="UpdateItemQuantityResult" node="element"/>
+	    </field> 	    	            
+	</class>
+	  
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.UpdateItemQuantityResult">	  
+	    <map-to xml="UpdateItemQuantityResult" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+		<field name="hasPerformedTheOperation" type="boolean" >
+	      	<bind-xml name="HasPerformedTheOperation" node="element"/>
+	    </field>
+		<field name="operationResult" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.OperationResult" >
+	      	<bind-xml name="OperationResult" node="element"/>
+	    </field>
+	    <field name="validationMessages" type="uk.co.gazettes.services.tsoshop.castor.entities.common.ValidationMessages" >
+	      	<bind-xml name="ValidationMessages" node="element"/>
+	    </field>
+	</class>
+</mapping>
