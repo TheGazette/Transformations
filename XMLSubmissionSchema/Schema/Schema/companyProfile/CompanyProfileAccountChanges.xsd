@@ -1,0 +1,59 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified" 
+    xmlns:cad="http://www.gazettes.co.uk/assets/company-account-details"
+    xmlns="http://www.gazettes.co.uk/assets/company-account-details"
+    targetNamespace="http://www.gazettes.co.uk/assets/company-account-details" >
+       
+<xs:element name="companyProfileAccountDetailsChange">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="emailAddress" type="xs:string"/>
+				<xs:element name="forename" type="xs:string" />
+				<xs:element name="surname" type="xs:string" />
+				<xs:element name="middlename" type="xs:string" />
+				<xs:element name="telephone" type="xs:string" />
+				<xs:element name="oldEmailAddress" type="xs:string" />
+				<xs:element name="oldForename" type="xs:string" />
+				<xs:element name="oldSurname" type="xs:string" />
+				<xs:element name="oldMiddlename" type="xs:string" />
+				<xs:element name="oldTelephone" type="xs:string" />
+				<xs:element name="created" type="xs:dateTime" />
+			    <xs:element name="status" type="cad:companyProfileAccountDetailsChangeStatus" />
+				<xs:element name="additionalDetailsUploadAccessCode" type="xs:string" />
+				<xs:element name="additionalDetailsUploadUri" type="xs:string" />
+				<xs:element name="passwordSetupActivationCode" type="xs:string" />
+				<xs:element name="passwordRegistrationActivationUri" type="xs:string" />
+				
+				<xs:element name="pendingNewUserPasswordSetupStatusCreated" type="xs:dateTime" />
+				<xs:element name="pendingAdditionalDetailsSubmissionStatusCreated" type="xs:dateTime" />
+				
+				<xs:element name="passwordEncoded" type="xs:string" />
+				<xs:element name="passwordSalt" type="xs:string" />
+				<xs:element name="passwordCreateDate" type="xs:dateTime" />
+				
+				<!-- init with minOccurs=1 so as to gen primitive boolean and init to false -->
+				<xs:element name="additionalVerificationDocumentToBeSent" type="xs:boolean"  minOccurs="1" />
+				
+				<xs:element name="personIdUploadUri" type="xs:string" />
+				<xs:element name="registeredAddressUploadUri" type="xs:string" />
+				
+				<xs:element name="companyName" type="xs:string" />
+				<xs:element name="companyNumber" type="xs:string" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:simpleType name="companyProfileAccountDetailsChangeStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="pending-customer-support-verification" />
+			<xs:enumeration value="declined-customer-support-verification" />
+			<xs:enumeration value="pending-new-user-details-submission" />
+			<xs:enumeration value="pending-new-user-password-setup" />
+			<xs:enumeration value="pending-customer-support-approval" />
+			<xs:enumeration value="declined-customer-support-approval" />
+			<xs:enumeration value="approved-but-pending-password-setup" />
+			<xs:enumeration value="approval-completed" />
+		</xs:restriction>
+	</xs:simpleType>
+    
+</xs:schema>
