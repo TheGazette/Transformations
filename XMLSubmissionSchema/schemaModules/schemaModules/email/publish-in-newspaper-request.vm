@@ -1,0 +1,50 @@
+Hi,
+
+The below request has been placed for publishing in newspaper.
+
+Newspaper name = ${newspaperName}
+
+Local authority name = ${localAuthority}
+
+Edition = ${edition}
+Earliest publication date = ${pubdate}
+Claims date = ${claimsDate}
+
+Deceased surname = ${deceasedSurname}
+Deceased first name = ${deceasedFirstName}
+#if(${deceasedMiddleName})Deceased middle name(s) = ${deceasedMiddleName} #end
+
+#set( $n = '
+')
+
+#if(${deceasedTitle})Deceased title = ${deceasedTitle} $n#end
+#if(${deceasedHonour})Deceased honour = ${deceasedHonour} $n#end 
+#if(${deceasedMaidenName})Maiden name = ${deceasedMaidenName} $n#end
+#if(${deceasedAlsoKnownas})Previous name = ${deceasedAlsoKnownas} $n#end 
+#if(${deceasedOccupation})Deceased occupation = ${deceasedOccupation} $n#end
+
+Deceased address = ${deceasedAddress}$n
+Date of death = #if(${deathDate}) ${deathDate}$n #{else} Between dates of ${startDateOfDeath} and ${endDateOfDeath} $n#end
+
+Executor / administrator business name = ${executorBusinessName}$n
+Executor / administrator surname = ${executorSurname}$n
+Executor / administrator first name = ${executorFirstName}$n
+#if(${executorMiddleName})Executor / administrator middle name(s) = ${executorMiddleName} $n#end
+
+Executor / administrator address = ${executorAddress}
+
+#if(${executorTelephone})Executor / administrator Telephone = ${executorTelephone} $n#end
+#if(${executorFax})Executor / administrator Fax = ${executorFax} $n#end
+#if(${executorEmail})Executor / administrator Email address = ${executorEmail} $n#end
+#if(${referenceNumber})Executor / administrator Reference number = ${referenceNumber} $n#end
+
+Registered name (in order to send PDF newspaper voucher copy) = ${registeredName}$n
+Registered email (in order to send PDF newspaper voucher copy) = ${registeredEmail}
+
+
+Kind regards
+
+The Gazette Team
+Email: customer.services@thegazette.co.uk
+Telephone: +44 (0)333 200 2434
+Twitter: @TheGazetteUK
