@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<mapping>
+  <class name="uk.co.gazettes.services.search.castor.entities.SearchCollections">
+  
+    <map-to xml="collections"/>
+    
+    <field name="orCollections" type="string" collection="set">
+         <bind-xml name="collection" location="or"/>
+    </field> 
+
+    <field name="normalCollections" type="string" collection="set">
+      <bind-xml name="collection" node="element"/>
+    </field>
+    
+    <field name="notCollections" type="string" collection="set">
+         <bind-xml name="collection" location="not"/>
+    </field> 
+    
+    <field name="notOrCollections" type="string" collection="set">
+         <bind-xml name="collection" location="not/or"/>
+    </field> 
+            
+  </class>
+  
+</mapping>
