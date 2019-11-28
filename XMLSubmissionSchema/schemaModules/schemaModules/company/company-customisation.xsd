@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.gazettes.co.uk/company-customisation" xmlns:c="http://www.gazettes.co.uk/company-customisation">
+  <xs:element name="company-customisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="c:metadata"/>
+        <xs:element ref="c:customisation"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="metadata">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="c:company-number"/>
+        <xs:element ref="c:claimed-by-organisation"/>
+        <xs:element ref="c:user-submitted"/>
+        <xs:element ref="c:date-claimed"/>
+        <xs:element ref="c:valid-until"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="company-number" type="xs:NCName"/>
+  <xs:element name="claimed-by-organisation" type="xs:NCName"/>
+  <xs:element name="user-submitted" type="xs:integer"/>
+  <xs:element name="date-claimed" type="xs:date"/>
+  <xs:element name="valid-until" type="xs:date"/>
+  <xs:element name="customisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="c:customisation-element"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="customisation-element">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:anyURI">
+          <xs:attribute name="type" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
