@@ -1,0 +1,66 @@
+prefix terms: <http://business.data.gov.uk/companies/def/terms/>
+prefix rov: <http://www.w3.org/ns/regorg#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix sic: <http://business.data.gov.uk/companies/def/sic-2007/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix org: <http://www.w3.org/ns/org#>
+prefix vcard: <http://www.w3.org/2006/vcard/ns#>
+
+#
+# Example query to find a company by identifier and list some properties
+#
+SELECT  * {
+  ?company
+     # specify the identifier
+       [# th:if="${request.companyNumber} != null" ]
+         org:identifier "[(${request.companyNumber})]";
+       [/]
+        [# th:if="${request.orgStatus} != null" ]
+        rov:orgStatus "[(${request.orgStatus})]";
+       [/]
+     # now retrieve the other properties of interest
+           skos:prefLabel             ?prefLabel
+     ;     org:identifier             ?identifier
+     ;     rov:orgType                ?orgType
+     ;     rov:registration           ?registration
+     ;     rov:orgStatus              ?orgStatus
+     ;     terms:incorporationDate ?incorporationDate
+     ;     terms:registeredAddress ?registeredAddress
+     ;     rov:orgActivity ?sic
+       [# th:if="${request.companyName} != null" ]
+         FILTER regex(?prefLabel, "[(${request.companyName})]")
+       [/]
+     .
+  ?orgType
+           skos:notation ?orgNotation
+  .
+  ?registeredAddress
+           vcard:extended-address     ?extendedAddress
+            [# th:if="${request.locality} != null" ]
+        	 FILTER regex(?locality, "[(${request.locality})]")
+       		[/]
+           .
+ 	?orgStatus
+           skos:prefLabel ?orgLabel
+           .
+
+  	[# th:if="${request.sicCode} != null" ]
+        ?sic
+           sic:condensedNotation "[(${request.sicCode})]"       
+           .   
+     [/]
+ 
+        
+} 
+[# th:if="${request.limit} != null" ]
+	LIMIT [(${request.limit})]
+[/]
+[# th:unless="${request.limit} != null" ]
+	LIMIT 10
+[/]
+[# th:if="${request.offset} != null" ]
+	OFFSET [(${request.offset})]
+[/]
+[# th:unless="${request.offset} != null" ]
+	OFFSET 0
+[/]
