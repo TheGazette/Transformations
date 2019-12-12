@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<class name="uk.co.gazettes.services.mygazettes.model.UserProfile">
+	    <map-to xml="user" ns-uri="http://www.gazettes.co.uk/assets/user"/>
+	    <field name="uuid" type="string">
+	      <bind-xml name="user-id" node="element"/>
+	    </field>
+	    <field name="orgId" type="string">
+	      <bind-xml name="organisation-id" node="element"/>
+	    </field>
+	    <field name="status" type="string">
+	      <bind-xml name="status" node="element"/>
+	    </field>
+	    <field name="createdDate" type="string">
+	      <bind-xml name="created-date" node="element"/>
+	    </field>
+	    <field name="organisationName" type="string">
+	      <bind-xml name="organisation-name" node="element"/>
+	    </field>
+	    <field name="organisationRegNo" type="string">
+	      <bind-xml name="organisation-regno" node="element"/>
+	    </field>
+	    <field name="professionalBody" type="string">
+	      <bind-xml name="professional-body" node="element"/>
+	    </field>
+	    <field name="professionalBodyMembershipNo" type="string">
+	      <bind-xml name="professional-body-membership-no" node="element"/>
+	    </field>
+	    <field name="localAuthority" type="string">
+	      <bind-xml name="local-authority" node="element"/>
+	    </field>
+	    <field name="website" type="string">
+	      <bind-xml name="website" node="element"/>
+	    </field>
+	    
+	    <field name="businessType" type="string">
+	      <bind-xml name="business-type" node="element"/>
+	    </field>
+	    <field name="administrator" type="boolean">
+	      <bind-xml name="administrator" node="element"/>
+	    </field>
+	      <field name="primaryAdministrator" type="boolean">
+	      <bind-xml name="primary-administrator" node="element"/>
+	    </field>
+	     <field name="uploadWordTemplate" type="boolean">
+	      <bind-xml name="upload-word-template" node="element"/>
+	    </field>
+	    <field name="creditAccountRequestStatus" type="string">
+			<bind-xml name="credit-account-request-status" node="element"/>
+		</field>
+		<field name="creditAccountNumber" type="string">
+			<bind-xml name="credit-account-no" node="element"/>
+		</field>
+		<field name="discountGroup" type="string">
+			<bind-xml name="discount-group" node="element"/>
+		</field>
+
+	    <field name="verificationStatus" type="string">
+	      <bind-xml name="verification-status" node="element"/>
+	    </field>
+
+	    <field name="verificationCustomisationStatus" type="string">
+	      <bind-xml name="verification-customisation-status" node="element"/>
+	    </field>
+	    <field name="verifyCompanyTypes" type="string">
+	      <bind-xml name="verify-company-types" node="element"/>
+	    </field>
+	     <field name="verifyBusinessNature" type="boolean">
+	      <bind-xml name="verify-business-nature" node="element"/>
+	    </field>
+	     <field name="verifyEmail" type="boolean">
+	      <bind-xml name="verify-email" node="element"/>
+	    </field>
+	    <field name="verifyAssociationRef" type="boolean">
+	      <bind-xml name="verify-assoc-ref" node="element"/>
+	    </field>
+	    <field name="verifyMembershipNo" type="boolean">
+	      <bind-xml name="verify-membership-no" node="element"/>
+	    </field>
+	       
+	     <field name="facebookUser" type="boolean">
+	      <bind-xml name="facebook-user" node="element"/>
+	    </field>
+	    
+	    <field name="title" type="string">
+	      <bind-xml name="title" node="element"/>
+	    </field>
+	 	<field name="firstName" type="string">
+	      <bind-xml name="name" node="element"/>
+	    </field>
+	    <field name="familyName" type="string">
+	      <bind-xml name="familyName" node="element"/>
+	    </field>
+	    <field name="givenName" type="string">
+	      <bind-xml name="givenName" node="element"/>
+	    </field>
+	    <field name="email" type="string">
+	      <bind-xml name="email" node="element"/>
+	    </field>
+	    <field name="newsletter" type="boolean">
+	      <bind-xml name="newsletter" node="element"/>
+	    </field>
+	    <field name="addressLine1" type="string">
+	      <bind-xml name="addressLine1" node="element"/>
+	    </field>
+	    <field name="addressLine2" type="string">
+	      <bind-xml name="addressLine2" node="element"/>
+	    </field>
+	    <field name="locality" type="string">
+	      <bind-xml name="locality" node="element"/>
+	    </field>
+	    <field name="county" type="string">
+	      <bind-xml name="county" node="element"/>
+	    </field>
+	    <field name="country" type="string">
+	      <bind-xml name="country" node="element"/>
+	    </field>
+	    <field name="postcode" type="string">
+	      <bind-xml name="postcode" node="element"/>
+	    </field>
+		<field name="telephoneNumber" type="string">
+	      <bind-xml name="telephoneNumber" node="element"/>
+	    </field>
+	    <field name="type" type="string">
+	      <bind-xml name="type" node="element"/>
+	    </field>
+	    <field name="customerId" type="string">
+	      <bind-xml name="customerId" node="element"/>
+	    </field>
+	    <field name="customerGroup" type="string">
+	      <bind-xml name="customerGroup" node="element"/>
+	    </field>
+	    <field name="imageSet" type="uk.co.gazettes.services.mygazettes.model.UserProfile$ProfileImageSet">
+	      <bind-xml name="images" node="element">
+	        <class name="uk.co.gazettes.services.mygazettes.model.UserProfile$ProfileImageSet">
+	          <field name="images" collection="set" type="uk.co.gazettes.services.mygazettes.model.UserProfile$ProfileImage">
+	            <bind-xml name="image" />
+	          </field>
+	        </class>
+	      </bind-xml>
+	    </field>
+	    <field name="basketId" type="string">
+	      <bind-xml name="basketId" node="element"/>
+	    </field>
+	    <field name="jobTitle" type="string">
+	      <bind-xml name="job-title" node="element"/>
+	    </field>
+	    <field name="companyTelephoneNumber" type="string">
+	      <bind-xml name="company-telephone-number" node="element"/>
+	    </field>
+	    <field name="natureOfBusiness" type="string">
+	      <bind-xml name="nature-of-business" node="element"/>
+	    </field>
+	     <field name="companyWebsite" type="string">
+	      <bind-xml name="company-website" node="element"/>
+	    </field>
+	     <field name="companyAddressLine1" type="string">
+	      <bind-xml name="company-address-line1" node="element"/>
+	    </field>
+	    <field name="companyAddressLine2" type="string">
+	      <bind-xml name="company-address-line2" node="element"/>
+	    </field>
+	     <field name="companyLocality" type="string">
+	      <bind-xml name="company-locality" node="element"/>
+	    </field>
+	     <field name="companyRegion" type="string">
+	      <bind-xml name="company-region" node="element"/>
+	    </field>
+	     <field name="companyCountry" type="string">
+	      <bind-xml name="company-country" node="element"/>
+	    </field>
+	     <field name="companyPostcode" type="string">
+	      <bind-xml name="company-postcode" node="element"/>
+	    </field>
+	     <field name="officeOrDepartment" type="string">
+	      <bind-xml name="office-or-department" node="element"/>
+	    </field>
+	    <field name="professionalBodyMembership" type="boolean">
+	      <bind-xml name="professional-body-membership" node="element"/>
+	    </field>
+	     <field name="professionalBodyOther" type="string">
+	      <bind-xml name="professional-body-other" node="element"/>
+	    </field>
+	     <field name="sameasCompanyAddress" type="boolean">
+	      <bind-xml name="same-as-company-address" node="element"/>
+	    </field>
+	     <field name="sameasCompanyWebsite" type="boolean">
+	      <bind-xml name="same-as-company-website" node="element"/>
+	    </field>
+	     <field name="accountOwnerType" type="string">
+	      <bind-xml name="account-owner-type" node="element"/>
+	    </field>
+	    <field name="noCHregistrationNumber" type="boolean">
+	      <bind-xml name="no-chregistration-number-checked" node="element"/>
+	    </field>
+	     <field name="reasonForNotRegistered" type="string">
+	      <bind-xml name="reason-for-not-registered" node="element"/>
+	    </field>
+	     <field name="otherReasonForNotRegistered" type="string">
+	      <bind-xml name="other-reason-for-not-registered" node="element"/>
+	    </field>
+	    <field name="nonCHRegisterNumber" type="string">
+	      <bind-xml name="non-chregister-number" node="element"/>
+	    </field>
+	    <field name="regulatoryBodyMembershipForGovAgency" type="boolean">
+	      <bind-xml name="regulatory-body-membership-for-govagency" node="element"/>
+	    </field>
+	    <field name="regulatoryBodyForGovAgency" type="string">
+	      <bind-xml name="regulatory-body-for-govagency" node="element"/>
+	    </field>
+	    <field name="regulatoryBodyMembershipNoForGovAgency" type="string">
+	      <bind-xml name="regulatory-body-membership-no-for-govagency" node="element"/>
+	    </field>
+	     <field name="organisationStructureForSociety" type="string">
+	      <bind-xml name="organisation-structure-for-society" node="element"/>
+	    </field>
+	     <field name="otherOrganisationStructureForSociety" type="string">
+	      <bind-xml name="other-organisation-structure-for-society" node="element"/>
+	    </field>
+	     <field name="regulatoryBodyMembershipForSociety" type="boolean">
+	      <bind-xml name="regulatory-body-membership-for-society" node="element"/>
+	    </field>
+	     <field name="regulatoryBodyForSociety" type="string">
+	      <bind-xml name="regulatory-body-for-society" node="element"/>
+	    </field>
+	    <field name="otherRegulatoryBodyForSociety" type="string">
+	      <bind-xml name="other-regulatory-body-for-society" node="element"/>
+	    </field>
+	    <field name="regulatoryBodyMembershipNoForSociety" type="string">
+	      <bind-xml name="regulatory-body-membership-no-for-society" node="element"/>
+	    </field>
+	    <field name="adminTelephoneNumber" type="string">
+	      <bind-xml name="admin-telephone-number" node="element"/>
+	    </field>	
+	        
+	 <field name="directors" type="uk.co.gazettes.services.mygazettes.model.UserProfile$DirectorsSet">
+	      <bind-xml name="directors" node="element">
+	        <class name="uk.co.gazettes.services.mygazettes.model.UserProfile$DirectorsSet">
+	          <field name="directors" collection="set" type="uk.co.gazettes.services.mygazettes.model.UserProfile$DirectorDetails">
+	            <bind-xml name="director" />
+	          </field>
+	        </class>
+	      </bind-xml>
+	    </field>
+	    
+	    
+	     <field name="companyProfileUploadExpiredAndDeleted" type="boolean">
+	      <bind-xml name="company-profile-upload-expired-and-deleted" node="element"/>
+	    </field>
+	    <field name="companyProfileUploadForPersonalIdUrl" type="string">
+	      <bind-xml name="company-profile-upload-for-personal-id-url" node="element"/>
+	    </field>
+	    <field name="companyProfileUploadForPersonalId" type="boolean">
+	      <bind-xml name="company-profile-upload-for-personal-id" node="element"/>
+	    </field>	    	    
+	     <field name="companyProfileUploadForCompanyIdUrl" type="string">
+	      <bind-xml name="company-profile-upload-for-company-id-url" node="element"/>
+	    </field>
+	    <field name="companyProfileUploadForCompanyId" type="boolean">
+	      <bind-xml name="company-profile-upload-for-company-id" node="element"/>
+	    </field>
+	    
+	    
+	    
+	    
+	    <field name="companyProfileVerificationDocumentToBeSent" type="boolean">
+	      <bind-xml name="company-profile-verification-document-to-be-sent" node="element"/>
+	    </field>
+	    <field name="companyProfileDirectorEmailAddressByCompany" type="boolean">
+	      <bind-xml name="company-profile-director-email-address-by-company" node="element"/>
+	    </field>
+		<field name="semanticValidationDisabled" type="boolean">
+
+			<bind-xml name="semantic-validation-disabled" node="element"/>
+		</field>
+	  </class>
+	  
+	  <class name="uk.co.gazettes.services.mygazettes.model.UserProfile$DirectorDetails">
+	  <map-to xml="director" ns-uri="http://www.gazettes.co.uk/assets/user"/>
+	      <field name="directorFirstName" type="string">
+	      <bind-xml name="director-first-name" node="element"/>
+	    </field>
+	    <field name="directorFamilyName" type="string">
+	      <bind-xml name="director-family-name" node="element"/>
+	    </field>	    
+	    <field name="directorGivenName" type="string">
+	      <bind-xml name="director-given-name" node="element"/>
+	    </field>
+	    <field name="directorEmail" type="string">
+	      <bind-xml name="director-email" node="element"/>
+	    </field>
+	    <field name="directorTelephoneNumber" type="string">
+	      <bind-xml name="director-telephone-number" node="element"/>
+	    </field>
+	    <field name="active" type="boolean">
+	      <bind-xml name="is-active" node="element"/>
+	    </field>
+	  </class>
+	  
+	  <class name="uk.co.gazettes.services.mygazettes.model.UserProfile$ProfileImage">
+	     <field name="imageName" type="string">
+	        <bind-xml name="image-name" node="element"/>
+	     </field>   
+	     <field name="imageUri" type="string">
+	        <bind-xml name="image-uri" node="element"/>
+	     </field>
+	  </class>	  
+	  
+	    <class name="uk.co.gazettes.services.mygazettes.model.ImageMetadata">
+	    <map-to xml="image-meta" ns-uri="http://www.gazettes.co.uk/metadata"/>
+	     <field name="imageId" type="string">
+	        <bind-xml name="image-id" node="element"/>
+	     </field>   
+	     <field name="contentType" type="org.springframework.http.MediaType">
+	        <bind-xml name="content-type" node="element"/>
+	     </field>
+	       <field name="extension" type="string">
+	        <bind-xml name="extension" node="element"/>
+	     </field> 
+	       <field name="organisationId" type="string">
+	        <bind-xml name="organisation-id" node="element"/>
+	     </field> 
+	       <field name="userSubmitted" type="string">
+	        <bind-xml name="user-submitted" node="element"/>
+	     </field> 
+	       <field name="fileName" type="string">
+	        <bind-xml name="file-name" node="element"/>
+	     </field> 
+	       <field name="publicationDate" type="date">
+	        <bind-xml name="publication-date" node="element"/>
+	     </field> 
+	  </class>	
+	  <class name="uk.co.gazettes.services.mygazettes.model.SavedSearch">
+	    <map-to xml="saved-search" ns-uri="http://www.gazettes.co.uk/assets/saved-search"/>
+	    <field name="saveDate" type="string">
+	      <bind-xml name="saved-date" node="element"/>
+	    </field>
+	    <field name="title" type="string">
+	      <bind-xml name="title" node="element"/>
+	    </field>
+	 	<field name="username" type="string">
+	      <bind-xml name="saved-by-user-name" node="element"/>
+	    </field>
+	    <field name="userUniqueId" type="long">
+	      <bind-xml name="saved-by-user-id" node="element"/>
+	    </field>
+	    <field name="searchRequest" type="uk.co.gazettes.services.search.castor.entities.SearchRequest">
+	    	<bind-xml name="request" node="element"/>
+	    </field>
+	  </class>	  
+	  <class name="uk.co.gazettes.services.mygazettes.model.SavedNotice">
+	    <map-to xml="saved-notice" ns-uri="http://www.gazettes.co.uk/assets/saved-search"/>
+	    <field name="saveDate" type="string">
+	      <bind-xml name="saved-date" node="element"/>
+	    </field>
+	    <field name="noticeId" type="string">
+	      <bind-xml name="notice-id" node="element"/>
+	    </field>
+	 	<field name="username" type="string">
+	      <bind-xml name="saved-by-user-name" node="element"/>
+	    </field>
+	    <field name="userUniqueId" type="long">
+	      <bind-xml name="saved-by-user-id" node="element"/>
+	    </field>
+	    <field name="orgId" type="string">
+	      <bind-xml name="saved-by-organisation-id" node="element"/>
+	    </field>
+	  </class>
+	   <class name="uk.co.gazettes.services.mygazettes.model.SavedCompany">
+	    <map-to xml="saved-company" ns-uri="http://www.gazettes.co.uk/assets/saved-search"/>
+	    <field name="saveDate" type="string">
+	      <bind-xml name="saved-date" node="element"/>
+	    </field>
+	    <field name="companyNumber" type="string">
+	      <bind-xml name="company-number" node="element"/>
+	    </field>
+	    <field name="companyName" type="string">
+	      <bind-xml name="company-name" node="element"/>
+	    </field>
+	 	<field name="username" type="string">
+	      <bind-xml name="saved-by-user-name" node="element"/>
+	    </field>
+	    <field name="userUniqueId" type="long">
+	      <bind-xml name="saved-by-user-id" node="element"/>
+	    </field>
+	    <field name="orgId" type="string">
+	      <bind-xml name="saved-by-organisation-id" node="element"/>
+	    </field>
+	  </class>
+	  <class name="uk.co.gazettes.services.mygazettes.model.CustomizedProduct">
+	    <map-to xml="product" ns-uri="http://www.thegazette.co.uk/assets/product"/>
+	    <field name="id" type="string">
+	      <bind-xml name="id" node="element"/>
+	    </field>
+	    <field name="issueUri" type="string">
+	      <bind-xml name="issue-uri" node="element"/>
+	    </field>
+	 	<field name="userId" type="string">
+	      <bind-xml name="user-id" node="element"/>
+	    </field>
+	     <field name="productQuantities" collection="map">
+	      <bind-xml name="product">
+                  <class name="org.exolab.castor.mapping.MapItem">
+                      <field name="key" type="uk.co.gazettes.services.mybasket.model.ProductType">
+                          <bind-xml name="id" node="attribute"/>
+                      </field>
+                      <field name="value" type="java.lang.Integer">
+                          <bind-xml name="quantity"/>
+                      </field>	  
+                  </class>
+              </bind-xml>
+	    </field>
+	    <field name="fullName" type="string">
+	      <bind-xml name="full-name" node="element"/>
+	    </field>
+	    <field name="honourAwarded" type="string">
+	      <bind-xml name="honour" node="element"/>
+	    </field>
+	    <field name="honourAwardedOther" type="string">
+	      <bind-xml name="honour-awarded-other" node="element"/>
+	    </field>
+	     <field name="additionalTextNeeded" type="string">
+	      <bind-xml name="additional-text-needed" node="element"/>
+	    </field>
+	    <field name="anyOtherInfoNeeded" type="string">
+	      <bind-xml name="other-info-needed" node="element"/>
+	    </field>
+	  </class>
+</mapping>

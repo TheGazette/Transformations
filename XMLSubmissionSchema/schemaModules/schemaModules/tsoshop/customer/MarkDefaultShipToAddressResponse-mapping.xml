@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<mapping>
+ 	<class name="uk.co.gazettes.services.tsoshop.castor.entities.customerservice.MarkDefaultShipToAddressResponse">	  
+	    <map-to xml="MarkDefaultShipToAddressResponse" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+	</class>
+</mapping>
