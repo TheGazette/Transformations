@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notice code="2903">
+	<date>
+		<weekday>Tuesday</weekday>
+		<day>4</day>
+		<month>January</month>
+		<year>2000</year>
+	</date>
+	<legalhd>
+		<r>
+			<c>
+			  <hw3>Name of Deceased<?BR?>(Surname first)</hw3>
+			</c>
+			<c>
+				<hw3>Address, description and date of death of Deceased</hw3>
+			</c>
+			<c>
+				<hw3>Names, addresses and descriptions of Persons to whom notices of claims are to
+					be given and names, in parentheses, of Personal Representatives</hw3>
+			</c>
+			<c>
+				<hw3>Date before which notices of claims to be given</hw3>
+			</c>
+		</r>
+	</legalhd>
+	<legal>
+		<r>
+			<c>ECKERSLEY, Pauline Evelyn</c>
+			<c>Whitebroom, 34 Bittel Road, Barnt Green, West Midlands B45 8LY.<?BR?>17th February
+				1997.</c>
+			<c>Atkinson Cave &amp; Stuart, 45 Springfield Road, Blackpool FY1 1PZ.</c>
+			<c>5th March 2000</c>
+			<c>(015)</c>
+		</r>
+	</legal>
+</notice>
