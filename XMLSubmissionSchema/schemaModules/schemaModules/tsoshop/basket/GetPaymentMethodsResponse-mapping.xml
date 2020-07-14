@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+ 	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.GetPaymentMethodsResponse">	  
+	    <map-to xml="GetPaymentMethodsResponse" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+	    <field name="result" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.GetPaymentMethodsResult" >
+	      	<bind-xml name="GetPaymentMethodsResult" node="element"/>
+	    </field> 	
+	</class>
+
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.GetPaymentMethodsResult">	  
+	    <map-to xml="GetPaymentMethodsResult" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+	    <field name="paymentTypes" type="string" collection="arraylist" >
+	      	<bind-xml name="PaymentTypes" node="element"/>
+	    </field> 	
+	</class>
+</mapping>
