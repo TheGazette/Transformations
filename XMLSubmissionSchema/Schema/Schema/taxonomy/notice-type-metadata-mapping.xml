@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mapping>
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.NoticeTypeMetadata">
+		<map-to xml="notice-type-metadata" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="code" type="string">
+			<bind-xml name="code" node="attribute" />
+		</field>
+		<field name="name" type="string">
+			<bind-xml name="name" node="attribute" />
+		</field>
+		<field name="editions" type="string" collection="set">
+			<bind-xml name="edition" location="editions" />
+		</field>
+		<field name="noticeOptions"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.PlaceNoticeOptions">
+			<bind-xml name="place-notice-options" />
+		</field>
+		<field name="seoOptions"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.SeoOptions">
+			<bind-xml name="seo-options" />
+		</field>
+		<field name="productCatalogue"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.ProductCatalogue">
+			<bind-xml name="product-catalogue" />
+		</field>
+		<!-- <field name="searchOption" type="uk.co.gazettes.services.taxonomy.castor.entities.searchOptions"> 
+			<bind-xml name="search-options"/> </field> -->
+	</class>
+
+	<class name="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.PlaceNoticeOptions">
+		<map-to xml="place-notice-options" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="webForm"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.WebForm">
+			<bind-xml name="web-form" />
+		</field>
+		<field name="spreadsheet"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.SpreadsheetOption">
+			<bind-xml name="spreadsheet" />
+		</field>
+		<field name="jsonOption"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.JsonOption">
+			<bind-xml name="json" />
+		</field>
+		<field name="rdfOption"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.RdfOption">
+			<bind-xml name="rdf" />
+		</field>
+		<field name="noticeFields"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.NoticeFields">
+			<bind-xml name="notice-fields" />
+		</field>
+	</class>
+
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.WebForm">
+		<map-to xml="web-form" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="webformEnabled" type="boolean">
+			<bind-xml name="enabled" node="attribute" />
+		</field>
+		<field name="xslt" type="string">
+			<bind-xml node="element" />
+		</field>
+		<field name="xform" type="string">
+			<bind-xml node="element" />
+		</field>
+	</class>
+
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.SpreadsheetOption">
+		<map-to xml="spreadsheet" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="spreadsheetEnabled" type="boolean">
+			<bind-xml name="enabled" node="attribute" />
+		</field>
+		<field name="sheetIndex" type="integer">
+			<bind-xml name="sheet-index" node="attribute" />
+		</field>
+		<field name="headerRowIndex" type="integer">
+			<bind-xml name="header-row-index" node="attribute" />
+		</field>
+	</class>
+
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.JsonOption">
+		<map-to xml="json" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="jsonEnabled" type="boolean">
+			<bind-xml name="enabled" node="attribute" />
+		</field>
+	</class>
+
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.RdfOption">
+		<map-to xml="rdf" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="rdfEnabled" type="boolean">
+			<bind-xml name="enabled" node="attribute" />
+		</field>
+	</class>
+
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.NoticeFields">
+		<map-to xml="notice-fields" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="noticeFieldList"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.NoticeField"
+			collection="arraylist">
+			<bind-xml name="notice-field" node="element" />
+		</field>
+	</class>
+
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.NoticeField">
+		<map-to xml="notice-field" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="index" type="integer">
+			<bind-xml node="attribute" />
+		</field>
+		<field name="optional" type="boolean">
+			<bind-xml name="optional" node="attribute" />
+		</field>
+		<field name="spreadsheetColumn"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.SpreadsheetColumn">
+			<bind-xml name="spreadsheet-column"  node="element"/>
+		</field>
+		<field name="jsonPath"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.JsonPath">
+			<bind-xml name="json"   node="element"/>
+		</field>
+		<field name="rdf"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.RdfAttributes">
+			<bind-xml name="rdf-attributes"   node="element"/>
+		</field>
+		<field name="regex" type="string">
+			<bind-xml node="element" />
+		</field>
+	</class>
+
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.SpreadsheetColumn">
+		<map-to xml="spreadsheet-column" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="name" type="string">
+			<bind-xml name="name" node="attribute" />
+		</field>
+	</class>
+
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.JsonPath">
+		<map-to xml="json" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="path" type="string">
+			<bind-xml name="path" node="attribute" />
+		</field>
+	</class>
+
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.placenotice.RdfAttributes">
+		<map-to xml="rdf-attributes" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="about" type="string">
+			<bind-xml name="about" node="attribute" />
+		</field>
+		<field name="property" type="string">
+			<bind-xml name="property" node="attribute" />
+		</field>
+	</class>
+
+	<class name="uk.co.gazettes.services.taxonomy.castor.entities.SeoOptions">
+		<map-to xml="seo-options" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="disableCrawling"
+			type="uk.co.gazettes.services.taxonomy.castor.entities.DisableCrawling">
+			<bind-xml name="disable-crawling" />
+		</field>
+	</class>
+
+	<class
+		name="uk.co.gazettes.services.taxonomy.castor.entities.DisableCrawling">
+		<map-to xml="disable-crawling" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="disableCrawlingEnabled" type="boolean">
+			<bind-xml name="enabled" node="attribute" />
+		</field>
+		<field name="unavailableAfterYears" type="int">
+			<bind-xml name="unavailable-after-years" />
+		</field>
+		<field name="unavailableAfterMonths" type="int">
+			<bind-xml name="unavailable-after-months" />
+		</field>
+	</class>
+
+	<class name="uk.co.gazettes.services.taxonomy.castor.entities.ProductCatalogue">
+		<map-to xml="product-catalogue" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="londonEdition" type="uk.co.gazettes.services.taxonomy.castor.entities.LondonEdition">
+			<bind-xml name="london-edition" />
+		</field>
+		<field name="edinburghEdition" type="uk.co.gazettes.services.taxonomy.castor.entities.EdinburghEdition">
+			<bind-xml name="edinburgh-edition" />
+		</field>
+		<field name="belfastEdition" type="uk.co.gazettes.services.taxonomy.castor.entities.BelfastEdition">
+			<bind-xml name="belfast-edition" />
+		</field>
+		<field name="extras" type="uk.co.gazettes.services.taxonomy.castor.entities.Extras">
+			<bind-xml name="extras" />
+		</field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.taxonomy.castor.entities.LondonEdition">
+		<map-to xml="london-edition" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="electronicCode" type="string">
+			<bind-xml name="electronic-code" />
+		</field>
+		<field name="nonElectronicCode" type="string">
+			<bind-xml name="non-electronic-code" />
+		</field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.taxonomy.castor.entities.EdinburghEdition">
+		<map-to xml="edinburgh-edition" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="electronicCode" type="string">
+			<bind-xml name="electronic-code" />
+		</field>
+		<field name="nonElectronicCode" type="string">
+			<bind-xml name="non-electronic-code" />
+		</field>
+	</class>
+
+	<class name="uk.co.gazettes.services.taxonomy.castor.entities.BelfastEdition">
+		<map-to xml="belfast-edition" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="electronicCode" type="string">
+			<bind-xml name="electronic-code" />
+		</field>
+		<field name="nonElectronicCode" type="string">
+			<bind-xml name="non-electronic-code" />
+		</field>
+	</class>
+
+	<class name="uk.co.gazettes.services.taxonomy.castor.entities.Extras">
+		<map-to xml="extras" ns-uri="http://www.gazettes.co.uk/assets/taxonomy" />
+		<field name="poBoxServiceCode" type="string">
+			<bind-xml name="po-box-service-code" />
+		</field>
+		<field name="noticeLogo" type="string">
+			<bind-xml name="notice-logo" />
+		</field>
+	</class>
+
+</mapping>
