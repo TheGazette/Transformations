@@ -1,0 +1,13 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" xmlns:companyProfile="http://www.gazettes.co.uk/assets/companyProfile">
+
+	<xs:element name="companyProfilePaymentDeclinedOrdersSearchDate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="lastExecutionSearchDate" type="xs:dateTime" />
+				<xs:element name="nextExecutionSearchDate" type="xs:dateTime" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>
