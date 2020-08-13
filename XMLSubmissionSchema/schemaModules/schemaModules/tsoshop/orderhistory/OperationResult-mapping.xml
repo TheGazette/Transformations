@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.OperationResult">	  
+	    <map-to xml="OperationResult" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+		<field name="billToAddress" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.BillToAddress">
+			<bind-xml name="BillToAddress" node="element" />
+		</field>
+		<field name="billToAddressId" type="string" >
+	      	<bind-xml name="BillToAddressId" node="element"/>
+	    </field>
+		<field name="billingTypeId" type="string" >
+	      	<bind-xml name="BillingTypeId" node="element"/>
+	    </field>
+	    <field name="buyerPONumber" type="string" >
+	      	<bind-xml name="BuyerPONumber" node="element"/>
+	    </field>
+	    <field name="currentStatus" type="string" >
+	      	<bind-xml name="CurrentStatus" node="element"/>
+	    </field>
+	    <field name="customerId" type="string" >
+	      	<bind-xml name="CustomerId" node="element"/>
+	    </field>
+		<field name="customer" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.Customer" >
+	      	<bind-xml name="Customer" node="element" />
+	    </field>
+		<field name="lineItems" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.LineItems" >
+	      	<bind-xml name="LineItems" node="element"/>
+	    </field>
+		<field name="orderDate" type="date" >
+	      	<bind-xml name="OrderDate" node="element"/>
+	    </field>
+		<field name="orderId" type="string" >
+	      	<bind-xml name="OrderId" node="element"/>
+	    </field>
+	    <field name="orderPaymentType" type="string" >
+	      	<bind-xml name="OrderPaymentType" node="element"/>
+	    </field>
+		<field name="orderTotal" type="string" >
+	      	<bind-xml name="OrderTotal" node="element"/>
+	    </field>
+	    <field name="orderTotalCharges" type="string" >
+	      	<bind-xml name="OrderTotalCharges" node="element"/>
+	    </field>
+	    <field name="orderTotalChargesVAT" type="string" >
+	      	<bind-xml name="OrderTotalChargesVAT" node="element"/>
+	    </field>
+	    <field name="orderTotalVat" type="string" >
+	      	<bind-xml name="OrderTotalVat" node="element"/>
+	    </field>
+	    <field name="serviceLineId" type="string" >
+	      	<bind-xml name="ServiceLineId" node="element"/>
+	    </field>
+	    <field name="shipToAddress" type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.ShipToAddress">
+			<bind-xml name="ShipToAddress" node="element" />
+		</field>
+	    <field name="shipToAddressId" type="string" >
+	      	<bind-xml name="ShipToAddressId" node="element"/>
+	    </field>
+	    <field name="totalQuantities" type="int" >
+	      	<bind-xml name="TotalQuantities" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.Customer">
+		<map-to xml="customer" ns-uri="http://tempuri.org/" ns-prefix="temp" />
+		<field name="companyName" type="string">
+			<bind-xml name="CompanyName" node="element" />
+		</field>
+		<field name="email" type="string">
+			<bind-xml name="Email" node="element" />
+		</field>
+		<field name="firstName" type="string">
+			<bind-xml name="FirstName" node="element" />
+		</field>
+		<field name="isApproved" type="boolean">
+			<bind-xml name="IsApproved" node="element" />
+		</field>
+		<field name="middleName" type="string">
+			<bind-xml name="MiddleName" node="element" />
+		</field>
+		<field name="surname" type="string">
+			<bind-xml name="Surname" node="element" />
+		</field>
+		<field name="telephone" type="string">
+			<bind-xml name="Telephone" node="element" />
+		</field>
+		<field name="title" type="string" >
+			<bind-xml name="Title" node="element" />
+		</field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.LineItems">
+	  	<map-to xml="LineItems" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+		<field name="lineItemList"  type="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.LineItem" collection="arraylist" >
+	      	<bind-xml name="LineItem" node="element"/>
+	    </field>
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.LineItem">
+	  	<map-to xml="LineItem" ns-uri="http://tempuri.org/" ns-prefix="temp" />	      
+		<field name="lineItemId" type="string" >
+	      	<bind-xml name="LineItemId" node="element"/>
+	    </field>
+	    <field name="lineVATValue" type="string" >
+	      	<bind-xml name="LineVATValue" node="element"/>
+	    </field>
+	    <field name="lineValue" type="string" >
+	      	<bind-xml name="LineValue" node="element"/>
+	    </field>
+	    <field name="orderLineNumber" type="string" >
+	      	<bind-xml name="OrderLineNumber" node="element"/>
+	    </field>
+	    <field name="orderedQuantity" type="int" >
+	      	<bind-xml name="OrderedQuantity" node="element"/>
+	    </field>
+	    <field name="orderedQuantityValid" type="boolean" >
+	      	<bind-xml name="OrderedQuantityIsValid" node="element"/>
+	    </field>
+	    <field name="productId" type="string" >
+	      	<bind-xml name="ProductId" node="element"/>
+	    </field>
+	    <field name="product" type="uk.co.gazettes.services.tsoshop.castor.entities.common.Product" >
+	      	<bind-xml name="Product" node="element"/>
+	    </field>
+	    <field name="unitNetPrice" type="string" >
+	      	<bind-xml name="UnitNetPrice" node="element"/>
+	    </field>
+	    <field name="currentStatus" type="string" >
+	      	<bind-xml name="CurrentStatus" node="element"/>
+	    </field>
+	    <field name="dueQuantity" type="int" >
+	      	<bind-xml name="DueQuantity" node="element"/>
+	    </field>
+	    <field name="requestedDeliveryDate" type="date" >
+	      	<bind-xml name="RequestedDeliveryDate" node="element"/>
+	    </field>
+	    <field name="notes" type="string" >
+	      	<bind-xml name="Notes" node="element"/>
+	    </field>
+	    <field name="startDate" type="date" >
+	      	<bind-xml name="StartDate" node="element"/>
+	    </field>
+	    <field name="endDate" type="date" >
+	      	<bind-xml name="EndDate" node="element"/>
+	    </field>
+	</class>
+</mapping>
