@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.orderhistoryservice.GetCardUpdateConfirmationRequest">	  
+	    <map-to xml="GetCardUpdateConfirmation" ns-uri="http://tempuri.org/" ns-prefix="tem" />	      
+		<field name="merchantReference" type="integer" >
+			<bind-xml name="merchantReference" node="element" />
+		</field>
+		<field name="tokenId" type="long" >
+			<bind-xml name="tokenId" node="element" />
+		</field>
+	</class>  
+</mapping>
