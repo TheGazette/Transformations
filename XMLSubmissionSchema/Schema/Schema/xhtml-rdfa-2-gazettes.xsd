@@ -1,0 +1,2577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.w3.org/1999/xhtml"
+    xmlns:xh11d="http://www.w3.org/1999/xhtml/datatypes/" xmlns="http://www.w3.org/1999/xhtml" xmlns:gaz="http://www.gazettes.co.uk/metadata"
+    elementFormDefault="qualified">
+    <xs:annotation>
+        <xs:documentation>
+            ---------------------------------------
+            Gazettes
+            ---------------------------------------
+            This XML Schema branches from and redefines parts of the Working Draft of the XHTML+RDFa Schema available at http://www.w3.org/TR/2011/WD-xhtml-rdfa-20111215 
+            (with some additional corrections to the source Schema) in order to validate the XHTML versions of Gazette notices.
+        </xs:documentation>
+        <xs:documentation>
+            Modification information
+            Version     Name                Date                Modification
+            1.0         Mark Jones          25/02/2014          Created.
+        </xs:documentation>
+    </xs:annotation>
+    
+    <xs:annotation>
+        <xs:documentation> This is the XML Schema driver for XHTML + RDFa Please use this namespace
+            for XHTML elements: "http://www.w3.org/1999/xhtml" $Id: xhtml-rdfa-1.xsd,v 1.2
+            2008/07/02 13:26:46 ahby Exp $ </xs:documentation>
+        <xs:documentation source="xhtml-copyright-1.xsd"/>
+    </xs:annotation>
+    <xs:annotation>
+        <xs:documentation> This is the Schema Driver file for XHTML + RDFa Document Type This schema
+            + imports external schemas (xml.xsd) + refedines (and include)s schema modules for
+            XHTML1.1 Document Type. + includes Schema for Named content model for the XHTML1.1
+            Document Type XHTML1.1 Document Type includes the following Modules XHTML Core modules
+            (Required for XHTML Family Conformance) + text + hypertext + lists + structure Other
+            XHTML modules + Edit + Bdo + Presentational + Link + Meta + Base + Scripting + Style +
+            Image + Applet + Object + Param (Applet/Object modules require Param Module) + Tables +
+            Forms + Client side image maps + Server side image maps + Ruby </xs:documentation>
+    </xs:annotation>
+    
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+        schemaLocation="xml.xsd">
+        <xs:annotation>
+            <xs:documentation> This import brings in the XML namespace attributes The XML attributes
+                are used by various modules. </xs:documentation>
+        </xs:annotation>
+    </xs:import>
+    <xs:import namespace="http://www.w3.org/1999/xhtml/datatypes/"
+        schemaLocation="xhtml-datatypes-1.xsd"/>
+    <xs:import namespace="http://www.gazettes.co.uk/metadata" schemaLocation="gazette-metadata.xsd">
+        <xs:annotation>
+            <xs:documentation> This import brings in the Gazettes project specific metadata that are 
+                found in the 'head' of the document. </xs:documentation>
+        </xs:annotation>
+    </xs:import>
+    
+    
+    
+    <xs:attribute name="about" type="xh11d:SafeCURIEorCURIEorIRI"/>
+    <xs:attribute name="content" type="xh11d:CDATA"/>
+    <xs:attribute name="datatype" type="xh11d:TERMorCURIEoAbsIRI"/>
+    <xs:attribute name="inlist" type="xh11d:CDATA"/>
+    <xs:attribute name="typeof" type="xh11d:TERMorCURIEoAbsIRIs"/>
+    <xs:attribute name="prefix" type="xh11d:PREFIX"/>
+    <xs:attribute name="property" type="xh11d:TERMorCURIEoAbsIRIs"/>
+    <xs:attribute name="rel" type="xh11d:TERMorCURIEoAbsIRIs"/>
+    <xs:attribute name="resource" type="xh11d:SafeCURIEorCURIEorIRI"/>
+    <xs:attribute name="rev" type="xh11d:TERMorCURIEoAbsIRIs"/>
+    <xs:attribute name="vocab" type="xs:anyURI"/>
+    
+    <xs:attributeGroup name="xhtml.metaAttributes.attrib">
+        <xs:attribute name="about"/>
+        <xs:attribute name="content"/>
+        <xs:attribute name="datatype"/>
+        <xs:attribute name="inlist"/>
+        <xs:attribute name="typeof"/>
+        <xs:attribute name="prefix"/>
+        <xs:attribute name="property"/>
+        <xs:attribute name="rel"/>
+        <xs:attribute name="resource"/>
+        <xs:attribute name="rev"/>
+        <xs:attribute name="vocab"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup
+        name="xhtml.I18n.extra.attrib">
+        <xs:annotation>
+            <xs:documentation> Extended I18n attribute </xs:documentation>
+        </xs:annotation>
+        <xs:attributeGroup
+            ref="xhtml.dir.attrib">
+            <xs:annotation>
+                <xs:documentation> 
+                "dir" Attribute from Bi Directional Text (bdo) Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:attributeGroup
+        name="xhtml.Common.extra">
+        <xs:annotation>
+            <xs:documentation> Extended Common Attributes </xs:documentation>
+        </xs:annotation>
+        <xs:attributeGroup
+            ref="xhtml.style.attrib">
+            <xs:annotation>
+                <xs:documentation> 
+                "style" attribute from Inline Style Module 
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    	<xs:attributeGroup ref="xhtml.Events.attrib">
+			<xs:annotation>
+				<xs:documentation> 
+				Attributes from Events Module
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attributeGroup>
+    	<xs:attributeGroup ref="xhtml.metaAttributes.attrib">
+			<xs:annotation>
+				<xs:documentation> 
+				Attributes from Metainformation Module
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attributeGroup>
+	</xs:attributeGroup>
+    <xs:attributeGroup
+        name="xhtml.Core.extra.attrib">
+        <xs:annotation>
+            <xs:documentation> Extend Core Attributes </xs:documentation>
+        </xs:annotation>
+    </xs:attributeGroup>
+    <xs:attributeGroup
+        name="xhtml.Global.core.extra.attrib">
+        <xs:annotation>
+            <xs:documentation> Extended Global Core Attributes </xs:documentation>
+        </xs:annotation>
+    </xs:attributeGroup>
+    <xs:attributeGroup
+        name="xhtml.Global.I18n.extra.attrib">
+        <xs:annotation>
+            <xs:documentation> Extended Global I18n attributes </xs:documentation>
+        </xs:annotation>
+    </xs:attributeGroup>
+    <xs:attributeGroup
+        name="xhtml.Global.Common.extra">
+        <xs:annotation>
+            <xs:documentation> Extended Global Common Attributes </xs:documentation>
+        </xs:annotation>
+    </xs:attributeGroup>
+    <xs:group
+        name="xhtml.Head.extra">
+        <xs:sequence/>
+    </xs:group>
+    <xs:group
+        name="xhtml.HeadOpts.mix">
+        <xs:choice>
+            <xs:element
+                name="script"
+                type="xhtml.script.type"/>
+            <xs:element
+                name="style"
+                type="xhtml.style.type"/>
+            <xs:element
+                name="meta"
+                type="xhtml.meta.type"/>
+            <xs:element
+                name="link"
+                type="xhtml.link.type"/>
+            <xs:element
+                name="object"
+                type="xhtml.object.type"/>
+            <xs:group
+                ref="xhtml.Head.extra"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.head.content">
+        <xs:annotation>
+            <xs:documentation>Mark Jones: Addition of Gazette specific 'gazette-metadata' element to head element (change specifically for Gazettes project).</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:group
+                ref="xhtml.HeadOpts.mix"
+                minOccurs="0"
+                maxOccurs="unbounded"/>
+            <xs:choice>
+                <xs:sequence>
+                    <xs:element
+                        name="title"
+                        minOccurs="1"
+                        maxOccurs="1"
+                        type="xhtml.title.type"/>
+                    <xs:group
+                        ref="xhtml.HeadOpts.mix"
+                        minOccurs="0"
+                        maxOccurs="unbounded"/>
+                    <xs:sequence
+                        minOccurs="0">
+                        <xs:element
+                            name="base"
+                            type="xhtml.base.type"/>
+                        <xs:group
+                            ref="xhtml.HeadOpts.mix"
+                            minOccurs="0"
+                            maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:sequence>
+                <xs:sequence>
+                    <xs:element
+                        name="base"
+                        type="xhtml.base.type"
+                        minOccurs="1"
+                        maxOccurs="1"/>
+                    <xs:group
+                        ref="xhtml.HeadOpts.mix"
+                        minOccurs="0"
+                        maxOccurs="unbounded"/>
+                    <xs:element
+                        name="title"
+                        minOccurs="1"
+                        maxOccurs="1"
+                        type="xhtml.title.type"/>
+                    <xs:group
+                        ref="xhtml.HeadOpts.mix"
+                        minOccurs="0"
+                        maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:choice>
+            <xs:element ref="gaz:gazette-metadata"/>
+        </xs:sequence>
+    </xs:group>
+    <!--
+    ins and del are used to denote editing changes
+  -->
+    <xs:group
+        name="xhtml.Edit.class">
+        <xs:choice>
+            <xs:element
+                name="ins"
+                type="xhtml.edit.type"/>
+            <xs:element
+                name="del"
+                type="xhtml.edit.type"/>
+        </xs:choice>
+    </xs:group>
+    <!--
+    script and noscript are used to contain scripts
+    and alternative content
+  -->
+    <xs:group
+        name="xhtml.Script.class">
+        <xs:choice>
+            <xs:element
+                name="script"
+                type="xhtml.script.type"/>
+            <xs:element
+                name="noscript"
+                type="xhtml.noscript.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.Misc.extra">
+        <xs:sequence/>
+    </xs:group>
+    <!--
+    These elements are neither block nor inline, and can
+    essentially be used anywhere in the document body.
+  -->
+    <xs:group
+        name="xhtml.Misc.class">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.Edit.class"/>
+            <xs:group
+                ref="xhtml.Script.class"/>
+            <xs:group
+                ref="xhtml.Misc.extra"/>
+        </xs:choice>
+    </xs:group>
+    <!-- Inline Elements -->
+    <xs:group
+        name="xhtml.InlStruct.class">
+        <xs:choice>
+            <xs:element
+                name="br"
+                type="xhtml.br.type"/>
+            <xs:element
+                name="span"
+                type="xhtml.span.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.InlPhras.class">
+        <xs:choice>
+            <xs:element
+                name="em"
+                type="xhtml.em.type"/>
+            <xs:element
+                name="strong"
+                type="xhtml.strong.type"/>
+            <xs:element
+                name="dfn"
+                type="xhtml.dfn.type"/>
+            <xs:element
+                name="code"
+                type="xhtml.code.type"/>
+            <xs:element
+                name="samp"
+                type="xhtml.samp.type"/>
+            <xs:element
+                name="kbd"
+                type="xhtml.kbd.type"/>
+            <xs:element
+                name="var"
+                type="xhtml.var.type"/>
+            <xs:element
+                name="cite"
+                type="xhtml.cite.type"/>
+            <xs:element
+                name="abbr"
+                type="xhtml.abbr.type"/>
+            <xs:element
+                name="acronym"
+                type="xhtml.acronym.type"/>
+            <xs:element
+                name="q"
+                type="xhtml.q.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.InlPres.class">
+        <xs:choice>
+            <xs:element
+                name="tt"
+                type="xhtml.InlPres.type"/>
+            <xs:element
+                name="i"
+                type="xhtml.InlPres.type"/>
+            <xs:element
+                name="b"
+                type="xhtml.InlPres.type"/>
+            <xs:element
+                name="big"
+                type="xhtml.InlPres.type"/>
+            <xs:element
+                name="small"
+                type="xhtml.InlPres.type"/>
+            <xs:element
+                name="sub"
+                type="xhtml.InlPres.type"/>
+            <xs:element
+                name="sup"
+                type="xhtml.InlPres.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.I18n.class">
+        <xs:sequence>
+            <xs:element
+                name="bdo"
+                type="xhtml.bdo.type"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:group
+        name="xhtml.Anchor.class">
+        <xs:sequence>
+            <xs:element
+                name="a"
+                type="xhtml.a.type"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:group
+        name="xhtml.InlSpecial.class">
+        <xs:choice>
+            <xs:element
+                name="img"
+                type="xhtml.img.type"/>
+            <xs:element
+                name="map"
+                type="xhtml.map.type"/>
+            <xs:element
+                name="object"
+                type="xhtml.object.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.InlForm.class">
+        <xs:choice>
+            <xs:element
+                name="input"
+                type="xhtml.input.type"/>
+            <xs:element
+                name="select"
+                type="xhtml.select.type"/>
+            <xs:element
+                name="textarea"
+                type="xhtml.textarea.type"/>
+            <xs:element
+                name="label"
+                type="xhtml.label.type"/>
+            <xs:element
+                name="button"
+                type="xhtml.button.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.Inline.extra">
+        <xs:sequence/>
+    </xs:group>
+    <xs:group
+        name="xhtml.Ruby.class">
+        <xs:sequence>
+            <xs:element
+                name="ruby"
+                type="xhtml.ruby.type"/>
+        </xs:sequence>
+    </xs:group>
+    <!--
+    Inline.class includes all inline elements,
+    used as a component in mixes
+  -->
+    <xs:group
+        name="xhtml.Inline.class">
+        <xs:annotation>
+            <xs:documentation>Mark Jones: Addition of 'time' HTML5 element to 'inline' class of elements (change specifically for Gazettes project).</xs:documentation>
+        </xs:annotation>
+        <xs:choice>
+            <xs:group
+                ref="xhtml.InlStruct.class"/>
+            <xs:group
+                ref="xhtml.InlPhras.class"/>
+            <xs:group
+                ref="xhtml.InlPres.class"/>
+            <xs:group
+                ref="xhtml.I18n.class"/>
+            <xs:group
+                ref="xhtml.Anchor.class"/>
+            <xs:group
+                ref="xhtml.InlSpecial.class"/>
+            <xs:group
+                ref="xhtml.InlForm.class"/>
+            <xs:group
+                ref="xhtml.Ruby.class"/>
+            <xs:group
+                ref="xhtml.Inline.extra"/>
+            <xs:element name="time">
+                <xs:complexType mixed="true">
+                    <xs:attributeGroup ref="xhtml.time.attlist"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+    </xs:group>
+    <!--
+     InlNoRuby.class includes all inline elements
+     except ruby
+  -->
+    <xs:group
+        name="xhtml.InlNoRuby.class">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.InlStruct.class"/>
+            <xs:group
+                ref="xhtml.InlPhras.class"/>
+            <xs:group
+                ref="xhtml.InlPres.class"/>
+            <xs:group
+                ref="xhtml.I18n.class"/>
+            <xs:group
+                ref="xhtml.Anchor.class"/>
+            <xs:group
+                ref="xhtml.InlSpecial.class"/>
+            <xs:group
+                ref="xhtml.InlForm.class"/>
+            <xs:group
+                ref="xhtml.Inline.extra"/>
+        </xs:choice>
+    </xs:group>
+    <!--
+    InlinePre.mix
+    Used as a component in pre model
+  -->
+    <xs:group
+        name="xhtml.InlinePre.mix">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.InlStruct.class"/>
+            <xs:group
+                ref="xhtml.InlPhras.class"/>
+            <xs:element
+                name="tt"
+                type="xhtml.InlPres.type"/>
+            <xs:element
+                name="i"
+                type="xhtml.InlPres.type"/>
+            <xs:element
+                name="b"
+                type="xhtml.InlPres.type"/>
+            <xs:group
+                ref="xhtml.I18n.class"/>
+            <xs:group
+                ref="xhtml.Anchor.class"/>
+            <xs:group
+                ref="xhtml.Misc.class"/>
+            <xs:element
+                name="map"
+                type="xhtml.map.type"/>
+            <xs:group
+                ref="xhtml.Inline.extra"/>
+        </xs:choice>
+    </xs:group>
+    <!--
+    InlNoAnchor.class includes all non-anchor inlines,
+    used as a component in mixes
+  -->
+    <xs:group
+        name="xhtml.InlNoAnchor.class">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.InlStruct.class"/>
+            <xs:group
+                ref="xhtml.InlPhras.class"/>
+            <xs:group
+                ref="xhtml.InlPres.class"/>
+            <xs:group
+                ref="xhtml.I18n.class"/>
+            <xs:group
+                ref="xhtml.InlSpecial.class"/>
+            <xs:group
+                ref="xhtml.InlForm.class"/>
+            <xs:group
+                ref="xhtml.Ruby.class"/>
+            <xs:group
+                ref="xhtml.Inline.extra"/>
+        </xs:choice>
+    </xs:group>
+    <!--
+    InlNoAnchor.mix includes all non-anchor inlines
+  -->
+    <xs:group
+        name="xhtml.InlNoAnchor.mix">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.InlNoAnchor.class"/>
+            <xs:group
+                ref="xhtml.Misc.class"/>
+        </xs:choice>
+    </xs:group>
+    <!--
+    Inline.mix includes all inline elements, including Misc.class
+  -->
+    <xs:group
+        name="xhtml.Inline.mix">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.Inline.class"/>
+            <xs:group
+                ref="xhtml.Misc.class"/>
+        </xs:choice>
+    </xs:group>
+    <!--
+   InlNoRuby.mix includes all of inline.mix elements
+   except ruby
+  -->
+    <xs:group
+        name="xhtml.InlNoRuby.mix">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.InlNoRuby.class"/>
+            <xs:group
+                ref="xhtml.Misc.class"/>
+        </xs:choice>
+    </xs:group>
+    <!--
+    In the HTML 4 DTD, heading and list elements were included
+    in the block group. The Heading.class and
+    List.class groups must now be included explicitly
+    on element declarations where desired.
+  -->
+    <xs:group
+        name="xhtml.Heading.class">
+        <xs:choice>
+            <xs:element
+                name="h1"
+                type="xhtml.h1.type"/>
+            <xs:element
+                name="h2"
+                type="xhtml.h2.type"/>
+            <xs:element
+                name="h3"
+                type="xhtml.h3.type"/>
+            <xs:element
+                name="h4"
+                type="xhtml.h4.type"/>
+            <xs:element
+                name="h5"
+                type="xhtml.h5.type"/>
+            <xs:element
+                name="h6"
+                type="xhtml.h6.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.List.class">
+        <xs:choice>
+            <xs:element
+                name="ul"
+                type="xhtml.ul.type"/>
+            <xs:element
+                name="ol"
+                type="xhtml.ol.type"/>
+            <xs:element
+                name="dl"
+                type="xhtml.dl.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.Table.class">
+        <xs:choice>
+            <xs:element
+                name="table"
+                type="xhtml.table.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.Form.class">
+        <xs:choice>
+            <xs:element
+                name="form"
+                type="xhtml.form.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.Fieldset.class">
+        <xs:choice>
+            <xs:element
+                name="fieldset"
+                type="xhtml.fieldset.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.BlkStruct.class">
+        <xs:annotation>
+            <xs:documentation>Mark Jones: Addition of 'article', 'section', 'footer', 'header' and 'figure' HTML5 elements to 'block structure' class of elements (change specifically for Gazettes project).</xs:documentation>
+        </xs:annotation>
+        <xs:choice>
+            <xs:element
+                name="p"
+                type="xhtml.p.type"/>
+            <xs:element
+                name="div"
+                type="xhtml.div.type"/>
+            <xs:element name="article" type="xhtml.div.type"/>
+            <xs:element name="section" type="xhtml.div.type"/>
+            <xs:element name="footer" type="xhtml.div.type"/>
+            <xs:element name="header" type="xhtml.div.type"/>
+            <xs:element name="figure" type="xhtml.figure.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.BlkPhras.class">
+        <xs:choice>
+            <xs:element
+                name="pre"
+                type="xhtml.pre.type"/>
+            <xs:element
+                name="blockquote"
+                type="xhtml.blockquote.type"/>
+            <xs:element
+                name="address"
+                type="xhtml.address.type"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.BlkPres.class">
+        <xs:sequence>
+            <xs:element
+                name="hr"
+                type="xhtml.hr.type"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:group
+        name="xhtml.BlkSpecial.class">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.Table.class"/>
+            <xs:group
+                ref="xhtml.Form.class"/>
+            <xs:group
+                ref="xhtml.Fieldset.class"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group
+        name="xhtml.Block.extra">
+        <xs:sequence/>
+    </xs:group>
+    <!--
+    Block.class includes all block elements,
+    used as an component in mixes
+  -->
+    <xs:group
+        name="xhtml.Block.class">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.BlkStruct.class"/>
+            <xs:group
+                ref="xhtml.BlkPhras.class"/>
+            <xs:group
+                ref="xhtml.BlkPres.class"/>
+            <xs:group
+                ref="xhtml.BlkSpecial.class"/>
+            <xs:group
+                ref="xhtml.Block.extra"/>
+        </xs:choice>
+    </xs:group>
+    <!--
+   Block.mix includes all block elements plus %Misc.class;
+  -->
+    <xs:group
+        name="xhtml.Block.mix">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.Heading.class"/>
+            <xs:group
+                ref="xhtml.List.class"/>
+            <xs:group
+                ref="xhtml.Block.class"/>
+            <xs:group
+                ref="xhtml.Misc.class"/>
+        </xs:choice>
+    </xs:group>
+    <!--
+    All Content Elements
+    Flow.mix includes all text content, block and inline
+    Note that the "any" element included here allows us
+    to add data from any other namespace, a necessity
+    for compound document creation.
+    Note however that it is not possible to add
+    to any head level element without further
+    modification. To add RDF metadata to the head
+    of a document, modify the structure module.
+  -->
+    <xs:group
+        name="xhtml.Flow.mix">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.Heading.class"/>
+            <xs:group
+                ref="xhtml.List.class"/>
+            <xs:group
+                ref="xhtml.Block.class"/>
+            <xs:group
+                ref="xhtml.Inline.class"/>
+            <xs:group
+                ref="xhtml.Misc.class"/>
+        </xs:choice>
+    </xs:group>
+    <!--
+    BlkNoForm.mix includes all non-form block elements,
+    plus Misc.class
+  -->
+    <xs:group
+        name="xhtml.BlkNoForm.mix">
+        <xs:choice>
+            <xs:group
+                ref="xhtml.Heading.class"/>
+            <xs:group
+                ref="xhtml.List.class"/>
+            <xs:group
+                ref="xhtml.BlkStruct.class"/>
+            <xs:group
+                ref="xhtml.BlkPhras.class"/>
+            <xs:group
+                ref="xhtml.BlkPres.class"/>
+            <xs:group
+                ref="xhtml.Table.class"/>
+            <xs:group
+                ref="xhtml.Block.extra"/>
+            <xs:group
+                ref="xhtml.Misc.class"/>
+        </xs:choice>
+    </xs:group>
+    <xs:element
+        name="html"
+        type="xhtml.html.type"/>
+    
+    
+    
+    
+    <xs:attributeGroup name="xhtml.id">
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.class">
+        <xs:attribute name="class" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.title">
+        <xs:attribute name="title" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.Core.attrib">
+        <xs:attribute ref="xml:space" fixed="preserve"/>
+        <xs:attributeGroup ref="xhtml.id"/>
+        <xs:attributeGroup ref="xhtml.class"/>
+        <xs:attributeGroup ref="xhtml.title"/>
+        <xs:attributeGroup ref="xhtml.Core.extra.attrib"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.I18n.attrib">
+        <xs:attribute ref="xml:lang" />
+        <xs:attributeGroup ref="xhtml.I18n.extra.attrib"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.Common.attrib">
+        <xs:annotation>
+            <xs:documentation>Mark Jones: Allowance for additional non-validated attributes to be added to most elements to enable use of HTML5 'data-*' attributes (change specifically for Gazettes project).</xs:documentation>
+        </xs:annotation>
+        <xs:attributeGroup ref="xhtml.Core.attrib"/>
+        <xs:attributeGroup ref="xhtml.I18n.attrib"/>
+        <xs:attributeGroup ref="xhtml.Common.extra"/>
+        <xs:anyAttribute processContents="lax"/>
+    </xs:attributeGroup>
+    <!-- Global attributes -->
+    <xs:attribute name="id" type="xs:ID"/>
+    <xs:attribute name="class" type="xs:string"/>
+    <xs:attribute name="title" type="xs:string"/>
+    <xs:attributeGroup name="xhtml.Global.core.attrib">
+        <xs:attribute ref="id"/>
+        <xs:attribute ref="class"/>
+        <xs:attribute ref="title"/>
+        <xs:attributeGroup ref="xhtml.Global.core.extra.attrib" />
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.Global.i18n.attrib">
+        <xs:attribute ref="xml:lang" />
+        <xs:attributeGroup ref="xhtml.Global.I18n.extra.attrib"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.Global.common.attrib">
+        <xs:attributeGroup ref="xhtml.Global.core.attrib"/>
+        <xs:attributeGroup ref="xhtml.Global.i18n.attrib"/>
+        <xs:attributeGroup ref="xhtml.Global.Common.extra"/>
+    </xs:attributeGroup>
+    
+    <xs:attributeGroup name="xhtml.address.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.address.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.address.type" mixed="true">
+        <xs:group ref="xhtml.address.content"/>
+        <xs:attributeGroup ref="xhtml.address.attlist"/>
+    </xs:complexType>
+    <!-- blockquote -->
+    <xs:attributeGroup name="xhtml.blockquote.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="cite" type="xh11d:URI"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.blockquote.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Block.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.blockquote.type">
+        <xs:group ref="xhtml.blockquote.content"/>
+        <xs:attributeGroup ref="xhtml.blockquote.attlist"/>
+    </xs:complexType>
+    <!-- pre -->
+    <xs:attributeGroup name="xhtml.pre.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.pre.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.InlinePre.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.pre.type" mixed="true">
+        <xs:group ref="xhtml.pre.content"/>
+        <xs:attributeGroup ref="xhtml.pre.attlist"/>
+    </xs:complexType>
+    <!-- Heading Elements  -->
+    <xs:attributeGroup name="xhtml.heading.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:complexType name="xhtml.heading.type" mixed="true">
+        <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:attributeGroup ref="xhtml.heading.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.h1.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.h1.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.h1.type" mixed="true">
+        <xs:group ref="xhtml.h1.content"/>
+        <xs:attributeGroup ref="xhtml.h1.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.h2.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.h2.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.h2.type" mixed="true">
+        <xs:group ref="xhtml.h2.content"/>
+        <xs:attributeGroup ref="xhtml.h2.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.h3.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.h3.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.h3.type" mixed="true">
+        <xs:group ref="xhtml.h3.content"/>
+        <xs:attributeGroup ref="xhtml.h3.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.h4.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.h4.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.h4.type" mixed="true">
+        <xs:group ref="xhtml.h4.content"/>
+        <xs:attributeGroup ref="xhtml.h4.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.h5.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.h5.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.h5.type" mixed="true">
+        <xs:group ref="xhtml.h5.content"/>
+        <xs:attributeGroup ref="xhtml.h5.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.h6.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.h6.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.h6.type" mixed="true">
+        <xs:group ref="xhtml.h6.content"/>
+        <xs:attributeGroup ref="xhtml.h6.attlist"/>
+    </xs:complexType>
+    <!-- div -->
+    <xs:attributeGroup name="xhtml.div.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.div.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Flow.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.div.type" mixed="true">
+        <xs:group ref="xhtml.div.content"/>
+        <xs:attributeGroup ref="xhtml.div.attlist"/>
+    </xs:complexType>
+    <!-- p -->
+    <xs:attributeGroup name="xhtml.p.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.p.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.p.type" mixed="true">
+        <xs:group ref="xhtml.p.content"/>
+        <xs:attributeGroup ref="xhtml.p.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.abbr.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.abbr.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.abbr.type" mixed="true">
+        <xs:group ref="xhtml.abbr.content"/>
+        <xs:attributeGroup ref="xhtml.abbr.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.acronym.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.acronym.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.acronym.type" mixed="true">
+        <xs:group ref="xhtml.acronym.content"/>
+        <xs:attributeGroup ref="xhtml.acronym.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.cite.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.cite.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.cite.type" mixed="true">
+        <xs:group ref="xhtml.cite.content"/>
+        <xs:attributeGroup ref="xhtml.cite.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.code.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.code.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.code.type" mixed="true">
+        <xs:group ref="xhtml.code.content"/>
+        <xs:attributeGroup ref="xhtml.code.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.dfn.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.dfn.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.dfn.type" mixed="true">
+        <xs:group ref="xhtml.dfn.content"/>
+        <xs:attributeGroup ref="xhtml.dfn.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.em.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.em.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.em.type" mixed="true">
+        <xs:group ref="xhtml.em.content"/>
+        <xs:attributeGroup ref="xhtml.em.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.kbd.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.kbd.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.kbd.type" mixed="true">
+        <xs:group ref="xhtml.kbd.content"/>
+        <xs:attributeGroup ref="xhtml.kbd.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.samp.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.samp.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.samp.type" mixed="true">
+        <xs:group ref="xhtml.samp.content"/>
+        <xs:attributeGroup ref="xhtml.samp.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.strong.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.strong.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.strong.type" mixed="true">
+        <xs:group ref="xhtml.strong.content"/>
+        <xs:attributeGroup ref="xhtml.strong.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.var.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.var.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.var.type" mixed="true">
+        <xs:group ref="xhtml.var.content"/>
+        <xs:attributeGroup ref="xhtml.var.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.q.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="cite" type="xh11d:URI"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.q.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.q.type" mixed="true">
+        <xs:group ref="xhtml.q.content"/>
+        <xs:attributeGroup ref="xhtml.q.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.br.attlist">
+        <xs:attributeGroup ref="xhtml.Core.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.br.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.br.type">
+        <xs:group ref="xhtml.br.content"/>
+        <xs:attributeGroup ref="xhtml.br.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.span.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.span.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.span.type" mixed="true">
+        <xs:group ref="xhtml.span.content"/>
+        <xs:attributeGroup ref="xhtml.span.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.dt.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.dt.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.dt.type" mixed="true">
+        <xs:group ref="xhtml.dt.content"/>
+        <xs:attributeGroup ref="xhtml.dt.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.dd.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.dd.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Flow.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.dd.type" mixed="true">
+        <xs:group ref="xhtml.dd.content"/>
+        <xs:attributeGroup ref="xhtml.dd.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.dl.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.dl.content">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="dt" type="xhtml.dt.type"/>
+                <xs:element name="dd" type="xhtml.dd.type"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.dl.type">
+        <xs:group ref="xhtml.dl.content"/>
+        <xs:attributeGroup ref="xhtml.dl.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.li.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.li.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Flow.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.li.type" mixed="true">
+        <xs:group ref="xhtml.li.content"/>
+        <xs:attributeGroup ref="xhtml.li.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.ol.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.ol.content">
+        <xs:sequence>
+            <xs:element name="li" type="xhtml.li.type" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.ol.type">
+        <xs:group ref="xhtml.ol.content"/>
+        <xs:attributeGroup ref="xhtml.ol.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.ul.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.ul.content">
+        <xs:sequence>
+            <xs:element name="li" type="xhtml.li.type" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.ul.type">
+        <xs:group ref="xhtml.ul.content"/>
+        <xs:attributeGroup ref="xhtml.ul.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup
+        name="xhtml.title.attlist">
+        <xs:attributeGroup
+            ref="xhtml.I18n.attrib"/>
+        <xs:attributeGroup ref="xhtml.id"/>
+        <xs:attribute ref="xml:space"/>
+        <xs:attributeGroup ref="xhtml.class"/>
+        <xs:attributeGroup ref="xhtml.title"/>
+        <xs:attributeGroup ref="xhtml.Common.extra"/>
+    </xs:attributeGroup>
+    <xs:group
+        name="xhtml.title.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType
+        name="xhtml.title.type"
+        mixed="true">
+        <xs:group
+            ref="xhtml.title.content"/>
+        <xs:attributeGroup
+            ref="xhtml.title.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup
+        name="xhtml.profile.attrib">
+        <xs:attribute
+            name="profile"
+            type="xh11d:URIs"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup
+        name="xhtml.head.attlist">
+        <xs:attributeGroup
+            ref="xhtml.profile.attrib"/>
+        <xs:attributeGroup
+            ref="xhtml.I18n.attrib"/>
+        <xs:attributeGroup ref="xhtml.id"/>
+        <xs:attribute ref="xml:space"/>
+        <xs:attributeGroup ref="xhtml.class"/>
+        <xs:attributeGroup ref="xhtml.title"/>
+        <xs:attributeGroup ref="xhtml.Common.extra"/>
+    </xs:attributeGroup>
+    <xs:complexType
+        name="xhtml.head.type">
+        <xs:group
+            ref="xhtml.head.content"/>
+        <xs:attributeGroup
+            ref="xhtml.head.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup
+        name="xhtml.body.attlist">
+        <xs:attributeGroup
+            ref="xhtml.Common.attrib"/>
+        <xs:attributeGroup ref="xhtml.body.events.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by XHTML Event Attribute Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group
+        name="xhtml.body.content">
+        <xs:sequence>
+            <xs:group
+                ref="xhtml.Block.mix"
+                minOccurs="0"
+                maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType
+        name="xhtml.body.type">
+        <xs:group
+            ref="xhtml.body.content"/>
+        <xs:attributeGroup
+            ref="xhtml.body.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup
+        name="xhtml.version.attrib">
+        <xs:annotation>
+            <xs:documentation>
+                Redefinition by the XHTML11 Markup (for value of version attr)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="version" type="xh11d:CDATA" fixed="XHTML+RDFa 1.1"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup
+        name="xhtml.html.attlist">
+        <xs:annotation>
+            <xs:documentation>Mark Jones: Addition of @DocumentURI, @IdURI and @prefix to root 'html' element (change specifically for Gazettes project).</xs:documentation>
+        </xs:annotation>
+        <xs:attributeGroup
+            ref="xhtml.version.attrib"/>
+        <xs:attributeGroup
+            ref="xhtml.I18n.attrib"/>
+        <xs:attributeGroup ref="xhtml.id"/>
+        <xs:attribute ref="xml:space"/>
+        <xs:attribute name="DocumentURI" type="xs:anyURI"/>
+        <xs:attribute name="IdURI" type="xs:anyURI"/>
+        <xs:attribute name="prefix" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:group
+        name="xhtml.html.content">
+        <xs:sequence>
+            <xs:element
+                name="head"
+                type="xhtml.head.type"/>
+            <xs:element
+                name="body"
+                type="xhtml.body.type"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType
+        name="xhtml.html.type">
+        <xs:group
+            ref="xhtml.html.content"/>
+        <xs:attributeGroup
+            ref="xhtml.html.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.edit.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="cite" type="xh11d:URI"/>
+        <xs:attribute name="datetime" type="xh11d:Datetime"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.edit.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Flow.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.edit.type" mixed="true">
+        <xs:group ref="xhtml.edit.content"/>
+        <xs:attributeGroup ref="xhtml.edit.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.bdo.attlist">
+        <xs:attributeGroup ref="xhtml.Core.attrib"/>
+        <xs:attributeGroup ref="xhtml.I18n.extra.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.bdo.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.bdo.type" mixed="true">
+        <xs:group ref="xhtml.bdo.content"/>
+        <xs:attributeGroup ref="xhtml.bdo.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.dir.attrib">
+        <xs:attribute name="dir">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="ltr"/>
+                    <xs:enumeration value="rtl"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <!-- Global dir attribute -->
+    <xs:attribute name="dir">
+        <xs:simpleType>
+            <xs:restriction base="xs:NMTOKEN">
+                <xs:enumeration value="ltr"/>
+                <xs:enumeration value="rtl"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <xs:attributeGroup name="xhtml.Global.bdo.attrib">
+        <xs:attribute ref="dir"/>
+    </xs:attributeGroup>
+    
+    <xs:attributeGroup name="xhtml.hr.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.hr.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.hr.type">
+        <xs:group ref="xhtml.hr.content"/>
+        <xs:attributeGroup ref="xhtml.hr.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.InlPres.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.InlPres.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.InlPres.type" mixed="true">
+        <xs:group ref="xhtml.InlPres.content"/>
+        <xs:attributeGroup ref="xhtml.InlPres.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.base.attlist">
+        <xs:attribute name="href" type="xh11d:URI" use="required"/>
+        <xs:attributeGroup ref="xhtml.base.target.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    XHTML Target Module - Attribute additions
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.base.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.base.type">
+        <xs:group ref="xhtml.base.content"/>
+        <xs:attributeGroup ref="xhtml.base.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.script.attlist">
+        <xs:attributeGroup ref="xhtml.id"/>
+        <xs:attribute name="charset" type="xh11d:Charset"/>
+        <xs:attribute name="type" type="xh11d:ContentType" use="required"/>
+        <xs:attribute name="src" type="xh11d:URI"/>
+        <xs:attribute name="defer">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="defer"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.script.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.script.type" mixed="true">
+        <xs:group ref="xhtml.script.content"/>
+        <xs:attributeGroup ref="xhtml.script.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.noscript.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.noscript.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Block.mix" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.noscript.type">
+        <xs:group ref="xhtml.noscript.content"/>
+        <xs:attributeGroup ref="xhtml.noscript.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.style.attlist">
+        <xs:attributeGroup ref="xhtml.id"/>
+        <xs:attributeGroup ref="xhtml.title"/>
+        <xs:attributeGroup ref="xhtml.I18n.attrib"/>
+        <xs:attribute name="type" type="xh11d:ContentType" use="required"/>
+        <xs:attribute name="media" type="xh11d:MediaDesc"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.style.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.style.type" mixed="true">
+        <xs:group ref="xhtml.style.content"/>
+        <xs:attributeGroup ref="xhtml.style.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.style.attrib">
+        <xs:attribute name="style" type="xh11d:CDATA"/>
+    </xs:attributeGroup>
+    
+    <xs:attributeGroup name="xhtml.img.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="src" type="xh11d:URI" use="required"/>
+        <xs:attribute name="alt" type="xh11d:Text" use="required"/>
+        <xs:attribute name="longdesc" type="xh11d:URI"/>
+        <xs:attribute name="name" type="xh11d:CDATA"/>
+        <xs:attribute name="height" type="xh11d:Length"/>
+        <xs:attribute name="width" type="xh11d:Length"/>
+        <xs:attributeGroup ref="xhtml.img.csim.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Client Side Image Map Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+        <xs:attributeGroup ref="xhtml.img.ssimap.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Server Side Image Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.img.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.img.type">
+        <xs:group ref="xhtml.img.content"/>
+        <xs:attributeGroup ref="xhtml.img.attlist"/>
+    </xs:complexType>
+    
+    <xs:simpleType name="xhtml.Shape.Datatype">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="rect"/>
+            <xs:enumeration value="circle"/>
+            <xs:enumeration value="poly"/>
+            <xs:enumeration value="default"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="xhtml.Coords.Datatype">
+        <xs:restriction base="xh11d:Text"/>
+    </xs:simpleType>
+    <!-- modify anchor attribute definition list -->
+    <xs:attributeGroup name="xhtml.a.csim.attlist">
+        <xs:attribute name="shape" type="xhtml.Shape.Datatype" default="rect"/>
+        <xs:attribute name="coords" type="xhtml.Coords.Datatype"/>
+    </xs:attributeGroup>
+    <!-- modify img attribute definition list -->
+    <xs:attributeGroup name="xhtml.img.csim.attlist">
+        <xs:attribute name="usemap" type="xh11d:URIREF"/>
+    </xs:attributeGroup>
+    <!-- modify form input attribute definition list -->
+    <xs:attributeGroup name="xhtml.input.csim.attlist">
+        <xs:attribute name="usemap" type="xh11d:URIREF"/>
+    </xs:attributeGroup>
+    <!-- modify object attribute definition list -->
+    <xs:attributeGroup name="xhtml.object.csim.attlist">
+        <xs:attribute name="usemap" type="xh11d:URIREF"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.area.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="href" type="xh11d:URI"/>
+        <xs:attribute name="shape" type="xhtml.Shape.Datatype" default="rect"/>
+        <xs:attribute name="coords" type="xhtml.Coords.Datatype"/>
+        <xs:attribute name="nohref">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="nohref"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="alt" type="xh11d:Text" use="required"/>
+        <xs:attribute name="tabindex" type="xh11d:Number"/>
+        <xs:attribute name="accesskey" type="xh11d:Character"/>
+        <xs:attributeGroup ref="xhtml.area.events.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Events Attribute Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+        <xs:attributeGroup ref="xhtml.area.target.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Target Module - Area Attribute Additions
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.area.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.area.type">
+        <xs:group ref="xhtml.area.content"/>
+        <xs:attributeGroup ref="xhtml.area.attlist"/>
+    </xs:complexType>
+    <!-- map -->
+    <xs:attributeGroup name="xhtml.map.attlist">
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attributeGroup ref="xhtml.class"/>
+        <xs:attributeGroup ref="xhtml.title"/>
+        <xs:attributeGroup ref="xhtml.Core.extra.attrib"/>
+        <xs:attributeGroup ref="xhtml.I18n.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.map.content">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <xs:group ref="xhtml.Block.mix"/>
+                <xs:element name="area" type="xhtml.area.type"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.map.type">
+        <xs:group ref="xhtml.map.content"/>
+        <xs:attributeGroup ref="xhtml.map.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.img.ssimap.attlist">
+        <xs:attribute name="ismap">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="ismap"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.input.ssimap.attlist">
+        <xs:attribute name="ismap">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="ismap"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    
+    <xs:attributeGroup name="xhtml.object.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="declare">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="declare"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="classid" type="xh11d:URI"/>
+        <xs:attribute name="codebase" type="xh11d:URI"/>
+        <xs:attribute name="data" type="xh11d:URI"/>
+        <xs:attribute name="type" type="xh11d:ContentType"/>
+        <xs:attribute name="codetype" type="xh11d:ContentType"/>
+        <xs:attribute name="archive" type="xh11d:URIs"/>
+        <xs:attribute name="standby" type="xh11d:Text"/>
+        <xs:attribute name="height" type="xh11d:Length"/>
+        <xs:attribute name="width" type="xh11d:Length"/>
+        <xs:attribute name="name" type="xh11d:CDATA"/>
+        <xs:attribute name="tabindex" type="xh11d:Number"/>
+        <xs:attributeGroup ref="xhtml.object.csim.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Client Image Map Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.object.content">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="param" type="xhtml.param.type"/>
+                <xs:group ref="xhtml.Flow.mix"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.object.type" mixed="true">
+        <xs:group ref="xhtml.object.content"/>
+        <xs:attributeGroup ref="xhtml.object.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.param.attlist">
+        <xs:attributeGroup ref="xhtml.id"/>
+        <xs:attribute name="name" type="xh11d:CDATA" use="required"/>
+        <xs:attribute name="value" type="xh11d:CDATA"/>
+        <xs:attribute name="valuetype" default="data">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="data"/>
+                    <xs:enumeration value="ref"/>
+                    <xs:enumeration value="object"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="type" type="xh11d:ContentType"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.param.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.param.type">
+        <xs:group ref="xhtml.param.content"/>
+        <xs:attributeGroup ref="xhtml.param.attlist"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.frame.attrib">
+        <xs:attribute name="frame">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="void"/>
+                    <xs:enumeration value="above"/>
+                    <xs:enumeration value="below"/>
+                    <xs:enumeration value="hsides"/>
+                    <xs:enumeration value="lhs"/>
+                    <xs:enumeration value="rhs"/>
+                    <xs:enumeration value="vsides"/>
+                    <xs:enumeration value="box"/>
+                    <xs:enumeration value="border"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.rules.attrib">
+        <xs:attribute name="rules">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="groups"/>
+                    <xs:enumeration value="rows"/>
+                    <xs:enumeration value="cols"/>
+                    <xs:enumeration value="all"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.CellVAlign.attrib">
+        <xs:attribute name="valign">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="top"/>
+                    <xs:enumeration value="middle"/>
+                    <xs:enumeration value="bottom"/>
+                    <xs:enumeration value="baseline"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.CellHAlign.attrib">
+        <xs:attribute name="align">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="left"/>
+                    <xs:enumeration value="center"/>
+                    <xs:enumeration value="right"/>
+                    <xs:enumeration value="justify"/>
+                    <xs:enumeration value="char"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="char" type="xh11d:Character"/>
+        <xs:attribute name="charoff" type="xh11d:Length"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.scope.attrib">
+        <xs:attribute name="scope">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="row"/>
+                    <xs:enumeration value="col"/>
+                    <xs:enumeration value="rowgroup"/>
+                    <xs:enumeration value="colgroup"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.td.attlist">
+        <xs:annotation>
+            <xs:documentation>Mark Jones: Addition of @nowrap attribute to 'td' element (change specifically for Gazettes project).</xs:documentation>
+        </xs:annotation>
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="abbr" type="xh11d:Text"/>
+        <xs:attribute name="axis" type="xh11d:CDATA"/>
+        <xs:attribute name="headers" type="xs:IDREFS"/>
+        <xs:attributeGroup ref="xhtml.scope.attrib"/>
+        <xs:attribute name="rowspan" type="xh11d:Number" default="1"/>
+        <xs:attribute name="colspan" type="xh11d:Number" default="1"/>
+        <xs:attributeGroup ref="xhtml.CellHAlign.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellVAlign.attrib"/>
+        <xs:attribute name="nowrap" type="xs:NMTOKEN"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.td.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Flow.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.td.type" mixed="true">
+        <xs:group ref="xhtml.td.content"/>
+        <xs:attributeGroup ref="xhtml.td.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.th.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="abbr" type="xh11d:Text"/>
+        <xs:attribute name="axis" type="xh11d:CDATA"/>
+        <xs:attribute name="headers" type="xs:IDREFS"/>
+        <xs:attributeGroup ref="xhtml.scope.attrib"/>
+        <xs:attribute name="rowspan" type="xh11d:Number" default="1"/>
+        <xs:attribute name="colspan" type="xh11d:Number" default="1"/>
+        <xs:attributeGroup ref="xhtml.CellHAlign.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellVAlign.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.th.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Flow.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.th.type" mixed="true">
+        <xs:group ref="xhtml.th.content"/>
+        <xs:attributeGroup ref="xhtml.th.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.tr.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellHAlign.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellVAlign.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.tr.content">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="th" type="xhtml.th.type"/>
+                <xs:element name="td" type="xhtml.td.type"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.tr.type">
+        <xs:group ref="xhtml.tr.content"/>
+        <xs:attributeGroup ref="xhtml.tr.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.col.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="span" type="xh11d:Number" default="1"/>
+        <xs:attribute name="width" type="xh11d:MultiLength"/>
+        <xs:attributeGroup ref="xhtml.CellHAlign.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellVAlign.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.col.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.col.type">
+        <xs:group ref="xhtml.col.content"/>
+        <xs:attributeGroup ref="xhtml.col.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.colgroup.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="span" type="xh11d:Number" default="1"/>
+        <xs:attribute name="width" type="xh11d:MultiLength"/>
+        <xs:attributeGroup ref="xhtml.CellHAlign.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellVAlign.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.colgroup.content">
+        <xs:sequence>
+            <xs:element name="col" type="xhtml.col.type" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.colgroup.type">
+        <xs:group ref="xhtml.colgroup.content"/>
+        <xs:attributeGroup ref="xhtml.colgroup.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.tbody.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellHAlign.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellVAlign.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.tbody.content">
+        <xs:sequence>
+            <xs:element name="tr" type="xhtml.tr.type" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.tbody.type">
+        <xs:group ref="xhtml.tbody.content"/>
+        <xs:attributeGroup ref="xhtml.tbody.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.tfoot.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellHAlign.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellVAlign.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.tfoot.content">
+        <xs:sequence>
+            <xs:element name="tr" type="xhtml.tr.type" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.tfoot.type">
+        <xs:group ref="xhtml.tfoot.content"/>
+        <xs:attributeGroup ref="xhtml.tfoot.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.thead.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellHAlign.attrib"/>
+        <xs:attributeGroup ref="xhtml.CellVAlign.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.thead.content">
+        <xs:sequence>
+            <xs:element name="tr" type="xhtml.tr.type" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.thead.type">
+        <xs:group ref="xhtml.thead.content"/>
+        <xs:attributeGroup ref="xhtml.thead.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.caption.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.caption.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.caption.type" mixed="true">
+        <xs:group ref="xhtml.caption.content"/>
+        <xs:attributeGroup ref="xhtml.caption.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.table.attlist">
+        <xs:annotation>
+            <xs:documentation>Mark Jones: Addition of @cols attribute to 'table' element (change specifically for Gazettes project).</xs:documentation>
+        </xs:annotation>
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="summary" type="xh11d:Text"/>
+        <xs:attribute name="width" type="xh11d:Length"/>
+        <xs:attribute name="border" type="xh11d:Pixels"/>
+        <xs:attributeGroup ref="xhtml.frame.attrib"/>
+        <xs:attributeGroup ref="xhtml.rules.attrib"/>
+        <xs:attribute name="cellspacing" type="xh11d:Length"/>
+        <xs:attribute name="cellpadding" type="xh11d:Length"/>
+        <xs:attribute name="cols" type="xh11d:Length"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.table.content">
+        <xs:sequence>
+            <xs:element name="caption" type="xhtml.caption.type" minOccurs="0"/>
+            <xs:choice>
+                <xs:element name="col" type="xhtml.col.type" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="colgroup" type="xhtml.colgroup.type" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:choice>
+            <xs:choice>
+                <xs:sequence>
+                    <xs:element name="thead" type="xhtml.thead.type" minOccurs="0"/>
+                    <xs:element name="tfoot" type="xhtml.tfoot.type" minOccurs="0"/>
+                    <xs:element name="tbody" type="xhtml.tbody.type" maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:choice>
+                    <xs:element name="tr" type="xhtml.tr.type" maxOccurs="unbounded"/>
+                </xs:choice>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.table.type">
+        <xs:group ref="xhtml.table.content"/>
+        <xs:attributeGroup ref="xhtml.table.attlist"/>
+    </xs:complexType>
+    
+    <!-- form: Form Element -->
+    <xs:attributeGroup name="xhtml.form.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="action" type="xh11d:URI" use="required"/>
+        <xs:attribute name="method" default="get">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="get"/>
+                    <xs:enumeration value="post"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="name" type="xh11d:CDATA"/>
+        <xs:attribute name="enctype" type="xh11d:ContentType" default="application/x-www-form-urlencoded"/>
+        <xs:attribute name="accept-charset" type="xh11d:Charsets"/>
+        <xs:attribute name="accept" type="xh11d:ContentTypes"/>
+        <xs:attributeGroup ref="xhtml.form.events.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    XHTML Events Module - Attribute additions
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+        <xs:attributeGroup ref="xhtml.form.target.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    XHTML Target Module - Attribute additions
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.form.content">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <xs:group ref="xhtml.BlkNoForm.mix"/>
+                <xs:element name="fieldset" type="xhtml.fieldset.type"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.form.type">
+        <xs:group ref="xhtml.form.content"/>
+        <xs:attributeGroup ref="xhtml.form.attlist"/>
+    </xs:complexType>
+    <!-- 
+    label: Form Field Label Text 
+    Note: Each label must not contain more than ONE field
+-->
+    <xs:group name="xhtml.label.content">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="input" type="xhtml.input.type"/>
+                <xs:element name="select" type="xhtml.select.type"/>
+                <xs:element name="textarea" type="xhtml.textarea.type"/>
+                <xs:element name="button" type="xhtml.button.type"/>
+                <xs:group ref="xhtml.InlStruct.class"/>
+                <xs:group ref="xhtml.InlPhras.class"/>
+                <xs:group ref="xhtml.I18n.class"/>
+                <xs:group ref="xhtml.InlPres.class"/>
+                <xs:group ref="xhtml.InlSpecial.class"/>
+                <xs:group ref="xhtml.Inline.extra"/>
+                <xs:group ref="xhtml.Misc.class"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:attributeGroup name="xhtml.label.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="for" type="xs:IDREF"/>
+        <xs:attribute name="accesskey" type="xh11d:Character"/>
+        <xs:attributeGroup ref="xhtml.label.events.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Event Attribute Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:complexType name="xhtml.label.type" mixed="true">
+        <xs:group ref="xhtml.label.content"/>
+        <xs:attributeGroup ref="xhtml.label.attlist"/>
+    </xs:complexType>
+    <!-- input: Form Control -->
+    <xs:simpleType name="xhtml.InputType.class">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="text"/>
+            <xs:enumeration value="password"/>
+            <xs:enumeration value="checkbox"/>
+            <xs:enumeration value="radio"/>
+            <xs:enumeration value="submit"/>
+            <xs:enumeration value="reset"/>
+            <xs:enumeration value="hidden"/>
+            <xs:enumeration value="image"/>
+            <xs:enumeration value="button"/>
+            <xs:enumeration value="file"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- 
+    attribute 'name' required for all but submit & reset
+-->
+    <xs:attributeGroup name="xhtml.input.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="type" type="xhtml.InputType.class" default="text"/>
+        <xs:attribute name="name" type="xh11d:CDATA"/>
+        <xs:attribute name="value" type="xh11d:CDATA"/>
+        <xs:attribute name="checked">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="checked"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="disabled">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="disabled"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="readonly">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="readonly"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="size" type="xh11d:Number"/>
+        <xs:attribute name="maxlength" type="xh11d:Number"/>
+        <xs:attribute name="src" type="xh11d:URI"/>
+        <xs:attribute name="alt" type="xh11d:Text"/>
+        <xs:attribute name="tabindex" type="xh11d:Number"/>
+        <xs:attribute name="accesskey" type="xh11d:Character"/>
+        <xs:attribute name="accept" type="xh11d:ContentTypes"/>
+        <xs:attributeGroup ref="xhtml.input.csim.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Client Side Image Map Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+        <xs:attributeGroup ref="xhtml.input.ssimap.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Server Side Image Map Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+        <xs:attributeGroup ref="xhtml.input.events.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Event Attribute Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.input.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.input.type">
+        <xs:group ref="xhtml.input.content"/>
+        <xs:attributeGroup ref="xhtml.input.attlist"/>
+    </xs:complexType>
+    <!-- select: Option Selector  -->
+    <xs:attributeGroup name="xhtml.select.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="name" type="xh11d:CDATA"/>
+        <xs:attribute name="size" type="xh11d:Number"/>
+        <xs:attribute name="multiple">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="multiple"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="disabled">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="disabled"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="tabindex" type="xh11d:Number"/>
+        <xs:attributeGroup ref="xhtml.select.events.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Event Attribute Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.select.content">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="optgroup" type="xhtml.optgroup.type"/>
+                <xs:element name="option" type="xhtml.option.type"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.select.type">
+        <xs:group ref="xhtml.select.content"/>
+        <xs:attributeGroup ref="xhtml.select.attlist"/>
+    </xs:complexType>
+    <!-- optgroup: Option Group  -->
+    <xs:attributeGroup name="xhtml.optgroup.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="disabled">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="disabled"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="label" type="xh11d:Text" use="required"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.optgroup.content">
+        <xs:sequence>
+            <xs:element name="option" type="xhtml.option.type" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.optgroup.type">
+        <xs:group ref="xhtml.optgroup.content"/>
+        <xs:attributeGroup ref="xhtml.optgroup.attlist"/>
+    </xs:complexType>
+    <!-- option: Selectable Choice  -->
+    <xs:attributeGroup name="xhtml.option.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="selected">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="selected"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="disabled">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="disabled"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="label" type="xh11d:Text"/>
+        <xs:attribute name="value" type="xh11d:CDATA"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.option.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.option.type" mixed="true">
+        <xs:group ref="xhtml.option.content"/>
+        <xs:attributeGroup ref="xhtml.option.attlist"/>
+    </xs:complexType>
+    <!-- textarea: Multi-Line Text Field  -->
+    <xs:attributeGroup name="xhtml.textarea.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="name" type="xh11d:CDATA"/>
+        <xs:attribute name="rows" type="xh11d:Number" use="required"/>
+        <xs:attribute name="cols" type="xh11d:Number" use="required"/>
+        <xs:attribute name="disabled">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="disabled"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="readonly">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="readonly"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="tabindex" type="xh11d:Number"/>
+        <xs:attribute name="accesskey" type="xh11d:Character"/>
+        <xs:attributeGroup ref="xhtml.textarea.events.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Event Attribute Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.textarea.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.textarea.type" mixed="true">
+        <xs:group ref="xhtml.textarea.content"/>
+        <xs:attributeGroup ref="xhtml.textarea.attlist"/>
+    </xs:complexType>
+    <!-- fieldset: Form Control Group  -->
+    <xs:attributeGroup name="xhtml.fieldset.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.fieldset.content">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="legend" type="xhtml.legend.type"/>
+                <xs:group ref="xhtml.Flow.mix"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.fieldset.type" mixed="true">
+        <xs:group ref="xhtml.fieldset.content"/>
+        <xs:attributeGroup ref="xhtml.fieldset.attlist"/>
+    </xs:complexType>
+    <!-- legend: Fieldset Legend  -->
+    <xs:attributeGroup name="xhtml.legend.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="accesskey" type="xh11d:Character"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.legend.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.Inline.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.legend.type" mixed="true">
+        <xs:group ref="xhtml.legend.content"/>
+        <xs:attributeGroup ref="xhtml.legend.attlist"/>
+    </xs:complexType>
+    <!-- button: Push Button  -->
+    <xs:attributeGroup name="xhtml.button.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="name" type="xh11d:CDATA"/>
+        <xs:attribute name="value" type="xh11d:CDATA"/>
+        <xs:attribute name="type" default="submit">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="button"/>
+                    <xs:enumeration value="submit"/>
+                    <xs:enumeration value="reset"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="disabled">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="disabled"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="tabindex" type="xh11d:Number"/>
+        <xs:attribute name="accesskey" type="xh11d:Character"/>
+        <xs:attributeGroup ref="xhtml.button.events.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Event Attribute Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.button.content">
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:group ref="xhtml.BlkNoForm.mix"/>
+                <xs:group ref="xhtml.InlStruct.class"/>
+                <xs:group ref="xhtml.InlPhras.class"/>
+                <xs:group ref="xhtml.InlPres.class"/>
+                <xs:group ref="xhtml.I18n.class"/>
+                <xs:group ref="xhtml.InlSpecial.class"/>
+                <xs:group ref="xhtml.Inline.extra"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.button.type" mixed="true">
+        <xs:group ref="xhtml.button.content"/>
+        <xs:attributeGroup ref="xhtml.button.attlist"/>
+    </xs:complexType>
+    
+    <xs:group name="xhtml.ruby.content.simple">
+        <xs:sequence>
+            <xs:element name="rb" type="xhtml.rb.type"/>
+            <xs:choice>
+                <xs:element name="rt" type="xhtml.rt.type"/>
+                <xs:sequence>
+                    <xs:element name="rp" type="xhtml.rp.type"/>
+                    <xs:element name="rt" type="xhtml.rt.type"/>
+                    <xs:element name="rp" type="xhtml.rp.type"/>
+                </xs:sequence>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <!-- 
+   add to this group any common attributes for all Ruby elements 
+  -->
+    <xs:attributeGroup name="xhtml.ruby.common.attrib"/>
+    <xs:complexType name="xhtml.ruby.type">
+        <xs:group ref="xhtml.ruby.content.simple"/>
+        <xs:attributeGroup ref="xhtml.ruby.common.attrib"/>
+    </xs:complexType>
+    <!-- 
+   rb (ruby base) element 
+  -->
+    <xs:attributeGroup name="xhtml.rb.attrib">
+        <xs:attributeGroup ref="xhtml.ruby.common.attrib"/>
+    </xs:attributeGroup>
+    <xs:complexType name="xhtml.rb.type" mixed="true">
+        <xs:attributeGroup ref="xhtml.rb.attrib"/>
+    </xs:complexType>
+    <!--
+   rt (ruby text) element 
+  -->
+    <xs:attributeGroup name="xhtml.rt.attrib">
+        <xs:attributeGroup ref="xhtml.ruby.common.attrib"/>
+    </xs:attributeGroup>
+    <!--
+   Note that the rbspan element is not used in Ruby Basic
+  -->
+    <xs:complexType name="xhtml.rt.type" mixed="true">
+        <xs:attributeGroup ref="xhtml.rt.attrib"/>
+    </xs:complexType>
+    <!-- 
+   rp (ruby parenthesis) element 
+  -->
+    <xs:attributeGroup name="xhtml.rp.attrib">
+        <xs:attributeGroup ref="xhtml.ruby.common.attrib"/>
+    </xs:attributeGroup>
+    <xs:complexType name="xhtml.rp.type" mixed="true">
+        <xs:attributeGroup ref="xhtml.rp.attrib"/>
+    </xs:complexType>
+    
+    <xs:attributeGroup name="xhtml.Events.attrib">
+        <xs:attribute name="onclick" type="xh11d:Script"/>
+        <xs:attribute name="ondblclick" type="xh11d:Script"/>
+        <xs:attribute name="onmousedown" type="xh11d:Script"/>
+        <xs:attribute name="onmouseup" type="xh11d:Script"/>
+        <xs:attribute name="onmouseover" type="xh11d:Script"/>
+        <xs:attribute name="onmousemove" type="xh11d:Script"/>
+        <xs:attribute name="onmouseout" type="xh11d:Script"/>
+        <xs:attribute name="onkeypress" type="xh11d:Script"/>
+        <xs:attribute name="onkeydown" type="xh11d:Script"/>
+        <xs:attribute name="onkeyup" type="xh11d:Script"/>
+    </xs:attributeGroup>
+    <!--
+    additional attributes on anchor element
+-->
+    <xs:attributeGroup name="xhtml.a.events.attlist">
+        <xs:attribute name="onfocus" type="xh11d:Script"/>
+        <xs:attribute name="onblur" type="xh11d:Script"/>
+    </xs:attributeGroup>
+    <!--
+    additional attributes on form element
+-->
+    <xs:attributeGroup name="xhtml.form.events.attlist">
+        <xs:attribute name="onsubmit" type="xh11d:Script"/>
+        <xs:attribute name="onreset" type="xh11d:Script"/>
+    </xs:attributeGroup>
+    <!--
+    additional attributes on label element
+-->
+    <xs:attributeGroup name="xhtml.label.events.attlist">
+        <xs:attribute name="onfocus" type="xh11d:Script"/>
+        <xs:attribute name="onblur" type="xh11d:Script"/>
+    </xs:attributeGroup>
+    <!--
+    additional attributes on input element
+-->
+    <xs:attributeGroup name="xhtml.input.events.attlist">
+        <xs:attribute name="onfocus" type="xh11d:Script"/>
+        <xs:attribute name="onblur" type="xh11d:Script"/>
+        <xs:attribute name="onselect" type="xh11d:Script"/>
+        <xs:attribute name="onchange" type="xh11d:Script"/>
+    </xs:attributeGroup>
+    <!--
+    additional attributes on select element
+-->
+    <xs:attributeGroup name="xhtml.select.events.attlist">
+        <xs:attribute name="onfocus" type="xh11d:Script"/>
+        <xs:attribute name="onblur" type="xh11d:Script"/>
+        <xs:attribute name="onchange" type="xh11d:Script"/>
+    </xs:attributeGroup>
+    <!--
+    additional attributes on textarea element
+-->
+    <xs:attributeGroup name="xhtml.textarea.events.attlist">
+        <xs:attribute name="onfocus" type="xh11d:Script"/>
+        <xs:attribute name="onblur" type="xh11d:Script"/>
+        <xs:attribute name="onselect" type="xh11d:Script"/>
+        <xs:attribute name="onchange" type="xh11d:Script"/>
+    </xs:attributeGroup>
+    <!--
+    additional attributes on button element
+-->
+    <xs:attributeGroup name="xhtml.button.events.attlist">
+        <xs:attribute name="onfocus" type="xh11d:Script"/>
+        <xs:attribute name="onblur" type="xh11d:Script"/>
+    </xs:attributeGroup>
+    <!--
+    additional attributes on body element
+-->
+    <xs:attributeGroup name="xhtml.body.events.attlist">
+        <xs:attribute name="onload" type="xh11d:Script"/>
+        <xs:attribute name="onunload" type="xh11d:Script"/>
+    </xs:attributeGroup>
+    <!--
+    additional attributes on area element
+-->
+    <xs:attributeGroup name="xhtml.area.events.attlist">
+        <xs:attribute name="onfocus" type="xh11d:Script"/>
+        <xs:attribute name="onblur" type="xh11d:Script"/>
+    </xs:attributeGroup>
+    <!--
+   Global Events Attributes
+-->
+    <xs:attribute name="onclick" type="xh11d:Script"/>
+    <xs:attribute name="ondblclick" type="xh11d:Script"/>
+    <xs:attribute name="onmousedown" type="xh11d:Script"/>
+    <xs:attribute name="onmouseup" type="xh11d:Script"/>
+    <xs:attribute name="onmouseover" type="xh11d:Script"/>
+    <xs:attribute name="onmousemove" type="xh11d:Script"/>
+    <xs:attribute name="onmouseout" type="xh11d:Script"/>
+    <xs:attribute name="onkeypress" type="xh11d:Script"/>
+    <xs:attribute name="onkeydown" type="xh11d:Script"/>
+    <xs:attribute name="onkeyup" type="xh11d:Script"/>
+    <xs:attributeGroup name="xhtml.Global.events.attrib">
+        <xs:attribute ref="onclick"/>
+        <xs:attribute ref="ondblclick"/>
+        <xs:attribute ref="onmousedown"/>
+        <xs:attribute ref="onmouseup"/>
+        <xs:attribute ref="onmouseover"/>
+        <xs:attribute ref="onmousemove"/>
+        <xs:attribute ref="onmouseout"/>
+        <xs:attribute ref="onkeypress"/>
+        <xs:attribute ref="onkeydown"/>
+        <xs:attribute ref="onkeyup"/>
+    </xs:attributeGroup>
+    
+    <xs:attributeGroup name="xhtml.base.target.attlist">
+        <xs:attribute name="target" type="xh11d:FrameTarget"/>
+    </xs:attributeGroup>
+    
+    <xs:attributeGroup name="xhtml.form.target.attlist">
+        <xs:attribute name="target" type="xh11d:FrameTarget"/>
+    </xs:attributeGroup>
+    
+    <xs:attributeGroup name="xhtml.link.target.attlist">
+        <xs:attribute name="target" type="xh11d:FrameTarget"/>
+    </xs:attributeGroup>
+    
+    <xs:attributeGroup name="xhtml.area.target.attlist">
+        <xs:attribute name="target" type="xh11d:FrameTarget"/>
+    </xs:attributeGroup>
+    
+    <xs:attributeGroup name="xhtml.a.target.attlist">
+        <xs:attribute name="target" type="xh11d:FrameTarget"/>
+    </xs:attributeGroup>
+    
+    
+    <!-- link, meta, and a need to be defined directly here -->
+    <xs:attributeGroup name="xhtml.a.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="href" type="xh11d:URI"/>
+        <xs:attribute name="charset" type="xh11d:Charset"/>
+        <xs:attribute name="type" type="xh11d:ContentType"/>
+        <xs:attribute name="hreflang" type="xh11d:LanguageCode"/>
+        <xs:attribute name="accesskey" type="xh11d:Character"/>
+        <xs:attribute name="tabindex" type="xh11d:Number"/>
+        <xs:attributeGroup ref="xhtml.a.csim.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by Client Side Image Map Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+        <xs:attributeGroup ref="xhtml.a.events.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Redefinition by XHTML Event Attribute Module
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+        <xs:attributeGroup ref="xhtml.a.target.attlist">
+            <xs:annotation>
+                <xs:documentation>
+                    Target Module - A Attribute Additions
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.a.content">
+        <xs:sequence>
+            <xs:group ref="xhtml.InlNoAnchor.mix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="xhtml.a.type" mixed="true">
+        <xs:group ref="xhtml.a.content"/>
+        <xs:attributeGroup ref="xhtml.a.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.link.attlist">
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="charset" type="xh11d:Charset"/>
+        <xs:attribute name="href" type="xh11d:URI"/>
+        <xs:attribute name="hreflang" type="xh11d:LanguageCode"/>
+        <xs:attribute name="type" type="xh11d:ContentType"/>
+        <xs:attribute name="media" type="xh11d:MediaDesc"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.link.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.link.type">
+        <xs:group ref="xhtml.link.content"/>
+        <xs:attributeGroup ref="xhtml.link.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.meta.attlist">
+        <xs:attributeGroup ref="xhtml.I18n.attrib"/>
+        <xs:attribute ref="xml:space"/>
+        <xs:attribute name="http-equiv" type="xs:NMTOKEN"/>
+        <xs:attribute name="name" type="xs:NMTOKEN"/>
+        <xs:attribute name="content" type="xh11d:CDATA" use="required"/>
+        <xs:attribute name="scheme" type="xh11d:CDATA"/>
+        <xs:attribute name="about" type="xh11d:SafeCURIEorCURIEorIRI"/>
+        <xs:attribute name="datatype" type="xh11d:TERMorCURIEoAbsIRI"/>
+        <xs:attribute name="typeof" type="xh11d:TERMorCURIEoAbsIRIs"/>
+        <xs:attribute name="prefix" type="xh11d:PREFIX"/>
+        <xs:attribute name="property" type="xh11d:TERMorCURIEoAbsIRIs"/>
+        <xs:attribute name="rel" type="xh11d:TERMorCURIEoAbsIRIs"/>
+        <xs:attribute name="resource" type="xh11d:SafeCURIEorCURIEorIRI"/>
+        <xs:attribute name="rev" type="xh11d:TERMorCURIEoAbsIRIs"/>
+        <xs:attribute name="vocab" type="xs:anyURI"/>
+    </xs:attributeGroup>
+    <xs:group name="xhtml.meta.content">
+        <xs:sequence/>
+    </xs:group>
+    <xs:complexType name="xhtml.meta.type">
+        <xs:group ref="xhtml.meta.content"/>
+        <xs:attributeGroup ref="xhtml.meta.attlist"/>
+    </xs:complexType>
+    
+    
+    <xs:complexType name="xhtml.figure.type" mixed="true">
+        <xs:annotation>
+            <xs:documentation>Mark Jones: Definition of content type for 'figure' HTML5 element, containing 'figcaption' element (change specifically for Gazettes project).</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="figcaption" type="xhtml.div.type"/>
+            <xs:group ref="xhtml.Flow.mix"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="xhtml.figure.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="xhtml.figure.attlist">
+        <xs:annotation>
+            <xs:documentation>Mark Jones: Definition of attribute group for 'figure' HTML5 element (change specifically for Gazettes project).</xs:documentation>
+        </xs:annotation>
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="xhtml.time.attlist">
+        <xs:annotation>
+            <xs:documentation>Mark Jones: Definition of attribute group for 'time' HTML5 element (change specifically for Gazettes project).</xs:documentation>
+        </xs:annotation>
+        <xs:attributeGroup ref="xhtml.Common.attrib"/>
+        <xs:attribute name="datetime">
+            <xs:simpleType>
+                <xs:union memberTypes="xs:date xs:dateTime"/>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+</xs:schema>
