@@ -1,0 +1,17 @@
+Dear Customer Services
+
+A user has added or amended customisation elements on their company profile pages. 
+However, the company profile is no longer available under the Company customisations Awaiting Verification tab under the My Gazette drop down list. 
+This is due to the account now pending cancellation or being cancelled.
+
+New details:
+Registered director: ${fullname}
+Company name: ${companyName}
+Company number: ${companyNumber}
+Registered email address: ${directorEmailAddress}
+Telephone: ${directorTelephone}
+
+If payment is received, these customisation elements will require approval by a customer services approver. 
+You can view the customisation elements and approve or reject them at: ${currentCustomisationUrl}.
+
+Thank you.
