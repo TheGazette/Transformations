@@ -1,0 +1,8 @@
+<postdata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<api>2</api>
+	<!-- VeriFone account details -->
+	<merchantid th:text="|${payPage2MerchantId}|"></merchantid>
+	<requesttype>eftrequest</requesttype>
+	<requestdata>requestdataString</requestdata>
+	<keyname/>
+</postdata>
