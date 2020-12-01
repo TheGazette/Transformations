@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<mapping>
+
+	<!-- <include href="searchcollectionsmapping.xml" /> -->
+	<!-- <include href="metadataelementsmapping.xml" /> -->
+
+	<class name="uk.co.gazettes.services.search.castor.entities.SearchRequest">
+
+		<map-to xml="request" />
+
+		<field name="userSubmitted" type="string">
+			<bind-xml name="user-submitted" node="element" />
+		</field>
+		<field name="userid" type="string">
+     	 	<bind-xml name="bookmarked-user-id" node="element"/>
+    	</field>
+		<field name="text" type="string">
+			<bind-xml name="text" node="element" />
+		</field>
+		<field name="status" type="string">
+			<bind-xml name="status" node="element" />
+		</field>
+		<field name="orStatuses" type="string" collection="set">
+			<bind-xml name="status" location="or" />
+		</field>
+		<field name="publishstartdate" type="string">
+			<bind-xml name="start" location="pub-date" />
+		</field>
+		<field name="publishenddate" type="string">
+			<bind-xml name="end" location="pub-date" />
+		</field>
+		<field name="companyLocality" type="string">
+			<bind-xml name="company-locality" node="element" />
+		</field>
+		<field name="companyPostCode" type="string">
+			<bind-xml name="company-post-code" node="element" />
+		</field>
+		<field name="companyProfileName" type="string">
+			<bind-xml name="company-profile-name" node="element" />
+		</field>
+
+		<field name="companySICCode" type="string">
+			<bind-xml name="company-SICCode" location="company-SICCodes" />
+		</field>
+		<field name="companyProfileNumber" type="string">
+			<bind-xml name="company-profile-number" location="company-profile-numbers" />
+		</field>
+		<field name="companyStatus" type="string">
+			<bind-xml name="company-status" node="element" />
+		</field>
+		<field name="companyIncorporationStartDate" type="string">
+			<bind-xml name="start" location="company-incorporation-date" />
+		</field>
+		<field name="companyIncorporationEndDate" type="string">
+			<bind-xml name="end" location="company-incorporation-date" />
+		</field>
+		<field name="pagenumbervalue" type="string">
+			<bind-xml name="page-number-value" node="element" />
+		</field>
+		<field name="claimexpirystartdate" type="string">
+			<bind-xml name="start" location="claim-expiry" />
+		</field>
+		<field name="claimexpiryenddate" type="string">
+			<bind-xml name="end" location="claim-expiry" />
+		</field>
+		<field name="deathstartdate" type="string">
+			<bind-xml name="start" location="death-date" />
+		</field>
+		<field name="deathendate" type="string">
+			<bind-xml name="end" location="death-date" />
+		</field>
+		<field name="savestartdate" type="string">
+			<bind-xml name="start" location="saved-search-date" />
+		</field>
+		<field name="saveendate" type="string">
+			<bind-xml name="end" location="saved-search-date" />
+		</field>
+		<field name="searchCollections" type="uk.co.gazettes.services.search.castor.entities.SearchCollections">
+			<bind-xml name="collections" node="element" />
+		</field>
+		<field name="issueValues" type="string" collection="set">
+			<bind-xml name="issue-value" location="issue-values" />
+		</field>
+		<field name="noticeTypes" type="string" collection="set">
+			<bind-xml name="notice-code-value" location="or/notice-code-values" />
+		</field>
+		<field name="categoryCodes" type="string" collection="set">
+			<bind-xml name="notice-category-code" location="or/notice-category-codes" />
+		</field>
+	    <field name="supplementaryOrSearchCollections" type="uk.co.gazettes.services.search.castor.entities.SearchCollections">
+			<bind-xml name="collections" node="element" location="or"/>
+		</field>
+		<field name="debugquery" type="string">
+			<bind-xml name="debug-query" node="element" />
+		</field>
+		<field name="workflow" type="string" direct="true">
+			<bind-xml name="workflow" node="element" />
+		</field>
+		<field name="pagenumber" type="string">
+			<bind-xml name="page-number" location="pagination" />
+		</field>
+		<field name="pagesize" type="string">
+			<bind-xml name="page-size" location="pagination" />
+		</field>
+		<field name="orderby" type="string">
+			<bind-xml name="name" location="order-by" />
+		</field>
+		<field name="sequence" type="string">
+			<bind-xml name="sequence" location="order-by" /> 
+		</field>
+		<field name="requestUri" type="string">
+			<bind-xml name="name" location="request-uri" />
+		</field>
+		<field name="year" type="string">
+			<bind-xml name="pub-year-value" location="pub-year-values" />
+		</field>
+		<field name="dcRelations" type="string" collection="set">
+			<bind-xml name="dc-relation" location="dc-relations" />
+		</field>
+		<field name="geoData" type="uk.co.gazettes.services.search.castor.entities.GeoLocationData">
+			<bind-xml name="or" node="element" />
+		</field>
+		<field name="metadataElements" type="uk.co.gazettes.services.search.castor.entities.MetadataElements">
+			<bind-xml name="get-metadata-elements" node="element" />
+		</field>
+		<field name="modifiedstartdate" type="string">
+			<bind-xml name="start" location="last-modified" />
+		</field>
+		<field name="modifiedendate" type="string">
+			<bind-xml name="end" location="last-modified" />
+		</field>
+		<field name="editionTypes" type="string" collection="set">
+			<bind-xml name="edition" location="editions" />
+		</field>
+	</class>
+
+	<class name="uk.co.gazettes.services.search.castor.entities.GeoLocationData">
+		<map-to xml="or" />
+
+		<field name="localAuthorities" type="string" collection="set">
+			<bind-xml name="local-authority" node="element" />
+		</field>
+		<field name="locations" type="uk.co.gazettes.services.search.castor.entities.Location" collection="set">
+			<bind-xml name="location-search" node="element" />
+		</field>
+	</class>
+
+	<class name="uk.co.gazettes.services.search.castor.entities.Location">
+		<field name="postcode" type="string">
+			<bind-xml name="string" node="element" />
+		</field>
+		<field name="distance" type="integer">
+			<bind-xml name="distance" node="element" />
+		</field>
+	</class>
+
+</mapping>

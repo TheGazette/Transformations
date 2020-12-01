@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <globalBindings>
+    <javaType name="java.util.Date" xmlType="xs:date"
+      parseMethod="org.acme.foo.DateAdapter.parseDate"
+      printMethod="org.acme.foo.DateAdapter.printDate"
+    />
+  </globalBindings>
+</bindings>-->
+
+<jaxb:bindings version="2.1"
+              xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema"
+              xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc">
+
+    <jaxb:globalBindings>
+       <xjc:serializable uid="1"/>
+       <!-- use Calendar Date instead of XMLGregorianCalendar -->
+       <jaxb:javaType name="java.util.Date" xmlType="xs:dateTime"
+                 parseMethod="org.apache.cxf.xjc.runtime.DataTypeAdapter.parseDateTime"
+                 printMethod="org.apache.cxf.xjc.runtime.DataTypeAdapter.printDateTime"/>
+
+       <jaxb:javaType name="java.util.Date" xmlType="xs:date"
+                 parseMethod="org.apache.cxf.xjc.runtime.DataTypeAdapter.parseDate"
+                 printMethod="org.apache.cxf.xjc.runtime.DataTypeAdapter.printDate"/>
+
+       <jaxb:javaType name="java.util.Date" xmlType="xs:time"
+                 parseMethod="org.apache.cxf.xjc.runtime.DataTypeAdapter.parseTime"
+                 printMethod="org.apache.cxf.xjc.runtime.DataTypeAdapter.printTime"/>
+
+    </jaxb:globalBindings>         
+</jaxb:bindings>
