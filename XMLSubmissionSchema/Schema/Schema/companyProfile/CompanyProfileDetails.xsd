@@ -1,0 +1,28 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified" xmlns:companyProfile="http://www.gazettes.co.uk/assets/companyProfile">
+    <xs:element name="companyProfileDetails">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int" />
+                <xs:element name="logoUrl" type="xs:string" />
+                <xs:element name="websiteUrl" type="xs:string" />
+                <xs:element name="telephoneNumber" type="xs:string" />
+                <xs:element name="twitterUrl" type="xs:string" />
+                <xs:element name="facebookUrl" type="xs:string" />
+                <xs:element name="linkedInUrl" type="xs:string" />
+                <xs:element name="googlePlusUrl" type="xs:string" />
+                <xs:element name="companyStatement">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:any minOccurs="0" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="removeCompanyLogo" type="xs:boolean" />
+                
+                <xs:element name="created" type="xs:dateTime" />
+                <xs:element name="updated" type="xs:dateTime" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
