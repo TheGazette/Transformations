@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<mapping>
+	<!-- <include href="taxonomy/notice-type-metadata-mapping.xml"/> -->
+	 <class name="uk.co.gazettes.services.search.castor.entities.BundleMetadata">
+	    <map-to xml="bundle"/>
+	    <field name="noticemetadata" type="uk.co.gazettes.metadata.JAXB.GazetteMetadataType" collection="arraylist">
+	      <bind-xml name="gazette-metadata" node="element"/>
+	    </field> 
+	</class>
+</mapping>
