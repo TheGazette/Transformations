@@ -1,0 +1,212 @@
+<ehcache  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" updateCheck="false" name="servicesCache">
+   <diskStore path="java.io.tmpdir"/>
+   
+   <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="600"
+            timeToLiveSeconds="600"
+            overflowToDisk="true"
+            maxElementsOnDisk="50000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/>
+
+    <cache name="cacheconfigttl"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="600"
+           overflowToDisk="true"
+           maxElementsOnDisk="5000"
+           diskPersistent="false"
+           diskExpiryThreadIntervalSeconds="600"
+           memoryStoreEvictionPolicy="LRU"/>
+
+    <cache name="searchcache"
+       		maxElementsInMemory="1000"
+            eternal="false"
+            timeToIdleSeconds="600"
+            timeToLiveSeconds="600"
+            overflowToDisk="true"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/>  
+          
+    <cache name="contentcache"
+       		maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="300"
+            overflowToDisk="true"
+            maxElementsOnDisk="50000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="300"
+            memoryStoreEvictionPolicy="LRU"/>  
+            
+   <cache name="noticetaxonomycache"
+       		maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="172800"
+            timeToLiveSeconds="172800"
+            overflowToDisk="true"
+            maxElementsOnDisk="50000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="3600"
+            memoryStoreEvictionPolicy="LRU"/> 
+     
+   <cache name="basketcache"
+       		maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="172800"
+            timeToLiveSeconds="172800"
+            overflowToDisk="true"
+            maxElementsOnDisk="50000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="3600"
+            memoryStoreEvictionPolicy="LRU"/>  
+            
+       <cache name="companiescache"
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="172800"
+            timeToLiveSeconds="172800"
+            overflowToDisk="true"
+            maxElementsOnDisk="500000"
+            diskPersistent="true"
+            diskExpiryThreadIntervalSeconds="3600"
+            memoryStoreEvictionPolicy="LRU"/>  
+            
+	<cache name="companysearchcache"
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="86400"
+            timeToLiveSeconds="86400"
+            overflowToDisk="true"
+            maxElementsOnDisk="500000"
+            diskPersistent="true"
+            diskExpiryThreadIntervalSeconds="3600"
+            memoryStoreEvictionPolicy="LRU"/>  
+
+   
+    
+    <!-- The PNB cache is managed in code itself via the EhCache CacheManager -->
+    <cache name="defaultPnbCache"
+       		maxElementsInMemory="100"
+            eternal="true"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="0"
+            overflowToDisk="false"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/>  
+            
+	<!-- The Browse Publication cache is managed in code itself via the EhCache CacheManager -->
+    <cache name="browsePublicationCache"
+       		maxElementsInMemory="100"
+            eternal="true"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="0"
+            overflowToDisk="false"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/>
+			
+<!-- The Browse Publication cache is managed in code itself via the EhCache CacheManager -->
+    <cache name="indexVolumesPerYearPublicationCache"
+       		maxElementsInMemory="100"
+            eternal="true"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="0"
+            overflowToDisk="false"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/>
+			
+<!-- The Browse Publication cache is managed in code itself via the EhCache CacheManager -->
+    <cache name="indexYearsPublicationCache"
+       		maxElementsInMemory="100"
+            eternal="true"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="0"
+            overflowToDisk="false"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/>
+            
+       <cache name="issuesPerYearPublicationCache"
+       		maxElementsInMemory="5000"
+            eternal="true"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="0"
+            overflowToDisk="false"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/>
+            
+            
+      <!-- Site map cache -->      
+        <cache name="sitemapcache"
+       		maxElementsInMemory="100"
+            eternal="false"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="86400"
+            overflowToDisk="true"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/>   
+            
+         <cache name="sitemapcachezipfile"
+       		maxElementsInMemory="100"
+            eternal="false"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="86400"
+            overflowToDisk="true"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/> 
+            
+            
+            <!-- Newsstand app cache -->
+         <cache name="newsstandeditionissue"
+       		maxElementsInMemory="50"
+            eternal="false"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="86400"
+            overflowToDisk="true"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/>
+            
+         <cache name="newsstandeditionissuecategorycodes"
+       		maxElementsInMemory="100"
+            eternal="false"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="86400"
+            overflowToDisk="true"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="600"
+            memoryStoreEvictionPolicy="LRU"/>   
+            
+         <cache name="userProfilecache"
+       		maxElementsInMemory="300"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="300"
+            overflowToDisk="true"
+            maxElementsOnDisk="5000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="300"
+            memoryStoreEvictionPolicy="LRU"/>  
+            
+</ehcache>
