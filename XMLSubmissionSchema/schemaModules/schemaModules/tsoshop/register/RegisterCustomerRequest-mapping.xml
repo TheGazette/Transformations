@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<mapping>
+ 	<class name="uk.co.gazettes.services.tsoshop.castor.entities.registerservice.RegisterCustomerRequest">	  
+	    <map-to xml="RegisterCustomer" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+	    <field name="customer" type="uk.co.gazettes.services.tsoshop.castor.entities.registerservice.Customer">
+	      	<bind-xml name="customer" node="element"/>
+	    </field> 	    	            
+	</class>
+	
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.registerservice.Customer">
+		<map-to xml="customer" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />
+		<field name="addresses" type="uk.co.gazettes.services.tsoshop.castor.entities.registerservice.Addresses">
+	      <bind-xml name="tso:Addresses" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" QName-prefix="tso"/>
+	  	</field>	
+		<field name="billToAddress" type="uk.co.gazettes.services.tsoshop.castor.entities.registerservice.BillToAddress">
+			<bind-xml name="tso:BillToAddress" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" QName-prefix="tso" />
+		</field>
+		<field name="companyName" type="string">
+			<bind-xml name="tso:CompanyName" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" QName-prefix="tso"/>
+		</field>
+		<field name="email" type="string">
+			<bind-xml name="tso:Email" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" QName-prefix="tso" />
+		</field>
+		<field name="firstName" type="string">
+			<bind-xml name="tso:FirstName" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" QName-prefix="tso"/>
+		</field>
+		<field name="isApproved" type="boolean">
+			<bind-xml name="tso:IsApproved" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" QName-prefix="tso"/>
+		</field>
+		<field name="middleName" type="string">
+			<bind-xml name="tso:MiddleName" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" QName-prefix="tso"/>
+		</field>
+		<field name="surname" type="string">
+			<bind-xml name="tso:Surname" node="element"  xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" QName-prefix="tso"/>
+		</field>
+		<field name="telephone" type="string">
+			<bind-xml name="tso:Telephone" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" QName-prefix="tso"/>
+		</field>
+		<field name="title" type="string" >
+			<bind-xml name="tso:Title" node="element" xmlns:tso="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" QName-prefix="tso"/>
+		</field>
+	</class>
+</mapping>
