@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.gazettes.co.uk/assets/company" xmlns:company="http://www.gazettes.co.uk/assets/company">
+  <xs:element name="Company">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="company:CompanyName"/>
+        <xs:element ref="company:CompanyNumber"/>
+        <xs:element ref="company:RegAddress"/>
+        <xs:element ref="company:CompanyCategory"/>
+        <xs:element ref="company:CompanyStatus"/>
+        <xs:element ref="company:CountryOfOrigin"/>
+        <xs:element ref="company:DissolutionDate"/>
+        <xs:element ref="company:IncorporationDate"/>
+        <xs:element ref="company:SICCodes"/>
+        <xs:element ref="company:LimitedPartnerships"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompanyName" type="xs:string"/>
+  <xs:element name="CompanyNumber" type="xs:NCName"/>
+  <xs:element name="RegAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="company:RegAddmress.CareOf"/>
+        <xs:element ref="company:RegAddress.POBox"/>
+        <xs:element ref="company:RegAddress.AddressLine1"/>
+        <xs:element ref="company:RegAddress.AddressLine2"/>
+        <xs:element ref="company:RegAddress.PostTown"/>
+        <xs:element ref="company:RegAddress.County"/>
+        <xs:element ref="company:RegAddress.Country"/>
+        <xs:element ref="company:RegAddress.PostCode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegAddress.CareOf">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="RegAddress.POBox">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="RegAddress.AddressLine1" type="xs:string"/>
+  <xs:element name="RegAddress.AddressLine2">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="RegAddress.PostTown" type="xs:NCName"/>
+  <xs:element name="RegAddress.County" type="xs:NCName"/>
+  <xs:element name="RegAddress.Country">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="RegAddress.PostCode" type="xs:string"/>
+  <xs:element name="CompanyCategory" type="xs:string"/>
+  <xs:element name="CompanyStatus" type="xs:NCName"/>
+  <xs:element name="CountryOfOrigin" type="xs:string"/>
+  <xs:element name="DissolutionDate">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="IncorporationDate" type="xs:dateTime"/>
+  <xs:element name="SICCodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="company:SICCode.SicText"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SICCode.SicText" type="xs:integer"/>
+  <xs:element name="LimitedPartnerships">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="company:LimitedPartnerships.NumGenPartners"/>
+        <xs:element ref="company:LimitedPartnerships.NumLimPartners"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LimitedPartnerships.NumGenPartners" type="xs:integer"/>
+  <xs:element name="LimitedPartnerships.NumLimPartners" type="xs:integer"/>
+</xs:schema>
