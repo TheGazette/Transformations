@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<mapping>
+ 	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.AddMultipleItemsToBasketRequest">	  
+	    <map-to xml="AddMultipleItemsToBasket" ns-uri="http://www.tsoshop.co.uk/" ns-prefix="tsos" />	      
+	    <field name="customerId" type="string" >
+	      	<bind-xml name="customerId" node="element"/>
+	    </field> 
+	     <field name="basketId" type="string" >
+	      	<bind-xml name="basketId" node="element"/>
+	    </field> 
+	    <field name="items" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.ItemsForAddMultipleItems" >
+	      	<bind-xml name="items" node="element"/>
+	    </field>
+	</class>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.ItemsForAddMultipleItems">	  
+	    <map-to xml="items" ns-uri="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" ns-prefix="tso" />	      
+	    <field name="basketItemList" type="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.BasketItemForAddMultipleItems" collection="arraylist">
+	      	<bind-xml name="BasketItem" node="element"/>
+	    </field> 
+	</class>
+	<class name="uk.co.gazettes.services.tsoshop.castor.entities.basketservice.BasketItemForAddMultipleItems">	  
+	    <map-to xml="BasketItem" ns-uri="http://schemas.datacontract.org/2004/07/Tso.Shop.Model.Catalogue" ns-prefix="tso" />	      
+	    <field name="notes" type="string" >
+	      	<bind-xml name="Notes" node="element"/>
+	    </field>
+	    <field name="orderedQuantity" type="int" >
+	      	<bind-xml name="OrderedQuantity" node="element"/>
+	    </field>
+	    <field name="orderedQuantityValid" type="boolean" >
+	      	<bind-xml name="OrderedQuantityIsValid" node="element"/>
+	    </field>
+	    <field name="productId" type="string" >
+	      	<bind-xml name="ProductId" node="element"/>
+	    </field> 
+	</class>
+</mapping>
