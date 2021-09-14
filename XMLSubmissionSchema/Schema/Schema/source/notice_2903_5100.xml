@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html DocumentURI="http://www.gazettes.co.uk/notice/5100" IdURI="http://www.gazettes.co.uk/id/notice/5100" prefix="gaz: http://www.gazettes-online.co.uk/ontology# person: http://www.gazettes-online.co.uk/ontology/person# personal-legal:  http://www.gazettes-online.co.uk/ontology/personal-legal# org: http://www.w3.org/ns/org# this: http://www.gazettes.co.uk/id/notice/5100#" version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://www.gazettes-online.co.uk/ontology/foaf" xmlns:gz="http://www.tso.co.uk/assets/namespace/gazette" xmlns:gzc="http://www.tso.co.uk/assets/namespace/gazette/LGconfiguration" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:personal-legal="http://www.gazettes-online.co.uk/ontology/personal-legal" xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" xmlns:wgs84="http://www.w3.org/2003/01/geo/wgs84_pos" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <head>
+        <title>Deceased Estates</title>
+        <tso-meta xmlns="http://tso.co.uk/metadata">
+            <simple-facets>
+                <wills-and-estates>true</wills-and-estates>
+            </simple-facets>
+            <posted-date>2011-11-10</posted-date>
+            <claim-deadline-date>2012-01-20</claim-deadline-date>
+            <death-date>2011-08-16</death-date>
+            <edition>London</edition>
+            <notice-code>2903</notice-code>
+            <geo-spatial>
+                <latitude>52.138639</latitude>
+                <longitude>-1.919154</longitude>
+            </geo-spatial>
+        </tso-meta>
+    </head>
+    <article>
+        <header>
+            <h1>Deceased Estates</h1>
+        </header>
+        <span resource="http://www.gazettes.co.uk/id/notice/5100" typeof="gaz:Notice"></span>
+        <span about="http://www.gazettes.co.uk/id/notice/5100" content="2011-11-10" datatype="xsd:date" property="gaz:hasPublicationDate"></span>
+        <span about="http://www.gazettes.co.uk/id/notice/5100" property="gaz:isAbout" resource="this:noticeForClaimsAgainstEstate"></span>
+        <span about="http://www.gazettes.co.uk/id/notice/5100" content="2903" property="gaz:hasNoticeCode"></span>
+        <span resource="this:noticeForClaimsAgainstEstate" typeof="personal-legal:NoticeForClaimsAgainstEstate"></span>
+        <span about="this:noticeForClaimsAgainstEstate" property="personal-legal:hasEstateOf" resource="this:TerenceMichaelLilley"></span>
+        <span about="this:noticeForClaimsAgainstEstate" property="personal-legal:estateAdministrator" resource="this:estateAdministrator"></span>
+        <span about="this:TerenceMichaelLilley" typeof="gaz:Person"></span>
+        <span about="this:TerenceMichaelLilley" property="vcard:adr" resource="this:addressOfDeceased"></span>
+        <span about="this:TerenceMichaelLilley" content="Terence Michael Lilley" foaf:name="Terence Michael Lilley" property="foaf:name"></span>
+        <span resource="this:addressOfDeceased" typeof="vcard:Address"></span>
+        <span resource="this:estateAdministrator" typeof="foaf:Agent"></span>
+        <span about="this:estateAdministrator" property="vcard:adr" resource="this:addressOfAdministrator"></span>
+        <span resource="this:addressOfAdministrator" typeof="vcard:Address"></span>
+        <span about="this:addressOfAdministrator" typeof="vcard:Address"></span>
+        <span resource="http://www.gazettes.co.uk/id/edition/London/issue/59963/notice/1473080" typeof="gaz:Notice"></span>
+        <span resource="http://www.gazettes.co.uk/id/edition/London/issue/59963" typeof="gaz:Issue"></span>
+        <span about="http://www.gazettes.co.uk/id/edition/London/issue/59963" content="London" property="gaz:hasEdition" resource="http://www.gazettes.co.uk/id/edition/London"></span>
+        <span about="http://www.gazettes.co.uk/id/edition/London/issue/59963" content="59963" datatype="xsd:string" property="gaz:hasIssueNumber"></span>
+        <span resource="http://www.gazettes.co.uk/id/edition/London" typeof="gaz:Edition"></span>
+        <section id="noticeDetails">
+            <header>
+                <h2>Notice details</h2>
+            </header>
+            <dl><dt>Notice type:</dt><dd about="http://www.gazettes.co.uk/id/notice/5100" content="1473080" datatype="xsd:integer" id="noticeType" property="gaz:hasNoticeNumber">2903</dd><dt>Claim expires:</dt><dd id="dateOfClaimExpire"><time about="this:noticeForClaimsAgainstEstate" content="2012-01-20" datatype="xsd:date" datetime="2012-01-20" property="gaz:hasClaimDeadline">20 January 2012</time></dd><dt>Notice number:</dt><dd id="noticeNumber">1473080</dd><dt>Publication date:</dt><dd id="publishDate"><time datetime="2011-11-10">10 November 2011</time></dd><dt>Keyed by:</dt><dd id="keyedBy">CC</dd><dt>Supplier notice ID:</dt><dd id="supplierNoticeId">333132</dd></dl>
+        </section>
+        <section id="detailsofDeceased">
+            <header>
+                <h2>Details of the deceased</h2>
+            </header>
+            <dl><dt>Surname:</dt><dd about="this:TerenceMichaelLilley" foaf:familyName="Lilley" id="surName" property="foaf:familyName" typeof="gaz:Person">Lilley</dd><dt>First name:</dt><dd about="this:TerenceMichaelLilley" foaf:firstName="Terence" id="foreName" property="foaf:firstName" typeof="gaz:Person">Terence</dd><dt>Middle name(s):</dt><dd about="this:TerenceMichaelLilley" foaf:givenName="Michael" id="middleNames" property="foaf:givenName" typeof="gaz:Person">Michael</dd><dt>Date of death:</dt><dd id="dateOfDeath"><time about="this:TerenceMichaelLilley" content="2011-08-16" datatype="xsd:date" datetime="2011-08-16" property="personal-legal:diedOn" typeof="gaz:Person">16 August 2011</time></dd></dl>
+        </section>
+        <section id="personAddressDetails">
+            <header>
+                <h2>Former home address of the deceased</h2>
+            </header>
+            <dl><dt>Person address details:</dt><dd about="this:addressOfDeceased" id="personAddressDetails" property="vcard:address" typeof="vcard:Address">18 Grove Close, Totnes, Devon TQ9 5EP</dd></dl>
+        </section>
+        <section id="detailsOfExecutor">
+            <header>
+                <h2>Details of the executor</h2>
+            </header>
+            <dl><dt>Executor:</dt><dd about="this:estateAdministrator" id="executor" property="foaf:name" typeof="foaf:Agent">Wollen Michelmore, Carlton House, 30 The Terrace, Torquay, Devon TQ1 1BS.</dd></dl>
+        </section>
+    </article>
+</html>
