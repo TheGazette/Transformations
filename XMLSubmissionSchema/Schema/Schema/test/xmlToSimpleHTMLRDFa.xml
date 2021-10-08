@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../../xspec/xspec.rnc" type="compact"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" stylesheet="D:/Projects/Gazettes/ws1/Services/src/main/resources/xsl/submission/xmlToSimpleHTMLRDFa.xsl">
+
+
+<x:param name="status">YES</x:param>
+<x:param name="issueNumber">101010</x:param>
+<x:param name="version-count">2</x:param>
+<x:param name="noticeId">2903</x:param>
+<x:param name="user-submitted">YES</x:param>
+<x:param name="edition">1</x:param>
+<x:param name="bundleId">123456abcd</x:param>
+<x:param name="legalInformation" as="node()"><legalInformation>All rights reserved</legalInformation></x:param>
+
+
+<x:scenario label="Test the search result for notice type">
+
+<x:context href="../source/test.xml" select="/"/>
+
+<x:expect label="It should produce ...">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://www.gazettes-online.co.uk/ontology/foaf" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gzc="http://www.tso.co.uk/assets/namespace/gazette/LGconfiguration" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:gz="http://www.tso.co.uk/assets/namespace/gazette" xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" xmlns:wgs84="http://www.w3.org/2003/01/geo/wgs84_pos" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:personal-legal="http://www.gazettes-online.co.uk/ontology/personal-legal" prefix="gaz: http://www.gazettes-online.co.uk/ontology# person: http://www.gazettes-online.co.uk/ontology/person# personal-legal:  http://www.gazettes-online.co.uk/ontology/personal-legal# org: http://www.w3.org/ns/org# this: http://www.gazettes.co.uk/id/notice/2903#" DocumentURI="http://www.gazettes.co.uk/notice/2903" IdURI="http://www.gazettes.co.uk/id/notice/2903" version="XHTML+RDFa 1.1">
+<head>
+ <title>Deceased Estates</title>
+ 
+ <gazette-metadata xmlns="http://www.gazettes.co.uk/metadata">
+ <bundle-id>123456abcd</bundle-id>
+ <notice-id>2903</notice-id>
+ <status>YES</status>
+ <version-count>2</version-count>
+ <notice-code>2903 2903</notice-code>
+ <edition>1</edition>
+ <issue>101010</issue>
+ <legacy-notice-number>998 999</legacy-notice-number>
+ <user-submitted>YES</user-submitted>
+ </gazette-metadata>
+ 
+ </head>
+ <article>
+ <header>
+<h1>Deceased Estates</h1>
+ </header>
+<div class="rdfa-data">
+
+<span typeof="gaz:Notice" resource="http://www.gazettes.co.uk/id/notice/2903"/>
+<span property="gaz:hasPublicationDate" datatype="xsd:date" about="..." content="2011-11-10"/>
+<span property="gaz:isAbout" resource="this:noticeForClaimsAgainstEstate" about="..."/>
+
+<span property="gaz:hasNoticeCode" about="..." content="2903"/>
+<span resource="this:noticeForClaimsAgainstEstate" typeof="personal-legal:NoticeForClaimsAgainstEstate"/>
+<span about="..." property="personal-legal:hasEstateOf" resource="this:EnaMalcolmRuthEdwinAndersonAndrews"/>
+
+<span about="..." property="personal-legal:estateAdministrator" resource="this:estateAdministrator"/>
+<span typeof="gaz:Person" about="..."/>
+<span property="vcard:adr" resource="this:addressOfDeceased" about="..."/>
+
+<span property="foaf:name" about="..." content="Ena Malcolm Ruth Edwin Anderson Andrews" foaf:name="Ena Malcolm Ruth Edwin Anderson Andrews"/>
+<span resource="this:addressOfDeceased" typeof="vcard:Address"/>
+
+<span resource="this:estateAdministrator" typeof="foaf:Agent"/>
+<span about="this:estateAdministrator" property="vcard:adr" resource="this:addressOfAdministrator"/>
+<span resource="this:addressOfAdministrator" typeof="vcard:Address"/>
+
+<span about="this:addressOfAdministrator" typeof="vcard:Address"/>
+<span resource="http://www.gazettes.co.uk/id/edition/1/issue/101010/notice/998" typeof="gaz:Notice"/>
+<span resource="http://www.gazettes.co.uk/id/edition/1/issue/101010" typeof="gaz:Issue"/>
+
+<span about="..." property="gaz:hasEdition" resource="http://www.gazettes.co.uk/id/edition/1" content="1"/>
+<span about="..." property="gaz:hasIssueNumber" datatype="xsd:string" content="101010"/>
+<span resource="http://www.gazettes.co.uk/id/edition/1" typeof="gaz:Edition"/>
+</div>
+
+<section id="noticeDetails">
+<header>
+<h2>Notice details</h2>
+</header>
+<dl>
+<dt>Notice type:</dt>
+
+<dd id="noticeType" property="gaz:hasNoticeNumber" datatype="xsd:integer" about="..." content="998">2903</dd>
+<dt>Claim expires:</dt>
+<dd id="dateOfClaimExpire">
+<time about="..." property="gaz:hasClaimDeadline" datatype="xsd:date" content="2012-01-11" datetime="2012-01-11">11 January 2012</time>
+</dd>
+
+<dt>Notice number:</dt>
+<dd id="noticeNumber">998</dd>
+<dt>Publication date:</dt>
+<dd id="publishDate">
+<time datetime="2011-11-10">10 November 2011</time>
+</dd>
+
+<dt>Keyed by:</dt>
+<dd id="keyedBy">Mark</dd>
+<dt>Supplier notice ID:</dt>
+<dd id="supplierNoticeId">039</dd>
+</dl>
+ </section>
+ <section id="legalInformation">
+ <header>
+ <h2>Legal information</h2>
+ </header>
+ <dl>
+ <dt>Legal information:</dt>
+ <dd id="legalInfo">All rights reserved</dd>
+ </dl>
+ </section>
+ 
+
+ <section id="detailsofDeceased">
+<header>
+<h2>Details of the deceased</h2>
+</header>
+
+<dl>
+<dt>Surname:</dt>
+<dd id="surName" property="foaf:familyName" typeof="gaz:Person" about="..." foaf:familyName="Anderson">Anderson</dd>
+
+<dt>First name:</dt>
+<dd id="foreName" property="foaf:firstName" typeof="gaz:Person" about="..." foaf:firstName="Ena">Ena</dd>
+
+<dt>Middle name(s):</dt>
+<dd id="middleNames" property="foaf:givenName" typeof="gaz:Person" about="..." foaf:givenName="Ruth">Ruth</dd>
+<dt>Date of death:</dt>
+<dd id="dateOfDeath">
+<time property="personal-legal:diedOn" typeof="gaz:Person" datatype="xsd:date" about="..." content="2011-02-10" datetime="2011-02-10">10 February 2011</time>
+</dd>
+</dl>
+</section>
+
+<section id="personAddressDetails">
+<header>
+<h2>Former home address of the deceased</h2>
+</header>
+
+<dl>
+<dt>Person address details:</dt>
+<dd id="personAddressDetails" about="this:addressOfDeceased" typeof="vcard:Address" property="vcard:address">...</dd>
+</dl>
+</section>
+
+<section id="detailsOfExecutor">
+<header>
+<h2>Details of the executor</h2>
+</header>
+
+<dl>
+<dt>Executor:</dt>
+<dd id="executor" about="this:estateAdministrator" property="foaf:name" typeof="foaf:Agent">...</dd>
+</dl>
+
+</section>
+<header>
+<h1>Deceased Estates</h1>
+</header>
+<div class="rdfa-data">
+
+<span typeof="gaz:Notice" resource="http://www.gazettes.co.uk/id/notice/2903"/>
+<span property="gaz:hasPublicationDate" datatype="xsd:date" about="..." content="2011-11-10"/>
+<span property="gaz:isAbout" resource="this:noticeForClaimsAgainstEstate" about="..."/>
+
+<span property="gaz:hasNoticeCode" about="..." content="2903"/>
+<span resource="this:noticeForClaimsAgainstEstate" typeof="personal-legal:NoticeForClaimsAgainstEstate"/>
+<span about="..." property="personal-legal:hasEstateOf" resource="this:EnaMalcolmRuthEdwinAndersonAndrews"/>
+<span about="..." property="personal-legal:estateAdministrator" resource="this:estateAdministrator"/>
+
+<span typeof="gaz:Person" about="..."/>
+<span property="vcard:adr" resource="this:addressOfDeceased" about="..."/>
+<span property="foaf:name" about="..." content="Ena Malcolm Ruth Edwin Anderson Andrews" foaf:name="Ena Malcolm Ruth Edwin Anderson Andrews"/>
+
+<span resource="this:addressOfDeceased" typeof="vcard:Address"/>
+<span resource="this:estateAdministrator" typeof="foaf:Agent"/>
+<span about="this:estateAdministrator" property="vcard:adr" resource="this:addressOfAdministrator"/>
+
+<span resource="this:addressOfAdministrator" typeof="vcard:Address"/>
+<span about="this:addressOfAdministrator" typeof="vcard:Address"/>
+<span resource="http://www.gazettes.co.uk/id/edition/1/issue/101010/notice/999" typeof="gaz:Notice"/>
+
+<span resource="http://www.gazettes.co.uk/id/edition/1/issue/101010" typeof="gaz:Issue"/>
+<span about="..." property="gaz:hasEdition" resource="http://www.gazettes.co.uk/id/edition/1" content="1"/>
+
+<span about="..." property="gaz:hasIssueNumber" datatype="xsd:string" content="101010"/>
+<span resource="http://www.gazettes.co.uk/id/edition/1" typeof="gaz:Edition"/>
+</div>
+ 
+<section id="noticeDetails">
+
+<header>
+ <h2>Notice details</h2>
+</header>
+<dl>
+<dt>Notice type:</dt>
+<dd id="noticeType" property="gaz:hasNoticeNumber" datatype="xsd:integer" about="..." content="999">2903</dd>
+
+<dt>Claim expires:</dt>
+<dd id="dateOfClaimExpire">
+<time about="..." property="gaz:hasClaimDeadline" datatype="xsd:date" content="2012-01-11" datetime="2012-01-11">11 January 2012</time>
+</dd>
+
+<dt>Notice number:</dt>
+<dd id="noticeNumber">999</dd>
+
+<dt>Publication date:</dt>
+<dd id="publishDate">
+<time datetime="2011-11-10">10 November 2011</time>
+</dd>
+
+<dt>Keyed by:</dt>
+<dd id="keyedBy">Mark</dd>
+<dt>Supplier notice ID:</dt>
+<dd id="supplierNoticeId">026</dd>
+</dl>
+
+</section>
+<section id="legalInformation">
+
+<header>
+<h2>Legal information</h2>
+</header>
+
+<dl>
+<dt>Legal information:</dt>
+<dd id="legalInfo">All rights reserved</dd>
+</dl>
+</section>
+
+<section id="detailsofDeceased">
+<header>
+<h2>Details of the deceased</h2>
+</header>
+
+<dl>
+<dt>Surname:</dt>
+<dd id="surName" property="foaf:familyName" typeof="gaz:Person" about="..." foaf:familyName="Andrews">Andrews</dd>
+
+<dt>First name:</dt>
+<dd id="foreName" property="foaf:firstName" typeof="gaz:Person" about="..." foaf:firstName="Malcolm">Malcolm</dd>
+
+<dt>Middle name(s):</dt>
+<dd id="middleNames" property="foaf:givenName" typeof="gaz:Person" about="..." foaf:givenName="Edwin">Edwin</dd>
+
+<dt>Date of death:</dt>
+<dd id="dateOfDeath">
+<time property="personal-legal:diedOn" typeof="gaz:Person" datatype="xsd:date" about="..." content="2011-06-04" datetime="2011-06-04">4 June 2011</time>
+</dd></dl></section>
+
+<section id="personAddressDetails">
+<header>
+<h2>Former home address of the deceased</h2>
+</header>
+
+<dl>
+<dt>Person address details:</dt>
+<dd id="personAddressDetails" about="this:addressOfDeceased" typeof="vcard:Address" property="vcard:address">...</dd>
+</dl>
+</section>
+
+<section id="detailsOfExecutor">
+<header>
+<h2>Details of the executor</h2>
+</header>
+
+<dl>
+<dt>Executor:</dt>
+<dd id="executor" about="this:estateAdministrator" property="foaf:name" typeof="foaf:Agent">...</dd>
+</dl></section> </article>
+</html>
+
+
+</x:expect>
+</x:scenario></x:description>
