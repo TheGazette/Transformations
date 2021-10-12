@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:si-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:si="http://www.springframework.org/schema/integration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd			
+			http://www.springframework.org/schema/integration/xml
+			http://www.springframework.org/schema/integration/xml/spring-integration-xml-2.2.xsd
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!--  Notice Publish Context -->
+	
+	<si:channel id="publishChannelRouter"/>
+	<si:channel id="publishClsChannelRouter"/>
+	<si:channel id="publishChannel"/>
+	<si:channel id="provenanceChannel"/>
+	
+
+	<!-- publish notice -->
+	<si:service-activator input-channel="publishChannel"  ref="submissionService" method="invokePublish" />
+	
+
+	<!-- Record provenance -->
+	<si:service-activator input-channel="provenanceChannel"  ref="submissionService" method="recordPrePublishProvenance" />
+
+	<si:header-value-router input-channel="publishChannelRouter"	header-name="is_legacy_notice">
+		<si:mapping value="true" channel="publishChannel" />
+		<si:mapping value="false" channel="publishClsChannelRouter" />
+	</si:header-value-router>	
+	
+	<si:header-value-router input-channel="publishClsChannelRouter"	default-output-channel="provenanceChannel" header-name="isCompanyLawNotice">
+		<si:mapping value="true" channel="publishChannel" />
+		<si:mapping value="false" channel="provenanceChannel" />
+	</si:header-value-router>	
+	
+</beans>
