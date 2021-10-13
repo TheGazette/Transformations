@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:si-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:si="http://www.springframework.org/schema/integration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:stream="http://www.springframework.org/schema/integration/stream"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/integration
+			http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd			
+			http://www.springframework.org/schema/integration/xml
+			http://www.springframework.org/schema/integration/xml/spring-integration-xml-2.2.xsd
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util.xsd
+			http://www.springframework.org/schema/integration/stream
+			http://www.springframework.org/schema/integration/stream/spring-integration-stream-2.2.xsd">
+
+	<!-- Notice Split Context -->
+
+	<si:channel id="persistBundleChannel" />
+	<si:channel id="bundleEnrichRouterChannel" />
+	<si:channel id="gazettesJMSRouterChannel" />
+	<si:channel id="pre2005BundleHeaderEnricherChannel">
+		<si:interceptors>
+			<bean
+				class="uk.co.gazettes.services.interceptor.Pre2005NoticeTypeInterceptor" />
+		</si:interceptors>
+	</si:channel>
+	<si:channel id="post2005BundleHeaderEnricherChannel">
+		<si:interceptors>
+			<bean
+				class="uk.co.gazettes.services.interceptor.Post2005NoticeTypeInterceptor" />
+		</si:interceptors>
+	</si:channel>
+	<si:channel id="formBundleHeaderEnricherChannel">
+		<si:interceptors>
+			<bean class="uk.co.gazettes.services.interceptor.FormNoticeTypeInterceptor" />
+		</si:interceptors>
+	</si:channel>
+	<si:channel id="pre2005BundleSplitterRouterChannel"/>
+	<si:channel id="post2005BundleSplitterRouterChannel"/>
+	<si:channel id="formBundleSplitterRouterChannel"/>
+	<si:channel id="bundleSplitterChannel" />
+	<si:channel id="noticeEnrichRouterChannel" />
+	
+	<si:channel id="templateBasedFormValidationRouter" />
+	<si:channel id="validateTemplateBasedFormChannel" />
+	<si:channel id="processHtml5RdfaNoticeChannel" />
+	<si:channel id="persistInitialHTML5NoticeChannel" />	
+	<si:channel id="validateHTML5RDFaNoticeChannel" />		
+
+	<!-- user privileges are check against notice type of notice before saving it, its just for bundle submission , for web form it is done at controller level.-->
+	<si:channel id="pre2005NoticeHeaderEnricherChannel"/>
+	
+	<si:channel id="post2005NoticeHeaderEnricherChannel" />
+	<si:channel id="formNoticeHeaderEnricherChannel" />
+	<si:channel id="plainTextNoticeHeaderEnricherChannel"/>
+	<si:channel id="processNoticeChannel" />
+	<si:channel id="noticeTypePrivilegesChannel" />
+
+	<!-- JMS Sender and consumer configuration channel -->
+	<si:channel id="gazettesJMSOutboundChannel" />
+	
+	<si:channel id="gazettesJMSClsOutboundChannel" />
+	
+	<si:channel id="persistInitialNoticeChannel">
+		<si:interceptors>
+			<bean
+				class="uk.co.gazettes.provenance.interceptor.NoticeInitialisationProvenanceInterceptor" />
+			<!-- <bean
+				class="uk.co.gazettes.provenance.interceptor.NoticeDuplicateRemigrationProvenanceInterceptor" /> -->
+		</si:interceptors>
+	</si:channel>
+
+	<!-- persist bundle -->
+	<si:service-activator input-channel="persistBundleChannel" output-channel="bundleEnrichRouterChannel" ref="persistenceService"
+		method="persistBundle" />
+
+	<si-xml:xpath-router id="bundleEnrichRouter" input-channel="bundleEnrichRouterChannel" resolution-required="true" default-output-channel="nullChannel"
+	 evaluate-as-string="true">
+		<si-xml:xpath-expression expression="if(/gazette) then 'pre' else if(/form) then 'form' else 'post'" />
+		<si-xml:mapping value="pre" channel="pre2005BundleHeaderEnricherChannel" />
+		<si-xml:mapping value="post" channel="post2005BundleHeaderEnricherChannel" />
+		<si-xml:mapping value="form" channel="formBundleHeaderEnricherChannel" />
+	</si-xml:xpath-router>
+
+	<!-- enrich pre 2005 notices with bundle headers -->
+	<si:service-activator input-channel="pre2005BundleHeaderEnricherChannel" output-channel="pre2005BundleSplitterRouterChannel" ref="headerEnrichmentService"
+		method="enrichPre2005BundleHeader" />
+	<!-- enrich post 2005 notices with bundle headers -->
+	<si:service-activator input-channel="post2005BundleHeaderEnricherChannel" output-channel="post2005BundleSplitterRouterChannel" ref="headerEnrichmentService"
+		method="enrichPost2005BundleHeader" />
+	<!-- enrich form notices with bundle headers -->
+	<si:service-activator input-channel="formBundleHeaderEnricherChannel" output-channel="formBundleSplitterRouterChannel" ref="headerEnrichmentService"
+		method="enrichFormBundleHeader" />
+
+	<si:header-value-router input-channel="pre2005BundleSplitterRouterChannel" resolution-required="true"
+		default-output-channel="bundleSplitterChannel" header-name="submitted-via-ftp">
+			<si:mapping value="true" channel="ftpBundleSplitterChannel"/>
+			<si:mapping value="false" channel="bundleSplitterChannel"/>
+	</si:header-value-router>
+	
+	<si:header-value-router input-channel="post2005BundleSplitterRouterChannel" resolution-required="true"
+		default-output-channel="bundleSplitterChannel" header-name="submitted-via-ftp">
+			<si:mapping value="true" channel="ftpBundleSplitterChannel"/>
+			<si:mapping value="false" channel="bundleSplitterChannel"/>
+	</si:header-value-router>
+	
+	<si:header-value-router input-channel="formBundleSplitterRouterChannel" resolution-required="true"
+		default-output-channel="bundleSplitterChannel" header-name="submitted-via-ftp">
+			<si:mapping value="true" channel="ftpBundleSplitterChannel"/>
+			<si:mapping value="false" channel="bundleSplitterChannel"/>
+	</si:header-value-router>
+	
+	<!-- split bundle -->
+	<si:splitter input-channel="bundleSplitterChannel" output-channel="gazettesJMSRouterChannel" ref="messageSplitter" />
+
+	<si:splitter input-channel="ftpBundleSplitterChannel" output-channel="gazettesJMSRouterChannel" ref="ftpMessageSplitter" />
+	
+
+	<si:header-value-router id="clsJmsRouter" input-channel="gazettesJMSRouterChannel" resolution-required="true"
+		default-output-channel="gazettesJMSOutboundChannel" header-name="isCompanyLawNotice">
+			<si:mapping value="true" channel="gazettesJMSClsOutboundChannel"/>
+			<si:mapping value="false" channel="gazettesJMSOutboundChannel"/>
+	</si:header-value-router>
+	
+	<si-xml:xpath-router id="noticeEnrichRouter" input-channel="noticeEnrichRouterChannel" resolution-required="true"
+		default-output-channel="nullChannel" evaluate-as-string="true">
+		<si-xml:xpath-expression expression="if(/notice) then 'pre' else if(/form) then 'form' else if (/text-submission) then 'plainText' else if(/body) then 'html5' else 'post'" />
+		<si-xml:mapping value="pre" channel="pre2005NoticeHeaderEnricherChannel" />
+		<si-xml:mapping value="post" channel="post2005NoticeHeaderEnricherChannel" />
+		<si-xml:mapping value="form" channel="formNoticeHeaderEnricherChannel" />
+		<si-xml:mapping value="plainText" channel="plainTextNoticeHeaderEnricherChannel" />
+		<si-xml:mapping value="html5" channel="processHtml5RdfaNoticeChannel" />
+	</si-xml:xpath-router>
+	<!-- enrich pre 2005 notices with notice headers -->
+	<si:service-activator input-channel="pre2005NoticeHeaderEnricherChannel" output-channel="noticeTypePrivilegesChannel" ref="headerEnrichmentService"
+		method="enrichPre2005NoticeHeader" />
+
+	<!-- enrich post 2005 notices with notice headers -->
+	<si:service-activator input-channel="post2005NoticeHeaderEnricherChannel" output-channel="noticeTypePrivilegesChannel" ref="headerEnrichmentService"
+		method="enrichPost2005NoticeHeader" />
+
+	<!-- enrich form notices with notice headers -->
+	<si:service-activator input-channel="formNoticeHeaderEnricherChannel" output-channel="noticeTypePrivilegesChannel" ref="headerEnrichmentService"
+		method="enrichFormNoticeHeader" />
+
+	<!-- enrich plain text notices with notice headers -->
+	<si:service-activator input-channel="plainTextNoticeHeaderEnricherChannel" output-channel="noticeTypePrivilegesChannel" ref="headerEnrichmentService"
+		method="enrichPlainTextNoticeHeader" />
+		
+	<!-- notice type privileges check is not done for web form, its already done when form is rendered (can be done again here for double  security.) -->
+		
+	<si:service-activator input-channel="noticeTypePrivilegesChannel"	output-channel="processNoticeChannel" ref="noticeTypePrivilegesService"
+		method="checkForNoticeTypePrivileges" />
+
+	<si:service-activator input-channel="processNoticeChannel"	output-channel="persistInitialNoticeChannel" ref="initialiseNoticeService"
+		method="processNotice" />
+		
+		
+
+	<!-- persist initial notice -->
+	<si:service-activator input-channel="persistInitialNoticeChannel" output-channel="templateBasedFormValidationRouter" ref="persistenceService"
+		method="persistInitialNotice" />
+		
+	<!-- persist HTML5 validated notice -->
+	<si:service-activator input-channel="persistInitialHTML5NoticeChannel" output-channel="noticeTransformerRouterChannel" ref="persistenceService"
+		method="persistInitialNotice" />	
+		
+	<si:service-activator input-channel="processHtml5RdfaNoticeChannel"	output-channel="validateHTML5RDFaNoticeChannel" ref="initialiseNoticeService"
+		method="processNotice" />
+		
+	<si:service-activator input-channel="persistInitialNoticeChannel" output-channel="templateBasedFormValidationRouter" ref="persistenceService"
+		method="persistInitialNotice" />	
+	
+	
+		
+	<si:header-value-router  input-channel="templateBasedFormValidationRouter"  header-name="templateBasedDraftFormUpload"
+		default-output-channel="noticeTransformerRouterChannel" >
+  		<si:mapping value="true" channel="validateTemplateBasedFormChannel" />
+	</si:header-value-router>
+	
+
+	<!-- validate csv based form -->
+	<si:service-activator input-channel="validateTemplateBasedFormChannel" output-channel="noticeTransformerRouterChannel" ref="initialiseNoticeService"
+		method="validateTemplateBasedForm" />
+		
+    <!-- validate HTML5RDFa notice -->
+	<si:service-activator input-channel="validateHTML5RDFaNoticeChannel" output-channel="persistInitialHTML5NoticeChannel" ref="initialiseNoticeService"
+		method="validateHTML5RdfaNotice" />		
+
+	<bean name="noticeTypePrivilegesService" class="uk.co.gazettes.services.noticetypes.NoticeTypePrivilegesServiceImpl"/>
+
+		<!-- bundle splitter -->
+	<bean name="messageSplitter" class="uk.co.gazettes.services.splitter.GazettesMessageSplitter">
+		<property name="splitterXslPath" value="${split.xsl.path}" />
+	</bean>
+	
+	<bean name="ftpMessageSplitter" class="uk.co.gazettes.services.splitter.GazettesFtpMessageSplitter">
+		<property name="splitterXslPath" value="${split.xsl.path}" />
+	</bean>
+	
+	<si:service-activator input-channel="gazettesJMSOutboundChannel" output-channel="nullChannel" ref="gazettesJmsMessageQueueSender"
+		method="sendNoticeToJmsQueue" />
+		
+	<si:service-activator input-channel="gazettesJMSClsOutboundChannel" output-channel="nullChannel" ref="gazettesJmsMessageQueueSender"
+		method="sendNoticeToClsJmsQueue" />
+
+</beans>
