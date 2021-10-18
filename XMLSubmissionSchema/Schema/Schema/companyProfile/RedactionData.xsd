@@ -1,0 +1,12 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" xmlns:companyProfile="http://www.gazettes.co.uk/assets/companyProfile">
+
+    <xs:element name="redactionData">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="redactedDate" type="xs:dateTime" minOccurs="0"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
