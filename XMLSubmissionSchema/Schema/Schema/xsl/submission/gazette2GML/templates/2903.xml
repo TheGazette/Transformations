@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Notice Reference="unallocated" 
+  Type="2903" 
+  xmlns="http://www.tso.co.uk/assets/namespace/gazette" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+  xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" 
+  xmlns:msxsl="urn:schemas-microsoft-com:xslt" 
+  xmlns:local="#local-functions" 
+  xmlns:fo="http://www.w3.org/1999/XSL/Format" 
+  xmlns:lga="http://www.tso.co.uk/assets/namespace/gazette" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ukm:Metadata>
+    <ukm:PublishDate about="noticeid:" property="gaz:earliestPublicationDate"></ukm:PublishDate>
+    <ukm:SupplierNoticeID></ukm:SupplierNoticeID>
+    <ukm:KeyedBy>OnlineForm</ukm:KeyedBy>
+    <ukm:SortKey/>
+    <ukm:Language>English</ukm:Language>
+    <ukm:NoticeClass>Standard</ukm:NoticeClass>
+    <ukm:TimeStamp></ukm:TimeStamp>
+  </ukm:Metadata>
+  <Person>
+    <PersonName>
+      <Surname about="this:deceasedPerson" property="foaf:familyName"></Surname>, 
+      <Forename about="this:deceasedPerson" property="foaf:firstName"></Forename>
+      <MiddleNames about="this:deceasedPerson" property="foaf:givenName"></MiddleNames>
+    </PersonName>
+    <PersonDetails>21 The Retreat, Wootton Hall, Wootton Wawen, Henley in Arden, Warwickshire B95 6EG</PersonDetails>
+    <DeathDetails>
+      <Date Class="General" Date="####-##-##" about="this:deceasedPerson" property="personal-legal:dateOfDeath"></Date>
+      <NoticeOfClaims>Lodders Solicitors LLP, 16 High Street, Henley in Arden, Warwickshire B95 5BW.</NoticeOfClaims>
+      <NoticeOfClaimsDate Date="####-##-##" about="this:notifiableThing" property="personal-legal:hasClaimDeadline"></NoticeOfClaimsDate>
+    </DeathDetails>
+  </Person>
+</Notice>
