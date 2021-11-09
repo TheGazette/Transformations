@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+     This is a Saxon configuration file.
+     
+     For documentation on the contents of a Saxon configuration file, see
+     http://www.saxonica.com/documentation/index/configuration-file.html
+     
+     While you edit, oXygen will also show you the documentation for each element
+     and attribute next to the content completion proposals.
+-->
+<configuration edition="EE" xmlns="http://saxon.sf.net/ns/configuration">
+  
+  <global 
+    dtdValidation="false" 
+    schemaValidation="lax"/>
+  
+  <xslt schemaAware="true">
+    <extensionElement/>
+  </xslt>
+  
+  
+  
+</configuration>
