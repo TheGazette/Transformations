@@ -283,7 +283,7 @@
 				<article>
 					<div class="rdfa-data">
 						<!-- Build the non-line RDFa linking data for the notice. -->
-						<span about="{$noticeURI}" property="dc11:publisher" content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk"/>
+						<span about="{$noticeURI}" property="dc11:publisher" content="TSO (The Stationery Office), customer.services@thegazette.co.uk"/>
 						<span about="{$noticeURI}" property="gaz:isAbout" resource="this:notifiableThing"/>
 						<span about="{$noticeURI}" property="owl:sameAs" resource="https://www.thegazette.co.uk/id/notice/{$noticeId}"/>
 						<span about="{$noticeURI}" property="prov:has_provenance" resource="https://www.thegazette.co.uk/id/notice/{$noticeId}/provenance"/>

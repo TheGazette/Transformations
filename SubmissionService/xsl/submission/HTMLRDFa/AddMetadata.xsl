@@ -13,12 +13,16 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   <xsl:param name="publishDate" as="xs:dateTime"/>
   <xsl:param name="bundleId" as="xs:string"/>
   <xsl:param name="edition" as="xs:string"/>
-  <xsl:param name="issueNumber" as="xs:string" />
+  <!--<xsl:param name="issueNumber" as="xs:string" />-->
   <xsl:param name="noticeId" as="xs:string"/>
   <xsl:param name="user-submitted" as="xs:nonNegativeInteger"/>
   <xsl:param name="version-count" as="xs:nonNegativeInteger"/>
   <xsl:param name="notice-capture-method" as="xs:string"/>
-
+  <xsl:param name="mapping" as="node()" required="yes"/>
+     
+     <xsl:variable name="category">
+       <xsl:sequence select="$mapping//*:Map[@Code = $notice-code]/*"/>
+     </xsl:variable>
  <xsl:template match="/">
 
    <xsl:apply-templates/>
@@ -41,7 +45,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <publication-date><xsl:value-of select="$publishDate"/></publication-date>
         <bundle-id><xsl:value-of select="$bundleId"/></bundle-id>
         <edition><xsl:value-of select="$edition"/></edition>
-        <issue><xsl:value-of select="$issueNumber"/></issue>
+       <!-- <issue><xsl:value-of select="$issueNumber"/></issue>-->
         <notice-id><xsl:value-of select="$noticeId"/></notice-id>
         <user-submitted><xsl:value-of select="$user-submitted"/></user-submitted>
         <version-count><xsl:value-of select="$version-count"/></version-count>
@@ -49,10 +53,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 one notice type submisson method. However, /taxonomy/index should be passed as a 
 a param into this xlst if there are more types notices. Notice category codes should be 
 produced according to the taxnomy index file        -->
-        <notice-category-codes>
-          <notice-category-code>11</notice-category-code>
-          <notice-category-code>1119</notice-category-code>
-        </notice-category-codes>
+        <xsl:sequence select="$category"/>
         <notice-capture-method><xsl:value-of select="$notice-capture-method"/></notice-capture-method>
       </gazette-metadata>
     </head>

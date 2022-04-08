@@ -43,6 +43,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     <xsl:param name="legislationMapping" as="node()" select="doc('')"/>
     <xsl:variable name="noticeCode" select="//gz:Notice/@Type"/>
     <xsl:variable name="vHTMLcompatible" select="false()" as="xs:boolean"/>
+    <!-- Voucher copy variables -->
+    <xsl:param name="voucherPDFCopy" select="gz:Notice//ukm:VoucherPDFCopy"/>
+    <xsl:param name="voucherPrintCopy" select="gz:Notice//ukm:VoucherPrintCopy"/>
+    <xsl:param name="voucherAccountNumber" select="gz:Notice//ukm:VoucherAccountNumber"/>
+    <xsl:param name="voucherAltId" select="gz:Notice//ukm:VoucherAltId"/>
     <!--Birthday Honours-->
     <xsl:variable name="crownDependancy" select="gz:Notice//gz:CrownDependency"/>
     <xsl:variable name="workplace" select="//gz:Notice//gz:Workplace"/>
@@ -714,7 +719,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <!-- Construct the RDFa div that contains much of the non-inline linkage information. -->
 
         <div class="rdfa-data">
-            <span about="{$noticeURI}" property="{$has-publisher}" content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk"/>
+            <span about="{$noticeURI}" property="{$has-publisher}" content="TSO (The Stationery Office), customer.services@thegazette.co.uk"/>
             <span about="{$noticeURI}" property="{$is-about}" resource="{$notifiable-thing}"/>
             <xsl:if test="$noticeCode=('1122','1123','1124','1125','1126','1127','1128','1129','1130','1131','1132','1133','1134','1135','1136')">
                 <span about="{$noticeURI}" property="{$publicationOccasion}" resource="{$publication-Occasion}"/>
@@ -870,8 +875,28 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                 </time>
             </dd>
             <xsl:if test="$noticeCode = '2903' and gz:Person/gz:DeathDetails/gz:NoticeOfClaimsDate">
+                <xsl:variable name="Date">
+                    <xsl:choose>
+                        <xsl:when test="gz:Person/gz:DeathDetails/gz:NoticeOfClaimsDate/@Date castable as xs:date">
+                            <xsl:value-of select="gz:Person/gz:DeathDetails/gz:NoticeOfClaimsDate/@Date"/>
+                        </xsl:when>
+                        <xsl:when test="replace(normalize-space(gz:Person/gz:DeathDetails/gz:NoticeOfClaimsDate), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1') castable as xs:date">
+                            <xsl:value-of select="replace(normalize-space(gz:Person/gz:DeathDetails/gz:NoticeOfClaimsDate), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1')"/>
+                        </xsl:when>
+                        <xsl:otherwise/>
+                    </xsl:choose>
+                </xsl:variable>
                 <dt>Claim expires:</dt>
-                <dd about="this:notifiableThing" property="personal-legal:hasClaimDeadline" content="{gz:Person/gz:DeathDetails/gz:NoticeOfClaimsDate/@Date}" datatype="xsd:date">
+                <dd about="this:notifiableThing">
+                    <xsl:if test="$Date castable as xs:date">
+                        <xsl:attribute name="content">
+                            <xsl:value-of select="$Date"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="property">
+                            <xsl:value-of select="'personal-legal:hasClaimDeadline'"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="datatype" select="'xsd:date'"/>
+                    </xsl:if>
                     <time datetime="{gz:Person/gz:DeathDetails/gz:NoticeOfClaimsDate/@Date}">
                         <xsl:value-of select="gz:Person/gz:DeathDetails/gz:NoticeOfClaimsDate"/>
                     </time>
@@ -1182,8 +1207,28 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <dl>
 
             <xsl:if test="gz:Person/gz:DeathDetails/gz:Date">
+                <xsl:variable name="Date">
+                    <xsl:choose>
+                        <xsl:when test="gz:Person/gz:DeathDetails/gz:Date/@Date castable as xs:date">
+                            <xsl:value-of select="gz:Person/gz:DeathDetails/gz:Date/@Date"/>
+                        </xsl:when>
+                        <xsl:when test="replace(normalize-space(gz:Person/gz:DeathDetails/gz:Date), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1') castable as xs:date">
+                            <xsl:value-of select="replace(normalize-space(gz:Person/gz:DeathDetails/gz:Date), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1')"/>
+                        </xsl:when>
+                        <xsl:otherwise/>
+                    </xsl:choose>
+                </xsl:variable>
                 <dt>Date of death:</dt>
-                <dd property="personal-legal:dateOfDeath" typeof="gaz:Person" datatype="xsd:date" about="{$personURI}" content="{gz:Person/gz:DeathDetails/gz:Date/@Date}">
+                <dd typeof="gaz:Person" about="{$personURI}">
+                    <xsl:if test="$Date castable as xs:date">
+                        <xsl:attribute name="content">
+                            <xsl:value-of select="$Date"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="property">
+                            <xsl:value-of select="'personal-legal:dateOfDeath'"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="datatype" select="'xsd:date'"/>
+                    </xsl:if>
                     <time datetime="{gz:Person/gz:DeathDetails/gz:Date/@Date}">
                         <xsl:value-of select="gz:Person/gz:DeathDetails/gz:Date"/>
                     </time>
@@ -2454,10 +2499,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                         </xsl:if>
                         <xsl:value-of select="$fs"/>
                     </span>
-                    <xsl:text> of </xsl:text>
-                    <span property="{$has-court-year}" datatype="xsd:gYear" content="{$fs/@Year}">
-                        <xsl:value-of select="$fs/@Year"/>
-                    </span>
+                    <xsl:if test="$fs/@Year castable as xs:gYear">
+                        <xsl:text> of </xsl:text>
+                        <span property="{$has-court-year}" datatype="xsd:gYear" content="{$fs/@Year}">
+                            <xsl:value-of select="$fs/@Year"/>
+                        </span>
+                    </xsl:if>
                 </span>
             </xsl:if>
             <xsl:if test="$fs[@Code]">
@@ -2482,10 +2529,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                         </xsl:if>
                         <xsl:apply-templates/>
                     </span>
-                    <xsl:text> of </xsl:text>
-                    <span property="{$has-court-year}" datatype="xsd:gYear">
-                        <xsl:value-of select="@Year"/>
-                    </span>
+                    <xsl:if test="@Year castable as xs:gYear">
+                        <xsl:text> of </xsl:text>
+                        <span property="{$has-court-year}" datatype="xsd:gYear">
+                            <xsl:value-of select="@Year"/>
+                        </span>
+                    </xsl:if>
                 </p>
             </xsl:if>
             <xsl:if test="@Code">
@@ -2523,7 +2572,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:template>
 
     <xsl:template match="gz:Notice/gz:Court/gz:VolWindingUpResolutionDate">
-        <p about="this:notifiableThing" property="{$recognizes-vol-winding-up-resolution-date}" datatype="xsd:date" data-gazettes="VolWindingUpResolutionDate" data-date="{@Date}">
+        <p about="this:notifiableThing" property="{$recognizes-vol-winding-up-resolution-date}" datatype="xsd:date" content="{@Date}" data-gazettes="VolWindingUpResolutionDate" data-date="{@Date}">
             <xsl:text>Date of Resolution for Voluntary Winding-up: </xsl:text>
             <xsl:apply-templates/>
         </p>
@@ -3222,8 +3271,27 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:template>
 
     <xsl:template match="gz:Notice/gz:Person/gz:BirthDetails">
-        <xsl:variable name="birth-date" select="gz:Date/@Date"/>
-        <p about="{wlf:name-sibling(..)}" property="person:dateOfBirth" datatype="xsd:date" content="{gz:Date/@Date}" data-gazettes="BirthDetails">
+        <xsl:variable name="birth-date">
+            <xsl:choose>
+                <xsl:when test="gz:Date/@Date castable as xs:date">
+                    <xsl:value-of select="gz:Date/@Date"/>
+                </xsl:when>
+                <xsl:when test="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1') castable as xs:date">
+                    <xsl:value-of select="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1')"/>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:variable>
+        <p about="{wlf:name-sibling(..)}" data-gazettes="BirthDetails">
+            <xsl:if test="$birth-date castable as xs:date">
+                <xsl:attribute name="content">
+                    <xsl:value-of select="$birth-date"/>
+                </xsl:attribute>
+                <xsl:attribute name="property">
+                    <xsl:value-of select="'person:dateOfBirth'"/>
+                </xsl:attribute>
+                <xsl:attribute name="datatype" select="'xsd:date'"/>
+            </xsl:if>
             <xsl:if test="not($noticeCode = (2520, 2528))">
                 <xsl:text>Birth details: </xsl:text>
             </xsl:if>
@@ -3254,6 +3322,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                         <xsl:apply-templates/>
                     </span>
                     <xsl:text>)</xsl:text>
+                </xsl:when>
+                <xsl:when test="$noticeCode = 2506">
+                    <xsl:text>Previously advertised as </xsl:text>
+                    <span resource="{wlf:name-sibling(..)}" property="person:alsoKnownAs" datatype="xsd:string">
+                        <xsl:apply-templates/>
+                    </span>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:text>Also known as: </xsl:text>
@@ -3410,6 +3484,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:template>
 
     <xsl:template match="gz:DateOfAppointment">
+        <xsl:variable name="DoA">
+            <xsl:choose>
+                <xsl:when test="@Date castable as xs:date">
+                    <xsl:value-of select="@Date"/>
+                </xsl:when>
+                <xsl:when test="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1') castable as xs:date">
+                    <xsl:value-of select="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1')"/>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:variable>
         <p>
             <xsl:choose>
                 <xsl:when test="$noticeCode = (2410, 2432, 2443)">
@@ -3428,15 +3513,44 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     </xsl:for-each>
                 </xsl:when>
             </xsl:choose>
-            <span property="{$has-date-of-appointment}" datatype="xsd:date" content="{@Date}" data-gazettes="DateOfAppointment" data-date="{@Date}">
+            <span data-gazettes="DateOfAppointment" data-date="{@Date}">
+                <xsl:if test="$DoA castable as xs:date">
+                    <xsl:attribute name="content">
+                        <xsl:value-of select="$DoA"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="property">
+                        <xsl:value-of select="$has-date-of-appointment"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="datatype" select="'xsd:date'"/>
+                </xsl:if>
                 <xsl:apply-templates/>
             </span>
         </p>
     </xsl:template>
 
     <xsl:template match="gz:DateSigned">
+        <xsl:variable name="DS">
+            <xsl:choose>
+                <xsl:when test="@Date castable as xs:date">
+                    <xsl:value-of select="@Date"/>
+                </xsl:when>
+                <xsl:when test="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1') castable as xs:date">
+                    <xsl:value-of select="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1')"/>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:variable>
         <p data-gazettes="DateSigned">
-            <span property="{$signed-on-date}" datatype="xsd:date" content="{@Date}" data-gazettes="DateSigned" data-date="{@Date}">
+            <span data-gazettes="DateSigned" data-date="{@Date}">
+                <xsl:if test="$DS castable as xs:date">
+                    <xsl:attribute name="content">
+                        <xsl:value-of select="$DS"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="property">
+                        <xsl:value-of select="$signed-on-date"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="datatype" select="'xsd:date'"/>
+                </xsl:if>
                 <xsl:apply-templates/>
             </span>
         </p>
@@ -3856,13 +3970,53 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:template>
 
     <xsl:template match="gz:Date[@Class='Presentation']">
-        <span property="insolvency:dateOfPetitionPresentation" datatype="xsd:date" content="{@Date}" data-gazettes="Date" data-gazettes-class="{@Class}" data-date="{@Date}">
+        <xsl:variable name="Date">
+            <xsl:choose>
+                <xsl:when test="@Date castable as xs:date">
+                    <xsl:value-of select="@Date"/>
+                </xsl:when>
+                <xsl:when test="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1') castable as xs:date">
+                    <xsl:value-of select="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1')"/>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:variable>
+        <span data-gazettes="Date" data-gazettes-class="{@Class}" data-date="{@Date}">
+            <xsl:if test="$Date castable as xs:date">
+                <xsl:attribute name="content">
+                    <xsl:value-of select="$Date"/>
+                </xsl:attribute>
+                <xsl:attribute name="property">
+                    <xsl:value-of select="'insolvency:dateOfPetitionPresentation'"/>
+                </xsl:attribute>
+                <xsl:attribute name="datatype" select="'xsd:date'"/>
+            </xsl:if>
             <xsl:apply-templates/>
         </span>
     </xsl:template>
 
     <xsl:template match="gz:Date[@Class='Resolution']">
-        <span property="insolvency:dateOfResolution" datatype="xsd:date" content="{@Date}" data-gazettes="Date" data-gazettes-class="{@Class}" data-date="{@Date}">
+        <xsl:variable name="Date">
+            <xsl:choose>
+                <xsl:when test="@Date castable as xs:date">
+                    <xsl:value-of select="@Date"/>
+                </xsl:when>
+                <xsl:when test="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1') castable as xs:date">
+                    <xsl:value-of select="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1')"/>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:variable>
+        <span data-gazettes="Date" data-gazettes-class="{@Class}" data-date="{@Date}">
+            <xsl:if test="$Date castable as xs:date">
+                <xsl:attribute name="content">
+                    <xsl:value-of select="$Date"/>
+                </xsl:attribute>
+                <xsl:attribute name="property">
+                    <xsl:value-of select="'insolvency:dateOfResolution'"/>
+                </xsl:attribute>
+                <xsl:attribute name="datatype" select="'xsd:date'"/>
+            </xsl:if>
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -3900,16 +4054,56 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:template>
     
     <xsl:template match="gz:PersonStatus/gz:Date">
+        <xsl:variable name="Date">
+            <xsl:choose>
+                <xsl:when test="@Date castable as xs:date">
+                    <xsl:value-of select="@Date"/>
+                </xsl:when>
+                <xsl:when test="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1') castable as xs:date">
+                    <xsl:value-of select="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1')"/>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:variable>
         <p>
             <xsl:text>Date of bankruptcy order: </xsl:text>
-            <span property="gaz:relatedDate" content="{@Date}" datatype="xsd:date" data-gazettes="Date" data-gazettes-class="{@Class}" data-date="{@Date}">
+            <span data-gazettes="Date" data-gazettes-class="{@Class}" data-date="{@Date}">
+                <xsl:if test="$Date castable as xs:date">
+                    <xsl:attribute name="content">
+                        <xsl:value-of select="$Date"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="property">
+                        <xsl:value-of select="'gaz:relatedDate'"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="datatype" select="'xsd:date'"/>
+                </xsl:if>
                 <xsl:apply-templates/>
             </span>
         </p>
     </xsl:template>
     
     <xsl:template match="gz:Date">
-        <span property="gaz:relatedDate" content="{@Date}" datatype="xsd:date" data-gazettes="Date" data-gazettes-class="{@Class}" data-date="{@Date}">
+        <xsl:variable name="Date">
+            <xsl:choose>
+                <xsl:when test="@Date castable as xs:date">
+                    <xsl:value-of select="@Date"/>
+                </xsl:when>
+                <xsl:when test="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1') castable as xs:date">
+                    <xsl:value-of select="replace(normalize-space(.), '([0-9]{2})/([0-9]{2})/([0-9]{4})', '$3-$2-$1')"/>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:variable>
+        <span data-gazettes="Date" data-gazettes-class="{@Class}" data-date="{@Date}">
+            <xsl:if test="$Date castable as xs:date">
+                <xsl:attribute name="content">
+                    <xsl:value-of select="$Date"/>
+                </xsl:attribute>
+                <xsl:attribute name="property">
+                    <xsl:value-of select="'gaz:relatedDate'"/>
+                </xsl:attribute>
+                <xsl:attribute name="datatype" select="'xsd:date'"/>
+            </xsl:if>
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -4149,7 +4343,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:variable name="previous-administrator" select="wlf:compound-name(..,preceding-sibling::gz:PersonName[last()])"/>
         <xsl:choose>
             <xsl:when test="ancestor::gz:Administration[1][gz:DateSigned]">
-                <span property="gaz hasAuthorisingRole" resource="this:role-signatory" typeof="person:Role">
+                <span property="gaz:hasAuthorisingRole" resource="this:role-signatory" typeof="person:Role">
                     <span property="person:roleName" datatype="xsd:string">
                         <xsl:apply-templates/>
                     </span>
@@ -4283,6 +4477,12 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <span resource="{wlf:clean(wlf:serialize(../*[1]))}" property="gzw:has{name()}" content="{wlf:serialize(.)}" data-gazettes="RelatedCase">
             <xsl:apply-templates/>
         </span>
+    </xsl:template>
+
+    <xsl:template match="gz:Redaction">
+        <em class="redaction">
+            <xsl:apply-templates/>
+        </em>
     </xsl:template>
 
     <xsl:template match="gz:Retraction">
@@ -4867,6 +5067,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     </page-number>
                 </xsl:if>
             </xsl:if>
+            
             <legacy-notice-number>
                 <xsl:value-of select="//gz:Notice/@Reference"/>
             </legacy-notice-number>
@@ -4897,6 +5098,30 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:value-of select="//gz:CompanyNumber"/>
                 </company-number>
             </xsl:if>
+            <xsl:if test="//*:is-supplement">
+            <is-supplement/>
+            </xsl:if>            
+            <xsl:if test="$voucherPDFCopy">
+                <pdf-copy>
+                    <xsl:value-of select="$voucherPDFCopy"/>
+                </pdf-copy>
+            </xsl:if>
+            <xsl:if test="$voucherPrintCopy">
+                <notice-printed-copy>
+                    <xsl:value-of select="$voucherPrintCopy"/>
+                </notice-printed-copy>
+            </xsl:if>
+            <xsl:if test="$voucherAccountNumber">
+                <account-number>
+                    <xsl:value-of select="$voucherAccountNumber"/>
+                </account-number>
+            </xsl:if>
+            <xsl:if test="$voucherAltId">
+                <alt-id>
+                    <xsl:value-of select="$voucherAltId"/>
+                </alt-id>
+            </xsl:if>
+            
         </gazette-metadata>
     </xsl:template>
 

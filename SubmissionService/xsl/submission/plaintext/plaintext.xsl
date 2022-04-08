@@ -1206,7 +1206,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       </header -->
       <div class="rdfa-data">
         <span about="{$noticeURI}" property="dc11:publisher"
-          content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk"/>
+          content="TSO (The Stationery Office), customer.services@thegazette.co.uk"/>
         <span about="{$noticeURI}" property="gaz:isAbout" resource="this:notifiableThing"/>
         <span about="noticeid:" property="prov:has_provenance" resource="provenance:"/>
         <span about="noticeid:" property="gaz:isInIssue" resource="issue:"/>

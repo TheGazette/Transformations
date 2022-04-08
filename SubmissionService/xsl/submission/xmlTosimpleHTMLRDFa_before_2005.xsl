@@ -12,12 +12,25 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       Change history
       1.0 Initial Release: 20th January 2014
 -->
-   <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:gz="http://www.tso.co.uk/assets/namespace/gazette" xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" xmlns:wgs84="http://www.w3.org/2003/01/geo/wgs84_pos" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:personal-legal="http://www.thegazette.co.uk/ontology/personal-legal" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gzc="http://www.tso.co.uk/assets/namespace/gazette/LGconfiguration" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:functx="http://www.functx.com" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:dfn="http://www.dfn.org/dfn" exclude-result-prefixes="xs html gz ukm wgs84 personal-legal  dc gzc math" version="2.0">
+   <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+     xmlns:gz="http://www.tso.co.uk/assets/namespace/gazette"
+     xmlns:ukm="http://www.tso.co.uk/assets/namespace/metadata" 
+     xmlns:wgs84="http://www.w3.org/2003/01/geo/wgs84_pos" 
+     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" 
+     xmlns:personal-legal="http://www.thegazette.co.uk/ontology/personal-legal" 
+     xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gzc="http://www.tso.co.uk/assets/namespace/gazette/LGconfiguration" 
+     xmlns:math="http://www.w3.org/1998/Math/MathML" 
+     xmlns:html="http://www.w3.org/1999/xhtml" 
+     xmlns="http://www.w3.org/1999/xhtml" 
+     xmlns:functx="http://www.functx.com" 
+     xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+     xmlns:gaz="http://www.gazettes.co.uk/metadata"
+     xmlns:dfn="http://www.dfn.org/dfn" exclude-result-prefixes="xs html gz ukm wgs84 personal-legal  dc gzc math" version="2.0">
         
       
         <xsl:output method="xml" omit-xml-declaration="yes" indent="no" encoding="UTF-8"/>
-        
-        <xsl:param name="issueNumber" as="xs:string" required="yes"/>
+     <xsl:param name="issueNumber"  required="no"/>
+     <xsl:param name="pageNumber" as="xs:string">0</xsl:param>
         <xsl:param name="edition" as="xs:string" required="yes"/>
         <!--<xsl:param name="legalInformation" as="node()" required="yes"/>-->
         
@@ -28,7 +41,9 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         <xsl:param name="version-count" as="xs:string" required="yes"/>
         <xsl:param name="user-submitted" as="xs:string" required="yes"/>
         <xsl:param name="legacyNoticeNumber" as="xs:string" required="yes"/>
-        
+         <!--<xsl:variable name="mapping"  select="document('mapping.xml')"/>-->
+         <xsl:param name="mapping" as="node()" required="yes"/>
+          
         <xsl:variable name="paramConfigXml" select="if (doc-available('../../configuration/LGconfiguration.xml')) then doc('../../configuration/LGconfiguration.xml') else ()"/>
         <xsl:variable name="gaz">https://www.thegazette.co.uk/</xsl:variable>
         <xsl:variable name="noticeType" select="notice/@code"/>
@@ -62,8 +77,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     
         <xsl:variable name="noticeCode" select="notice/@code"/>
         <xsl:variable name="noticeURI" select="concat($gaz,'id','/notice/', $noticeId)"/>
-        <xsl:variable name="oldNoticeURI" select="concat($gaz,'id/','edition/',$edition,'/issue/',$issueNumber,'/notice/', $noticeNo)"/>
-        <xsl:variable name="issueURI" select="concat($gaz,'id/','edition/',$edition,'/issue/',$issueNumber)"/>
+  
         <xsl:variable name="editionURI" select="concat($gaz,'id/','edition/',$edition)"/>
         <xsl:variable name="getMonthofPubDate">
             <xsl:call-template name="getMonth">
@@ -71,13 +85,15 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
             </xsl:call-template>
         </xsl:variable>
        
+       <xsl:variable name="oldNoticeURI" select="concat($gaz,'id/','edition/',$edition,'/issue/',$issueNumber,'/notice/', $noticeNo)"/>
+       <xsl:variable name="issueURI" select="concat($gaz,'id/','edition/',$edition,'/issue/',$issueNumber)"/>
         <xsl:variable name="noticeDate">
             <xsl:value-of select="normalize-space(notice/date/year)"/>
             <xsl:text>-</xsl:text>
             <xsl:value-of select="$getMonthofPubDate"/>
             <xsl:text>-</xsl:text>
             <xsl:value-of select="format-number(number(normalize-space(notice/date/day)),'00')"/>
-			<xsl:text>T15:30:00</xsl:text>
+			<xsl:text>T01:00:00</xsl:text>
         </xsl:variable>
      
   		<xsl:variable name="publicationDate">
@@ -99,6 +115,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         
         <!-- xsl:variable name="deathDate" select="functx:getDeathofDate(notice/legal/r/c[2])"/ -->
       <xsl:variable name="deathDate" select="functx:getDeathofDate(/notice/legal/r/c[2])"/>
+     
+     <xsl:variable name="category">
+       <xsl:sequence select="$mapping//gaz:Map[@Code = $noticeType]/*"/>
+     </xsl:variable>
         
         <xsl:template match="/">
             <xsl:apply-templates select="notice"/>
@@ -128,16 +148,17 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                         <status><xsl:value-of select="$status"/></status>
                         <version-count><xsl:value-of select="$version-count"/></version-count>
                         <notice-code><xsl:value-of select="$noticeType"/></notice-code>
-                        <notice-category-codes>
-                          <xsl:variable name="thecategory" select="substring($noticeType,1,2)"/>
-                          <notice-category-code><xsl:value-of select="$thecategory"/></notice-category-code>
-                          <xsl:if test="$paramConfigXml/gzc:Configuration//gzc:Notice[@Code = $noticeType]/ancestor::gzc:Section/@Code">
-                            <notice-category-code><xsl:value-of select="$paramConfigXml/gzc:Configuration//gzc:Notice[@Code = $noticeType]/ancestor::gzc:Section/@Code"/></notice-category-code>
-                          </xsl:if>
-                        </notice-category-codes>
+                        <xsl:sequence select="$category"/>
                         <notice-capture-method>pre-2005-dtd-xml</notice-capture-method>
-                        <edition><xsl:value-of select="$edition"/></edition>
-                        <issue><xsl:value-of select="$issueNumber"/></issue>
+                       <edition><xsl:value-of select="$edition"/></edition>
+                        <xsl:if test="$issueNumber">
+                          <issue>
+                            <xsl:value-of select="$issueNumber"/>
+                          </issue>
+                          <page-number>
+                            <xsl:value-of select="$pageNumber"/>
+                          </page-number>
+                        </xsl:if>
                         <legacy-notice-number><xsl:value-of select="$noticeNo"/></legacy-notice-number>                  
                         <user-submitted><xsl:value-of select="$user-submitted"/></user-submitted>
                         <source>DTD</source>
@@ -154,25 +175,23 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                         </h1>
                     
                       <div class="rdfa-data">
-                        <span about="{$noticeURI}" property="dc11:publisher" content="TSO (The Stationery Office), St Crispins, Duke Street, Norwich, NR3 1PD, 01603 622211, customer.services@tso.co.uk"/>
+                        <span about="{$noticeURI}" property="dc11:publisher" content="TSO (The Stationery Office), customer.services@thegazette.co.uk"/>
                         <span about="{$noticeURI}" property="gaz:isAbout" resource="this:notifiableThing"/>   
                         <span about="{$noticeURI}" property="owl:sameAs" resource="https://www.thegazette.co.uk/id/notice/{$noticeId}"/>
                         <span about="{$noticeURI}" property="prov:has_provenance" resource="https://www.thegazette.co.uk/id/notice/{$noticeId}/provenance"/> 
                         <span about="{$noticeURI}" property="prov:has_anchor" resource="{$noticeURI}"/> 
-                        <span about="{$noticeURI}" property="gaz:isInIssue" resource="{$issueURI}"/>
-                        <span resource="{$issueURI}" typeof="gaz:Issue"/>
-                        <span about="{$issueURI}" property="gaz:hasEdition" resource="{$editionURI}"/>
-                        <span about="{$issueURI}" content="{$issueNumber}" datatype="xsd:string" property="gaz:hasIssueNumber"/>
                         <span resource="{$editionURI}" typeof="gaz:Edition"/>
-                        
-                        <span about="https://www.thegazette.co.uk/id/notice/{$noticeId}" property="owl:sameAs" resource="https://www.thegazette.co.uk/id/edition/{$edition}/issue/{$issueNumber}/notice/{$noticeNo}" typeof="gaz:Notice"/>
-                        <span about="https://www.thegazette.co.uk/id/notice/{$noticeId}" property="prov:alternateOf" resource="http://www.{lower-case($edition)}-gazette.co.uk/id/issues/{$issueNumber}/notices/{$noticeNo}" typeof="gaz:Notice"/>
-                        
                         <span about="https://www.thegazette.co.uk/id/notice/{$noticeId}" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="{$noticeNo}"/>
-                        
-                       <!-- <span about="{$noticeURI}" property="owl:sameAs" resource="{$oldNoticeURI}" typeof="gaz:Notice"/>-->
-                        
-                        
+                        <xsl:if test="$issueNumber">
+                          <span about="{$noticeURI}" property="gaz:isInIssue" resource="{$issueURI}"/>
+                          <span resource="{$issueURI}" typeof="gaz:Issue"/>
+                          <span about="{$issueURI}" property="gaz:hasEdition" resource="{$editionURI}"/>
+                          <span about="{$issueURI}" content="{$issueNumber}" datatype="xsd:string" property="gaz:hasIssueNumber"/>
+                          <span about="https://www.thegazette.co.uk/id/notice/{$noticeId}" property="owl:sameAs" resource="https://www.thegazette.co.uk/id/edition/{$edition}/issue/{$issueNumber}/notice/{$noticeNo}" typeof="gaz:Notice"/>
+                          <span about="https://www.thegazette.co.uk/id/notice/{$noticeId}" property="prov:alternateOf" resource="http://www.{lower-case($edition)}-gazette.co.uk/id/issues/{$issueNumber}/notices/{$noticeNo}" typeof="gaz:Notice"/>
+                          <span about="https://www.thegazette.co.uk/id/notice/{$noticeId}" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="{$noticeNo}"/>
+                         </xsl:if>
+                   
                         <!-- Common to all 2903 notices -->
                         <xsl:choose>
                           <xsl:when test="$noticeType = '2903'">
@@ -199,7 +218,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                             <xsl:value-of select="$noticeCode"/>
                         </dd>
                       <xsl:choose>
-                        <xsl:when test="not($claimsDate) or $claimsDate = ''"/>
+                        <xsl:when test="not($claimsDate) or $claimsDate = '' or not(dfn:marklogicdate($claimsDate))"/>
                       <xsl:otherwise>
                         <dt>Claim expires:</dt>
                       <dd about="this:notifiableThing" property="personal-legal:hasClaimDeadline" datatype="xsd:date" content="{dfn:marklogicdate($claimsDate)}">
@@ -214,10 +233,24 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                         <time datetime="{$noticeDate}"><xsl:value-of select="$publicationDate"/></time>
                       </dd>
                        
-                        <dt>Edition:</dt>
-                        <dd><xsl:value-of select="$edition"/></dd>
-                        <dt>issue Number:</dt>
-                        <dd><xsl:value-of select="$issueNumber"/></dd>
+                       <dt>Edition:</dt>
+                      <dd>
+                            <xsl:text>The </xsl:text>
+							<span about="{$editionURI}" property="gaz:editionName" datatype="xsd:string">
+							  <xsl:value-of select="$edition"/>
+							</span>
+							<xsl:text> Gazette</xsl:text>
+                      </dd>
+                      <xsl:if test="$issueNumber">
+                        <dt>Issue number:</dt>
+                        <dd about="{$issueURI}" property="gaz:hasIssueNumber" datatype="xsd:string">
+                          <xsl:value-of select="$issueNumber"/>
+                        </dd>
+                         <dt>Page number:</dt>
+                        <dd data-gazettes="page-number">
+                          <xsl:value-of select="$pageNumber"/>
+                        </dd>
+                      </xsl:if>
                       <dt>Notice ID:</dt>
                       <!-- updated to add  attribute gz:hasNoticeNumber-->
                       <dd about="{$noticeURI}" property="gaz:hasNoticeID">
@@ -241,7 +274,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
         </xsl:template>
         
         <xsl:template match="legal/r/c[3]">
-         <dt>Executor:</dt>
+         <dt>Executor/Personal Representative:</dt>
         <dd about="this:estateExecutor" property="foaf:name" typeof="foaf:Agent">
             <xsl:apply-templates/>
         </dd>
@@ -273,7 +306,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
          <dt>Fullname:</dt>
          <dd><xsl:value-of select="legal/r/c[1]"/></dd>
       <xsl:choose>
-        <xsl:when test="not(legal/r/c[2]) or legal/r/c[2] = ''"/>
+        <xsl:when test="not(legal/r/c[2]) or legal/r/c[2] = '' or not(dfn:marklogicdate(legal/r/c[2]))"/>
         <xsl:otherwise>
           <dt>Date of death:</dt>
           <dd property="personal-legal:dateOfDeath" typeof="gaz:Person" datatype="xsd:date" about="{$personURI}" content="{dfn:marklogicdate(legal/r/c[2])}">

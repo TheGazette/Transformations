@@ -181,6 +181,10 @@ elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1" 
 			<xsd:element ref="TimeStamp" minOccurs="0"/>
 			<xsd:element ref="ConnectTo" minOccurs="0"/>
 			<xsd:element ref="NoticeTriples" minOccurs="0"/>
+			<xsd:element ref="VoucherPDFCopy" minOccurs="0"/>
+			<xsd:element ref="VoucherPrintCopy" minOccurs="0"/>
+			<xsd:element ref="VoucherAccountNumber" minOccurs="0"/>
+			<xsd:element ref="VoucherAltId" minOccurs="0"/>
 			<xsd:element ref="Gated" minOccurs="0"/>
 		</xsd:all>
 	</xsd:group>
@@ -208,5 +212,25 @@ elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1" 
 			<xsd:attribute name="Subject"/>
 			<xsd:attributeGroup ref="g:PredicateClass"/>
 		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="VoucherPDFCopy" type="xsd:boolean">
+		<xsd:annotation>
+			<xsd:documentation>Defines whether a pdf voucher was requested</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="VoucherPrintCopy" type="xsd:boolean">
+		<xsd:annotation>
+			<xsd:documentation>Defines whether a print voucher was requested</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="VoucherAccountNumber" type="xsd:positiveInteger">
+		<xsd:annotation>
+			<xsd:documentation>Account number of voucher requester. Used in email to identify agent</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="VoucherAltId" type="xsd:string">
+		<xsd:annotation>
+			<xsd:documentation>Alternative Id of voucher requester. To help identify bucket account if no account number available</xsd:documentation>
+		</xsd:annotation>
 	</xsd:element>
 </xsd:schema>
