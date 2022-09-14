@@ -193,10 +193,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:otherwise>RoyalRedCross</xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
-            <xsl:when test="$noticeCode='1132'">QueensPoliceMedal</xsl:when>
-            <xsl:when test="$noticeCode='1133'">QueensFireServiceMedal</xsl:when>
-            <xsl:when test="$noticeCode='1134'">QueensAmbulanceServiceMedal</xsl:when>
-            <xsl:when test="$noticeCode='1135'">QueensVolunteerReservesMedal</xsl:when>
+            <xsl:when test="$noticeCode='1132'">KingsPoliceMedal</xsl:when>
+            <xsl:when test="$noticeCode='1133'">KingsFireServiceMedal</xsl:when>
+            <xsl:when test="$noticeCode='1134'">KingsAmbulanceServiceMedal</xsl:when>
+            <xsl:when test="$noticeCode='1135'">KingsVolunteerReservesMedal</xsl:when>
             <xsl:when test="$noticeCode='1136'">OverseasTerritoriesPoliceFireServiceMedal</xsl:when>
         </xsl:choose>
     </xsl:variable>

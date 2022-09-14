@@ -412,7 +412,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <classentry noticecode="" type="notice"
         >https://www.thegazette.co.uk/def/honours#KnightsBatchelorNotice</classentry>
       <classentry noticecode="" type="notice"
-        >https://www.thegazette.co.uk/def/honours#QueensCommendationBraveryNotice</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsCommendationBraveryNotice</classentry>
       <classentry noticecode="" type="notice"
         >https://www.thegazette.co.uk/def/honours#ImperialServiceMedalNotice</classentry>
       <classentry noticecode="" type="notice"
@@ -422,13 +422,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <classentry noticecode="" type="notice"
         >https://www.thegazette.co.uk/def/honours#ColonialPoliceMedalNotice</classentry>
       <classentry noticecode="" type="notice"
-        >https://www.thegazette.co.uk/def/honours#QueensFireMedalNotice</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsFireMedalNotice</classentry>
       <classentry noticecode="" type="notice"
         >https://www.thegazette.co.uk/def/honours#GeorgeMedalNotice</classentry>
       <classentry noticecode="" type="notice"
         >https://www.thegazette.co.uk/def/honours#OrderStMichaelNotice</classentry>
       <classentry noticecode="" type="notice"
-        >https://www.thegazette.co.uk/def/honours#QueensAwardEnterpriseNotice</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsAwardEnterpriseNotice</classentry>
       <classentry noticecode="" type="notice"
         >https://www.thegazette.co.uk/def/honours#RoyalVictorianOrderNotice</classentry>
       <classentry noticecode="" type="notice"
@@ -442,13 +442,13 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <classentry noticecode="" type="notice"
         >https://www.thegazette.co.uk/def/honours#RoyalVictorianMedalNotice</classentry>
       <classentry noticecode="" type="notice"
-        >https://www.thegazette.co.uk/def/honours#QueensPoliceMedalNotice</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsPoliceMedalNotice</classentry>
       <classentry noticecode="" type="notice"
-        >https://www.thegazette.co.uk/def/honours#QueensAwardVoluntaryServiceNotice</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsAwardVoluntaryServiceNotice</classentry>
       <classentry noticecode="" type="notice"
         >https://www.thegazette.co.uk/def/honours#OrderCompanionsNotice</classentry>
       <classentry noticecode="" type="notice"
-        >https://www.thegazette.co.uk/def/honours#QueensGallantryMedalNotice</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsGallantryMedalNotice</classentry>
       <classentry noticecode="NEW" type="notice"
         >https://www.thegazette.co.uk/def/other-notices#SeizureOfGoodsNotice</classentry>
       <classentry noticecode="NEW" type="notice"
@@ -1074,7 +1074,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
       <classentry noticecode="" type="notifiablething"
-        >https://www.thegazette.co.uk/def/honours#QueensCommendationBravery</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsCommendationBravery</classentry>
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
       <classentry noticecode="" type="notifiablething"
@@ -1094,7 +1094,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
       <classentry noticecode="" type="notifiablething"
-        >https://www.thegazette.co.uk/def/honours#QueensFireMedal</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsFireMedal</classentry>
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
       <classentry noticecode="" type="notifiablething"
@@ -1106,7 +1106,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
       <classentry noticecode="" type="notifiablething"
-        >https://www.thegazette.co.uk/def/honours#QueensAwardEnterprise</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsAwardEnterprise</classentry>
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
       <classentry noticecode="" type="notifiablething"
@@ -1134,11 +1134,11 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
       <classentry noticecode="" type="notifiablething"
-        >https://www.thegazette.co.uk/def/honours#QueensPoliceMedal</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsPoliceMedal</classentry>
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
       <classentry noticecode="" type="notifiablething"
-        >https://www.thegazette.co.uk/def/honours#QueensAwardVoluntaryService</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsAwardVoluntaryService</classentry>
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
       <classentry noticecode="" type="notifiablething"
@@ -1146,7 +1146,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
       <classentry noticecode="" type="notifiablething"
-        >https://www.thegazette.co.uk/def/honours#QueensGallantryMedal</classentry>
+        >https://www.thegazette.co.uk/def/honours#KingsGallantryMedal</classentry>
       <classentry noticecode="" type="notifiablething"
         >https://www.thegazette.co.uk/def/honours#AwardandHonourThing</classentry>
     </classlist>
