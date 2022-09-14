@@ -68,7 +68,7 @@ Change history
 	<!-- edition name needs to be passed as printed e.g. "London Gazette" ## -->
 	<xsl:param name="edition-name" required="yes"/>
 	<!-- Should the edition carry the thick black mourning border -->
-	<xsl:param name="mourningBorder" select="'true'"/>
+	<xsl:param name="mourningBorder" select="'false'"/>
 	<!-- Is this a bespoke gazette -->
 	<xsl:param name="bespoke" select="'false'"/>
 	<!-- Created should be firstname surname, only used for Bespoke gazettes -->
