@@ -3045,7 +3045,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
     </xsl:template>
 
     <xsl:template match="gz:Notice/gz:P/gz:Text/gz:Occasion">
-        <span about="this:publicationOccasion" typeof="gaz:HerMajestysBirthdayHonours" property="rdfs:label">
+        <span about="this:publicationOccasion" typeof="gaz:HisMajestysBirthdayHonours" property="rdfs:label">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
