@@ -157,10 +157,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
                     <xsl:when test="normalize-space(//gz:Notice/gz:Honour)='A.R.R.C.'">ARRC</xsl:when>
                 </xsl:choose>
             </xsl:when>
-            <xsl:when test="$noticeCode='1132'">QPM</xsl:when>
-            <xsl:when test="$noticeCode='1133'">QFSM</xsl:when>
-            <xsl:when test="$noticeCode='1134'">QAM</xsl:when>
-            <xsl:when test="$noticeCode='1135'">QVRM</xsl:when>
+            <xsl:when test="$noticeCode='1132'">KPM</xsl:when>
+            <xsl:when test="$noticeCode='1133'">KFSM</xsl:when>
+            <xsl:when test="$noticeCode='1134'">KAM</xsl:when>
+            <xsl:when test="$noticeCode='1135'">KVRM</xsl:when>
             <xsl:when test="$noticeCode='1136'">OTPFM</xsl:when>
         </xsl:choose>
     </xsl:variable>
