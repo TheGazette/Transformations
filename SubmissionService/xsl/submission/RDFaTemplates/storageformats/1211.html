@@ -18,7 +18,6 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
   prov: http://www.w3.org/ns/prov#  
   this: https://www.thegazette.co.uk/id/notice/undefined#	
   noticeid: https://www.thegazette.co.uk/id/notice/undefined
-  issue: https://www.thegazette.co.uk/id/edition/undefined/issue/undefined
   edition: https://www.thegazette.co.uk/id/edition/undefined
   provenance: https://www.thegazette.co.uk/id/notice/undefined/provenance">
 	<head>
@@ -33,14 +32,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 				<span about="noticeid:" property="gaz:isAbout" resource="this:notifiableThing"/>
 				<span resource="this:notifiableThing" typeof="gaz:NotifiableThing parliament:RecordOfLegislation"/>
 				<span about="noticeid:" property="prov:has_provenance" resource="provenance:"/>
-				<span about="noticeid:" property="gaz:isInIssue" resource="issue:"/>
 				<span about="noticeid:" property="gaz:hasNoticeCode" datatype="xsd:integer" content="1211"/>
 				<span about="noticeid:" property="gaz:isInEdition" resource="edition:"/>
 				<span resource="noticeid:" typeof="gaz:Notice gaz:InsolvencyNotice"/>
-				<span resource="issue:" typeof="gaz:Issue"/>
-				<span about="issue:" property="gaz:hasEdition" resource="edition:"/>
 				<span resource="edition:" typeof="gaz:Edition"/>
-				<span about="issue:" property="gaz:hasIssueNumber" datatype="xsd:string" content="0"/>
 				<span about="noticeid:" property="gaz:hasNoticeNumber" datatype="xsd:integer" content="0"/>
 				<span resource="noticeid:" typeof="https://www.thegazette.co.uk/def/publication#Notice"/>
 				<span resource="this:notifiableThing" typeof="corp-insolvency:Resolution"/>
