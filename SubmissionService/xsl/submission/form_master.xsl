@@ -4519,10 +4519,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 		<p>
 			<xsl:text>In the </xsl:text>
 			<span about="this:court-1" property="court:courtName" datatype="xsd:string">
-				<xsl:if test="$updates//*[@property='court:courtName' and contains(.,'High Court')]">
+				<xsl:if test="$updates//*[@property='court:courtName' and not(contains(.,'County Court'))]">
 					<xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:courtName']/text()"/>
 				</xsl:if>
-				<xsl:if test="$updates//*[@property='court:courtName' and not(contains(.,'High Court'))]">
+				<xsl:if test="$updates//*[@property='court:courtName' and contains(.,'County Court')]">
 					<xsl:text>County Court at </xsl:text>
 					<xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:countyCourtName']/text()"/>
 				</xsl:if>
@@ -4670,12 +4670,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 		</p>
 		<p>
 			<xsl:text>Notice is hereby given, pursuant to </xsl:text>
-			<xsl:if test="lower-case($edition) != 'belfast' and $updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &lt; '20170604'">
-				<span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
-					<xsl:text>Rule 11.2 of the Insolvency Rules 1986</xsl:text>
-				</span>
-			</xsl:if>
-			<xsl:if test="lower-case($edition) != 'belfast' and $updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &gt;= '20170604'">
+			<xsl:if test="lower-case($edition) != 'belfast'">
 				<span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
 					<xsl:text>Rule 14.28 of the Insolvency (England and Wales) Rules 2016</xsl:text>
 				</span>
@@ -4834,10 +4829,10 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 		<p>
 			<xsl:text>In the </xsl:text>
 			<span about="this:court-1" property="court:courtName" datatype="xsd:string">
-				<xsl:if test="$updates//*[@property='court:courtName' and contains(.,'High Court')]">
+				<xsl:if test="$updates//*[@property='court:courtName' and not(contains(.,'County Court'))]">
 					<xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:courtName']/text()"/>
 				</xsl:if>
-				<xsl:if test="$updates//*[@property='court:courtName' and not(contains(.,'High Court'))]">
+				<xsl:if test="$updates//*[@property='court:courtName' and contains(.,'County Court')]">
 					<xsl:text>County Court at </xsl:text>
 					<xsl:value-of select="$updates//*[@about='this:court-1' and @property='court:countyCourtName']/text()"/>
 				</xsl:if>
@@ -4984,12 +4979,7 @@ http://www.nationalarchives.gov.uk/doc/open-government-licence/-->
 		</p>
 		<p>
 			<xsl:text>Notice is hereby given, pursuant to </xsl:text>
-			<xsl:if test="lower-case($edition) != 'belfast' and $updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &lt; '20170604'">
-				<span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
-					<xsl:text>Rule 11.6 of the Insolvency Rules 1986</xsl:text>
-				</span>
-			</xsl:if>
-			<xsl:if test="lower-case($edition) != 'belfast' and $updates//*[@about='this:notifiableThing' and @property='corp-insolvency:dateOfBankruptcyOrder']/text() &gt;= '20170604'">
+			<xsl:if test="lower-case($edition) != 'belfast'">
 				<span about="this:legislation-1" typeof="legislation:Act" property="legislation:legislationTitle" datatype="xsd:string">
 					<xsl:text>Rule 14.35 of the Insolvency (England and Wales) Rules 2016</xsl:text>
 				</span>
